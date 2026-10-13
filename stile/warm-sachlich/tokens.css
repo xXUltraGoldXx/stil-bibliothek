@@ -1,0 +1,18 @@
+/* Warm sachlich: Tokens */
+:root{
+  --grund:#f7f5f2; --grund-2:#eee9e2; --grund-fein:#faf9f7; --weiss:#ffffff;
+  --graphit:#1e1919; --schwarz:#000000; --text-2:rgba(82,74,62,.82); --text-hell-2:rgba(247,245,242,.6);
+  --aktion:#0061fe; --aktion-hover:#0050d4; --akzent:#cd2f7b;
+  --linie:#eee9e2; --linie-dunkel:rgba(247,245,242,.16);
+  --verlauf-dunkel:linear-gradient(#292c31,#000000);
+  --font-display:"Familjen Grotesk","Hanken Grotesk",system-ui,sans-serif;
+  --font-text:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fs-h1:2.5rem; --fs-h1-mobil:2rem; --fs-h2:2rem; --fs-h2-mobil:1.5rem; --fs-h3:1.25rem;
+  --fs-lead:1.25rem; --fs-text:1rem; --fs-klein:.875rem; --fs-mikro:.75rem;
+  --lh-h:1.2; --lh-text:1.5; --gw-text:400; --gw-betont:500;
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px; --s-6:32px; --s-7:48px; --s-8:72px; --s-9:96px; --s-10:120px;
+  --breite:1440px; --breite-text:34rem; --nav-hoehe:72px; --rand:24px;
+  --r-klein:8px; --r-knopf:12px; --r-karte:16px; --r-gross:20px; --r-voll:999px;
+  --schatten:none;
+  --dauer-fix:.125s; --dauer-normal:.333s; --dauer-lang:.7s; --ease:cubic-bezier(.2,.8,.2,1);
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Node/TypeScript Browsergame (autoritativer Server)",
+  "slug": "node-ts-browsergame",
+  "beschreibung": "Browsergame mit npm-Workspaces (shared, server, client): Fastify und MySQL als autoritativer Spielserver, Phaser-Client, Inhalte als JSON. Atomare Releases per Symlink hinter Traefik.",
+  "sprache": "TypeScript",
+  "stack": [
+    "TypeScript 5.9",
+    "Node 24",
+    "Fastify 5",
+    "MySQL 8.4 (mysql2)",
+    "Phaser 3",
+    "Vite",
+    "Vitest",
+    "npm Workspaces",
+    "Docker Compose",
+    "Traefik"
+  ],
+  "kategorien": [
+    "Spiel"
+  ],
+  "schlagworte": [
+    "browsergame",
+    "phaser",
+    "fastify",
+    "mysql",
+    "workspaces",
+    "shared",
+    "content-json",
+    "server-autoritativ",
+    "release-symlink",
+    "rollback"
+  ],
+  "quelle": "erprobt",
+  "reifegrad": "abgeleitet"
+}

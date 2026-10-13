@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);letter-spacing:var(--ls-text);color:var(--tinte);background:var(--weiss);font-weight:var(--fw-regular)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+h1,h2,h3,p{margin:0}
+/* Kopf */
+.kopf{border-bottom:var(--linie)}
+.kopf-oben{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:20px;padding-bottom:20px}
+.logo{font-weight:var(--fw-medium);font-size:1.5rem;letter-spacing:-.04em;font-style:italic}
+.kopf-links,.kopf-rechts{display:flex;gap:20px;font-size:var(--fs-klein);flex:1}
+.kopf-rechts{justify-content:flex-end}
+.kat{border-top:var(--linie)}
+.kat .wrap{display:flex;gap:16px 24px;align-items:center;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
+.kat a{font-weight:var(--fw-medium)}
+.kat .sale{color:var(--sale)}
+.suche{margin-left:auto;background:var(--grau-hell);border-radius:var(--r);padding:12px 60px 12px 8px;font-size:var(--fs-klein);color:var(--text-dezent);min-width:0;width:320px;max-width:100%}
+/* Chips */
+.chips{display:flex;gap:8px;padding:20px 0;overflow-x:auto;max-width:100%}
+.chip{flex:0 0 auto;background:var(--grau-hell);border-radius:var(--r);padding:12px 16px;font-size:var(--fs-klein);letter-spacing:var(--ls-klein);transition:background .15s ease}
+.chip:hover{background:var(--grau-linie)}
+/* Hero */
+.hero{position:relative;min-height:min(900px,100vh);background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.7)),linear-gradient(120deg,var(--grau-dunkel),var(--schwarz));color:var(--grau-hell);display:flex;align-items:center;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-5%;bottom:-10%;width:60%;aspect-ratio:1;border:2px solid var(--grau-dunkel);border-radius:50%;box-shadow:none;pointer-events:none}
+.hero .wrap{position:relative;z-index:1;padding-top:80px;padding-bottom:80px;width:100%}
+.kicker{font-size:var(--fs-text);color:var(--text-hell);margin-bottom:16px}
+.display{font-family:var(--font-display);font-size:var(--fs-display);line-height:1;letter-spacing:var(--ls-display);font-weight:var(--fw-regular);margin-bottom:40px;overflow-wrap:break-word}
+.btn{display:inline-flex;align-items:center;gap:12px;height:48px;padding:0 24px;border-radius:var(--r);background:var(--tinte);color:var(--weiss);font-size:var(--fs-klein);font-weight:var(--fw-medium);transition:background .15s ease}
+.btn:hover{background:var(--grau-dunkel)}
+.btn.hell{background:var(--grau-hell);color:var(--tinte)}
+.btn.akzent{background:var(--akzent);color:var(--schwarz)}
+/* Abschnitte */
+section{padding:80px 0}
+h2{font-size:var(--fs-h2);line-height:1.1;letter-spacing:var(--ls-h2);font-weight:var(--fw-regular);margin-bottom:40px}
+.raster{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--luecke)}
+.kachel .bild{aspect-ratio:4/3;background:linear-gradient(135deg,var(--grau-hell),var(--grau-linie));border-radius:var(--r);margin-bottom:16px;position:relative;overflow:hidden;transition:transform .3s ease}
+.kachel .bild::after{content:"";position:absolute;left:15%;right:15%;bottom:22%;height:30%;border:3px solid var(--tinte);border-radius:50% 50% 4px 4px;opacity:.8}
+.kachel:hover .bild{transform:scale(1.03)}
+.kachel h3{font-size:var(--fs-text);font-weight:var(--fw-medium);line-height:var(--lh-klein)}
+.kachel p{font-size:var(--fs-klein);color:var(--text-dezent)}
+.preis{color:var(--tinte)!important;margin-top:8px;font-size:var(--fs-text)!important}
+.preis.sale{color:var(--sale)!important}
+/* Band */
+.band{background:var(--schwarz);color:var(--grau-hell)}
+.band p{color:var(--text-hell)}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:var(--luecke) 80px;align-items:center}
+.zwei .bild{aspect-ratio:1;background:repeating-linear-gradient(45deg,var(--grau-dunkel) 0 2px,var(--schwarz) 2px 24px);border-radius:var(--r)}
+.band h2{color:var(--weiss)}
+.band p+p,.band p+.btn{margin-top:20px}
+.band .btn{margin-top:32px}
+/* Werte */
+.werte{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.wert{background:var(--grau-hell);border-radius:var(--r);padding:32px}
+.wert h3{font-size:1.5rem;line-height:1.3;font-weight:var(--fw-medium);margin-bottom:8px}
+/* Fuss */
+footer{background:var(--schwarz);color:var(--grau-hell);padding:80px 0 40px}
+.fuss{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--luecke)}
+.fuss ul{list-style:none;margin:0;padding:0;font-size:var(--fs-klein);color:var(--text-hell);display:grid;gap:8px}
+.fuss h3{font-size:var(--fs-text);font-weight:var(--fw-medium);margin-bottom:16px}
+.klein{margin-top:60px;font-size:var(--fs-klein);color:var(--text-dezent)}
+@media (max-width:900px){
+  .raster{grid-template-columns:repeat(2,1fr)}
+  .zwei,.werte{grid-template-columns:1fr}
+  .fuss{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  :root{--rand:20px}
+  section{padding:48px 0}
+  .kopf-links{display:none}
+  .kopf-rechts{flex:0 1 auto}
+  .suche{margin-left:0;width:100%}
+  .hero{min-height:560px}
+  h2{margin-bottom:24px}
+  .raster{gap:16px}
+  .fuss{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="kopf">
+  <div class="wrap kopf-oben">
+    <nav class="kopf-links"><a href="#kollektion">Standorte</a><a href="#werkstatt">Service</a></nav>
+    <a class="logo" href="#">NORDWERK</a>
+    <div class="kopf-rechts"><a href="#">DE</a><a href="#">Konto</a><a href="#">Korb</a></div>
+  </div>
+  <div class="kat"><div class="wrap">
+    <a href="#kollektion">Räder</a><a href="#kollektion">Kleidung</a><a href="#kollektion">Teile</a><a href="#kollektion" class="sale">Sale</a>
+    <div class="suche">Suchbegriff oder Nummer …</div>
+  </div></div>
+</header>
+
+<div class="wrap">
+  <div class="chips">
+    <a class="chip" href="#kollektion">Pfad →</a><a class="chip" href="#kollektion">Pfad Plus →</a><a class="chip" href="#kollektion">Kai →</a><a class="chip" href="#kollektion">Kai Lang →</a><a class="chip" href="#kollektion">Fjord →</a><a class="chip" href="#kollektion">Düne Plus →</a>
+  </div>
+</div>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <p class="kicker">Modell Kai</p>
+    <h1 class="display">Gebaut für<br>jeden Morgen</h1>
+    <a class="btn hell" href="#kollektion">Zum Modell →</a>
+  </div>
+</div>
+
+<section id="kollektion">
+  <div class="wrap">
+    <h2>Neu in der Werkstatt</h2>
+    <div class="raster">
+      <a class="kachel" href="#"><div class="bild"></div><h3>Kai 2</h3><p>Stadtrad, Alu</p><p class="preis">1.290 €</p></a>
+      <a class="kachel" href="#"><div class="bild"></div><h3>Pfad Plus</h3><p>Trekking, Carbon</p><p class="preis">2.490 €</p></a>
+      <a class="kachel" href="#"><div class="bild"></div><h3>Fjord</h3><p>Gravel, Stahl</p><p class="preis sale">1.490 €</p></a>
+      <a class="kachel" href="#"><div class="bild"></div><h3>Düne</h3><p>Lastenrad</p><p class="preis">3.190 €</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="werkstatt">
+  <div class="wrap zwei">
+    <div>
+      <h2>Fahren, warten, weiterfahren</h2>
+      <p>Jedes Rad wird in unserer Werkstatt montiert und vor der Übergabe geprüft. Schlichte Technik, klare Preise, keine Überraschungen.</p>
+      <p>Der Rahmen kommt aus eigener Entwicklung, die Teile aus langlebiger Serie.</p>
+      <a class="btn akzent" href="#">Termin buchen →</a>
+    </div>
+    <div class="bild" role="img" aria-label="Platzhalter für Werkstattfoto"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Drei Zusagen</h2>
+    <div class="werte">
+      <div class="wert"><h3>30 Tage testen</h3><p>Fahr Probe und gib das Rad zurück, wenn es nicht passt.</p></div>
+      <div class="wert"><h3>Fünf Jahre Rahmen</h3><p>Auf Rahmen und Gabel gewähren wir fünf Jahre Garantie.</p></div>
+      <div class="wert"><h3>Montiert geliefert</h3><p>Fahrfertig aufgebaut, mit Einstellung auf deine Größe.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fuss">
+      <div><h3>Nordwerk Studio</h3><p style="color:var(--text-hell);font-size:var(--fs-klein)">Fahrräder für den Alltag, entworfen in Hamburg.</p></div>
+      <div><h3>Shop</h3><ul><li><a href="#">Räder</a></li><li><a href="#">Kleidung</a></li><li><a href="#">Teile</a></li></ul></div>
+      <div><h3>Service</h3><ul><li><a href="#">Werkstatt</a></li><li><a href="#">Versand</a></li><li><a href="#">Garantie</a></li></ul></div>
+      <div><h3>Rechtliches</h3><ul><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li></ul></div>
+    </div>
+    <p class="klein">© Nordwerk Studio, erfundenes Beispiel.</p>
+  </div>
+</footer>
+</body>
+</html>

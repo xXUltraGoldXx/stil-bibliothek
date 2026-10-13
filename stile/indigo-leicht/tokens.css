@@ -1,0 +1,20 @@
+/* Indigo Leicht: Tokens */
+:root{
+  --weiss:#ffffff; --flaeche:#f8fafd; --flaeche-2:#f2f7fe; --linie:#e5edf5; --linie-akzent:#bcbcf3;
+  --text-titel:#061b31; --text:#50617a; --text-gedaempft:#64748d; --text-hilfe:#839bc8;
+  --akzent:#5a44f0; --akzent-hover:#4a3ccb;
+  --nacht:#0d1738; --nacht-text:#a3b5d6;
+  --verlauf-violett:#8683f2; --verlauf-pink:#ea58c6; --verlauf-orange:#f59a6c; --verlauf-gold:#f5d06a; --verlauf-lavendel:#c28cf5;
+  --font-ui:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gewicht-leicht:300; --gewicht-normal:400;
+  --fs-h1:clamp(2.125rem,5vw,2.75rem); --fs-h2:clamp(1.375rem,3.4vw,2rem); --fs-h3:clamp(1.25rem,2.6vw,1.625rem);
+  --fs-lead:clamp(1.125rem,2.4vw,1.375rem); --fs-text:1rem; --fs-klein:.8125rem; --fs-meta:.75rem;
+  --lh-titel:1.15; --lh-text:1.5; --ls-titel:-.02em;
+  --abstand-1:4px; --abstand-2:8px; --abstand-3:16px; --abstand-4:24px; --abstand-5:32px; --abstand-6:40px; --abstand-7:64px; --abstand-8:96px;
+  --breite:1080px; --breite-text:620px; --rand:24px;
+  --r-klein:4px; --r-mittel:6px; --r-gross:16px;
+  --schatten-zart:0 3px 6px rgba(23,23,23,.06);
+  --schatten-karte:0 15px 35px rgba(50,50,93,.12);
+  --schatten-schwebend:0 20px 40px -20px rgba(0,0,0,.1);
+  --zeit:.2s;
+}

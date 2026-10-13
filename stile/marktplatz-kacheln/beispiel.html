@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--grund);color:var(--text);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);font-weight:var(--gw-normal)}
+h1,h2,h3,p{margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--s-4)}
+header{background:var(--karte)}
+.kopf{display:flex;align-items:center;gap:var(--s-4);flex-wrap:wrap;padding-block:var(--s-4)}
+.marke{font-weight:var(--gw-extra);font-size:1.5rem;color:var(--aktion);letter-spacing:-.01em}
+.suche{flex:1 1 220px;min-width:0;background:var(--grund);border-radius:var(--r-suche);height:48px;display:flex;align-items:center;padding-inline:var(--s-4);color:var(--text-2);font-size:var(--fs-eingabe)}
+.symbole{display:flex;gap:var(--s-4);font-size:var(--fs-klein);color:var(--text-2);line-height:var(--lh-klein)}
+nav ul{list-style:none;margin:0;padding:0 0 var(--s-2);display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));text-align:center;gap:var(--s-2) var(--s-4)}
+nav a{color:var(--text-2);font-size:1rem;line-height:2}
+nav .sale{color:var(--aktion)}
+section{padding-block:var(--s-6)}
+.reihe{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:var(--luecke-gross)}
+.karte{background:var(--karte);border-radius:var(--r-karte);padding:var(--s-4)}
+.gutschein{display:flex;flex-direction:column;gap:var(--s-4)}
+.gutschein .oben{display:flex;gap:var(--s-4);align-items:center}
+.wert{flex:none;width:58px;height:58px;background:var(--aktion);color:var(--aktion-text);border-radius:var(--r-klein);display:grid;place-items:center;font-weight:var(--gw-extra)}
+.gutschein .unten{display:flex;justify-content:space-between;align-items:center;gap:var(--s-2);border-block-start:1px dashed var(--linie-gestrichelt);padding-block-start:var(--s-3);font-size:var(--fs-klein);line-height:var(--lh-klein)}
+h3{font-size:var(--fs-h3);font-weight:var(--gw-fett);line-height:1.5}
+.pille{display:inline-flex;align-items:center;gap:var(--s-2);height:32px;padding:0 var(--s-4);background:var(--aktion);color:var(--aktion-text);border-radius:var(--r-aktion);font-weight:var(--gw-fett);font-size:var(--fs-text);transition:background var(--dauer)}
+.pille:hover{background:var(--aktion-dunkel)}
+.rubrik{font-size:1rem;line-height:1.5}
+.bild{margin-block-start:var(--s-2);aspect-ratio:4/3;border-radius:var(--r-bild);display:grid;place-items:center;background:linear-gradient(0deg,#e5e5e5,#f7f7f7)}
+.bild svg{width:46%;height:auto}
+.band{background:var(--karte);padding-block:var(--s-10)}
+h1{font-size:var(--fs-h1);font-weight:var(--gw-extra);line-height:var(--lh-h)}
+h2{font-size:var(--fs-h2);font-weight:var(--gw-extra);line-height:var(--lh-h);margin-block-end:var(--s-4)}
+.band p{max-width:60ch;color:var(--text);margin-block-end:var(--s-6)}
+.warm{background:var(--warm);border-radius:var(--r-karte);padding:var(--s-6);display:flex;flex-wrap:wrap;gap:var(--s-4);align-items:center;justify-content:space-between}
+.zahlen{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--luecke-gross)}
+.zahlen strong{display:block;font-size:2rem;font-weight:var(--gw-extra);line-height:1.2}
+.zahlen span{color:var(--text-2);font-size:var(--fs-klein)}
+footer{padding-block:var(--s-10);color:var(--text-2);font-size:var(--fs-klein);line-height:var(--lh-klein)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:var(--s-4) var(--s-10);justify-content:space-between}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kopf">
+      <a class="marke" href="#">Nordwerk</a>
+      <div class="suche">Was suchst du?</div>
+      <div class="symbole"><span>Service</span><span>Konto</span><span>Merkzettel</span><span>Korb</span></div>
+    </div>
+    <nav aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#">Inspiration</a></li><li><a href="#">Möbel</a></li><li><a href="#">Leuchten</a></li>
+        <li><a href="#">Textilien</a></li><li><a href="#">Küche</a></li><li><a href="#">Garten</a></li>
+        <li><a href="#">Werkstatt</a></li><li><a class="sale" href="#">Angebote</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="wrap reihe">
+    <div class="karte gutschein">
+      <div class="oben"><div class="wert">10 €</div><div><p style="color:var(--aktion);font-weight:700;font-size:.75rem">Für Neukunden</p><h3>Willkommensgutschein für die erste Bestellung</h3></div></div>
+      <div class="unten"><span>Gültig bis<br><strong>05.11.</strong></span><a class="pille" href="#">Zur Aktivierung ›</a></div>
+    </div>
+    <div class="karte gutschein">
+      <div class="oben"><div class="wert">10 %</div><div><h3>Auf ausgewählte Leuchten und Textilien</h3></div></div>
+      <div class="unten"><span>Gültig bis<br><strong>15.10.</strong></span><a class="pille" href="#">Zur Aktivierung ›</a></div>
+    </div>
+    <div class="karte gutschein">
+      <div class="oben"><div class="wert">20 %</div><div><h3>Auf alle Werkstatt-Sets im Herbst</h3></div></div>
+      <div class="unten"><span>Gültig bis<br><strong>14.10.</strong></span><a class="pille" href="#">Zur Aktivierung ›</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap reihe">
+    <a class="karte" href="#"><p class="rubrik">Neu im Regal</p><h3>Eichenholz-Tische</h3>
+      <div class="bild"><svg viewBox="0 0 100 70" aria-hidden="true"><rect x="10" y="20" width="80" height="10" rx="3" fill="#bdbdbd"/><rect x="18" y="30" width="6" height="30" fill="#949494"/><rect x="76" y="30" width="6" height="30" fill="#949494"/></svg></div></a>
+    <a class="karte" href="#"><p class="rubrik">Wohnlich warm</p><h3>Leuchten für den Abend</h3>
+      <div class="bild"><svg viewBox="0 0 100 70" aria-hidden="true"><path d="M30 10h40l10 30H20z" fill="#bdbdbd"/><rect x="48" y="40" width="4" height="20" fill="#949494"/><rect x="34" y="58" width="32" height="4" rx="2" fill="#949494"/></svg></div></a>
+    <a class="karte" href="#"><p class="rubrik">Gut ausgestattet</p><h3>Alles für die Werkstatt</h3>
+      <div class="bild"><svg viewBox="0 0 100 70" aria-hidden="true"><rect x="14" y="14" width="72" height="44" rx="6" fill="#bdbdbd"/><circle cx="50" cy="36" r="12" fill="#949494"/></svg></div></a>
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap">
+    <p class="rubrik">Handwerk</p>
+    <h2>Deine Lieblingsmarken</h2>
+    <p>Wir arbeiten mit kleinen Manufakturen aus dem Norden zusammen. Jedes Stück wird geprüft, fotografiert und mit klaren Angaben zu Maß und Material angeboten.</p>
+    <div class="zahlen">
+      <div class="karte" style="background:var(--grund)"><strong>120</strong><span>Partner-Werkstätten</span></div>
+      <div class="karte" style="background:var(--grund)"><strong>4.800</strong><span>Artikel im Sortiment</span></div>
+      <div class="karte" style="background:var(--grund)"><strong>30 Tage</strong><span>Rückgabe ohne Frage</span></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="warm">
+      <div><h2 style="margin:0">Herbstwoche bei Nordwerk</h2><p>Bis Sonntag auf viele Artikel zusätzlich sparen.</p></div>
+      <a class="pille" href="#">Jetzt ansehen ›</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Nordwerk Studio, erfundene Beispielfirma</span>
+    <span>Hilfe · Versand · Rückgabe · Kontakt</span>
+  </div>
+</footer>
+</body>
+</html>

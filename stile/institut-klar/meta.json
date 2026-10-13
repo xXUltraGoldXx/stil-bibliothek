@@ -1,0 +1,20 @@
+{
+  "name": "Institut klar",
+  "slug": "institut-klar",
+  "beschreibung": "Sachliche, gut lesbare Informationsseite in Marineblau auf kühlem Hellgrau, mit großem Foto-Hero und Titel im halbtransparenten Balken. Wirkt vertrauenswürdig, öffentlich und barrierearm.",
+  "schlagworte": [
+    "Marineblau",
+    "Sachlich",
+    "Öffentlich",
+    "Nachrichten",
+    "Barrierearm",
+    "Noto Sans"
+  ],
+  "kategorien": [
+    "Modern",
+    "Business",
+    "Minimal",
+    "Editorial"
+  ],
+  "gegenbeispiel": false
+}

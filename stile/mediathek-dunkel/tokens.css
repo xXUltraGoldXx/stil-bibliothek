@@ -1,0 +1,20 @@
+/* Mediathek dunkel: Tokens */
+:root{
+  --grund:#161616; --tiefst:#000000; --panel:#1c1c1c; --feld:#232323; --hover:#383838; --linie:#595959; --rand:#818181;
+  --text:#ffffff; --text-muted:#b9b9b9; --text-on-hell:#1c1c1c;
+  --hell:#eeeeee;
+  --akzent:#27c95b; --akzent-hover:#4cd784;
+  --cover-magenta:#e1009d; --cover-braun:#a3694f;
+  --grad-cover:linear-gradient(90deg,#af2896,#509bf5);
+  --grad-kopf:linear-gradient(rgba(0,0,0,.6),#161616);
+  --font-ui:"Figtree","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --fs-h1:clamp(2rem,5vw,3rem); --fs-h2:clamp(1.25rem,2.4vw,1.5rem); --fs-h3:1rem;
+  --fs-body:.9375rem; --fs-sm:.875rem; --fs-xs:.75rem; --fs-versal:.8125rem;
+  --fw-normal:400; --fw-mittel:600; --fw-fett:700; --fw-extra:800;
+  --ls-versal:.12em;
+  --sp-1:.25rem; --sp-2:.5rem; --sp-3:.75rem; --sp-4:1rem; --sp-5:1.5rem; --sp-6:2rem; --sp-7:3rem; --sp-8:4rem;
+  --luecke:1.5rem; --breite:1160px; --abstand-sektion:clamp(2.5rem,6vw,4rem);
+  --r-xs:2px; --r-sm:6px; --r-md:8px; --r-pill:9999px; --r-kreis:50%;
+  --shadow-kachel:0 8px 24px rgba(0,0,0,.5);
+  --dur:180ms; --ease:cubic-bezier(.2,.8,.2,1);
+}

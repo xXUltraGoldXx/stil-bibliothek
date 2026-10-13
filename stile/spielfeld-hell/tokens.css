@@ -1,0 +1,18 @@
+/* Spielfeld hell: Tokens */
+:root{
+  --weiss:#ffffff; --linie:#e5e5e5; --flaeche-hover:#f7f7f7;
+  --text-kopf:#4b4b4b; --text:#3c3c3c; --text-fliess:#777777; --text-schwach:#afafaf;
+  --gruen:#5ec41a; --gruen-kante:#5aa012; --gruen-hell:#6acf26;
+  --blau:#2ca8ea; --blau-kante:#2c93cb;
+  --nacht:#100f3e;
+  --gelb:#ffc800; --orange:#ff9600; --rosa:#ff86d0; --violett:#a560f6;
+  --font-base:"Nunito",sans-serif;
+  --fs-h1:2rem; --fs-h2:clamp(2.25rem,5vw,3rem); --fs-body:1.0625rem; --fs-label:.9375rem;
+  --lh-body:1.4; --ls-label:.8px;
+  --abstand-1:8px; --abstand-2:12px; --abstand-3:16px; --abstand-4:24px; --abstand-5:32px; --abstand-6:48px; --abstand-7:70px; --abstand-8:96px;
+  --r-knopf:12px; --r-karte:16px; --r-rund:999px;
+  --kante:4px; --rand:2px solid var(--linie);
+  --shadow-gruen:0 4px 0 var(--gruen-kante); --shadow-blau:0 4px 0 var(--blau-kante); --shadow-grau:0 4px 0 var(--linie);
+  --dur-druck:100ms; --dur-hover:150ms;
+  --breite:1000px;
+}

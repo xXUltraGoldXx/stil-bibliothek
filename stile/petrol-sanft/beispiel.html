@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Outfit:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{--seitenrand:80px}
+body{margin:0;background:var(--weiss);color:var(--text);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);letter-spacing:var(--ls-text);font-weight:var(--gw-normal);overflow-wrap:break-word}
+h1,h2{font-family:var(--font-display);font-weight:var(--gw-normal);line-height:var(--lh-titel);margin:0;letter-spacing:0}
+h1{font-size:var(--fs-h1)}
+h2{font-size:var(--fs-h2)}
+h3{font-size:var(--fs-h3);font-weight:var(--gw-mittel);line-height:1.55;margin:0 0 var(--abstand-2)}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+section{padding:var(--abstand-8) 0}
+.lead{font-size:var(--fs-lead);line-height:1.5;max-width:var(--breite-text)}
+.knopf{display:inline-block;border-radius:var(--r-pille);padding:12px 24px;font-weight:var(--gw-mittel);background:var(--petrol-dunkel);color:var(--weiss);transition:background .2s}
+.knopf:hover{background:var(--petrol-mittel)}
+.knopf.hell{background:var(--weiss);color:var(--petrol-dunkel)}
+.knopf.hell:hover{background:var(--sand)}
+.knopf.sand{background:var(--sand);color:var(--petrol-dunkel)}
+.knopf.sand:hover{background:var(--sand-linie)}
+.etikett{display:inline-block;background:var(--sand);color:var(--petrol-dunkel);border-radius:var(--r-pille);padding:4px 12px;font-size:var(--fs-klein);margin-bottom:var(--abstand-5)}
+header{background:var(--sand-hell);padding:12px 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--abstand-5);flex-wrap:wrap}
+.logo{font-family:var(--font-display);font-size:1.5rem;color:var(--petrol-dunkel)}
+nav{display:flex;gap:var(--abstand-5);font-size:1.125rem;flex-wrap:wrap}
+.hero{background:var(--petrol-dunkel);color:var(--weiss);text-align:center;padding:112px 0}
+.hero .wrap{display:flex;flex-direction:column;align-items:center;gap:var(--abstand-5)}
+.hero h1{max-width:14ch}
+.hero .lead{opacity:.9}
+.kacheln{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke);margin-top:var(--abstand-6)}
+.karte{background:var(--sand);border-radius:var(--r-karte);padding:32px;display:flex;flex-direction:column;gap:var(--abstand-4)}
+.bild{border-radius:var(--r-mittel);min-height:160px;background:var(--petrol);position:relative;overflow:hidden}
+.bild svg{position:absolute;inset:0;width:100%;height:100%}
+.bild.gross{border-radius:var(--r-gross);min-height:420px;background:var(--petrol-mittel)}
+.bild.sandton{background:var(--sand-hell)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--abstand-7);align-items:center}
+.split .text{display:flex;flex-direction:column;gap:var(--abstand-5);align-items:flex-start}
+.sand-flaeche{background:var(--sand-hell)}
+.band{background:var(--petrol);color:var(--weiss)}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--abstand-6);margin-top:var(--abstand-6)}
+.zahlen div{border-top:1px solid rgba(255,255,255,.4);padding-top:var(--abstand-4)}
+.zahlen strong{display:block;font-family:var(--font-display);font-weight:var(--gw-normal);font-size:var(--fs-h2);line-height:var(--lh-titel)}
+.schluss{background:var(--petrol-dunkel);color:var(--weiss);text-align:center;border-radius:var(--r-gross) var(--r-gross) 0 0}
+.schluss .wrap{display:flex;flex-direction:column;align-items:center;gap:var(--abstand-5)}
+.feld{display:flex;gap:var(--abstand-3);flex-wrap:wrap;justify-content:center;width:100%}
+.feld span{border:1px solid var(--rahmen);background:var(--weiss);color:var(--text);border-radius:var(--r-feld);padding:12px 16px;min-width:0;flex:1 1 220px;max-width:340px;text-align:left}
+footer{background:var(--petrol-dunkel);color:var(--weiss);padding:var(--abstand-6) 0;font-size:var(--fs-klein)}
+footer .wrap{display:flex;justify-content:space-between;gap:var(--abstand-4);flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.25);padding-top:var(--abstand-5)}
+@media (max-width:900px){
+  html{--seitenrand:20px}
+  section{padding:var(--abstand-7) 0}
+  .hero{padding:72px 0}
+  .kacheln,.zahlen,.split{grid-template-columns:1fr}
+  .split{gap:var(--abstand-6)}
+  .bild.gross{min-height:260px}
+  nav{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">Nordwerk Studio</a>
+    <nav><a href="#leistungen">Leistungen</a><a href="#arbeitsweise">Arbeitsweise</a><a href="#zahlen">Zahlen</a><a href="#kontakt">Kontakt</a></nav>
+    <a class="knopf" href="#kontakt">Gespräch buchen</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Gestaltung, die dir Arbeit abnimmt.</h1>
+    <p class="lead">Wir entwickeln Websites und Produkte für kleine Teams: klar aufgebaut, schnell erklärt und einfach zu pflegen.</p>
+    <a class="knopf hell" href="#kontakt">Projekt besprechen</a>
+  </div>
+</section>
+
+<section id="leistungen">
+  <div class="wrap">
+    <h2>Drei Wege zu deinem Auftritt.</h2>
+    <div class="kacheln">
+      <article class="karte">
+        <div class="bild"><svg viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true"><circle cx="150" cy="40" r="46" fill="#003b39"/><rect x="0" y="70" width="200" height="30" fill="#045e58"/></svg></div>
+        <h3>Website</h3>
+        <p>Von der Idee bis zur fertigen Seite in vier Wochen, mit klarer Struktur und lesbaren Texten.</p>
+      </article>
+      <article class="karte">
+        <div class="bild"><svg viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true"><rect x="30" y="20" width="80" height="80" rx="24" fill="#003b39"/><circle cx="140" cy="60" r="30" fill="#ede7e0"/></svg></div>
+        <h3>Produktdesign</h3>
+        <p>Oberflächen, die sich ohne Anleitung bedienen lassen. Getestet mit echten Menschen.</p>
+      </article>
+      <article class="karte">
+        <div class="bild"><svg viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true"><circle cx="60" cy="50" r="36" fill="#ede7e0"/><circle cx="120" cy="50" r="36" fill="#003b39"/></svg></div>
+        <h3>Gestaltungssystem</h3>
+        <p>Farben, Schriften und Bausteine an einem Ort, damit dein Team schneller weiterbaut.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sand-flaeche" id="arbeitsweise">
+  <div class="wrap split">
+    <div class="text">
+      <span class="etikett">Arbeitsweise</span>
+      <h2>Kurze Wege, ehrliche Zwischenstände.</h2>
+      <p class="lead">Jede Woche zeigen wir, was entstanden ist. Du entscheidest, wir setzen um. Kein Fachjargon, keine versteckten Kosten.</p>
+      <a class="knopf sand" href="#">Mehr zum Ablauf</a>
+    </div>
+    <div class="bild gross" role="img" aria-label="Platzhalter">
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="280" cy="110" r="90" fill="#088177"/><circle cx="130" cy="210" r="70" fill="#003b39"/><rect x="0" y="250" width="400" height="50" fill="#ede7e0" opacity=".35"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="zahlen">
+  <div class="wrap">
+    <h2>Was bisher entstanden ist.</h2>
+    <div class="zahlen">
+      <div><strong>120</strong><p>abgeschlossene Projekte für kleine und mittlere Teams</p></div>
+      <div><strong>4 Wochen</strong><p>durchschnittliche Zeit bis zur ersten Version</p></div>
+      <div><strong>9 von 10</strong><p>Kundinnen und Kunden arbeiten erneut mit uns</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="schluss" id="kontakt">
+  <div class="wrap">
+    <h2>Erzähl uns von deinem Vorhaben.</h2>
+    <p class="lead">Wir melden uns innerhalb eines Werktags.</p>
+    <div class="feld"><span>Deine E-Mail-Adresse</span></div>
+    <a class="knopf hell" href="#">Gespräch anfragen</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Nordwerk Studio, Beispielstraße 1, 00000 Musterstadt</span>
+    <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span>
+  </div>
+</footer>
+</body>
+</html>

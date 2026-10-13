@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiefenwerk – Raum-3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@500&family=Sora:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:linear-gradient(180deg,var(--grund) 0%,var(--grund-2) 100%) fixed;color:var(--tinte);font-family:var(--font-body);line-height:1.6;overflow-x:clip}
+.w{max-width:var(--breite);margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--font-display);line-height:1.08;letter-spacing:-.02em}
+.mono{font:500 var(--fs-xs) var(--font-mono);text-transform:uppercase;letter-spacing:.14em;color:var(--kuehl)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+nav b{font:700 1.25rem var(--font-display)}nav a{color:var(--tinte-2);text-decoration:none;margin-left:1.5rem;font-size:var(--fs-sm)}nav a:hover{color:var(--akzent)}
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:2rem;align-items:center;padding:clamp(2.5rem,7vw,6rem) 0 var(--abstand-sektion)}
+h1{font-size:var(--fs-display);margin:1rem 0 1.25rem}
+.lead{font-size:1.2rem;color:var(--tinte-2);max-width:46ch}
+.btns{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:2rem}
+.k{display:inline-block;border-radius:var(--r-md);padding:.85rem 1.6rem;font:500 1rem var(--font-body);text-decoration:none;transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.k.p{background:var(--akzent);color:#fff;box-shadow:0 6px 0 #b8430f,var(--schatten-1)}.k.p:hover{transform:translateY(3px);box-shadow:0 3px 0 #b8430f,var(--schatten-1)}
+.k.s{background:var(--ebene-1);color:var(--tinte);box-shadow:0 6px 0 var(--ebene-3),var(--schatten-1)}.k.s:hover{transform:translateY(3px);box-shadow:0 3px 0 var(--ebene-3)}
+/* Buehne: gekippter Stapel aus drei Ebenen */
+.buehne{perspective:var(--perspektive);overflow:clip;height:clamp(280px,42vw,460px);display:grid;place-items:center;min-width:0}
+.stapel{position:relative;width:min(100%,380px);aspect-ratio:1;transform-style:preserve-3d;transform:rotateX(var(--kipp-x)) rotateZ(var(--kipp-z));animation:drehen 18s ease-in-out infinite alternate}
+.ebene{position:absolute;inset:0;border-radius:var(--r-lg);border:1px solid var(--linie);display:grid;place-items:center;font:500 var(--fs-xs) var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--tinte-3)}
+.e1{background:var(--ebene-3);transform:translateZ(var(--tiefe-1));box-shadow:var(--schatten-boden)}
+.e2{background:var(--ebene-2);transform:translateZ(var(--tiefe-2)) scale(.86);box-shadow:var(--schatten-2)}
+.e3{background:linear-gradient(135deg,var(--kuehl),#7a8cff);color:#fff;border-color:transparent;transform:translateZ(var(--tiefe-3)) scale(.66);box-shadow:var(--schatten-2);animation:schweben var(--dur-schweben) ease-in-out infinite}
+@keyframes drehen{from{transform:rotateX(var(--kipp-x)) rotateZ(-32deg)}to{transform:rotateX(52deg) rotateZ(-12deg)}}
+@keyframes schweben{50%{transform:translateZ(120px) scale(.66)}}
+.sek{padding:var(--abstand-sektion) 0}
+h2{font-size:var(--fs-h2);margin:.75rem 0 1rem;max-width:20ch}
+.kart-reihe{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:3rem;perspective:var(--perspektive-nah)}
+.kart{background:var(--ebene-1);border:1px solid var(--linie);border-radius:var(--r-lg);padding:2rem;box-shadow:var(--schatten-1);transform:rotateY(0) translateZ(0);transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.kart:hover{transform:rotateX(6deg) rotateY(-8deg) translateZ(24px);box-shadow:var(--schatten-2)}
+.kart h3{font-size:var(--fs-h3);margin:.9rem 0 .5rem}.kart p{color:var(--tinte-2);font-size:var(--fs-sm)}
+.wuerfel-sek{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.raum{perspective:900px;display:grid;place-items:center;height:260px}
+.wuerfel{--s:130px;position:relative;width:var(--s);height:var(--s);transform-style:preserve-3d;animation:kreisen 14s linear infinite}
+.fl{position:absolute;inset:0;border:1px solid var(--kuehl);background:rgba(61,90,254,.12);display:grid;place-items:center;font:500 var(--fs-xs) var(--font-mono);color:var(--kuehl)}
+.fl:nth-child(1){transform:translateZ(65px)}.fl:nth-child(2){transform:rotateY(180deg) translateZ(65px)}
+.fl:nth-child(3){transform:rotateY(90deg) translateZ(65px)}.fl:nth-child(4){transform:rotateY(-90deg) translateZ(65px)}
+.fl:nth-child(5){transform:rotateX(90deg) translateZ(65px);background:rgba(255,106,43,.18);border-color:var(--akzent);color:var(--akzent)}
+.fl:nth-child(6){transform:rotateX(-90deg) translateZ(65px)}
+@keyframes kreisen{from{transform:rotateX(-24deg) rotateY(0)}to{transform:rotateX(-24deg) rotateY(360deg)}}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;background:var(--ebene-1);border:1px solid var(--linie);border-radius:var(--r-lg);padding:2.25rem;box-shadow:var(--schatten-2)}
+.zahlen b{display:block;font:700 clamp(2rem,5vw,3.25rem) var(--font-display)}.zahlen span{color:var(--tinte-2);font-size:var(--fs-sm)}
+.cta{text-align:center;padding:clamp(2.5rem,6vw,4.5rem);background:var(--tinte);color:#fff;border-radius:var(--r-lg);box-shadow:0 8px 0 #000,var(--schatten-2)}
+.cta h2{margin-inline:auto}.cta p{color:#b7c0d8;margin-bottom:1.75rem}
+footer{padding:2.5rem 0;color:var(--tinte-3);font-size:var(--fs-sm);margin-top:var(--abstand-sektion);border-top:1px solid var(--linie)}
+@media(max-width:800px){.hero,.wuerfel-sek{grid-template-columns:1fr}.kart-reihe,.zahlen{grid-template-columns:1fr}nav a{display:none}.stapel{width:min(78%,300px)}}
+@media(prefers-reduced-motion:reduce){.stapel,.e3,.wuerfel{animation:none}.stapel{transform:rotateX(var(--kipp-x)) rotateZ(var(--kipp-z))}.kart,.k{transition:none}}
+</style></head><body>
+<div class="w">
+<nav><b>Tiefenwerk</b><div><a href="#ebenen">Ebenen</a><a href="#raum">Raum</a><a href="#kontakt">Kontakt</a></div></nav>
+<header class="hero">
+ <div><span class="mono">Räume in Tiefe</span>
+ <h1>Entwürfe, die man umrunden kann.</h1>
+ <p class="lead">Tiefenwerk baut begehbare Modelle für Büros, Läden und Messestände. Jede Ebene hat einen Platz und einen Schatten.</p>
+ <div class="btns"><a class="k p" href="#kontakt">Modell anfragen</a><a class="k s" href="#ebenen">Ebenen ansehen</a></div></div>
+ <div class="buehne" aria-hidden="true"><div class="stapel"><div class="ebene e1">Grundriss</div><div class="ebene e2">Möblierung</div><div class="ebene e3">Licht</div></div></div>
+</header>
+<section class="sek" id="ebenen"><span class="mono">Drei Ebenen</span><h2>Jede Schicht trägt die nächste.</h2>
+ <div class="kart-reihe">
+  <article class="kart"><span class="mono">Ebene 01</span><h3>Grundriss</h3><p>Das Fundament: Wege, Wände, Maße. Alles liegt flach und klar auf dem Boden.</p></article>
+  <article class="kart"><span class="mono">Ebene 02</span><h3>Möblierung</h3><p>Volumen kommt dazu. Schatten zeigen, was vorn und was hinten steht.</p></article>
+  <article class="kart"><span class="mono">Ebene 03</span><h3>Licht</h3><p>Die oberste Schicht schwebt und setzt die einzige Farbe im Raum.</p></article>
+ </div></section>
+<section class="sek wuerfel-sek" id="raum"><div><span class="mono">Der Raum</span><h2>Vier Wände, ein Blickpunkt.</h2>
+ <p class="lead">Wir zeigen jedes Modell von allen Seiten, bevor ein Stein bewegt wird. So fallen Fehler im Entwurf auf, nicht auf der Baustelle.</p></div>
+ <div class="raum" aria-hidden="true"><div class="wuerfel"><div class="fl">vorn</div><div class="fl">hinten</div><div class="fl">links</div><div class="fl">rechts</div><div class="fl">oben</div><div class="fl">unten</div></div></div></section>
+<section class="sek"><div class="zahlen"><div><b>120+</b><span>fertige Modelle</span></div><div><b>6 Wochen</b><span>vom Plan zum Modell</span></div><div><b>98 %</b><span>zufriedene Auftraggeber</span></div></div></section>
+<section class="sek" id="kontakt"><div class="cta"><span class="mono" style="color:var(--akzent-weich)">Kontakt</span><h2>Zeigen wir es von allen Seiten.</h2><p>Ein Gespräch genügt, dann steht das erste Modell.</p><a class="k p" href="#kontakt">Termin vereinbaren</a></div></section>
+<footer>Tiefenwerk Modellbau – ein fiktives Beispiel für den Stil Raum-3D.</footer>
+</div></body></html>

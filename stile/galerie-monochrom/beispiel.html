@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--grund);color:var(--tinte);font-family:var(--font-ui);font-size:var(--fs-ui);font-weight:var(--fw-leicht);line-height:2}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p{margin:0;overflow-wrap:anywhere}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand-mobil)}
+header{background:var(--grund);border-bottom:1px solid var(--linie)}
+.kopf{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-4);min-height:var(--hoehe-kopf);padding:var(--sp-3) var(--rand-mobil);max-width:1280px;margin:0 auto}
+.logo{font-weight:var(--fw-fett);font-size:1.5rem;letter-spacing:0}
+nav{display:flex;flex-wrap:wrap;gap:var(--sp-4);font-weight:var(--fw-mittel)}
+.suche{flex:1 1 200px;min-width:0;background:var(--grund-2);border-radius:var(--r);height:42px;padding:0 var(--sp-4);display:flex;align-items:center;color:#666;font-weight:var(--fw-normal)}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:var(--hoehe-button);padding:0 var(--sp-5);border-radius:var(--r);background:var(--tinte);color:var(--weiss);font-weight:var(--fw-normal);font-size:var(--fs-ui);border:1px solid var(--tinte);transition:background .2s}
+.btn:hover{background:var(--tinte-2)}
+.btn.aus{background:transparent;color:var(--tinte)}
+.btn.aus:hover{background:var(--grund-2)}
+.btn.hell{background:var(--weiss);color:var(--tinte);border-color:var(--weiss)}
+.tag{display:inline-block;border:1px solid var(--linie-dunkel);border-radius:var(--r-klein);padding:0 var(--sp-2);font-size:var(--fs-meta);font-weight:var(--fw-normal);line-height:1.7}
+.hero{text-align:center;padding:var(--sp-7) 0 var(--sp-6)}
+.hero .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp-3);align-items:center;margin-bottom:var(--sp-4)}
+h1{font-size:var(--fs-h1);font-weight:var(--fw-fett);line-height:var(--lh-h1);text-transform:uppercase}
+.hero p{max-width:var(--breite-text);margin:var(--sp-5) auto 0;font-size:var(--fs-text)}
+.hero .aktionen{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp-3);margin-top:var(--sp-5)}
+.buehne{margin:var(--sp-6) 10px 0;border-radius:var(--r);min-height:360px;background:linear-gradient(135deg,#3a3a3a,#1a1a1a);position:relative;display:flex;align-items:flex-end;justify-content:center;padding:var(--sp-5)}
+.buehne .karte{background:var(--grund);border-radius:var(--r-gross);padding:var(--sp-5) var(--sp-6);text-align:left;max-width:520px}
+.buehne .karte h3{font-size:var(--fs-h3);font-weight:var(--fw-fett);line-height:var(--lh-titel)}
+section.abs{padding:var(--sp-8) 0}
+h2{font-size:var(--fs-h2);font-weight:var(--fw-fett);line-height:var(--lh-titel);margin-bottom:var(--sp-6)}
+.raster{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.proj .bild{aspect-ratio:16/12;border-radius:var(--r);background:var(--grund-3);margin-bottom:var(--sp-3);transition:transform .4s ease-out}
+.proj:hover .bild{transform:scale(1.03)}
+.proj .rahmen{overflow:hidden;border-radius:var(--r)}
+.proj:nth-child(2) .bild{background:linear-gradient(135deg,var(--pastell-mint),var(--pastell-mint-2))}
+.proj:nth-child(3) .bild{background:linear-gradient(135deg,var(--pastell-gelb),var(--pastell-gelb-2))}
+.proj:nth-child(5) .bild{background:linear-gradient(135deg,var(--pastell-korall),#f8f0ee)}
+.proj:nth-child(6) .bild{background:linear-gradient(135deg,var(--pastell-blau),#e6eef8)}
+.proj .zeile{display:flex;align-items:center;gap:var(--sp-3)}
+.proj .av{width:32px;height:32px;border-radius:var(--r-rund);background:var(--tinte);flex:none}
+.proj strong{font-weight:var(--fw-fett);font-size:1rem;display:block;line-height:1.4}
+.proj span{font-size:var(--fs-meta);color:#555;line-height:1.4;display:block}
+.dunkel{background:var(--tinte);color:var(--weiss)}
+.dunkel p{color:var(--tinte-hell)}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.zahl{border:1px solid rgba(255,255,255,.3);border-radius:var(--r);padding:var(--sp-6)}
+.zahl b{display:block;font-size:2.5rem;font-weight:var(--fw-fett);line-height:1.1;margin-bottom:var(--sp-2)}
+.leist{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--luecke)}
+.leist div{background:var(--weiss);border-radius:var(--r-gross);padding:var(--sp-6)}
+.leist h3{font-size:var(--fs-h3);font-weight:var(--fw-fett);margin-bottom:var(--sp-2);line-height:var(--lh-titel)}
+.leist .punkt{display:inline-block;width:10px;height:10px;border-radius:var(--r-rund);background:var(--signal);margin-bottom:var(--sp-3)}
+.kontakt{background:var(--grund-2);border-radius:var(--r-gross);padding:var(--sp-7) var(--sp-6);text-align:center;margin:0 10px}
+.kontakt p{max-width:var(--breite-text);margin:0 auto var(--sp-5)}
+footer{padding:var(--sp-6) 0 var(--sp-8);font-size:var(--fs-meta)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--sp-4)}
+@media (max-width:900px){
+ .raster,.zahlen{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+ .raster,.zahlen,.leist{grid-template-columns:1fr}
+ section.abs{padding:3rem 0}
+ .buehne{min-height:260px;padding:var(--sp-3)}
+ .buehne .karte{padding:var(--sp-4)}
+ .kontakt{padding:var(--sp-6) var(--sp-4)}
+ .btn{width:100%}
+}
+@media (min-width:1000px){
+ .wrap{padding:0 var(--rand)}
+ .kopf{padding:var(--sp-3) var(--rand)}
+}
+@media (prefers-reduced-motion:reduce){.proj .bild,.btn{transition:none}}
+</style>
+</head>
+<body>
+<header>
+ <div class="kopf">
+  <a class="logo" href="#">nordwerk.</a>
+  <nav><a href="#projekte">Projekte</a><a href="#leistungen">Leistungen</a><a href="#zahlen">Zahlen</a></nav>
+  <div class="suche">Projekte durchsuchen</div>
+  <a class="btn aus" href="#kontakt">Kontakt</a>
+</div>
+</header>
+
+<main>
+<section class="hero wrap">
+ <div class="meta"><span>Projekt der Woche</span><span class="tag">12. Oktober</span><span>Kategorie: Webdesign</span></div>
+ <h1>Nordwerk Studio</h1>
+ <p>Wir gestalten Websites und Markenauftritte für Handwerk, Kultur und Mittelstand. Klar, schnell und gut lesbar.</p>
+ <div class="aktionen"><a class="btn" href="#projekte">Arbeiten ansehen</a><a class="btn aus" href="#kontakt">Gespräch anfragen</a></div>
+</section>
+
+<div class="buehne" role="img" aria-label="Platzhalter für Projektbild">
+ <div class="karte"><span class="tag">Neu</span><h3>Werkstatt Lindner, neuer Webauftritt</h3><p>Ein Katalog mit 400 Produkten, dreimal schneller geladen.</p></div>
+</div>
+
+<section class="abs wrap" id="projekte">
+ <h2>Ausgewählte Projekte</h2>
+ <div class="raster">
+  <a class="proj" href="#"><div class="rahmen"><div class="bild"></div></div><div class="zeile"><div class="av"></div><div><strong>Lindner Werkstatt</strong><span>Website, 2026</span></div></div></a>
+  <a class="proj" href="#"><div class="rahmen"><div class="bild"></div></div><div class="zeile"><div class="av"></div><div><strong>Kornhaus Bäckerei</strong><span>Markenauftritt, 2026</span></div></div></a>
+  <a class="proj" href="#"><div class="rahmen"><div class="bild"></div></div><div class="zeile"><div class="av"></div><div><strong>Stadtbibliothek Ost</strong><span>Onlineportal, 2025</span></div></div></a>
+  <a class="proj" href="#"><div class="rahmen"><div class="bild"></div></div><div class="zeile"><div class="av"></div><div><strong>Fährhaus Elbe</strong><span>Buchungssystem, 2025</span></div></div></a>
+  <a class="proj" href="#"><div class="rahmen"><div class="bild"></div></div><div class="zeile"><div class="av"></div><div><strong>Studio Moorwiese</strong><span>Portfolio, 2025</span></div></div></a>
+  <a class="proj" href="#"><div class="rahmen"><div class="bild"></div></div><div class="zeile"><div class="av"></div><div><strong>Hafenmarkt Nord</strong><span>Onlineshop, 2024</span></div></div></a>
+ </div>
+</section>
+
+<section class="abs dunkel" id="zahlen">
+ <div class="wrap">
+  <h2>Ergebnisse, die zählen</h2>
+  <div class="zahlen">
+   <div class="zahl"><b>64</b><p>abgeschlossene Projekte seit 2016</p></div>
+   <div class="zahl"><b>1,2 s</b><p>durchschnittliche Ladezeit unserer Seiten</p></div>
+   <div class="zahl"><b>97 %</b><p>Kundschaft, die uns weiterempfiehlt</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="abs wrap" id="leistungen">
+ <h2>Was wir tun</h2>
+ <div class="leist">
+  <div><span class="punkt"></span><h3>Strategie und Konzept</h3><p>Wir klären Ziele, Zielgruppen und Inhalte, bevor das erste Layout entsteht.</p></div>
+  <div><span class="punkt"></span><h3>Gestaltung</h3><p>Ruhige Raster, große Typografie und Bildflächen, die Ihre Arbeit zeigen.</p></div>
+  <div><span class="punkt"></span><h3>Entwicklung</h3><p>Saubere, barrierearme Umsetzung mit kurzen Ladezeiten und einfacher Pflege.</p></div>
+  <div><span class="punkt"></span><h3>Betreuung</h3><p>Wartung, kleine Erweiterungen und Auswertung nach dem Start.</p></div>
+ </div>
+</section>
+
+<section class="wrap" id="kontakt">
+ <div class="kontakt">
+  <h2>Ein Projekt im Kopf?</h2>
+  <p>Schreiben Sie uns in drei Sätzen, worum es geht. Wir melden uns innerhalb von zwei Werktagen.</p>
+  <a class="btn" href="#">Gespräch anfragen</a>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap"><span>Nordwerk Studio, Beispielstraße 1, 20000 Musterstadt</span><span>Impressum · Datenschutz</span></div>
+</footer>
+</body>
+</html>

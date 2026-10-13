@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Inter:wght@700&family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);color:var(--text);background:var(--weiss)}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:var(--lh-titel);margin:0}
+p{margin:0}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--abstand-3)}
+.meta{font-family:var(--font-mono);font-weight:500;font-size:var(--fs-meta);text-transform:uppercase;letter-spacing:var(--ls-meta)}
+header{background:var(--schwarz);color:var(--text-dunkel);padding:1rem var(--abstand-3)}
+.kopf{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;max-width:var(--breite);margin:0 auto}
+.kopf nav{display:flex;gap:1.5rem;font-family:var(--font-display);font-weight:700;flex-wrap:wrap}
+.suche{background:var(--schwarz);border:1px solid var(--rand-feld);color:var(--grau-2);padding:.4rem .5rem;font-size:.94rem;width:12rem;max-width:100%}
+.marke{font-family:var(--font-display);font-weight:700;font-size:1.25rem;display:flex;align-items:center;gap:.5rem}
+.marke svg{width:2rem;height:2rem}
+.live{border:1px solid var(--rot);color:var(--text-dunkel);font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:2px;padding:0 .3rem;text-transform:uppercase}
+.hero{background:radial-gradient(ellipse at 75% 30%,#8fa3b5 0,#3b4b5c 35%,#0b0f14 80%);color:var(--text-dunkel);position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:var(--abdunkeln)}
+.hero .wrap{position:relative;padding-top:8rem;padding-bottom:2rem}
+.hero h1{font-size:var(--fs-hero);max-width:11em}
+.hero .lead{font-size:var(--fs-lead);max-width:var(--breite-text);margin:1.25rem 0 1.5rem;color:var(--text-dunkel)}
+.knopf{display:inline-block;background:var(--rot);color:var(--text-dunkel);font-family:var(--font-display);font-weight:700;font-size:1.1rem;padding:.75rem 1.25rem;border-radius:var(--r-knopf)}
+.knopf:hover{text-decoration:none;filter:brightness(1.1)}
+.leiste{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke);margin-top:4rem}
+.leiste a{border-top:1px solid var(--linie);padding-top:1rem;display:block}
+.leiste .meta{color:var(--grau-1);display:block;margin-bottom:1rem}
+.leiste strong{font-family:var(--font-display);font-size:1rem;display:inline-flex;align-items:center;gap:.5rem}
+.pfeil{display:inline-flex;align-items:center;justify-content:center;width:1.25rem;height:1.25rem;border-radius:var(--r-kreis);background:var(--rot);color:var(--text-dunkel);font-size:.75rem;line-height:1;transition:transform .2s}
+a:hover .pfeil{transform:translateX(3px)}
+section{padding:var(--abstand-5) 0}
+.titelzeile{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:var(--abstand-4)}
+.titelzeile h2{font-size:var(--fs-h2)}
+.titelzeile a{font-family:var(--font-display);font-weight:700;font-size:1.25rem;display:inline-flex;align-items:center;gap:.5rem}
+.hellgrau{background:var(--hell)}
+.karten{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.karte{background:var(--weiss)}
+.bild{aspect-ratio:16/10;background:linear-gradient(160deg,#27384a,#0b0f14)}
+.bild.b2{background:radial-gradient(circle at 30% 70%,#6f8196,#1b1b21 70%)}
+.bild.b3{background:linear-gradient(20deg,#000,#58585b 60%,#b9b9bb)}
+.karte .inhalt{padding:var(--abstand-3)}
+.karte .meta{color:var(--grau-4);display:block;margin-bottom:.75rem}
+.karte h3{font-size:var(--fs-h3);margin-bottom:.75rem}
+.dunkel{background:var(--nacht);color:var(--text-dunkel)}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.zahlen div{border-top:1px solid var(--linie);padding-top:1rem}
+.zahlen strong{display:block;font-family:var(--font-display);font-size:3rem;line-height:1;margin:.75rem 0}
+.zahlen p{color:var(--grau-1)}
+.text{max-width:var(--breite-text)}
+.text h2{font-size:var(--fs-h2);margin-bottom:1.5rem}
+.text p{margin-bottom:1.5rem}
+footer{background:var(--schwarz);color:var(--text-dunkel);padding:3.5rem var(--abstand-3)}
+.fuss{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--abstand-4);max-width:var(--breite);margin:0 auto}
+.fuss ul{list-style:none;margin:.75rem 0 0;padding:0;color:var(--grau-1)}
+.fuss li{margin-bottom:.5rem}
+.fuss .meta{color:var(--grau-2)}
+@media(max-width:800px){
+  .leiste,.karten,.zahlen{grid-template-columns:1fr}
+  .fuss{grid-template-columns:1fr 1fr}
+  .hero .wrap{padding-top:5rem}
+  .knopf{display:block;text-align:center}
+  .suche{display:none}
+  section{padding:3rem 0}
+}
+@media(max-width:480px){.fuss{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="kopf">
+    <div class="marke">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#1d3f8f"/><path d="M4 22 Q16 6 30 8" stroke="#cc4038" stroke-width="2" fill="none"/></svg>
+      Nordwerk Studio
+    </div>
+    <div class="suche">Suche</div>
+    <nav>
+      <a href="#projekte">Projekte</a>
+      <a href="#zahlen">Zahlen</a>
+      <a href="#kontakt">Kontakt <span class="live">Live</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <h1>Messturm Havelbogen geht in Betrieb</h1>
+    <p class="lead">Am Donnerstag um 11:34 Uhr hat das Team die neue Messstation an der Havel in Betrieb genommen. Nach 237 Tagen Bauzeit liefert sie erste Daten zu Wasserstand und Luftqualität.</p>
+    <a class="knopf" href="#projekte">Mehr lesen</a>
+    <div class="leiste">
+      <a href="#projekte"><span class="meta">Aktuell</span><strong>Station Havelbogen <span class="pfeil">→</span></strong></a>
+      <a href="#projekte"><span class="meta">In Planung</span><strong>Pegelnetz Ost <span class="pfeil">→</span></strong></a>
+      <a href="#projekte"><span class="meta">In Planung</span><strong>Sensorfeld Nord <span class="pfeil">→</span></strong></a>
+    </div>
+  </div>
+</div>
+
+<section id="projekte" class="hellgrau">
+  <div class="wrap">
+    <div class="titelzeile">
+      <h2>Aktuelle Projekte</h2>
+      <a href="#projekte">Zuletzt veröffentlicht <span class="pfeil">→</span></a>
+    </div>
+    <div class="karten">
+      <article class="karte"><div class="bild"></div><div class="inhalt"><span class="meta">Messtechnik</span><h3>Neue Sensoren für Flussdaten</h3><p>Drei Messreihen laufen seit Oktober parallel und werden täglich ausgewertet.</p></div></article>
+      <article class="karte"><div class="bild b2"></div><div class="inhalt"><span class="meta">Forschung</span><h3>Luftqualität im Stadtgebiet</h3><p>Zwölf Standorte liefern stündliche Werte, offen einsehbar für alle Anwohner.</p></div></article>
+      <article class="karte"><div class="bild b3"></div><div class="inhalt"><span class="meta">Bau</span><h3>Turm aus Stahl und Holz</h3><p>Die Konstruktion wiegt 18 Tonnen und trotzt Windlasten bis 130 km/h.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="zahlen" class="dunkel">
+  <div class="wrap">
+    <div class="titelzeile"><h2>Das Team in Zahlen</h2></div>
+    <div class="zahlen">
+      <div><span class="meta">Standorte</span><strong>24</strong><p>Messstationen in drei Bundesländern.</p></div>
+      <div><span class="meta">Datenpunkte</span><strong>1,8 Mio.</strong><p>Pro Monat, geprüft und archiviert.</p></div>
+      <div><span class="meta">Laufzeit</span><strong>237 Tage</strong><p>Durchschnittliche Bauzeit je Station.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="text">
+      <h2>Wie wir arbeiten</h2>
+      <p>Wir planen jede Station gemeinsam mit den Menschen vor Ort. Erst kommen Fragen, dann Messungen, am Ende ein Bericht, den man ohne Vorwissen lesen kann.</p>
+      <p>Alle Ergebnisse werden mit Datum, Ort und Methode veröffentlicht, damit jede Zahl nachvollziehbar bleibt.</p>
+      <a class="knopf" href="#kontakt">Gespräch vereinbaren</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="kontakt">
+  <div class="fuss">
+    <div><strong style="font-family:var(--font-display);font-size:1.375rem">Nordwerk Studio</strong><p style="color:var(--grau-1);margin-top:.75rem">Messen, bauen, erklären.</p></div>
+    <div><span class="meta">Studio</span><ul><li><a href="#">Team</a></li><li><a href="#">Karriere</a></li></ul></div>
+    <div><span class="meta">Projekte</span><ul><li><a href="#">Archiv</a></li><li><a href="#">Daten</a></li></ul></div>
+    <div><span class="meta">Kontakt</span><ul><li><a href="#">Anfrage</a></li><li><a href="#">Presse</a></li></ul></div>
+  </div>
+</footer>
+</body>
+</html>

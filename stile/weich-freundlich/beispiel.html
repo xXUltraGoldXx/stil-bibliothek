@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Weich freundlich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--grund);color:var(--text);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);font-weight:var(--gw-text)}
+.w{max-width:var(--breite);margin:0 auto;padding:0 16px}
+a{color:var(--link)}
+.etikett{font-size:var(--fs-etikett);text-transform:uppercase;letter-spacing:.04em;color:var(--text-2)}
+.kopf{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:32px}
+.marke{display:flex;align-items:center;gap:10px;font-size:1.4rem;text-decoration:none;color:var(--text)}
+.marke i{width:36px;height:36px;border-radius:50%;background:var(--aktion);display:block;position:relative}
+.marke i:after{content:"";position:absolute;inset:10px;border-radius:50%;background:var(--karte)}
+.suche{flex:1 1 280px;max-width:640px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--karte);border-radius:var(--r-pille);box-shadow:var(--schatten-suche);padding:8px 8px 8px 20px;color:var(--text-2);order:3}
+.umschalter{display:flex;background:var(--knopf-neutral);border-radius:var(--r-pille);padding:3px;font-size:var(--fs-klein);font-weight:500}
+.umschalter span{padding:6px 14px;border-radius:var(--r-pille)}
+.umschalter .an{background:var(--karte);color:var(--text);font-weight:700;box-shadow:var(--schatten-knopf)}
+.kopf nav{display:flex;gap:16px;font-size:var(--fs-klein);font-weight:700}
+.kopf nav a{color:var(--text);text-decoration:none}
+@media(min-width:900px){.suche{order:0}}
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:10px 24px;border-radius:var(--r-pille);font:inherit;font-size:var(--fs-klein);font-weight:var(--gw-knopf);text-decoration:none;border:0;background:var(--knopf-neutral);color:var(--text);transition:filter .15s}
+.knopf:hover{filter:brightness(.95)}
+.knopf.haupt{background:var(--aktion);color:var(--aktion-text)}
+.knopf.klein{background:var(--karte);border:1px solid var(--haarlinie);box-shadow:var(--schatten-knopf);padding:8px 14px;font-weight:500}
+.knopf:focus-visible{outline:2px solid var(--fokus);outline-offset:2px}
+.hero{text-align:center;padding:80px 0 64px}
+h1{font-family:var(--font-display);font-size:var(--fs-h1);line-height:var(--lh-h1);letter-spacing:var(--ls-h);font-weight:400;max-width:14em;margin:0 auto 48px}
+.sym{display:inline-block;vertical-align:middle;width:1.1em;height:1.1em}
+.paar{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.karte{position:relative;background:var(--karte);border-radius:var(--r-karte);box-shadow:var(--schatten-karte);padding:36px 24px 24px;width:min(100%,280px);display:flex;flex-direction:column;align-items:center;gap:16px;font-size:var(--fs-klein);line-height:1.43;transition:transform .15s}
+.karte:hover{transform:translateY(-2px)}
+.karte .knopf{margin-top:auto}
+.tag{position:absolute;top:0;left:0;background:var(--himmel);color:var(--himmel-text);border-radius:var(--r-etikett);padding:8px 16px}
+.illu{width:72px;height:72px}
+.vertrauen{margin-top:40px;font-size:var(--fs-klein)}
+.pfeil{display:block;width:110px;height:56px;margin:0 auto;background:var(--karte);border-radius:56px 56px 0 0;text-align:center;line-height:64px;font-size:1.5rem}
+.flaeche{background:var(--karte);border-radius:32px 32px 0 0;padding:80px 0}
+.flaeche.warm{background:var(--grund-warm)}
+h2{font-family:var(--font-display);font-size:var(--fs-h2);line-height:var(--lh-h2);letter-spacing:var(--ls-h);font-weight:400;max-width:16em;margin:8px 0 40px}
+.raster{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}
+.pastell{border-radius:var(--r-pastell);padding:24px;display:flex;flex-direction:column;gap:12px;min-height:240px}
+.pastell h3{font-size:var(--fs-h3);line-height:1.4;font-weight:700}
+.pastell p{font-size:var(--fs-klein);line-height:1.43}
+.pastell .blob{margin-top:auto;width:64px;height:64px;border-radius:50% 50% 50% 8px;background:rgba(255,255,255,.7)}
+.p1{background:var(--himmel);color:var(--himmel-text)}.p2{background:var(--pfirsich);color:var(--pfirsich-text)}
+.p3{background:var(--mint);color:var(--mint-text)}.p4{background:var(--butter);color:var(--butter-text)}
+.zwei{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:40px;align-items:center}
+.zwei p{max-width:34em;color:var(--text-2);margin-bottom:24px}
+.platz{aspect-ratio:4/3;border-radius:var(--r-gross);background:var(--mint);position:relative}
+.platz:after{content:"";position:absolute;inset:22%;border-radius:50%;background:var(--karte);box-shadow:var(--schatten-karte)}
+.schluss{text-align:center}
+.schluss h2{margin-left:auto;margin-right:auto}
+footer{padding:36px 0 64px;font-size:var(--fs-klein);color:var(--text-2);text-align:center}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:600px){.hero{padding:48px 0}.flaeche{padding:64px 0}}
+</style></head><body>
+<div class="w">
+<header class="kopf">
+<a class="marke" href="#"><i></i>Nordwerk</a>
+<div class="suche"><span>Projekt suchen</span><div class="umschalter"><span class="an">Studio</span><span>Journal</span></div></div>
+<nav><a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a></nav>
+</header>
+<section class="hero">
+<h1>Gestaltung für Menschen. Klar <svg class="sym" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="#ffeab8" stroke="#240f04" stroke-width="1.5"/><path d="M12 21l6 6 11-13" fill="none" stroke="#240f04" stroke-width="2" stroke-linecap="round"/></svg> und fair im Preis!</h1>
+<div class="paar">
+<div class="karte"><svg class="illu" viewBox="0 0 72 72" aria-hidden="true"><circle cx="30" cy="30" r="20" fill="#ffeab8" stroke="#240f04" stroke-width="2"/><path d="M45 45l18 18" stroke="#f26a2e" stroke-width="6" stroke-linecap="round"/></svg><p>Erzähl uns in zwei Sätzen, was du vorhast. Wir melden uns am selben Tag.</p><a class="knopf" href="#kontakt">Gespräch vereinbaren</a></div>
+<div class="karte"><span class="tag etikett">Beliebt</span><svg class="illu" viewBox="0 0 72 72" aria-hidden="true"><rect x="8" y="14" width="56" height="44" rx="12" fill="#cbeaff" stroke="#01142d" stroke-width="2"/><circle cx="36" cy="36" r="10" fill="#fff" stroke="#01142d" stroke-width="2"/></svg><p>Unser Starterpaket: Beratung, Entwurf und Umsetzung aus einer Hand.</p><a class="knopf haupt" href="#kontakt">Paket ansehen</a></div>
+</div>
+<p class="vertrauen">Über 400 kleine Teams haben mit uns gearbeitet.</p>
+</section>
+</div>
+<a class="pfeil" href="#leistungen" aria-label="Weiter nach unten">↓</a>
+<section class="flaeche" id="leistungen"><div class="w">
+<span class="etikett">Leistungen</span>
+<h2>Vier Dinge, die wir gern für dich übernehmen.</h2>
+<div class="raster">
+<div class="pastell p1"><h3>Markenauftritt</h3><p>Logo, Farben und Schrift, die zu dir passen.</p><div class="blob"></div></div>
+<div class="pastell p2"><h3>Webseiten</h3><p>Schnell, verständlich und leicht zu pflegen.</p><div class="blob"></div></div>
+<div class="pastell p3"><h3>Verpackung</h3><p>Aus Papier und Karton, die man gern behält.</p><div class="blob"></div></div>
+<div class="pastell p4"><h3>Workshops</h3><p>Ein Tag, an dem dein Team gemeinsam Klarheit gewinnt.</p><div class="blob"></div></div>
+</div></div></section>
+<section class="flaeche warm" id="ablauf"><div class="w">
+<div class="zwei">
+<div><span class="etikett">Ablauf</span>
+<h2>Drei Schritte, keine Überraschungen.</h2>
+<p>Erst hören wir zu, dann skizzieren wir, dann bauen wir. Nach jedem Schritt entscheidest du, wie es weitergeht.</p>
+<a class="knopf klein" href="#kontakt">Mehr zum Ablauf</a></div>
+<div class="platz" role="img" aria-label="Platzhalter für eine Illustration"></div>
+</div></div></section>
+<section class="flaeche schluss" id="kontakt"><div class="w">
+<span class="etikett">Kontakt</span>
+<h2>Bereit, wenn du es bist.</h2>
+<a class="knopf haupt" href="#">Projekt starten</a>
+</div></section>
+<footer><div class="w">Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage · Impressum · Datenschutz</div></footer>
+</body></html>

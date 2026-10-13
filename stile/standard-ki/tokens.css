@@ -1,0 +1,9 @@
+/* Standard-KI (GEGENBEISPIEL, nicht verwenden): Tokens */
+:root{
+  --bg:#0b0b1a; --bg-karte:rgba(255,255,255,.05); --text:#f1f1f7; --text-2:#a0a0b8;
+  --lila:#7c3aed; --blau:#3b82f6; --rosa:#ec4899;
+  --verlauf:linear-gradient(135deg,#7c3aed,#3b82f6);
+  --font:"Inter",system-ui,sans-serif;
+  --r-karte:16px; --r-knopf:12px; --linie:rgba(255,255,255,.1);
+  --schatten:0 10px 40px rgba(124,58,237,.25);
+}

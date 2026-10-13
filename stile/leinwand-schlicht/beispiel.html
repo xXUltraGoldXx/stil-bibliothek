@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Werkzeuge für Gestaltung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Inter+Tight:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--weiss);color:var(--text);font-family:var(--font-sans);font-weight:var(--fw-normal);font-size:var(--fs-ui);line-height:1.45;letter-spacing:var(--ls-ui)}
+a{color:inherit;text-decoration:none}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+.label{font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:var(--ls-label);color:var(--text-2);display:block;margin-bottom:var(--sp-4)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;letter-spacing:var(--ls-ui);padding:.75rem 1.5rem;border-radius:var(--r-knopf);border:1px solid transparent;cursor:pointer;transition:background var(--zeit)}
+.btn-s{background:var(--schwarz);color:var(--weiss)}.btn-s:hover{background:var(--hover-schwarz)}
+.btn-h{background:var(--weiss);color:var(--text);border-color:var(--linie)}.btn-h:hover{background:var(--hover-hell)}
+.btn-w{background:var(--weiss);color:var(--schwarz)}
+.btn:focus-visible{outline:2px solid var(--schwarz);outline-offset:2px}
+header{border-bottom:1px solid var(--linie);background:var(--weiss)}
+.kopf{height:78px;display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4)}
+.kopf nav{display:flex;gap:var(--sp-6);align-items:center}
+.logo{display:flex;align-items:center;gap:.5rem;font-weight:400}
+.logo svg{display:block}
+.kopf .links{display:flex;gap:var(--sp-6)}
+.kopf .rechts{display:flex;gap:var(--sp-3);align-items:center}
+.hero{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,6fr) minmax(0,3fr);gap:var(--sp-8);align-items:center;padding:var(--sp-20) 0}
+h1{font-size:var(--fs-display);line-height:var(--lh-display);letter-spacing:var(--ls-display);font-weight:var(--fw-normal);max-width:7ch}
+.buehne{position:relative;aspect-ratio:1/1;max-width:34rem;width:100%;margin:0 auto}
+.f{position:absolute}
+.f1{inset:0 18% 22% 6%;background:var(--bild-violett)}
+.f2{inset:22% 0 6% 28%;background:var(--bild-gruen)}
+.f3{inset:30% 30% 12% 0;background:var(--bild-dunkel);border-radius:2px}
+.f4{inset:14% 14% 34% 20%;background:var(--weiss);border-radius:var(--r-box);border:4px solid var(--weiss);box-shadow:var(--schatten-weich);overflow:hidden}
+.f4 i{display:block;height:68%;background:radial-gradient(circle at 30% 40%,var(--bild-gelb) 0 12%,transparent 13%),radial-gradient(circle at 70% 55%,var(--bild-blau) 0 14%,transparent 15%),#dfe9d8}
+.f4 b{display:block;height:32%;background:repeating-linear-gradient(90deg,var(--bild-violett) 0 18%,#e5e5e5 18% 22%)}
+.punkte{position:absolute;left:10%;bottom:20%;display:grid;grid-template-columns:repeat(4,1.1rem);gap:.2rem}
+.punkte span{width:1.1rem;height:1.1rem;border-radius:50%;background:var(--bild-gelb)}
+.cta-gross{justify-self:end}
+.cta-gross .btn{font-size:1.75rem;padding:1.75rem 2.5rem;border-radius:var(--r-box);font-weight:var(--fw-leicht)}
+.sek{padding:var(--abschnitt) 0}
+h2{font-size:var(--fs-h2);line-height:var(--lh-h2);letter-spacing:var(--ls-h2);font-weight:var(--fw-normal);max-width:16ch}
+.txt{font-size:var(--fs-text);font-weight:var(--fw-leicht);line-height:var(--lh-text);max-width:var(--breite-text);margin-top:var(--sp-6)}
+.zwei{display:grid;grid-template-columns:5fr 7fr;gap:var(--sp-10);align-items:center}
+.bild-gross{aspect-ratio:4/3;border-radius:var(--r-bild);background:linear-gradient(135deg,transparent 0 0),var(--bild-dunkel);position:relative;overflow:hidden}
+.bild-gross:before{content:"";position:absolute;width:55%;aspect-ratio:1;left:12%;top:16%;border-radius:50%;background:var(--bild-gelb)}
+.bild-gross:after{content:"";position:absolute;right:10%;bottom:12%;width:48%;height:44%;border-radius:var(--r-box);background:var(--bild-violett)}
+.karten{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-6);margin-top:var(--sp-14)}
+.k .b{aspect-ratio:1/1;border-radius:var(--r-bild);margin-bottom:var(--sp-4);position:relative;overflow:hidden}
+.k:nth-child(1) .b{background:var(--bild-violett)}.k:nth-child(2) .b{background:var(--bild-gruen)}.k:nth-child(3) .b{background:var(--bild-blau)}
+.k .b:after{content:"";position:absolute;left:18%;right:18%;top:24%;bottom:24%;background:var(--weiss);border-radius:var(--r-box)}
+.k:nth-child(2) .b:after{border-radius:50%;left:24%;right:24%;top:24%;bottom:24%}
+.k h3{font-size:var(--fs-titel);font-weight:var(--fw-normal);line-height:1.2}
+.k p{color:var(--text-2);font-weight:var(--fw-leicht);margin-top:var(--sp-2)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--sp-2);margin-top:var(--sp-8)}
+.chip{padding:.375rem .75rem;border:1px solid var(--linie);border-radius:var(--r-pille);font-size:.9375rem}
+.chip.an{background:var(--schwarz);color:var(--weiss);border-color:var(--schwarz)}
+.logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--sp-4);margin-top:var(--sp-10)}
+.logos span{height:3.5rem;border:1px solid var(--linie);border-radius:var(--r-knopf);display:flex;align-items:center;justify-content:center}
+.logos svg{opacity:.5}
+.schwarz{background:var(--schwarz);color:var(--text-auf-schwarz)}
+.schwarz .label{color:var(--text-2-auf-schwarz)}
+.cta{padding:var(--sp-30) 0;display:grid;grid-template-columns:7fr 5fr;gap:var(--sp-10);align-items:end}
+.cta .aktion{display:flex;gap:var(--sp-3);flex-wrap:wrap;justify-content:flex-end}
+footer.schwarz{padding:0 0 var(--sp-16);border-top:1px solid var(--linie-auf-schwarz)}
+.fgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-8);padding-top:var(--sp-16)}
+.fgrid a{display:block;color:var(--text-2-auf-schwarz);margin-top:var(--sp-2)}.fgrid a:hover{color:var(--weiss)}
+.klein{margin-top:var(--sp-14);color:var(--text-2-auf-schwarz);font-size:.875rem}
+@media(max-width:900px){
+ .kopf .links,.kopf .sek-btn{display:none}
+ .hero{grid-template-columns:1fr;padding:var(--abschnitt-mobil) 0;gap:var(--sp-6)}
+ .cta-gross{justify-self:start}.cta-gross .btn{font-size:1.25rem;padding:1.25rem 1.75rem}
+ .zwei,.cta{grid-template-columns:1fr}.cta{padding:var(--sp-20) 0}
+ .cta .aktion{justify-content:flex-start}
+ .karten{grid-template-columns:1fr}
+ .logos{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .sek{padding:var(--abschnitt-mobil) 0}
+ .txt{font-size:1rem}
+}
+</style></head><body>
+<header><div class="w kopf">
+<nav><a class="logo" href="#"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" fill="#000"/><circle cx="17" cy="6.5" r="4.5" fill="#000"/><rect x="2" y="13" width="9" height="9" rx="4.5" fill="#000"/></svg>Nordwerk</a>
+<span class="links"><a href="#produkt">Produkt</a><a href="#lösungen">Lösungen</a><a href="#kunden">Kunden</a><a href="#preise">Preise</a></span></nav>
+<div class="rechts"><a href="#" class="links">Anmelden</a><a class="btn btn-h sek-btn" href="#">Vertrieb kontaktieren</a><a class="btn btn-s" href="#preise">Kostenlos starten</a></div>
+</div></header>
+
+<main>
+<section class="w hero">
+<h1>Die ruhige Fläche für Ideen</h1>
+<div class="buehne" role="img" aria-label="Platzhalter einer Produktbühne">
+<div class="f f1"></div><div class="f f2"></div><div class="f f3"></div>
+<div class="f f4"><i></i><b></b></div>
+<div class="punkte" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="cta-gross"><a class="btn btn-s" href="#preise">Loslegen</a></div>
+</section>
+
+<section class="w sek" id="produkt"><div class="zwei">
+<div><span class="label">Zusammenarbeit</span><h2>Alle am selben Entwurf, ohne Umwege</h2>
+<p class="txt">Skizzen, Tafeln und fertige Oberflächen liegen an einem Ort. Änderungen sind sofort für alle sichtbar, Kommentare bleiben am Objekt.</p>
+<div class="chips"><span class="chip an">Entwurf</span><span class="chip">Prototyp</span><span class="chip">Übergabe</span></div></div>
+<div class="bild-gross" role="img" aria-label="Platzhalter einer Oberfläche"></div>
+</div></section>
+
+<section class="w sek" id="lösungen"><span class="label">Bausteine</span><h2>Drei Werkzeuge, eine Arbeitsweise</h2>
+<div class="karten">
+<article class="k"><div class="b" role="img" aria-label="Platzhalter"></div><h3>Tafel</h3><p>Ideen sammeln und ordnen, bevor sie Form annehmen.</p></article>
+<article class="k"><div class="b" role="img" aria-label="Platzhalter"></div><h3>Entwurf</h3><p>Oberflächen zeichnen mit Raster, Stilen und Komponenten.</p></article>
+<article class="k"><div class="b" role="img" aria-label="Platzhalter"></div><h3>Übergabe</h3><p>Maße, Farben und Texte in einem Blick für die Entwicklung.</p></article>
+</div></section>
+
+<section class="w sek" id="kunden"><span class="label">Teams</span><h2>Von kleinen Studios bis zu großen Häusern</h2>
+<div class="logos" aria-label="Platzhalter für Kundenlogos">
+<span><svg width="56" height="16"><rect width="56" height="16" rx="8" fill="#000"/></svg></span>
+<span><svg width="40" height="16"><rect width="40" height="16" rx="2" fill="#000"/></svg></span>
+<span><svg width="48" height="16"><circle cx="8" cy="8" r="8" fill="#000"/><rect x="20" y="4" width="28" height="8" fill="#000"/></svg></span>
+<span><svg width="56" height="16"><rect width="56" height="16" rx="8" fill="#000"/></svg></span>
+<span><svg width="44" height="16"><rect width="44" height="16" rx="2" fill="#000"/></svg></span>
+<span><svg width="36" height="16"><circle cx="8" cy="8" r="8" fill="#000"/><circle cx="28" cy="8" r="8" fill="#000"/></svg></span>
+</div></section>
+
+<section class="schwarz" id="preise"><div class="w cta">
+<div><span class="label">Jetzt starten</span><h2>Der erste Entwurf dauert fünf Minuten</h2></div>
+<div class="aktion"><a class="btn btn-w" href="#">Kostenlos starten</a><a class="btn btn-w" href="#">Vertrieb kontaktieren</a></div>
+</div></section>
+</main>
+
+<footer class="schwarz"><div class="w">
+<div class="fgrid">
+<div><span class="label">Produkt</span><a href="#">Tafel</a><a href="#">Entwurf</a><a href="#">Übergabe</a></div>
+<div><span class="label">Lösungen</span><a href="#">Studios</a><a href="#">Agenturen</a><a href="#">Teams</a></div>
+<div><span class="label">Ressourcen</span><a href="#">Hilfe</a><a href="#">Journal</a><a href="#">Vorlagen</a></div>
+<div><span class="label">Firma</span><a href="#">Über uns</a><a href="#">Kontakt</a><a href="#">Impressum</a></div>
+</div>
+<p class="klein">Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage.</p>
+</div></footer>
+</body></html>

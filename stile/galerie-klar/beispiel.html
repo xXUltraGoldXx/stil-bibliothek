@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Galerie klar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--grund);color:var(--tinte);font-family:var(--font-ui);font-size:var(--fs-text);line-height:var(--lh-text);font-weight:400}
+a{color:inherit;text-decoration:none}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+.kopf{display:flex;align-items:center;gap:var(--s5);padding:var(--s5) 0;flex-wrap:wrap}
+.logo{font-weight:800;font-size:1.4rem;letter-spacing:-.01em}
+.kopf nav{display:flex;gap:var(--s5);font-weight:500;flex:1;flex-wrap:wrap}
+.kopf nav a:hover{color:var(--akzent)}
+.kopf .rechts{display:flex;align-items:center;gap:var(--s5);font-weight:600;font-size:var(--fs-klein)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);height:48px;padding:0 var(--s5);border-radius:var(--r-pille);background:var(--tinte);color:#fff;font:600 var(--fs-klein) var(--font-ui);border:0;cursor:pointer;transition:background .2s ease}
+.btn:hover{background:#2a2940}
+.btn.klein{height:40px;padding:0 var(--s4)}
+.btn.hell{background:#fff;color:var(--tinte)}.btn.hell:hover{background:var(--flaeche)}
+.btn.rand{background:#fff;color:var(--tinte);border:1px solid var(--linie);height:36px;padding:0 var(--s4)}.btn.rand:hover{background:var(--flaeche)}
+.band{display:flex;align-items:center;justify-content:center;gap:var(--s4);flex-wrap:wrap;background:var(--band-hell);border-radius:var(--r-pille);padding:var(--s3) var(--s5);font-size:var(--fs-klein);font-weight:500;text-align:center}
+.hero{display:grid;grid-template-columns:5fr 6fr;gap:var(--s7);align-items:center;padding:var(--s7) 0 var(--s6)}
+.umschalter{display:inline-flex;background:var(--flaeche);border-radius:var(--r-pille);padding:4px;margin-bottom:var(--s5)}
+.umschalter span{padding:8px 14px;border-radius:var(--r-pille);font-size:var(--fs-meta);font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--tinte-2)}
+.umschalter .an{background:#fff;border:1px solid var(--linie);color:var(--tinte)}
+h1{font-size:var(--fs-h1);font-weight:600;line-height:var(--lh-h);margin-bottom:var(--s5)}
+h1 em{font-style:normal;color:var(--akzent)}
+h2{font-size:var(--fs-h2);font-weight:600;line-height:var(--lh-h)}
+.liste{list-style:none;display:grid;gap:var(--s3);margin-bottom:var(--s6)}
+.liste li{display:flex;align-items:center;gap:var(--s3);font-weight:500}
+.haken{flex:none;width:24px;height:24px;border-radius:50%;background:var(--akzent-hell);display:grid;place-items:center}
+.visual{position:relative;aspect-ratio:7/5;border-radius:var(--r-gross);background:linear-gradient(180deg,#0b0a10 0%,#2c2b33 55%,#b9bcc0 100%);overflow:hidden}
+.visual svg{position:absolute;inset:0;width:100%;height:100%}
+.pille{position:absolute;right:var(--s4);bottom:var(--s4);display:flex;align-items:center;gap:var(--s2);background:#fff;border-radius:var(--r-pille);padding:6px 16px 6px 6px;font-size:var(--fs-klein);font-weight:500;box-shadow:var(--schatten-schwebend)}
+.av{width:24px;height:24px;border-radius:50%;background:var(--akzent-hell);border:1px solid var(--linie);flex:none}
+.sek{padding:var(--s6) 0}
+.tabs{display:flex;gap:var(--s4);flex-wrap:wrap;margin-bottom:var(--s4);font-size:var(--fs-klein);font-weight:600;color:var(--tinte-2)}
+.tabs span{padding:10px 16px;border-radius:var(--r-pille)}.tabs .an{background:var(--flaeche);color:var(--tinte)}
+.suche{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);height:56px;background:var(--flaeche);border-radius:var(--r-pille);padding:0 8px 0 24px;color:var(--tinte-2);font-size:var(--fs-klein);margin-bottom:var(--s5)}
+.suche span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.suche i{flex:none;width:40px;height:40px;border-radius:50%;background:var(--akzent);display:grid;place-items:center}
+.chips{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center;margin-bottom:var(--s6)}
+.chips b{font-size:var(--fs-meta);font-weight:600;margin-right:var(--s2)}
+.chip{border:1px solid var(--linie);border-radius:var(--r-pille);padding:6px 16px;font-size:var(--fs-klein);font-weight:500;background:#fff;transition:background .15s ease}.chip:hover{background:var(--flaeche)}
+.raster{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--luecke)}
+.kachel .bild{aspect-ratio:4/3;border-radius:var(--r-kachel);transition:transform .2s ease}
+.kachel:hover .bild{transform:scale(1.02)}
+.b1{background:linear-gradient(135deg,#1c1b3a,#7b61ff)}.b2{background:linear-gradient(135deg,#ff6d03,#fff1e6)}.b3{background:linear-gradient(135deg,#c4baad,#fffaf8)}.b4{background:linear-gradient(135deg,#657090,#15132c)}
+.b5{background:linear-gradient(135deg,#fce7ef,#e2578f)}.b6{background:linear-gradient(135deg,#043b2e,#7a9086)}.b7{background:linear-gradient(135deg,#f3f3f6,#9e9ea7)}.b8{background:linear-gradient(135deg,#230f0b,#ff6d03)}
+.meta{display:flex;align-items:center;gap:var(--s2);margin-top:var(--s3);font-size:var(--fs-klein)}
+.meta strong{font-weight:600}
+.pro{background:var(--flaeche-2);border-radius:4px;padding:1px 6px;font-size:.6875rem;font-weight:800;letter-spacing:.04em}
+.meta .z{margin-left:auto;color:var(--tinte-2);font-size:var(--fs-meta)}
+.schluss{background:var(--tinte);color:#fff;border-radius:var(--r-gross);padding:var(--s7) var(--s6);display:grid;grid-template-columns:1fr auto;gap:var(--s5);align-items:center;margin:var(--s6) 0}
+.schluss p{color:#bebaca;margin-top:var(--s3)}
+footer{padding:var(--s5) 0 var(--s6);color:var(--tinte-2);font-size:var(--fs-klein);display:flex;gap:var(--s5);flex-wrap:wrap;justify-content:space-between}
+@media(max-width:1100px){.raster{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:800px){
+ :root{--rand:16px}
+ .hero{grid-template-columns:1fr;gap:var(--s6);padding:var(--s6) 0 var(--s5)}
+ .raster{grid-template-columns:repeat(2,1fr)}
+ .schluss{grid-template-columns:1fr;padding:var(--s6) var(--s5)}
+ .band{border-radius:var(--r-gross)}
+}
+@media(max-width:560px){.raster{grid-template-columns:1fr}.kopf nav{display:none}.kopf{justify-content:space-between}.kopf .rechts{margin-left:auto}}
+</style></head><body><div class="w">
+<header class="kopf"><a class="logo" href="#">Nordwerk</a>
+<nav><a href="#">Entdecken</a><a href="#">Team finden</a><a href="#">Aufträge</a><a href="#">Community</a></nav>
+<div class="rechts"><a href="#">Registrieren</a><a class="btn klein" href="#">Anmelden</a></div></header>
+<div class="band"><span>20 % Nachlass auf die erste Projektbuchung im Herbst.</span><a class="btn rand" href="#">Mehr erfahren</a></div>
+
+<section class="hero"><div>
+<div class="umschalter"><span class="an">Auftraggeber</span><span>Gestalter</span></div>
+<h1>Finde das Team für deine nächste <em>Marke</em></h1>
+<ul class="liste">
+<li><span class="haken"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#e2578f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></span>Beschreibe dein Vorhaben und erhalte Angebote</li>
+<li><span class="haken"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#e2578f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></span>Stöbere in echten Projektbeispielen</li>
+<li><span class="haken"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#e2578f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></span>Buche geprüfte Studios und Freiberufler</li></ul>
+<a class="btn" href="#">Projekt beschreiben</a></div>
+<div class="visual" role="img" aria-label="Platzhalter für ein 3D-Motiv">
+<svg viewBox="0 0 700 500" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3f3f6"/><stop offset="1" stop-color="#6e6d7a"/></linearGradient><radialGradient id="o" cx=".7" cy=".5" r=".6"><stop offset="0" stop-color="#ff6d03" stop-opacity=".9"/><stop offset="1" stop-color="#ff6d03" stop-opacity="0"/></radialGradient></defs>
+<rect x="210" y="70" width="280" height="110" rx="55" fill="url(#g)"/><rect x="190" y="170" width="320" height="120" rx="60" fill="url(#g)" opacity=".9"/><rect x="170" y="280" width="360" height="130" rx="65" fill="url(#g)" opacity=".8"/><circle cx="450" cy="250" r="150" fill="url(#o)"/></svg>
+<div class="pille"><span class="av"></span>Studio Beispiel</div></div></section>
+
+<section class="sek">
+<div class="tabs"><span class="an">Arbeiten</span><span>Gestalter</span><span>Leistungen</span></div>
+<div class="suche"><span>Welche Art von Gestaltung suchst du?</span><i><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="8" cy="8" r="5.5"/><path d="M12.5 12.5L16 16"/></svg></i></div>
+<div class="chips"><b>Beliebt:</b><a class="chip" href="#">Oberflächen</a><a class="chip" href="#">Marke</a><a class="chip" href="#">App</a><a class="chip" href="#">Verpackung</a><a class="chip" href="#">Illustration</a><a class="chip" href="#">Animation</a></div>
+<h2 style="margin-bottom:var(--s5)">Frisch im Katalog</h2>
+<div class="raster">
+<a class="kachel" href="#"><div class="bild b1"></div><div class="meta"><span class="av"></span><strong>Lena Hoff</strong><span class="pro">Plus</span><span class="z">248</span></div></a>
+<a class="kachel" href="#"><div class="bild b2"></div><div class="meta"><span class="av"></span><strong>Atelier Eich</strong><span class="z">131</span></div></a>
+<a class="kachel" href="#"><div class="bild b3"></div><div class="meta"><span class="av"></span><strong>Tom Reuter</strong><span class="pro">Plus</span><span class="z">97</span></div></a>
+<a class="kachel" href="#"><div class="bild b4"></div><div class="meta"><span class="av"></span><strong>Kollektiv Nord</strong><span class="z">312</span></div></a>
+<a class="kachel" href="#"><div class="bild b5"></div><div class="meta"><span class="av"></span><strong>Mira Sand</strong><span class="pro">Plus</span><span class="z">76</span></div></a>
+<a class="kachel" href="#"><div class="bild b6"></div><div class="meta"><span class="av"></span><strong>Fabian Kerl</strong><span class="z">189</span></div></a>
+<a class="kachel" href="#"><div class="bild b7"></div><div class="meta"><span class="av"></span><strong>Studio Linde</strong><span class="pro">Plus</span><span class="z">54</span></div></a>
+<a class="kachel" href="#"><div class="bild b8"></div><div class="meta"><span class="av"></span><strong>Jana Voss</strong><span class="z">405</span></div></a>
+</div></section>
+
+<section class="schluss"><div><h2>Bereit für dein nächstes Projekt?</h2><p>Beschreibe es in drei Minuten, die ersten Angebote kommen oft noch am selben Tag.</p></div><a class="btn hell" href="#">Jetzt starten</a></section>
+<footer><span>Nordwerk Studio – fiktives Beispiel für diese Stilvorlage</span><span>Impressum · Datenschutz · Kontakt</span></footer>
+</div></body></html>

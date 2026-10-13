@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Katalog warm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;800&family=Newsreader:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--karte);color:var(--tinte);font-family:var(--font-ui);font-weight:500;font-size:var(--fs-text);line-height:var(--lh-text);letter-spacing:.01em}
+a{color:inherit;text-decoration:none}
+.band{background:var(--band);color:var(--band-text);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.6rem var(--rand-x);font-size:var(--fs-meta);font-weight:600}
+.band a{text-decoration:underline}
+.kopf{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1rem var(--rand-x);border-bottom:1px solid var(--linie)}
+.marke{font-family:var(--font-display);font-size:1.7rem}
+.suche{flex:1;max-width:44rem;border:1px solid var(--linie);border-radius:var(--r-feld);padding:.7rem 1rem;color:var(--grau);background:var(--karte)}
+.menue{display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem 2rem;padding:1rem var(--rand-x);border-bottom:1px solid var(--linie);font-size:var(--fs-nav);letter-spacing:var(--ls-knopf);text-transform:uppercase;font-weight:500}
+.menue .sale{color:var(--rot-text)}
+.hero{position:relative;min-height:31rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:3rem var(--rand-x);background:var(--foto-verlauf),radial-gradient(ellipse at 30% 70%,#b9855a 0,transparent 55%),radial-gradient(ellipse at 75% 30%,#6b4630 0,transparent 60%),repeating-linear-gradient(45deg,#a9774f 0 18px,#9a6b46 18px 36px)}
+.kicker{font-size:var(--fs-nav);font-weight:800;letter-spacing:var(--ls-knopf);text-transform:uppercase}
+h1{font-family:var(--font-display);font-weight:400;font-size:var(--fs-hero);line-height:1.22;letter-spacing:.004em;margin:1rem 0 2.5rem;max-width:14ch}
+.knopf{display:inline-block;background:var(--rot);color:#fff;font-weight:800;font-size:var(--fs-nav);letter-spacing:var(--ls-knopf);text-transform:uppercase;border-radius:var(--r-knopf);padding:20px 48px 22px;transition:background .2s}
+.knopf:hover{background:var(--rot-hover)}
+.knopf.dunkel{background:var(--tinte)}.knopf.dunkel:hover{background:var(--grau-dunkel)}
+.sek{padding:4rem var(--rand-x);text-align:center}
+h2{font-family:var(--font-display);font-weight:400;font-size:var(--fs-titel);line-height:var(--lh-titel);margin-bottom:1.5rem}
+.tabs{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:2rem;font-size:var(--fs-nav);letter-spacing:var(--ls-knopf);text-transform:uppercase;font-weight:600;color:var(--grau)}
+.tabs .an{color:var(--tinte);border-bottom:2px solid var(--tinte);padding-bottom:.4rem}
+.reihe{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--luecke);text-align:left;max-width:var(--breite);margin:0 auto}
+.karte{background:var(--grund);border-radius:var(--r-karte);padding:.75rem;position:relative}
+.plak{position:absolute;left:1.2rem;top:1.2rem;background:var(--rot);color:#fff;border-radius:var(--r-pille);padding:.2rem .7rem;font-size:var(--fs-meta);font-weight:800;letter-spacing:var(--ls-meta);text-transform:uppercase;z-index:1}
+.herz{position:absolute;right:1.2rem;top:1.2rem;z-index:1}
+.bild{aspect-ratio:4/3;border-radius:4px}
+.b1{background:repeating-linear-gradient(90deg,#8d8176 0 10px,#6f655c 10px 20px)}
+.b2{background:linear-gradient(135deg,#2f4a3a 0 50%,#c9b79a 50% 100%)}
+.b3{background:radial-gradient(circle at 50% 50%,#da8d55 0 25%,#f6f4ef 25% 45%,#934b32 45% 100%)}
+.b4{background:repeating-linear-gradient(45deg,#e6e6e6 0 12px,#d2cfc8 12px 24px)}
+.karte h3{font-size:var(--fs-nav);font-weight:600;margin:.8rem 0 .2rem}
+.karte p{color:var(--grau-dunkel)}
+.creme{background:var(--creme)}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;max-width:var(--breite);margin:0 auto;text-align:left}
+.zwei .bild{aspect-ratio:5/4;border-radius:var(--r-karte)}
+.zwei p{margin-bottom:2rem;font-size:1rem;max-width:44ch;color:var(--grau-dunkel)}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:var(--breite);margin:0 auto}
+.zahlen strong{display:block;font-family:var(--font-display);font-weight:400;font-size:3rem;line-height:1.2}
+.cta{background:var(--tinte);color:#fff}
+.cta p{margin:0 auto 2rem;max-width:44ch}
+footer{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;padding:60px var(--rand-x);background:var(--grund);font-size:var(--fs-nav)}
+footer h4{font-size:var(--fs-meta);font-weight:800;letter-spacing:var(--ls-meta);text-transform:uppercase;margin-bottom:1rem}
+footer a{display:block;margin-bottom:.5rem}
+@media(max-width:800px){
+:root{--rand-x:var(--rand-x-mobil)}
+.kopf{flex-wrap:wrap}.suche{flex-basis:100%;order:3}
+.hero{min-height:26rem}
+.knopf{padding:20px 16px 22px;width:100%;max-width:15rem;text-align:center}
+.sek{padding:2.5rem var(--rand-x)}
+.reihe{grid-template-columns:1fr 1fr}
+.zwei,.zahlen{grid-template-columns:1fr}
+footer{grid-template-columns:1fr 1fr;padding:40px var(--rand-x)}
+}
+</style></head><body>
+<div class="band"><span>Lieferung bis Freitag bei Bestellung bis Mittwoch</span><a href="#">Werkstattprogramm</a></div>
+<header class="kopf"><span class="marke">Nordwerk Studio</span><div class="suche">Regale, Leuchten, Tische suchen …</div>
+<svg width="72" height="24" viewBox="0 0 72 24" fill="none" stroke="#1a1817" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M36 20s-9-6-9-12a5 5 0 0 1 9-2 5 5 0 0 1 9 2c0 6-9 12-9 12z"/><path d="M56 8h14v14H56zM60 8a3 3 0 0 1 6 0"/></svg></header>
+<nav class="menue"><a href="#neu">Neu</a><a href="#raum">Raum</a><a href="#holz">Holz</a><a href="#licht">Licht</a><a href="#farbe">Farbe</a><a href="#zubehoer">Zubehör</a><a class="sale" href="#aktion">Aktion</a></nav>
+<section class="hero" id="neu"><span class="kicker">Die Herbstwoche</span><h1>Bis zu 25 % günstiger</h1><a class="knopf" href="#aktion">Jetzt ansehen</a></section>
+<section class="sek" id="raum"><h2>Wohnliches zum fairen Preis</h2>
+<div class="tabs"><span class="an">Möbel</span><span>Leuchten</span><span>Textilien</span></div>
+<div class="reihe">
+<div class="karte"><span class="plak">Aktion</span><svg class="herz" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#808080" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-9-6-9-12a5 5 0 0 1 9-2 5 5 0 0 1 9 2c0 6-9 12-9 12z"/></svg><div class="bild b1" role="img" aria-label="Platzhalter Bild"></div><h3>Regal Linde</h3><p>ab 189 €</p></div>
+<div class="karte"><span class="plak">Aktion</span><svg class="herz" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#808080" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-9-6-9-12a5 5 0 0 1 9-2 5 5 0 0 1 9 2c0 6-9 12-9 12z"/></svg><div class="bild b2" role="img" aria-label="Platzhalter Bild"></div><h3>Bank Moor</h3><p>ab 329 €</p></div>
+<div class="karte"><svg class="herz" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#808080" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-9-6-9-12a5 5 0 0 1 9-2 5 5 0 0 1 9 2c0 6-9 12-9 12z"/></svg><div class="bild b3" role="img" aria-label="Platzhalter Bild"></div><h3>Leuchte Dämmer</h3><p>ab 79 €</p></div>
+<div class="karte"><svg class="herz" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#808080" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-9-6-9-12a5 5 0 0 1 9-2 5 5 0 0 1 9 2c0 6-9 12-9 12z"/></svg><div class="bild b4" role="img" aria-label="Platzhalter Bild"></div><h3>Tisch Anker</h3><p>ab 459 €</p></div>
+</div></section>
+<section class="sek creme" id="holz"><div class="zwei"><div class="bild b3" role="img" aria-label="Platzhalter Bild"></div>
+<div><span class="kicker">Aus der Werkstatt</span><h2 style="margin-top:.8rem">Gebaut, um zu bleiben</h2><p>Jedes Stück entsteht in kleinen Serien aus Eiche und Esche. Wir verzichten auf Schnickschnack und setzen auf Verbindungen, die man reparieren kann.</p><a class="knopf dunkel" href="#licht">Mehr erfahren</a></div></div></section>
+<section class="sek" id="licht"><h2>Zahlen, auf die wir stolz sind</h2>
+<div class="zahlen"><div><strong>12 Jahre</strong>Garantie auf Holzverbindungen</div><div><strong>48 h</strong>Versand ab Lager</div><div><strong>30 Tage</strong>Rückgabe ohne Fragen</div></div></section>
+<section class="sek cta" id="aktion"><h2>Dein Zuhause, Stück für Stück</h2><p>Lege dir eine Merkliste an und erhalte eine Nachricht, sobald ein Lieblingsstück im Angebot ist.</p><a class="knopf" href="#neu">Merkliste starten</a></section>
+<footer><div><h4>Sortiment</h4><a href="#">Möbel</a><a href="#">Leuchten</a><a href="#">Textilien</a></div><div><h4>Service</h4><a href="#">Lieferung</a><a href="#">Rückgabe</a><a href="#">Pflege</a></div><div><h4>Studio</h4><a href="#">Werkstatt</a><a href="#">Karriere</a><a href="#">Kontakt</a></div><div><h4>Rechtliches</h4><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a></div></footer>
+</body></html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio – Magazin für Handwerk und Gestaltung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--grund);color:var(--text);font-family:var(--font-serif);font-size:var(--fs-text);line-height:var(--lh-text)}
+a{color:inherit;text-decoration:none}
+a:hover .titel,a.titel:hover{text-decoration:underline}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+.sans{font-family:var(--font-sans)}
+.kopf{background:var(--flaeche);border-bottom:1px solid var(--linie)}
+.kopf-oben{display:flex;align-items:center;justify-content:space-between;height:72px;gap:var(--s-2)}
+.marke{display:flex;gap:6px}
+.marke span{width:32px;height:32px;background:var(--schwarz);color:#fff;font:700 1rem var(--font-sans);display:flex;align-items:center;justify-content:center}
+.kopf-rechts{display:flex;align-items:center;gap:var(--s-3);font:500 var(--fs-knopf) var(--font-sans)}
+.menue{width:28px;height:20px;border-top:3px solid var(--schwarz);border-bottom:3px solid var(--schwarz);position:relative}
+.menue::after{content:"";position:absolute;left:0;right:0;top:5px;height:3px;background:var(--schwarz)}
+.knopf{display:inline-block;background:var(--schwarz);color:#fff;font:500 var(--fs-knopf)/1.2 var(--font-sans);padding:var(--s-1) var(--s-3);min-height:44px;line-height:28px;border-radius:var(--r);border:0}
+.knopf:hover{background:var(--dunkel)}
+.knopf-2{background:transparent;color:var(--schwarz);border:var(--rahmen) solid var(--schwarz);padding:var(--s-1) var(--s-2);line-height:24px}
+.knopf-2:hover{background:var(--schwarz);color:#fff}
+.rubriken{display:flex;gap:var(--s-3);justify-content:center;flex-wrap:wrap;font:500 var(--fs-nav) var(--font-sans);border-top:1px solid var(--linie);padding:0 var(--rand)}
+.rubriken a{padding:var(--s-2) 0 calc(var(--s-2) - 3px);border-bottom:3px solid transparent}
+.rubriken a.aktiv{border-color:var(--rot)}
+.eil{font:700 1em var(--font-sans);color:var(--rot)}
+.eil::before{content:"";display:inline-block;width:.7em;height:.7em;background:var(--rot-punkt);border-radius:50%;margin-right:.35em}
+h1,h2,h3,.titel{font-family:var(--font-serif);font-weight:var(--gew-titel);letter-spacing:var(--ls-titel);margin:0}
+h1{font-size:var(--fs-h1);line-height:var(--lh-h1)}
+h2{font-size:var(--fs-h2);line-height:var(--lh-h2)}
+h3,.teaser .titel{font-size:var(--fs-teaser);line-height:var(--lh-teaser);display:block}
+.meta{font:500 var(--fs-meta) var(--font-sans);letter-spacing:var(--ls-meta);color:var(--text-2);margin:var(--s-1) 0 0}
+.zwei{color:var(--text-2);margin:var(--s-1) 0 0}
+.bild{background:#d9dcde;aspect-ratio:16/9;position:relative;overflow:hidden;margin-bottom:var(--s-2)}
+.bild svg{position:absolute;inset:0;width:100%;height:100%}
+.bild.b2{background:#c7cbce}.bild.b3{background:#bcc0c3}.bild.b4{background:#d2d5d8}
+.auf{display:grid;grid-template-columns:4fr 5fr 3fr;gap:var(--luecke);padding:var(--s-4) 0}
+.auf .gross h1{margin-bottom:var(--s-2)}
+.stapel{display:grid;gap:var(--s-3);align-content:start}
+.stapel .teaser+.teaser{border-top:1px solid var(--linie);padding-top:var(--s-3)}
+.block{background:var(--flaeche);padding:var(--s-4) 0 var(--s-5)}
+.block-kopf{display:flex;align-items:baseline;justify-content:space-between;border-top:var(--linie-stark) solid var(--schwarz);padding-top:var(--s-2);margin-bottom:var(--s-3);gap:var(--s-3);flex-wrap:wrap}
+.block-kopf h2{font-size:var(--fs-h3);line-height:var(--lh-h3)}
+.vier{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--luecke)}
+.dunkel{background:var(--dunkel);color:#fff;padding:var(--s-5) 0}
+.dunkel .zwei,.dunkel .meta{color:var(--auf-dunkel)}
+.dossier{display:grid;grid-template-columns:7fr 5fr;gap:var(--s-5);align-items:center}
+.dossier a.akt{color:var(--orange);font:500 var(--fs-knopf) var(--font-sans);display:inline-block;margin-top:var(--s-3)}
+.dossier .bild{background:var(--dunkel-2);margin:0}
+.news{background:var(--grund);padding:var(--s-5) 0}
+.news-inner{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-5);align-items:center}
+.feld{display:flex;gap:var(--s-2);flex-wrap:wrap}
+.feld input{flex:1 1 200px;min-width:0;background:rgba(239,239,239,.3);border:0;border-bottom:1px solid var(--text-3);padding:13px;font:400 var(--fs-knopf) var(--font-sans);color:var(--text);border-radius:0}
+.feld input:focus{outline:var(--rahmen) solid var(--schwarz)}
+.fuss{background:var(--dunkel);color:var(--auf-dunkel);padding:var(--s-5) 0;font:400 var(--fs-nav) var(--font-sans)}
+.fuss-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-4)}
+.fuss b{display:block;color:#fff;margin-bottom:var(--s-1)}
+.fuss a{display:block;padding:.2rem 0}
+@media(max-width:900px){
+ .auf{grid-template-columns:1fr 1fr}.auf .gross{grid-column:1/-1}
+ .vier{grid-template-columns:1fr 1fr}
+ .dossier,.news-inner{grid-template-columns:1fr}
+ .fuss-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+ :root{--fs-h1:1.5rem;--lh-h1:1.75rem;--fs-h2:1.5rem;--lh-h2:1.75rem;--fs-h3:1.25rem;--lh-h3:1.5rem}
+ .auf,.vier,.fuss-grid{grid-template-columns:1fr}
+ .kopf-rechts .txt{display:none}
+ .rubriken{gap:var(--s-2)}
+}
+</style>
+</head>
+<body>
+<header class="kopf">
+ <div class="wrap kopf-oben">
+  <div class="menue" aria-label="Menü"></div>
+  <div class="marke" aria-label="Nordwerk"><span>N</span><span>W</span><span>S</span></div>
+  <div class="kopf-rechts"><a class="knopf" href="#abo">Anmelden</a><a class="txt" href="#">Mein Konto</a></div>
+ </div>
+ <nav class="rubriken" aria-label="Rubriken">
+  <a class="aktiv" href="#top">Startseite</a><a href="#handwerk">Handwerk</a><a href="#material">Material</a><a href="#orte">Orte</a><a href="#menschen">Menschen</a><a href="#dossier">Dossier</a>
+ </nav>
+</header>
+
+<main id="top">
+<section class="wrap auf" aria-label="Aufmacher">
+ <article class="gross">
+  <h1><a href="#"><span class="eil">AKTUELL</span> <span class="titel" style="display:inline">Werkstatthalle in Leipzig öffnet nach Umbau mit neuer Holzbauschule</span></a></h1>
+  <p class="zwei">Zwölf Ausbildungsplätze, eine Biomasse-Heizung und ein Archiv alter Werkzeuge: Was die ehemalige Fabrikhalle künftig leisten soll.</p>
+  <p class="meta">Handwerk · vor 25 Min.</p>
+ </article>
+ <article class="teaser">
+  <div class="bild" role="img" aria-label="Platzhalter Werkstatthalle"><svg viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice"><rect x="0" y="55" width="160" height="35" fill="#a9aeb2"/><rect x="30" y="20" width="22" height="40" fill="#8f959a"/><rect x="60" y="14" width="22" height="46" fill="#848a90"/><rect x="90" y="24" width="22" height="36" fill="#9aa0a5"/></svg></div>
+  <a href="#"><span class="titel">Lärchenholz statt Beton: Wie ein Schulneubau im Norden Energie spart</span></a>
+  <p class="meta">Material · vor 1 Std.</p>
+ </article>
+ <div class="stapel">
+  <article class="teaser"><div class="bild b2" role="img" aria-label="Platzhalter"></div><a href="#"><span class="titel">Lehrlinge bauen Tiny House für Wohnprojekt</span></a><p class="meta">Menschen · vor 2 Std.</p></article>
+  <article class="teaser"><a href="#"><span class="titel">Preise für Eichenholz sinken zum dritten Mal in Folge</span></a><p class="meta">Material · vor 3 Std.</p></article>
+  <article class="teaser"><a href="#"><span class="titel">Neue Förderung für Betriebe mit Solardach</span></a><p class="meta">Handwerk · vor 4 Std.</p></article>
+ </div>
+</section>
+
+<section class="block" id="handwerk" aria-label="Handwerk">
+ <div class="wrap">
+  <div class="block-kopf"><h2>Handwerk</h2><a class="knopf knopf-2" href="#">Alle Meldungen</a></div>
+  <div class="vier">
+   <article class="teaser"><div class="bild b3" role="img" aria-label="Platzhalter"></div><a href="#"><span class="titel">Tischlerei übernimmt Betrieb von Mitarbeitenden</span></a><p class="zwei">Der Wechsel gelang nach vier Jahren Vorbereitung.</p><p class="meta">Handwerk · 12 Min. Lesezeit</p></article>
+   <article class="teaser"><div class="bild b4" role="img" aria-label="Platzhalter"></div><a href="#"><span class="titel">Warum Schreiner wieder Nachwuchs finden</span></a><p class="zwei">Kürzere Wege und bessere Bezahlung zeigen Wirkung.</p><p class="meta">Menschen · 8 Min. Lesezeit</p></article>
+   <article class="teaser"><div class="bild" role="img" aria-label="Platzhalter"></div><a href="#"><span class="titel">Reparieren statt ersetzen: Ein Stadtteil macht es vor</span></a><p class="zwei">Drei Werkstätten teilen sich Maschinen und Lager.</p><p class="meta">Orte · 6 Min. Lesezeit</p></article>
+   <article class="teaser"><div class="bild b2" role="img" aria-label="Platzhalter"></div><a href="#"><span class="titel">Werkzeug aus Recyclingstahl im Praxistest</span></a><p class="zwei">Nach sechs Monaten im Einsatz fällt die Bilanz gemischt aus.</p><p class="meta">Material · 5 Min. Lesezeit</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="dunkel" id="dossier" aria-label="Dossier">
+ <div class="wrap dossier">
+  <div>
+   <p class="meta">Dossier · Serie in fünf Teilen</p>
+   <h2 class="titel" style="margin-top:.5rem">Die Halle von morgen: Wie Werkstätten klimaneutral werden</h2>
+   <p class="zwei">Wir haben acht Betriebe ein Jahr lang begleitet und ihre Energiedaten ausgewertet. Das Ergebnis zeigt, wo sich Investitionen wirklich lohnen.</p>
+   <a class="akt" href="#">Serie lesen</a>
+  </div>
+  <div class="bild" role="img" aria-label="Platzhalter Dossier"><svg viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice"><rect x="0" y="62" width="160" height="28" fill="#2c2e30"/><polygon points="20,62 50,28 80,62" fill="#5a5d60"/><polygon points="70,62 105,20 140,62" fill="#6b6e72"/></svg></div>
+ </div>
+</section>
+
+<section class="news" id="abo" aria-label="Newsletter">
+ <div class="wrap news-inner">
+  <div>
+   <h2>Der Überblick am Morgen</h2>
+   <p class="zwei">Fünf Meldungen aus Handwerk und Gestaltung, werktags vor acht Uhr. Abmeldung jederzeit möglich.</p>
+  </div>
+  <div class="feld"><input type="text" placeholder="E-Mail-Adresse" aria-label="E-Mail-Adresse"><a class="knopf" href="#">Abonnieren</a></div>
+ </div>
+</section>
+</main>
+
+<footer class="fuss">
+ <div class="wrap fuss-grid">
+  <div><b>Nordwerk Studio</b><a href="#">Über uns</a><a href="#">Redaktion</a><a href="#">Kontakt</a></div>
+  <div><b>Rubriken</b><a href="#handwerk">Handwerk</a><a href="#material">Material</a><a href="#orte">Orte</a></div>
+  <div><b>Service</b><a href="#">Newsletter</a><a href="#">Archiv</a><a href="#">Hilfe</a></div>
+  <div><b>Rechtliches</b><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Nutzungsbedingungen</a></div>
+ </div>
+</footer>
+</body>
+</html>

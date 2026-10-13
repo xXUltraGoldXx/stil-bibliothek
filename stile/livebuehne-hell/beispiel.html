@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio: Livebühne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--grund);color:var(--text);font-family:var(--font);font-size:var(--fs-basis);line-height:var(--lh-basis);font-weight:400}
+a{color:var(--violett-text);text-decoration:none}
+h1,h2,h3,p{margin:0}
+.kopf{position:sticky;top:0;z-index:5;height:var(--kopf);background:var(--flaeche);border-bottom:1px solid var(--linie);display:flex;align-items:center;gap:var(--a4);padding:0 var(--a4)}
+.logo{display:flex;align-items:center;gap:var(--a2);font-weight:600;color:var(--text)}
+.logo svg{width:28px;height:28px;flex:none}
+.kopf nav{display:flex;gap:var(--a4);font-weight:500}
+.kopf nav a{color:var(--text)}
+.suche{flex:1;max-width:390px;margin:0 auto;height:34px;border:0;border-radius:var(--r-mittel);box-shadow:var(--ring);padding:0 var(--a3);font:inherit;background:var(--flaeche);color:var(--text)}
+.suche:focus{outline:0;box-shadow:var(--ring-fokus)}
+.aktionen{display:flex;gap:var(--a2);margin-left:auto}
+.knopf{display:inline-flex;align-items:center;justify-content:center;height:30px;padding:0 var(--a3);border:0;border-radius:var(--r-pille);font:inherit;font-weight:600;background:var(--pille);color:var(--text);cursor:pointer;transition:background var(--dauer) var(--ease)}
+.knopf:hover{background:var(--pille-hover)}
+.knopf.primaer{background:var(--violett);color:#fff}
+.knopf.primaer:hover{background:var(--violett-hover)}
+.rahmen{display:flex}
+.leiste{width:var(--leiste);flex:none;padding:var(--a3);background:var(--flaeche-2);min-height:calc(100vh - var(--kopf))}
+.leiste h2{font-size:var(--fs-meta);font-weight:600;margin-bottom:var(--a3);color:var(--text-2)}
+.zeile{display:flex;align-items:center;gap:var(--a3);padding:var(--a2) 0}
+.avatar{width:30px;height:30px;border-radius:50%;flex:none;background:var(--violett)}
+.zeile .name{font-weight:600;line-height:1.2}
+.zeile .kat{font-size:var(--fs-meta);color:var(--text-gedaempft)}
+.zeile .zahl{margin-left:auto;display:flex;align-items:center;gap:var(--a1);font-size:var(--fs-basis)}
+.punkt{width:6px;height:6px;border-radius:50%;background:var(--live-punkt)}
+main{flex:1;min-width:0;padding:var(--a4) var(--a5) 96px}
+.innen{max-width:var(--breite);margin:0 auto}
+.hero{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);background:var(--flaeche);box-shadow:var(--schatten-schwebend);margin-bottom:var(--a6)}
+.player{aspect-ratio:16/9;background:radial-gradient(60% 80% at 30% 30%,#5c16c5 0,#330c6e 60%,#14062e 100%);position:relative}
+.player svg{position:absolute;left:var(--a4);bottom:var(--a4);width:28px;height:28px}
+.info{padding:var(--a4);display:flex;flex-direction:column;gap:var(--a2)}
+.info h1{font-size:var(--fs-hero);font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.info .kat{color:var(--violett-text);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:var(--a2)}
+.tag{padding:2px var(--a2);border-radius:var(--r-pille);background:var(--pille);font-size:var(--fs-meta);font-weight:600;color:var(--text-2)}
+section{margin-bottom:var(--a6)}
+section>h2{font-size:var(--fs-titel);font-weight:500;letter-spacing:-.01em;color:var(--violett-text);margin-bottom:var(--a3)}
+.raster{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--a4)}
+.kachel{display:block;color:var(--text)}
+.vorschau{position:relative;aspect-ratio:16/9;border-radius:var(--r-klein);overflow:hidden;transition:transform var(--dauer) var(--ease)}
+.kachel:hover .vorschau{transform:translateY(-2px)}
+.v1{background:linear-gradient(135deg,#2a6df4,#69ffc3)}
+.v2{background:linear-gradient(135deg,#ff6905,#fa1ed2)}
+.v3{background:linear-gradient(135deg,#00991a,#bfff00)}
+.live{position:absolute;top:var(--a2);left:var(--a2);background:var(--live);color:#fff;font-size:var(--fs-meta);font-weight:600;text-transform:uppercase;padding:1px 5px;border-radius:var(--r-klein)}
+.zuschauer{position:absolute;left:0;right:0;bottom:0;padding:var(--a4) var(--a2) var(--a2);background:var(--overlay);color:#fff;font-size:var(--fs-meta);font-weight:500}
+.meta{display:grid;grid-template-columns:30px minmax(0,1fr);gap:var(--a3);margin-top:var(--a3)}
+.meta .titel{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meta .kat{color:var(--text-gedaempft)}
+.meta .tags{margin-top:var(--a2)}
+.mehr{display:flex;align-items:center;gap:var(--a3);margin-top:var(--a5);color:var(--violett-text);font-weight:600}
+.mehr::before,.mehr::after{content:"";flex:1;height:1px;background:var(--linie)}
+.schritte{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--a4)}
+.schritt{background:var(--flaeche);border-radius:var(--r-klein);padding:var(--a4);border:1px solid var(--linie)}
+.schritt h3{font-size:var(--fs-basis);font-weight:600;margin-bottom:var(--a2)}
+.schritt p{color:var(--text-2)}
+.nr{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--pille);align-items:center;justify-content:center;font-weight:600;margin-bottom:var(--a2);color:var(--violett-text)}
+.band{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--band);color:#fff;display:flex;align-items:center;gap:var(--a4);padding:var(--a3) var(--a4)}
+.band p{flex:1;min-width:0}
+.band b{font-weight:600}
+.band .knopf{background:#fff;color:var(--text);height:34px;padding:0 var(--a5)}
+.band .knopf:hover{background:var(--flaeche-2)}
+footer{border-top:1px solid var(--linie);padding-top:var(--a4);color:var(--text-gedaempft);font-size:var(--fs-meta);display:flex;flex-wrap:wrap;gap:var(--a4)}
+@media(max-width:1023px){.leiste{display:none}.raster,.schritte{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}}
+@media(max-width:639px){.kopf nav,.suche{display:none}.raster,.schritte{grid-template-columns:1fr}main{padding:var(--a3) var(--a3) 120px}.band{flex-direction:column;align-items:stretch;text-align:center}.band .knopf{width:100%}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="kopf">
+  <a class="logo" href="#"><svg viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="6" fill="#8b4ff2"/><path d="M8 8h12v8l-4 4h-3l-2 2v-2H8z" fill="#fff"/></svg>Nordwerk</a>
+  <nav><a href="#programm">Entdecken</a><a href="#ablauf">Ablauf</a></nav>
+  <input class="suche" type="text" placeholder="Suche" aria-label="Suche">
+  <div class="aktionen"><a class="knopf" href="#">Anmelden</a><a class="knopf primaer" href="#">Registrieren</a></div>
+</header>
+<div class="rahmen">
+  <aside class="leiste">
+    <h2>Live-Kanäle</h2>
+    <div class="zeile"><span class="avatar"></span><div><div class="name">Werkbank</div><div class="kat">Holzbau</div></div><span class="zahl"><i class="punkt"></i>4,2 Tsd.</span></div>
+    <div class="zeile"><span class="avatar" style="background:#ff6905"></span><div><div class="name">Lötkolben</div><div class="kat">Elektronik</div></div><span class="zahl"><i class="punkt"></i>1,8 Tsd.</span></div>
+    <div class="zeile"><span class="avatar" style="background:#00991a"></span><div><div class="name">Töpferei Ost</div><div class="kat">Keramik</div></div><span class="zahl"><i class="punkt"></i>912</span></div>
+    <div class="zeile"><span class="avatar" style="background:#1f69ff"></span><div><div class="name">Nachtschicht</div><div class="kat">Plaudern</div></div><span class="zahl"><i class="punkt"></i>655</span></div>
+  </aside>
+  <main>
+    <div class="innen">
+      <div class="hero">
+        <div class="player"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M8 5l15 9-15 9z" fill="#fff"/></svg></div>
+        <div class="info">
+          <h1>Handwerk live erleben</h1>
+          <span class="kat">Werkstatt-Gespräch</span>
+          <span>1,5 Tsd. Zuschauer</span>
+          <div class="tags"><span class="tag">Werkstatt</span><span class="tag">Deutsch</span></div>
+        </div>
+      </div>
+      <section id="programm">
+        <h2>Jetzt live im Studio</h2>
+        <div class="raster">
+          <a class="kachel" href="#"><div class="vorschau v1"><span class="live">Live</span><span class="zuschauer">4,2 Tsd. Zuschauer</span></div><div class="meta"><span class="avatar"></span><div><div class="titel">Eichentisch in einem Zug bauen</div><div class="kat">Holzbau</div><div class="tags"><span class="tag">Handarbeit</span><span class="tag">Deutsch</span></div></div></div></a>
+          <a class="kachel" href="#"><div class="vorschau v2"><span class="live">Live</span><span class="zuschauer">1,8 Tsd. Zuschauer</span></div><div class="meta"><span class="avatar" style="background:#ff6905"></span><div><div class="titel">Platine von Grund auf löten</div><div class="kat">Elektronik</div><div class="tags"><span class="tag">Lernen</span></div></div></div></a>
+          <a class="kachel" href="#"><div class="vorschau v3"><span class="live">Live</span><span class="zuschauer">912 Zuschauer</span></div><div class="meta"><span class="avatar" style="background:#00991a"></span><div><div class="titel">Glasur-Test: Sieben Farben, ein Ofen</div><div class="kat">Keramik</div><div class="tags"><span class="tag">Ruhig</span><span class="tag">Deutsch</span></div></div></div></a>
+        </div>
+        <div class="mehr">Mehr anzeigen</div>
+      </section>
+      <section id="ablauf">
+        <h2>So funktioniert die Bühne</h2>
+        <div class="schritte">
+          <div class="schritt"><span class="nr">1</span><h3>Kanal wählen</h3><p>Stöbere nach Thema, Sprache oder Zuschauerzahl.</p></div>
+          <div class="schritt"><span class="nr">2</span><h3>Mitreden</h3><p>Stelle Fragen im Chat, während die Arbeit läuft.</p></div>
+          <div class="schritt"><span class="nr">3</span><h3>Folgen</h3><p>Verpasse keinen Start und lass dich erinnern.</p></div>
+        </div>
+      </section>
+      <footer><span>© Nordwerk Studio</span><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></footer>
+    </div>
+  </main>
+</div>
+<div class="band"><p><b>Komm in die Gemeinschaft!</b> Entdecke die besten Sendungen aus Werkstatt und Atelier.</p><a class="knopf" href="#">Registrieren</a></div>
+</body>
+</html>

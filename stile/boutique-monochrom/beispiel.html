@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito+Sans:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--weiss);color:var(--schwarz);font-family:var(--font-text);font-weight:var(--gewicht);font-size:var(--fs-basis);line-height:var(--lh-basis);letter-spacing:var(--ls)}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:var(--lh-display);margin:0 0 .5rem}
+h1{font-size:var(--fs-h1)}
+h2{font-size:var(--fs-h2)}
+p{margin:0 0 1rem}
+.band{background:var(--band);color:var(--weiss);text-align:center;padding:.6rem var(--rand-mobil)}
+.kopf{text-align:center;padding:.9rem var(--rand-mobil);border-bottom:var(--linie);font-family:var(--font-display);font-size:1.6rem;letter-spacing:.3em;text-transform:uppercase}
+.nav{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1.5rem;padding:1rem var(--rand-mobil);text-transform:uppercase;border-bottom:var(--linie)}
+.nav ul{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;list-style:none;margin:0;padding:0}
+.nav svg{width:20px;height:20px;stroke:var(--schwarz);fill:none;stroke-width:1;margin-left:.75rem}
+.bild{display:flex;align-items:center;justify-content:center;color:var(--weiss);font-family:var(--font-display);font-size:1.75rem;text-align:center;padding:1rem}
+.b1{background:linear-gradient(160deg,#cdb9a2,#8c7a68)}
+.b2{background:linear-gradient(200deg,#a9b0a0,#5f6656)}
+.b3{background:#d9c9b6}.b4{background:#b9b2a7}.b5{background:#9ea591}.b6{background:#c8c2b8}
+.hero{display:grid;grid-template-columns:1fr 1fr}
+.hero .bild{min-height:70vh}
+.sektion{padding:var(--sektion) var(--rand-mobil)}
+.schmal{max-width:var(--breite-text);margin:0 auto;text-align:center}
+.reihe{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:var(--luecke)}
+.reihe .bild{aspect-ratio:3/4}
+.reihe p{margin:.6rem 0 0}
+.kat{text-transform:uppercase}
+.knopf{display:block;width:100%;max-width:var(--knopf-breite);margin:0 auto .6rem;padding:var(--knopf-pad);text-align:center;background:var(--schwarz);color:var(--weiss);border:1px solid var(--schwarz);border-radius:var(--r)}
+.knopf.zwei{background:var(--grau-flaeche);color:var(--schwarz);border-color:var(--grau-flaeche)}
+.band2{background:var(--grau-flaeche)}
+.zwei-spalten{display:grid;grid-template-columns:1fr 1fr;gap:var(--block-gross);align-items:center}
+.zwei-spalten .bild{aspect-ratio:4/5}
+input{width:100%;max-width:20rem;border:0;border-bottom:1px solid var(--grau-mittel);background:transparent;font:inherit;font-size:1rem;padding:.4rem 0;letter-spacing:var(--ls);border-radius:0}
+footer{border-top:var(--linie);padding:var(--block-gross) var(--rand-mobil);display:flex;flex-wrap:wrap;gap:1rem 3rem;justify-content:space-between}
+@media(min-width:800px){.band,.nav,.sektion,footer{padding-left:var(--rand);padding-right:var(--rand)}.nav{font-size:var(--fs-nav)}h1{font-size:1.25rem}}
+@media(max-width:700px){.hero,.zwei-spalten{grid-template-columns:1fr}.hero .bild{min-height:45vh}h2{font-size:1.5rem}.sektion{padding-top:3rem;padding-bottom:3rem}}
+</style>
+</head>
+<body>
+<div class="band">Versandkostenfrei ab 300 € Bestellwert</div>
+<div class="kopf">Nordwerk</div>
+<nav class="nav">
+  <ul><li><a href="#kollektion">Damen</a></li><li><a href="#kollektion">Herren</a></li><li><a href="#atelier">Atelier</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
+  <div>
+    <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6" r="3.5"/><path d="M3 18c0-4 3-6 7-6s7 2 7 6"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7h12l1 11H3z"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="bild b1"><h1 style="color:inherit;font-size:1.75rem">Frühjahr im Atelier</h1></div>
+  <div class="bild b2"><h1 style="color:inherit;font-size:1.75rem">Werkstatt-Linie</h1></div>
+</header>
+
+<section class="sektion" id="kollektion">
+  <div class="schmal">
+    <h2>Dinge, die bleiben</h2>
+    <p>Nordwerk Studio entwirft Möbel und Wohntextilien aus wenigen Materialien. Jedes Stück entsteht in kleiner Serie.</p>
+  </div>
+  <div class="reihe" style="margin-top:2.5rem">
+    <div><div class="bild b3"></div><p class="kat">Sessel Fjord</p><p>Eiche, Leinen</p></div>
+    <div><div class="bild b4"></div><p class="kat">Tisch Anker</p><p>Esche, geölt</p></div>
+    <div><div class="bild b5"></div><p class="kat">Decke Moor</p><p>Wolle, 140 × 200</p></div>
+    <div><div class="bild b6"></div><p class="kat">Leuchte Kiel</p><p>Stahl, matt</p></div>
+  </div>
+</section>
+
+<section class="sektion band2" id="atelier">
+  <div class="zwei-spalten">
+    <div class="bild b1"></div>
+    <div>
+      <h2>Das Atelier</h2>
+      <p>In Hamburg fertigen wir in einer ehemaligen Tischlerei. Wir arbeiten mit regionalem Holz und halten die Wege kurz.</p>
+      <p>Besuchen Sie uns nach Vereinbarung.</p>
+      <a class="knopf" style="margin-left:0" href="#kontakt">Termin anfragen</a>
+    </div>
+  </div>
+</section>
+
+<section class="sektion">
+  <div class="schmal">
+    <h2>Service</h2>
+    <p>Lieferung innerhalb von zehn Werktagen. Rückgabe innerhalb von 30 Tagen.</p>
+    <a class="knopf" href="#kollektion">Kollektion ansehen</a>
+    <a class="knopf zwei" href="#atelier">Mehr erfahren</a>
+  </div>
+</section>
+
+<section class="sektion band2" id="kontakt">
+  <div class="schmal">
+    <h2>Neuigkeiten per E-Mail</h2>
+    <p>Wir schreiben selten, aber mit Substanz.</p>
+    <input type="text" placeholder="Ihre E-Mail-Adresse" aria-label="E-Mail-Adresse">
+  </div>
+</section>
+
+<footer>
+  <div>Nordwerk Studio<br>Beispielstraße 1<br>20000 Hamburg</div>
+  <div><a href="#">Impressum</a><br><a href="#">Datenschutz</a><br><a href="#">Versand</a></div>
+</footer>
+</body>
+</html>

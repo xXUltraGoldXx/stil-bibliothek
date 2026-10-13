@@ -1,0 +1,36 @@
+{
+  "name": "Next.js App Router",
+  "slug": "nextjs-app-router",
+  "beschreibung": "Full-Stack-Webanwendung mit Next.js App Router: Server und Client Components, Server Actions, Route Handlers, standalone-Build im Docker-Container hinter Traefik.",
+  "sprache": "TypeScript",
+  "stack": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "Zod",
+    "Tailwind CSS",
+    "Vitest",
+    "Playwright",
+    "Docker",
+    "Traefik"
+  ],
+  "kategorien": [
+    "Web-App",
+    "Website"
+  ],
+  "schlagworte": [
+    "nextjs",
+    "app-router",
+    "server-components",
+    "server-actions",
+    "route-handlers",
+    "caching",
+    "standalone",
+    "react",
+    "docker",
+    "traefik"
+  ],
+  "quelle": "recherchiert",
+  "reifegrad": "recherchiert, ungetestet"
+}

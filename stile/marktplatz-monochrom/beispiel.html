@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--weiss);color:var(--schwarz);font-family:var(--font-ui);font-size:var(--fs-text);line-height:var(--lh-text);font-weight:var(--fw-normal)}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+.band{background:var(--signal);color:var(--weiss);text-align:center;font-size:var(--fs-klein);line-height:var(--lh-klein);padding:var(--abstand-3) var(--abstand-5)}
+header .oben{display:flex;align-items:center;justify-content:space-between;gap:var(--abstand-5);padding-top:var(--abstand-5);padding-bottom:var(--abstand-4);flex-wrap:wrap}
+.haupt{display:flex;gap:var(--abstand-6);font-size:1rem;font-weight:var(--fw-fett)}
+.marke{font-size:1.375rem;font-weight:var(--fw-fett);letter-spacing:var(--ls-hero);display:flex;align-items:center;gap:var(--abstand-3)}
+.icons{display:flex;gap:var(--abstand-5)}
+.unter{display:flex;gap:var(--abstand-5);flex-wrap:wrap;padding-bottom:var(--abstand-4)}
+.unter a{padding:var(--abstand-2) 0}
+.unter .sale{color:var(--sale)}
+.knopf{display:inline-block;border:0;cursor:pointer;font:inherit;font-size:1rem;font-weight:var(--fw-mittel);background:var(--schwarz);color:var(--weiss);border-radius:var(--r-pille);padding:.75rem 1.5rem;transition:box-shadow var(--zeit),background var(--zeit)}
+.knopf:hover{box-shadow:var(--ring-dick)}
+.knopf.zwei{background:transparent;color:var(--schwarz);box-shadow:var(--ring);padding:var(--abstand-3) var(--abstand-5)}
+.knopf.zwei:hover{box-shadow:var(--ring-dick)}
+.knopf.hell{background:var(--weiss);color:var(--schwarz)}
+.chip{display:inline-block;background:var(--flaeche);border-radius:var(--r-pille);padding:var(--abstand-2) var(--abstand-4);font-size:var(--fs-text)}
+.bild{background:var(--flaeche);border-radius:var(--r-bild);position:relative;overflow:hidden}
+.bild svg{position:absolute;inset:0;width:100%;height:100%}
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:var(--abstand-7);padding-top:var(--abstand-6);padding-bottom:var(--abstand-8)}
+.hero .bild{min-height:420px;background:linear-gradient(160deg,#e6dfd6,#cfc6ba)}
+.pfeil{position:absolute;top:50%;width:40px;height:40px;border-radius:50%;background:var(--weiss);display:grid;place-items:center;font-size:1.25rem}
+.hero h1{font-size:var(--fs-hero);line-height:var(--lh-hero);letter-spacing:var(--ls-hero);font-weight:var(--fw-fett)}
+.hero .text{display:flex;flex-direction:column;gap:var(--abstand-6);justify-content:space-between}
+.chips{display:flex;flex-wrap:wrap;gap:var(--abstand-3);margin-top:var(--abstand-4)}
+h2{font-size:var(--fs-h2);line-height:var(--lh-h2);letter-spacing:var(--ls-h2);font-weight:var(--fw-fett)}
+section{padding-bottom:var(--abstand-8)}
+.kopf{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--abstand-5);gap:var(--abstand-5);flex-wrap:wrap}
+.raster{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--luecke)}
+.karte .bild{aspect-ratio:3/4;margin-bottom:var(--abstand-3)}
+.karte .m{color:var(--text-2);font-size:var(--fs-klein);line-height:var(--lh-klein)}
+.karte h3{font-size:var(--fs-h3);line-height:var(--lh-h3);font-weight:var(--fw-fett)}
+.karte .p{margin-top:var(--abstand-1)}
+.karte .p b{color:var(--sale);font-weight:var(--fw-fett)}
+.schwarz{background:var(--schwarz);color:var(--weiss);border-radius:var(--r-bild);padding:var(--abstand-8);display:grid;grid-template-columns:1fr 1fr;gap:var(--abstand-7);align-items:center}
+.schwarz p{margin:var(--abstand-4) 0 var(--abstand-6);color:#d6d6d6}
+.schwarz .bild{min-height:240px;background:#262626}
+.news{background:var(--flaeche);border-radius:var(--r-bild);padding:var(--abstand-8);display:flex;gap:var(--abstand-6);align-items:center;justify-content:space-between;flex-wrap:wrap}
+.news .feld{display:flex;gap:var(--abstand-3);flex-wrap:wrap;align-items:center}
+.eingabe{font:inherit;font-size:1rem;line-height:1.5rem;background:var(--weiss);border:0;border-bottom:1px solid var(--linie);border-radius:var(--r-klein);padding:10px 12px;min-width:0;width:260px;max-width:100%}
+.eingabe:focus{outline:none;box-shadow:var(--ring-dick)}
+footer{background:var(--flaeche);padding:var(--abstand-8) 0;margin-top:var(--abstand-8)}
+footer .spalten{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--abstand-6)}
+footer h3{font-size:var(--fs-h3);font-weight:var(--fw-fett);margin-bottom:var(--abstand-3)}
+footer li{list-style:none;padding:var(--abstand-1) 0}
+footer ul{margin:0;padding:0}
+footer .klein{margin-top:var(--abstand-6);font-size:var(--fs-klein);line-height:var(--lh-klein);color:var(--text-2)}
+@media(max-width:900px){
+ .hero,.schwarz{grid-template-columns:1fr}
+ .raster{grid-template-columns:repeat(2,1fr)}
+ footer .spalten{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+ :root{--rand:1rem}
+ .hero h1{font-size:1.625rem;line-height:1.875rem}
+ .hero .bild{min-height:300px}
+ .schwarz,.news{padding:var(--abstand-6)}
+ .haupt{gap:var(--abstand-4)}
+}
+</style>
+</head>
+<body>
+<div class="band">Herbstaktion: bis zu 30 % auf ausgewählte Wohnstücke</div>
+<header>
+ <div class="wrap oben">
+  <nav class="haupt"><a href="#">Wohnen</a><a href="#">Arbeiten</a><a href="#">Garten</a></nav>
+  <a class="marke" href="#"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M2 20V2l18 18V2" fill="none" stroke="#000" stroke-width="3"/></svg>Nordwerk Studio</a>
+  <div class="icons"><a href="#">Konto</a><a href="#">Merkliste</a><a href="#">Korb</a></div>
+ </div>
+ <div class="wrap unter"><a href="#">Neu</a><a href="#">Möbel</a><a href="#">Leuchten</a><a href="#">Textilien</a><a href="#">Küche</a><a href="#">Ordnung</a><a class="sale" href="#">Angebote %</a></div>
+</header>
+
+<main>
+<section>
+ <div class="wrap hero">
+  <div class="bild">
+   <svg viewBox="0 0 400 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect x="40" y="60" width="120" height="300" fill="#bba98f"/><rect x="190" y="150" width="170" height="210" rx="12" fill="#8a7358"/><circle cx="280" cy="110" r="36" fill="#f1ece4"/></svg>
+   <span class="pfeil" style="left:12px">←</span><span class="pfeil" style="right:12px">→</span>
+  </div>
+  <div class="text">
+   <h1>Alles für ein Zuhause, das zu dir passt: Möbel, Licht und Textilien.</h1>
+   <div>
+    <p style="font-weight:var(--fw-mittel)">Wo möchtest du beginnen?</p>
+    <div class="chips"><a class="chip" href="#">Wohnzimmer</a><a class="chip" href="#">Schlafzimmer</a><a class="chip" href="#">Homeoffice</a><a class="chip" href="#">Balkon</a></div>
+    <p style="margin-top:var(--abstand-6)"><a class="knopf" href="#">Jetzt stöbern</a> <a class="knopf zwei" href="#">Beratung</a></p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <div class="kopf"><h2>Neu im Sortiment</h2><a class="knopf zwei" href="#">Alle ansehen</a></div>
+  <div class="raster">
+   <a class="karte" href="#"><div class="bild" style="background:#e9e4dc"></div><div class="m">Nordwerk Basis</div><h3>Beistelltisch Eiche</h3><div class="p">89,00 €</div></a>
+   <a class="karte" href="#"><div class="bild" style="background:#dfe3e2"></div><div class="m">Nordwerk Licht</div><h3>Tischleuchte Opal</h3><div class="p"><b>39,00 €</b> <s style="color:var(--text-2)">49,00 €</s></div></a>
+   <a class="karte" href="#"><div class="bild" style="background:#ece0d8"></div><div class="m">Nordwerk Textil</div><h3>Wolldecke Sand</h3><div class="p">64,00 €</div></a>
+   <a class="karte" href="#"><div class="bild" style="background:#e3e0ea"></div><div class="m">Nordwerk Küche</div><h3>Keramikschale, 3er-Set</h3><div class="p">42,00 €</div></a>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <div class="schwarz">
+   <div>
+    <h2>Möbel mit zweitem Leben</h2>
+    <p>Geprüfte Stücke aus Werkstatt und Lager, fair bepreist und sofort lieferbar.</p>
+    <a class="knopf hell" href="#">Gebrauchtes entdecken</a>
+   </div>
+   <div class="bild"><svg viewBox="0 0 300 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect x="60" y="90" width="180" height="90" rx="12" fill="#4a4a4a"/><rect x="80" y="180" width="12" height="40" fill="#4a4a4a"/><rect x="208" y="180" width="12" height="40" fill="#4a4a4a"/></svg></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <div class="kopf"><h2>Beliebt diese Woche</h2></div>
+  <div class="raster">
+   <a class="karte" href="#"><div class="bild" style="background:#e6e1d6"></div><div class="m">Nordwerk Büro</div><h3>Schreibtischlampe Fjord</h3><div class="p">54,00 €</div></a>
+   <a class="karte" href="#"><div class="bild" style="background:#dde4dd"></div><div class="m">Nordwerk Garten</div><h3>Pflanzgefäß Ton</h3><div class="p">28,00 €</div></a>
+   <a class="karte" href="#"><div class="bild" style="background:#e8dfe0"></div><div class="m">Nordwerk Ordnung</div><h3>Regalbox Leinen</h3><div class="p">19,00 €</div></a>
+   <a class="karte" href="#"><div class="bild" style="background:#e2e5ea"></div><div class="m">Nordwerk Basis</div><h3>Stuhl Linde</h3><div class="p">139,00 €</div></a>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <div class="news">
+   <div><h2>Neuigkeiten per E-Mail</h2><p style="color:var(--text-2)">Neue Stücke und Aktionen, höchstens einmal pro Woche.</p></div>
+   <div class="feld"><input class="eingabe" type="text" placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse"><a class="knopf" href="#">Anmelden</a></div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="spalten">
+   <div><h3>Service</h3><ul><li>Lieferung</li><li>Rückgabe</li><li>Kontakt</li></ul></div>
+   <div><h3>Studio</h3><ul><li>Über uns</li><li>Werkstatt</li><li>Karriere</li></ul></div>
+   <div><h3>Sortiment</h3><ul><li>Möbel</li><li>Leuchten</li><li>Textilien</li></ul></div>
+   <div><h3>Rechtliches</h3><ul><li>Datenschutz</li><li>Impressum</li><li>AGB</li></ul></div>
+  </div>
+  <p class="klein">© Nordwerk Studio. Alle Inhalte frei erfunden, nur als Gestaltungsbeispiel.</p>
+ </div>
+</footer>
+</body>
+</html>

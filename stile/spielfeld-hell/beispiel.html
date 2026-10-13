@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Spielfeld hell</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--weiss);color:var(--text);font-family:var(--font-base);font-weight:500;font-size:var(--fs-body);line-height:var(--lh-body);overflow-x:clip}
+.w{max-width:var(--breite);margin:0 auto;padding:0 16px}
+h1,h2,h3{font-weight:700}
+h1{font-size:var(--fs-h1);line-height:1.35;color:var(--text-kopf);text-align:center}
+h2{font-size:var(--fs-h2);line-height:1.2;color:var(--gruen)}
+h3{font-size:1.25rem;color:var(--text-kopf)}
+p{color:var(--text-fliess)}
+.label{font-size:var(--fs-label);font-weight:700;text-transform:uppercase;letter-spacing:var(--ls-label);color:var(--text-schwach)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0}
+nav b{font-size:1.6rem;color:var(--gruen)}
+.k{display:flex;align-items:center;justify-content:center;height:50px;padding:0 24px;border-radius:var(--r-knopf);border:var(--rand);border-color:transparent;font:700 var(--fs-label) var(--font-base);text-transform:uppercase;letter-spacing:var(--ls-label);text-decoration:none;cursor:pointer;transition:background var(--dur-hover),transform var(--dur-druck) linear,box-shadow var(--dur-druck) linear}
+.k.g{background:var(--gruen);color:#fff;box-shadow:var(--shadow-gruen)}.k.g:hover{background:var(--gruen-hell)}
+.k.s{background:#fff;border-color:var(--linie);color:var(--blau);box-shadow:var(--shadow-grau)}.k.s:hover{background:var(--flaeche-hover)}
+.k.b{background:var(--blau);color:#fff;box-shadow:var(--shadow-blau)}
+.k:active{transform:translateY(var(--kante));box-shadow:none}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:var(--abstand-7) 0 var(--abstand-8)}
+.hero .txt{display:flex;flex-direction:column;gap:24px;max-width:340px;margin:0 auto;width:100%}
+.hero .txt .k{width:100%}
+.buehne{position:relative;aspect-ratio:1;max-width:420px;width:100%;margin:0 auto;animation:schweben 5s ease-in-out infinite}
+@keyframes schweben{50%{transform:translateY(-8px)}}
+.buehne span{position:absolute;display:block}
+.sek{padding:var(--abstand-7) 0}
+.sek h2{text-align:center;max-width:20ch;margin:0 auto 12px}
+.sek>.w>p{text-align:center;max-width:46ch;margin:0 auto}
+.karten{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.karte{background:#fff;border:var(--rand);border-radius:var(--r-karte);box-shadow:var(--shadow-grau);padding:24px;display:flex;flex-direction:column;gap:12px}
+.sym{width:56px;height:56px;border-radius:16px}
+.wechsel{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.wechsel .bild{aspect-ratio:4/3;border-radius:var(--r-karte);position:relative;overflow:hidden}
+.wechsel .t{display:flex;flex-direction:column;gap:16px}
+.nacht{background:var(--nacht);color:#fff;padding:var(--abstand-8) 0;text-align:center}
+.nacht h2{color:#fff;margin:0 auto 12px;max-width:20ch}
+.nacht p{color:#d6d6e8;max-width:46ch;margin:0 auto}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.zahlen b{display:block;font-size:3rem;line-height:1.1;color:var(--gelb)}
+.zahlen span{color:#d6d6e8}
+.cta{display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
+.cta .reihe{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;width:100%}
+.cta .k{flex:1 1 200px;max-width:330px}
+footer{background:var(--gruen);color:#fff;padding:48px 0;margin-top:var(--abstand-7)}
+footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-weight:700}
+footer a{color:#fff;text-decoration:none;margin-right:16px}
+@media(max-width:800px){
+ .hero,.wechsel{grid-template-columns:1fr;gap:32px}
+ .karten,.zahlen{grid-template-columns:1fr}
+ h2{font-size:2.25rem}
+ .sek,.hero{padding-top:48px}
+}
+@media(prefers-reduced-motion:reduce){.buehne{animation:none}.k{transition:none}}
+</style></head><body>
+<div class="w"><nav><b>Nordwerk</b><span class="label">Willkommen</span></nav>
+<header class="hero">
+<div class="buehne" aria-hidden="true">
+<span style="left:6%;top:30%;width:34%;height:34%;border-radius:50%;background:var(--rosa)"></span>
+<span style="left:46%;top:6%;width:30%;height:30%;border-radius:45% 55% 50% 50%;background:var(--orange)"></span>
+<span style="left:26%;top:42%;width:46%;height:46%;border-radius:50% 50% 45% 55%;background:var(--gruen)"></span>
+<span style="left:56%;top:56%;width:30%;height:30%;border-radius:30%;background:var(--blau);transform:rotate(14deg)"></span>
+<span style="left:12%;top:68%;width:20%;height:20%;border-radius:50%;background:var(--gelb)"></span>
+<span style="left:42%;top:56%;width:8%;height:8%;border-radius:50%;background:#fff"></span>
+<span style="left:56%;top:56%;width:8%;height:8%;border-radius:50%;background:#fff"></span>
+</div>
+<div class="txt"><h1>Gute Gestaltung macht den Alltag leichter!</h1>
+<a class="k g" href="#start">Jetzt starten</a><a class="k s" href="#start">Ich habe ein Konto</a></div>
+</header></div>
+
+<section class="sek" id="leistungen"><div class="w"><h2>Drei Wege zu klaren Produkten</h2><p>Wir gestalten digitale Werkzeuge, die man sofort versteht.</p>
+<div class="karten">
+<div class="karte"><div class="sym" style="background:var(--gruen)"></div><h3>Konzept</h3><p>Aus einer Idee wird in einer Woche ein klarer Plan.</p></div>
+<div class="karte"><div class="sym" style="background:var(--blau)"></div><h3>Design</h3><p>Runde Formen, klare Farben, Knöpfe mit Gefühl.</p></div>
+<div class="karte"><div class="sym" style="background:var(--gelb)"></div><h3>Umsetzung</h3><p>Schnell gebaut und zuverlässig im Alltag.</p></div>
+</div></div></section>
+
+<section class="sek"><div class="w wechsel">
+<div class="bild" style="background:var(--blau)" aria-hidden="true">
+<svg viewBox="0 0 400 300" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><circle cx="120" cy="170" r="70" fill="#ffc800"/><circle cx="260" cy="120" r="56" fill="#ff86d0"/><rect x="200" y="170" width="120" height="90" rx="24" fill="#5ec41a"/></svg></div>
+<div class="t"><span class="label">Spielerisch</span><h2 style="text-align:left">Kleine Schritte, große Wirkung</h2><p>Jede Seite führt mit einer einzigen Aufgabe. Wer sie erledigt, kommt sofort weiter.</p></div>
+</div></section>
+
+<section class="nacht"><div class="w"><h2>Jeden Tag ein Stück besser</h2><p>Unsere Projekte wachsen mit ihren Nutzern und bleiben dabei einfach.</p>
+<div class="zahlen"><div><b>12</b><span>Wochen bis zum Start</span></div><div><b>98 %</b><span>zufriedene Teams</span></div><div><b>1</b><span>feste Ansprechperson</span></div></div></div></section>
+
+<section class="sek" id="start"><div class="w cta"><h2>Bereit für den ersten Schritt?</h2><p>Schreiben Sie uns, wir melden uns binnen eines Werktags.</p>
+<div class="reihe"><a class="k g" href="#start">Projekt starten</a><a class="k b" href="#leistungen">Mehr erfahren</a></div></div></section>
+
+<footer><div class="w"><span>Nordwerk Studio, eine fiktive Firma</span><span><a href="#leistungen">Leistungen</a><a href="#start">Kontakt</a></span></div></footer>
+</body></html>

@@ -1,0 +1,16 @@
+{
+  "name": "Standard-KI",
+  "slug": "standard-ki",
+  "beschreibung": "Der typische KI-Einheitslook: Inter, lila-blauer Verlauf, Glas-Karten, drei Feature-Kacheln. Nur als Gegenbeispiel – so nicht.",
+  "schlagworte": [
+    "gegenbeispiel",
+    "verlauf",
+    "generisch",
+    "vermeiden"
+  ],
+  "kategorien": [
+    "Tech/SaaS",
+    "Modern"
+  ],
+  "gegenbeispiel": true
+}

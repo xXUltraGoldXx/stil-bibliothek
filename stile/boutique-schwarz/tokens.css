@@ -1,0 +1,14 @@
+/* Boutique Schwarz: Tokens */
+:root{
+  --schwarz:#000000; --anthrazit:#343434; --fast-schwarz:#262525; --weiss:#ffffff;
+  --grau-1:#f8f8f8; --grau-2:#eeeeee; --grau-3:#dddddd; --grau-text:#666666;
+  --akzent:#10277a; --preis:#c71f4a; --ok:#018849;
+  --font-ui:"Jost",Futura,Tahoma,Geneva,Verdana,sans-serif;
+  --fs-banner:clamp(2.5rem,9vw,5rem); --fs-h2:clamp(1.5rem,3.5vw,2.25rem); --fs-text:1rem; --fs-label:.8rem; --fs-meta:.75rem;
+  --ls-text:.025em; --ls-label:.1em; --lh-text:1.3;
+  --r:0; --r-knopf:2px; --r-pille:999px;
+  --rand-fein:1px solid #dddddd; --rand-knopf:2px;
+  --schatten-fenster:0 0 18px rgba(0,0,0,.2);
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:80px;
+  --breite:1366px; --luecke:16px; --knopf-h:48px;
+}

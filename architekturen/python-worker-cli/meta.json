@@ -1,0 +1,34 @@
+{
+  "name": "Python Worker / CLI mit systemd-Timer",
+  "slug": "python-worker-cli",
+  "beschreibung": "Kleiner Python-Worker als Kommandozeilenprogramm: systemd-oneshot plus Timer, flock gegen Doppelstart, atomare JSON-Statusdatei, Tests mit pytest. Kernmuster aus produktiven Host-Skripten, Paketierung und Tests aus öffentlicher Best Practice.",
+  "sprache": "Python",
+  "stack": [
+    "Python 3.11+",
+    "argparse",
+    "systemd (Service + Timer)",
+    "fcntl/flock",
+    "logging",
+    "pytest",
+    "ruff",
+    "pyproject.toml",
+    "venv"
+  ],
+  "kategorien": [
+    "Bot/Worker"
+  ],
+  "schlagworte": [
+    "worker",
+    "cli",
+    "systemd",
+    "timer",
+    "oneshot",
+    "flock",
+    "statusdatei",
+    "idempotenz",
+    "pytest",
+    "venv"
+  ],
+  "quelle": "recherchiert",
+  "reifegrad": "recherchiert, ungetestet"
+}

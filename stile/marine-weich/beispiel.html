@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--grund);color:var(--marine);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);letter-spacing:var(--ls-text)}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand-seite)}
+.leiste{background:var(--marine);color:var(--weiss);height:60px;display:flex;align-items:center;justify-content:center;gap:var(--sp-3);font-size:var(--fs-meta);font-weight:700;padding:0 var(--sp-2);text-align:center}
+.leiste a{text-decoration:underline}
+header.kopf{background:var(--grund);border-bottom:1px solid var(--linie)}
+.kopf .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);min-height:91px;flex-wrap:wrap}
+.logo{font-family:var(--font-display);font-size:1.6rem;text-decoration:none}
+nav{display:flex;gap:var(--sp-3);flex-wrap:wrap;font-size:var(--fs-lead)}
+nav a{text-decoration:none}
+nav a:hover{text-decoration:underline}
+.suche{border-bottom:1px solid var(--marine);color:var(--grau);font-size:var(--fs-meta);padding:.4rem 2rem .4rem .25rem;min-width:130px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:var(--knopf-hoehe);padding:0 1.75rem;border-radius:var(--r-pille);background:var(--marine);color:var(--weiss);font:700 var(--fs-meta)/1 var(--font-text);letter-spacing:var(--ls-text);text-decoration:none;border:2px solid var(--marine);transition:opacity .2s}
+.btn:hover{opacity:.85}
+.btn.hell{background:var(--weiss);color:var(--marine);border-color:var(--weiss)}
+.btn.rahmen{background:transparent;color:var(--marine)}
+.band{background:var(--marine);color:var(--weiss)}
+.band .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);padding-top:var(--sp-3);padding-bottom:var(--sp-3);flex-wrap:wrap}
+.band h2{font-family:var(--font-display);font-weight:400;font-size:var(--fs-band);line-height:var(--lh-display)}
+.band p{flex:1 1 220px;max-width:34rem}
+.hero{position:relative;min-height:600px;display:flex;align-items:flex-end;justify-content:center;text-align:center;color:var(--weiss);
+  background:linear-gradient(180deg,rgba(40,52,85,.1),rgba(40,52,85,.8)),repeating-linear-gradient(90deg,var(--sand) 0 36px,#bfc9d8 36px 72px,var(--creme) 72px 108px)}
+.hero .inhalt{padding:var(--sp-5) var(--rand-seite-mobil);max-width:46rem;display:grid;gap:var(--sp-2);justify-items:center}
+.hero .mini{font-weight:700;text-transform:uppercase;letter-spacing:var(--ls-mini);font-size:var(--fs-mini)}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:var(--fs-hero);line-height:var(--lh-display)}
+.hero p{font-size:var(--fs-lead)}
+.knopfzeile{display:flex;gap:var(--sp-2);flex-wrap:wrap;justify-content:center}
+.sektion{padding:var(--sp-5) 0}
+.sektion h2{font-size:var(--fs-h2);font-weight:700;margin-bottom:var(--sp-3)}
+.chips{display:flex;gap:var(--sp-1);flex-wrap:wrap;margin-bottom:var(--sp-4)}
+.chip{background:var(--dunst);border-radius:var(--r-pille);min-height:var(--chip-hoehe);display:inline-flex;align-items:center;padding:0 1rem;font-size:var(--fs-meta);text-decoration:none}
+.raster{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--luecke)}
+.karte .bild{aspect-ratio:4/5;border-radius:var(--r-bild);margin-bottom:var(--sp-1);overflow:hidden;transition:transform .4s}
+.karte:hover .bild{transform:scale(1.03)}
+.b1{background:repeating-linear-gradient(135deg,var(--dunst) 0 18px,var(--weiss) 18px 36px)}
+.b2{background:linear-gradient(160deg,var(--creme),var(--sand))}
+.b3{background:repeating-linear-gradient(90deg,var(--creme) 0 14px,var(--dunst) 14px 28px)}
+.b4{background:radial-gradient(circle at 30% 30%,var(--dunst),#8ea4b6)}
+.karte h3{font-size:1rem;font-weight:700}
+.karte .meta{color:var(--grau);font-size:var(--fs-meta)}
+.karte .preis{font-weight:700}
+.karte .vorteil{color:var(--gruen);font-size:var(--fs-meta);font-weight:700}
+.creme{background:var(--creme)}
+.vorteile{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4)}
+.vorteile h3{font-size:var(--fs-h2);margin-bottom:var(--sp-1)}
+.vorteile .zahl{font-family:var(--font-display);font-size:2.5rem;line-height:1}
+.mosaik{display:grid;grid-template-columns:1fr 1fr;gap:var(--luecke)}
+.kachel{min-height:320px;border-radius:var(--r-gross);display:flex;align-items:flex-end;padding:var(--sp-3);color:var(--weiss);font-family:var(--font-display);font-size:var(--fs-band);line-height:var(--lh-display)}
+.k1{background:linear-gradient(180deg,rgba(40,52,85,.1),rgba(40,52,85,.8)),repeating-linear-gradient(45deg,#8ea4b6 0 22px,var(--dunst) 22px 44px)}
+.k2{background:linear-gradient(180deg,rgba(40,52,85,.1),rgba(40,52,85,.8)),linear-gradient(120deg,var(--sand),var(--creme))}
+.news{text-align:center;display:grid;gap:var(--sp-2);justify-items:center}
+.news h2{font-family:var(--font-display);font-weight:400;font-size:var(--fs-band);line-height:var(--lh-display);margin:0}
+.eingabe{display:flex;gap:var(--sp-2);flex-wrap:wrap;justify-content:center;align-items:center;width:100%}
+.feld{border-bottom:1px solid var(--marine);color:var(--grau);padding:.6rem .25rem;min-width:min(100%,18rem);text-align:left}
+footer{border-top:1px solid var(--linie);padding:var(--sp-4) 0}
+.fuss{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-3);font-size:var(--fs-meta)}
+.fuss h3{font-size:var(--fs-text);margin-bottom:var(--sp-1)}
+.fuss a{display:block;text-decoration:none;color:var(--grau);padding:.15rem 0}
+.fuss a:hover{text-decoration:underline}
+@media (max-width:1023px){.raster{grid-template-columns:repeat(2,1fr)}.fuss{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:700px){
+  .wrap{padding:0 var(--rand-seite-mobil)}
+  .vorteile,.mosaik{grid-template-columns:1fr}
+  .hero{min-height:520px}
+  .sektion{padding:var(--sp-4) 0}
+  .raster{gap:.75rem}
+  nav{font-size:1rem;gap:var(--sp-2)}
+}
+</style>
+</head>
+<body>
+<div class="leiste"><span>Versandkostenfrei ab 80 €</span><a href="#">Mehr erfahren</a></div>
+<header class="kopf">
+  <div class="wrap">
+    <a class="logo" href="#">Nordwerk Studio</a>
+    <nav>
+      <a href="#sortiment">Sortiment</a>
+      <a href="#bundles">Sets</a>
+      <a href="#vorteile">Vorteile</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="suche">Suchen …</div>
+  </div>
+</header>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Sets &amp; Sparen</h2>
+    <p>Unsere beliebtesten Kombinationen für Wohnen und Arbeiten kosten zusammen weniger als einzeln.</p>
+    <a class="btn hell" href="#bundles">Sets ansehen</a>
+  </div>
+</section>
+
+<section class="hero">
+  <div class="inhalt">
+    <span class="mini">Neue Saison</span>
+    <h1>Ruhe für jeden Raum</h1>
+    <p>Weiche Textilien und klares Design aus unserer Werkstatt, gemacht für lange Abende und ruhige Morgen.</p>
+    <div class="knopfzeile">
+      <a class="btn hell" href="#sortiment">Entdecken</a>
+      <a class="btn" href="#bundles" style="border-color:var(--weiss)">Zur Kampagne</a>
+    </div>
+  </div>
+</section>
+
+<section class="sektion" id="sortiment">
+  <div class="wrap">
+    <h2>Beliebt diese Woche</h2>
+    <div class="chips">
+      <a class="chip" href="#">Decken</a>
+      <a class="chip" href="#">Kissen</a>
+      <a class="chip" href="#">Vorhänge</a>
+      <a class="chip" href="#">Teppiche</a>
+      <a class="chip" href="#">Angebote</a>
+    </div>
+    <div class="raster">
+      <a class="karte" href="#" style="text-decoration:none"><div class="bild b1"></div><h3>Streifendecke Fjord</h3><p class="meta">4,8 von 5 Sternen</p><p class="preis">79 €</p></a>
+      <a class="karte" href="#" style="text-decoration:none"><div class="bild b2"></div><h3>Kissenbezug Sand</h3><p class="meta">4,7 von 5 Sternen</p><p class="preis">24 €</p><p class="vorteil">3 für 2</p></a>
+      <a class="karte" href="#" style="text-decoration:none"><div class="bild b3"></div><h3>Läufer Dünenlinie</h3><p class="meta">4,9 von 5 Sternen</p><p class="preis">129 €</p></a>
+      <a class="karte" href="#" style="text-decoration:none"><div class="bild b4"></div><h3>Vorhang Morgenblau</h3><p class="meta">4,6 von 5 Sternen</p><p class="preis">59 €</p><p class="vorteil">Jetzt 15 % günstiger</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="sektion creme" id="bundles">
+  <div class="wrap">
+    <h2>Wohnwelten</h2>
+    <div class="mosaik">
+      <a class="kachel k1" href="#" style="text-decoration:none">Schlafzimmer</a>
+      <a class="kachel k2" href="#" style="text-decoration:none">Wohnzimmer</a>
+    </div>
+  </div>
+</section>
+
+<section class="sektion" id="vorteile">
+  <div class="wrap vorteile">
+    <div><p class="zahl">30</p><h3>Tage Rückgabe</h3><p>Ausprobieren, fühlen, entscheiden. Wenn es nicht passt, holen wir es ab.</p></div>
+    <div><p class="zahl">5</p><h3>Jahre Garantie</h3><p>Wir verarbeiten nur Stoffe, die lange halten und mit jeder Wäsche weicher werden.</p></div>
+    <div><p class="zahl">2</p><h3>Tage Lieferzeit</h3><p>Bestellungen aus dem Lager versenden wir klimaneutral und schnell.</p></div>
+  </div>
+</section>
+
+<section class="sektion creme" id="kontakt">
+  <div class="wrap news">
+    <h2>Neuigkeiten aus der Werkstatt</h2>
+    <p>Einmal im Monat Ideen, Angebote und ein Blick hinter die Kulissen.</p>
+    <div class="eingabe">
+      <div class="feld">Ihre E-Mail-Adresse</div>
+      <a class="btn" href="#">Anmelden</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fuss">
+    <div><h3>Nordwerk Studio</h3><a href="#">Über uns</a><a href="#">Werkstatt</a><a href="#">Karriere</a></div>
+    <div><h3>Hilfe</h3><a href="#">Versand</a><a href="#">Rückgabe</a><a href="#">Pflegehinweise</a></div>
+    <div><h3>Sortiment</h3><a href="#">Decken</a><a href="#">Kissen</a><a href="#">Teppiche</a></div>
+    <div><h3>Rechtliches</h3><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a></div>
+  </div>
+</footer>
+</body>
+</html>

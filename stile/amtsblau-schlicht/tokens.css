@@ -1,0 +1,14 @@
+/* Amtsblau schlicht: Tokens */
+:root{
+  --blau:#2575b3; --text:#0b0c0c; --text-2:#505a5f; --flaeche:#f4f8fb; --weiss:#ffffff;
+  --link:#1f6aa8; --link-hover:#0f385c; --link-besucht:#54319f;
+  --gruen:#1a8057; --gruen-hover:#0a7242; --gruen-kante:#083d29;
+  --fokus:#ffdd00; --fehler:#ca3535; --linie:#cecece; --blau-hell:#d2e2f1; --blau-rand:#8eb8dc; --platzhalter:#b1b4b6;
+  --font-text:"Noto Sans",Arial,sans-serif;
+  --fs-h1:clamp(2.5rem,6vw,3.4375rem); --fs-h2:clamp(1.3125rem,3vw,1.5rem); --fs-text:1.1875rem; --fs-klein:1rem;
+  --lh-text:1.316; --lh-h:1.2; --gewicht:400; --gewicht-fett:700;
+  --s-1:5px; --s-2:10px; --s-3:15px; --s-4:20px; --s-5:30px; --s-6:40px; --s-7:60px;
+  --breite:960px; --breite-text:630px; --luecke:30px;
+  --r:0; --rand:2px; --rand-akzent:4px;
+  --schatten-knopf:0 2px 0 var(--gruen-kante); --schatten-grau:0 2px 0 #929191;
+}

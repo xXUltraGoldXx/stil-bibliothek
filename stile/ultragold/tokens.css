@@ -1,0 +1,16 @@
+/* Ultragold (Inferno): Tokens */
+:root{
+  --canvas:#07050a; --canvas-2:#0d0810; --canvas-3:#160e1b;
+  --surface:rgba(255,255,255,.045); --surface-border:rgba(255,255,255,.09); --surface-highlight:rgba(255,255,255,.08);
+  --text:#f5ede6; --text-muted:#b8a9a6; --text-faint:#7d6e6c;
+  --ember:#ff5a36; --ember-soft:#ff8a5b; --gold:#f2b544; --gold-soft:#ffd98a; --arc:#8c6bff;
+  --grad-inferno:linear-gradient(135deg,var(--ember) 0%,var(--gold) 100%);
+  --grad-canvas:radial-gradient(120% 90% at 50% -10%,var(--canvas-3) 0%,var(--canvas) 60%);
+  --font-display:"Space Grotesk","Inter",sans-serif; --font-body:"Inter",sans-serif; --font-mono:"JetBrains Mono","SFMono-Regular",monospace;
+  --fs-display:clamp(2.75rem,6vw,5.5rem); --fs-h1:clamp(2.25rem,4.2vw,3.5rem); --fs-h2:clamp(1.75rem,3vw,2.5rem); --fs-h3:clamp(1.2rem,1.8vw,1.5rem);
+  --fs-body:1rem; --fs-lead:clamp(1.05rem,1.4vw,1.25rem); --fs-sm:.875rem; --fs-xs:.75rem;
+  --r-sm:10px; --r-md:18px; --r-lg:28px; --r-pill:999px;
+  --shadow-card:0 24px 70px -24px rgba(0,0,0,.7); --blur-glass:18px;
+  --ease-out:cubic-bezier(.16,1,.3,1); --dur-base:280ms; --dur-slow:450ms;
+  --breite:1160px; --abstand-sektion:clamp(4.5rem,10vw,8rem);
+}

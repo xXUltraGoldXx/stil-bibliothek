@@ -1,0 +1,16 @@
+/* Katalog klar: Tokens */
+:root{
+  --weiss:#ffffff; --flaeche:#dad9e0; --sand:#c1ac9d; --creme:#f1ebe6;
+  --text:#000000; --text-2:#454545; --text-3:#666666; --meta:#707275;
+  --leiste:#ffad4f; --rot:#be181a; --rot-text:#d21929; --rot-tint:#ffe5e5;
+  --linie:#dddddd; --rahmen:#a5a5a5; --knopf:#000000; --knopf-hover:#303030;
+  --font-text:"Source Sans 3",Arial,sans-serif;
+  --font-display:"Jost","Source Sans 3",Arial,sans-serif;
+  --fs-hero:2.5rem; --fs-h2:1.625rem; --fs-text:1rem; --fs-klein:.875rem; --fs-meta:.75rem;
+  --lh-text:1.25rem; --lh-h2:2rem; --ls-knopf:.03em;
+  --gew-text:400; --gew-fett:700;
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:32px; --s-6:64px;
+  --r-klein:2px; --r:4px; --r-rund:50%;
+  --breite:1280px; --luecke:16px;
+  --schatten-leiste:0 -2px 8px rgba(0,0,0,.25);
+}

@@ -1,0 +1,16 @@
+/* Raum-3D: Tokens. Tiefe entsteht aus Perspektive, Ebenen und Schatten, nicht aus Farbe. */
+:root{
+  --grund:#e8ecf3; --grund-2:#dbe1ec; --ebene-1:#ffffff; --ebene-2:#f3f6fb; --ebene-3:#c9d3e6;
+  --tinte:#141a2e; --tinte-2:#4a5470; --tinte-3:#7b86a3; --linie:#c3cde0;
+  --akzent:#ff6a2b; --akzent-weich:#ffb48a; --kuehl:#3d5afe; --kuehl-weich:#aab8ff;
+  --font-display:"Sora","Inter",sans-serif; --font-body:"Inter",sans-serif; --font-mono:"IBM Plex Mono",monospace;
+  --fs-display:clamp(2.6rem,6.5vw,5.25rem); --fs-h2:clamp(1.8rem,3.4vw,2.9rem); --fs-h3:1.2rem; --fs-body:1rem; --fs-sm:.875rem; --fs-xs:.75rem;
+  --perspektive:1200px; --perspektive-nah:700px;
+  --kipp-x:58deg; --kipp-z:-32deg; --tiefe-1:0px; --tiefe-2:46px; --tiefe-3:92px;
+  --r-sm:10px; --r-md:18px; --r-lg:26px;
+  --schatten-1:0 2px 4px rgba(20,26,46,.08),0 10px 24px -8px rgba(20,26,46,.16);
+  --schatten-2:0 4px 8px rgba(20,26,46,.08),0 28px 60px -18px rgba(20,26,46,.30);
+  --schatten-boden:0 60px 70px -30px rgba(20,26,46,.35);
+  --ease:cubic-bezier(.2,.8,.2,1); --dur:420ms; --dur-schweben:7s;
+  --breite:1160px; --abstand-sektion:clamp(4.5rem,10vw,8rem);
+}

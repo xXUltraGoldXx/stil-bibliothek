@@ -1,0 +1,18 @@
+{
+  "name": "Raum-3D",
+  "slug": "raum-3d",
+  "beschreibung": "Tiefe statt Fläche: Perspektive, gestapelte Ebenen, schwebende Karten mit weichen Schatten und ein klarer Fluchtpunkt. Für Produkte, Architektur und Konfiguratoren.",
+  "schlagworte": [
+    "3d",
+    "perspektive",
+    "ebenen",
+    "tiefe",
+    "isometrisch"
+  ],
+  "kategorien": [
+    "3D",
+    "Modern",
+    "Tech/SaaS"
+  ],
+  "gegenbeispiel": false
+}

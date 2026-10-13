@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forgeline – Ultragold</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--grad-canvas) fixed,var(--canvas);color:var(--text);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.w{max-width:var(--breite);margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.mono{font-family:var(--font-mono);font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
+.grad{background:var(--grad-inferno);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+nav b{font-family:var(--font-display);font-size:1.25rem}nav a{color:var(--text-muted);text-decoration:none;margin-left:1.5rem;font-size:var(--fs-sm);transition:color var(--dur-base)}nav a:hover{color:var(--gold-soft)}
+.hero{position:relative;padding:clamp(4rem,10vw,8rem) 0 var(--abstand-sektion)}
+.hero:before{content:"";position:absolute;left:50%;top:-10%;width:min(900px,100%);aspect-ratio:1;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,90,54,.28),rgba(242,181,68,.10) 55%,transparent 75%);z-index:-1;animation:glut 7s ease-in-out infinite}
+@keyframes glut{50%{opacity:.7}}
+h1{font-size:var(--fs-display);max-width:14ch;margin:1rem 0 1.25rem}
+.lead{font-size:var(--fs-lead);color:var(--text-muted);max-width:52ch}
+.btns{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:2rem}
+.k{display:inline-block;border-radius:var(--r-pill);padding:.85rem 1.7rem;font:600 1rem var(--font-body);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base)}
+.k.p{background:var(--grad-inferno);color:#1c0a05}.k.p:hover{transform:translateY(-2px);box-shadow:0 10px 40px -8px rgba(255,90,54,.55)}
+.k.s{background:var(--surface);border-color:var(--surface-border);color:var(--text)}.k.s:hover{border-color:var(--gold)}
+.sek{padding:var(--abstand-sektion) 0}
+h2{font-size:var(--fs-h2);margin:.75rem 0 1rem;max-width:22ch}
+.glass{position:relative;background:var(--surface);border:1px solid var(--surface-border);border-radius:var(--r-lg);backdrop-filter:blur(var(--blur-glass)) saturate(140%);-webkit-backdrop-filter:blur(var(--blur-glass)) saturate(140%);box-shadow:var(--shadow-card),inset 0 1px 0 var(--surface-highlight);transition:border-color var(--dur-slow)}
+.glass:hover{border-color:rgba(242,181,68,.45)}
+.karten{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.karten .glass{padding:2rem}.karten h3{font-size:var(--fs-h3);margin:.9rem 0 .5rem}.karten p{color:var(--text-muted);font-size:var(--fs-sm)}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;padding:2.25rem}
+.zahlen b{display:block;font:600 clamp(2.2rem,5vw,3.5rem) var(--font-display)}.zahlen span{color:var(--text-muted);font-size:var(--fs-sm)}
+.cta{padding:clamp(2.5rem,6vw,4.5rem);text-align:center;background:radial-gradient(80% 120% at 50% 120%,rgba(255,90,54,.22),transparent 70%),var(--surface)}
+.cta h2{margin-inline:auto}
+form{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.75rem}
+input{background:var(--canvas-2);color:var(--text);border:1px solid var(--surface-border);border-radius:var(--r-md);padding:.85rem 1.1rem;font:inherit;flex:1 1 240px;max-width:340px;min-width:0}input:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(242,181,68,.2)}
+footer{padding:2.5rem 0;color:var(--text-faint);font-size:var(--fs-sm);border-top:1px solid var(--surface-border);margin-top:var(--abstand-sektion)}
+.rv{}.rv.an{opacity:1;transform:none}
+@media(max-width:800px){.karten,.zahlen{grid-template-columns:1fr}nav a{display:none}}
+@media(prefers-reduced-motion:reduce){.hero:before{animation:none}.rv{opacity:1;transform:none;transition:none}}
+</style></head><body>
+<div class="w"><nav><b>Forgeline</b><span><a href="#a">Leistungen</a><a href="#b">Zahlen</a><a href="#c">Kontakt</a></span></nav>
+<header class="hero"><span class="mono">Software-Schmiede</span>
+<h1>Software, die <span class="grad">brennt</span> für Ihr Geschäft.</h1>
+<p class="lead">Wir bauen Plattformen, Automatisierungen und Werkzeuge, die im Alltag zuverlässig arbeiten. Direkt, schnell, ohne Umwege.</p>
+<div class="btns"><a class="k p" href="#c">Projekt anfragen</a><a class="k s" href="#a">Leistungen ansehen</a></div></header>
+<section class="sek" id="a"><span class="mono rv">01 / Leistungen</span><h2 class="rv">Drei Dinge, die wir wirklich können.</h2>
+<div class="karten">
+<div class="glass rv"><span class="mono">Web</span><h3>Plattformen</h3><p>Portale und Anwendungen, die Ihre Abläufe tragen und mit Ihnen wachsen.</p></div>
+<div class="glass rv"><span class="mono">Auto</span><h3>Automatisierung</h3><p>Wiederkehrende Arbeit läuft von selbst. Sie behalten die Kontrolle.</p></div>
+<div class="glass rv"><span class="mono">Ops</span><h3>Betrieb</h3><p>Überwachung, Updates und Sicherung. Damit nachts alles ruhig bleibt.</p></div>
+</div></section>
+<section class="sek" id="b" style="padding-top:0"><div class="glass zahlen rv"><div><b class="grad">99,9 %</b><span>Verfügbarkeit im Betrieb</span></div><div><b class="grad">48 h</b><span>bis zum ersten Prototyp</span></div><div><b class="grad">1</b><span>Ansprechpartner pro Projekt</span></div></div></section>
+<section id="c"><div class="glass cta rv"><span class="mono">Bereit?</span><h2>Erzählen Sie uns, was gebaut werden soll.</h2><p class="lead" style="margin-inline:auto">Antwort innerhalb eines Werktags.</p>
+<form><input type="email" placeholder="E-Mail-Adresse" aria-label="E-Mail-Adresse"><button class="k p">Anfrage senden</button></form></div></section>
+<footer>Forgeline ist eine fiktive Firma für diese Stilvorlage.</footer></div>
+</body></html>

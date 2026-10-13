@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--font-ui);font-size:var(--fs-text);font-weight:var(--fw-text);color:var(--schwarz);background:var(--weiss);line-height:1.15}
+a{color:inherit;text-decoration:none}
+.wrap{width:calc(100% - 2*var(--rand-seite));max-width:var(--breite);margin:0 auto}
+.util{background:var(--grau-1);font-size:var(--fs-klein)}
+.util .wrap{display:flex;flex-wrap:wrap;gap:var(--s-1);justify-content:space-between;padding:var(--s-2) 0}
+.util span{padding:var(--s-1) var(--s-2)}
+.kopf{box-shadow:var(--schatten-nav);background:var(--weiss);position:relative}
+.kopf-zeile{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s-3);padding:var(--s-3) 0}
+.tabs{display:flex;gap:var(--s-4);font-weight:var(--fw-mittel)}
+.tabs a{padding-bottom:6px;color:var(--text-2)}
+.tabs a.aktiv{color:var(--schwarz);border-bottom:2px solid var(--schwarz)}
+.marke{background:var(--schwarz);color:var(--weiss);font-weight:var(--fw-fett);letter-spacing:.02em;padding:6px 12px;font-size:1.25rem;border-radius:var(--r-1)}
+.icons{display:flex;gap:var(--s-3);align-items:center}
+.ico{width:24px;height:24px;display:block}
+.kat{border-top:1px solid var(--linie)}
+.kat .wrap{display:flex;flex-wrap:wrap;gap:var(--s-1) var(--s-3);align-items:center;padding:var(--s-2) 0}
+.kat a{padding:var(--s-2) var(--s-1);font-size:var(--fs-knopf)}
+.kat .sale{color:var(--rot)}
+.suche{margin-left:auto;background:var(--grau-2);border-radius:var(--r-3);padding:10px var(--s-3);font-size:.8rem;color:var(--text-2);min-width:200px}
+.vorteile{background:var(--schwarz);color:var(--weiss)}
+.vorteile .wrap{display:flex;flex-wrap:wrap;gap:var(--s-1) var(--s-5);justify-content:space-around;padding:12px 0;font-size:var(--fs-mikro);font-weight:var(--fw-mittel);text-transform:uppercase;letter-spacing:var(--ls-mikro)}
+.buehne{background:#3a3733;color:var(--weiss)}
+.buehne .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:var(--s-4);padding:var(--s-4) 0}
+.pille{display:inline-block;background:var(--weiss);color:var(--schwarz);border-radius:var(--r-pille);padding:var(--s-1) 12px;font-size:var(--fs-mikro);font-weight:var(--fw-mittel);text-transform:uppercase;letter-spacing:var(--ls-mikro)}
+.buehne h1{font-size:var(--fs-buehne);font-weight:var(--fw-mittel);text-transform:uppercase;margin:var(--s-3) 0;line-height:1.1}
+.buehne p{font-size:var(--fs-klein);line-height:var(--lh-klein);margin:0 0 var(--s-3);text-transform:uppercase;letter-spacing:var(--ls-mikro)}
+.punkte{display:flex;gap:var(--s-1);margin-bottom:var(--s-4)}
+.punkte i{width:12px;height:4px;border-radius:var(--r-pille);background:rgba(255,255,255,.4)}
+.punkte i:first-child{width:32px;background:var(--weiss)}
+.mini{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-2)}
+.mini div{aspect-ratio:1/1;border-radius:var(--r-2);background:linear-gradient(135deg,#d8cfc2,#8e8478)}
+.mini div:nth-child(2){background:linear-gradient(135deg,#6a6258,#3b362f)}
+.mini div:nth-child(3){background:linear-gradient(135deg,#efe9df,#c9bfae)}
+.bild{position:relative;border-radius:var(--r-4);min-height:320px;background:linear-gradient(0deg,rgba(0,0,0,.16),rgba(0,0,0,0)),linear-gradient(120deg,#b9ae9c 0%,#7c7466 45%,#c8bda9 100%);overflow:hidden}
+.bild::after{content:"";position:absolute;right:12%;bottom:0;width:22%;height:78%;background:linear-gradient(180deg,#ece5d8,#a79a85);border-radius:80px 80px 0 0;opacity:.85}
+.pfeile{position:absolute;right:var(--s-3);bottom:var(--s-3);display:flex;gap:1px;z-index:1}
+.pfeile span{width:40px;height:40px;background:var(--glas);box-shadow:var(--schatten-schwebend);display:flex;align-items:center;justify-content:center}
+.pfeile span:first-child{border-radius:var(--r-4) 0 0 var(--r-4)}
+.pfeile span:last-child{border-radius:0 var(--r-4) var(--r-4) 0}
+.reihe{padding:var(--s-5) 0 var(--s-3)}
+.reihe-kopf{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:var(--s-2);margin-bottom:var(--s-3)}
+h2{font-size:var(--fs-h2);font-weight:var(--fw-mittel);line-height:var(--lh-h2);margin:0}
+.mehr{font-size:var(--fs-knopf);font-weight:var(--fw-mittel);padding:0 var(--s-2)}
+.raster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--luecke-kachel)}
+.kachel{font-size:var(--fs-klein);line-height:var(--lh-klein);min-width:0}
+.kachel .foto{position:relative;aspect-ratio:3/4;border-radius:var(--r-2);background:var(--grau-1);margin-bottom:var(--s-2);overflow:hidden}
+.kachel .foto::before{content:"";position:absolute;left:22%;right:22%;top:14%;bottom:14%;border-radius:var(--r-2);background:var(--f,linear-gradient(160deg,#cfc6b8,#8f8678))}
+.herz{position:absolute;top:var(--s-2);right:var(--s-2);width:24px;height:24px;border-radius:50%;background:var(--weiss);display:flex;align-items:center;justify-content:center;z-index:1}
+.rabatt{position:absolute;left:var(--s-2);top:var(--s-2);background:var(--rot);color:var(--weiss);font-size:var(--fs-mikro);padding:2px 6px;border-radius:var(--r-1);z-index:1}
+.kachel b{font-weight:var(--fw-mittel);display:block}
+.kachel span.t{color:var(--text-2);display:block}
+.kachel .preis{font-weight:var(--fw-mittel);margin-top:var(--s-1)}
+.preis s{color:var(--text-2);font-weight:var(--fw-text);margin-left:var(--s-1)}
+.preis em{font-style:normal;color:var(--rot)}
+.flaechen{background:var(--grau-1);padding:var(--s-5) 0;margin-top:var(--s-4)}
+.flaechen .raster{grid-template-columns:1fr}
+.fl{background:var(--weiss);border-radius:var(--r-3);padding:var(--s-4);box-shadow:var(--schatten-popup)}
+.fl h3{font-size:var(--fs-h3);font-weight:var(--fw-mittel);margin:0 0 var(--s-2);line-height:1.15}
+.fl p{font-size:var(--fs-klein);line-height:var(--lh-klein);color:var(--text-2);margin:0 0 var(--s-3)}
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 var(--s-4);background:var(--schwarz);color:var(--weiss);border-radius:var(--r-2);font-size:var(--fs-knopf);font-weight:var(--fw-mittel);border:0;transition:background .15s}
+.knopf:hover{background:var(--text-2)}
+.knopf.zwei{background:transparent;color:var(--schwarz);box-shadow:inset 0 0 0 1px var(--schwarz)}
+.knopf.zwei:hover{background:var(--grau-1)}
+.fuss{padding:var(--s-5) 0;border-top:1px solid var(--linie)}
+.fuss .wrap{display:grid;grid-template-columns:1fr;gap:var(--s-4);font-size:var(--fs-klein);line-height:1.8}
+.fuss h4{margin:0 0 var(--s-2);font-size:var(--fs-klein);font-weight:var(--fw-mittel);text-transform:uppercase;letter-spacing:var(--ls-mikro)}
+.fuss a{display:block;color:var(--text-2)}
+@media (min-width:800px){
+  .raster{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .flaechen .raster{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .fuss .wrap{grid-template-columns:repeat(4,1fr)}
+}
+@media (min-width:1100px){
+  .raster{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+@media (max-width:799px){
+  .buehne .wrap{grid-template-columns:1fr}
+  .bild{min-height:240px}
+  .suche{margin-left:0;width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="util">
+  <div class="wrap">
+    <div><span>Werkstatt-Ausverkauf</span><span>Kontakt und Hilfe</span><span>Nachhaltigkeit</span></div>
+    <span>DE</span>
+  </div>
+</div>
+
+<header class="kopf">
+  <div class="wrap kopf-zeile">
+    <nav class="tabs" aria-label="Bereiche">
+      <a class="aktiv" href="#">Wohnen</a><a href="#">Arbeiten</a><a href="#">Draußen</a>
+    </nav>
+    <a class="marke" href="#">NORDWERK</a>
+    <div class="icons" aria-label="Konto und Warenkorb">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/></svg>
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6"><path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/></svg>
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+    </div>
+  </div>
+  <div class="kat">
+    <div class="wrap">
+      <a href="#">Neuheiten</a><a href="#">Möbel</a><a href="#">Leuchten</a><a href="#">Textilien</a><a href="#">Küche</a><a href="#">Werkzeug</a><a class="sale" href="#">Angebote</a>
+      <div class="suche">Suche nach Objekten, Marken …</div>
+    </div>
+  </div>
+</header>
+
+<section class="vorteile" aria-label="Vorteile">
+  <div class="wrap">
+    <span>Versand ab 49 € frei</span><span>30 Tage Rückgabe</span><span>Kauf auf Rechnung</span>
+  </div>
+</section>
+
+<section class="buehne">
+  <div class="wrap">
+    <div>
+      <span class="pille">Aus der Werkstatt</span>
+      <h1>Die Herbst-Kollektion</h1>
+      <p>Robuste Stücke aus Eiche, Wolle und Stahl</p>
+      <div class="punkte"><i></i><i></i><i></i></div>
+      <div class="mini"><div></div><div></div><div></div><div></div></div>
+    </div>
+    <div class="bild" role="img" aria-label="Platzhalter für Kampagnenbild">
+      <div class="pfeile"><span>‹</span><span>›</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="reihe">
+  <div class="wrap">
+    <div class="reihe-kopf"><h2>Beliebt diese Woche</h2><a class="mehr" href="#">Alle ansehen</a></div>
+    <div class="raster">
+      <article class="kachel"><div class="foto"><span class="herz">♡</span></div><b>Nordwerk</b><span class="t">Beistelltisch Eiche, rund</span><div class="preis">129,00 €</div></article>
+      <article class="kachel"><div class="foto" style="--f:linear-gradient(160deg,#6a6258,#2f2b26)"><span class="herz">♡</span></div><b>Kaldera</b><span class="t">Stehleuchte Stahl, matt</span><div class="preis">189,00 €</div></article>
+      <article class="kachel"><div class="foto" style="--f:linear-gradient(160deg,#e6dccb,#b7a98f)"><span class="rabatt">-30 %</span><span class="herz">♡</span></div><b>Hafenholz</b><span class="t">Wolldecke, Fischgrat</span><div class="preis"><em>49,00 €</em><s>70,00 €</s></div></article>
+      <article class="kachel"><div class="foto" style="--f:linear-gradient(160deg,#a9b3a4,#5e6b5a)"><span class="herz">♡</span></div><b>Nordwerk</b><span class="t">Regal Kiefer, offen</span><div class="preis">249,00 €</div></article>
+      <article class="kachel"><div class="foto" style="--f:linear-gradient(160deg,#c9a98a,#8a6648)"><span class="herz">♡</span></div><b>Bergstück</b><span class="t">Hocker Leder, cognac</span><div class="preis">99,00 €</div></article>
+      <article class="kachel"><div class="foto" style="--f:linear-gradient(160deg,#d7d7d9,#8d8f93)"><span class="herz">♡</span></div><b>Kaldera</b><span class="t">Tischleuchte Alu</span><div class="preis">79,00 €</div></article>
+    </div>
+  </div>
+</section>
+
+<section class="flaechen">
+  <div class="wrap">
+    <div class="reihe-kopf"><h2>Dein Zuhause, sortiert</h2></div>
+    <div class="raster">
+      <div class="fl"><h3>Kostenlose Beratung</h3><p>Unsere Einrichtungsberater antworten werktags innerhalb von zwei Stunden.</p><a class="knopf" href="#">Termin wählen</a></div>
+      <div class="fl"><h3>Probe liegen, sitzen, testen</h3><p>Bestelle bis zu drei Muster und gib sie 30 Tage lang kostenlos zurück.</p><a class="knopf zwei" href="#">Muster anfordern</a></div>
+      <div class="fl"><h3>Gebraucht aus der Werkstatt</h3><p>Aufgearbeitete Einzelstücke mit zwei Jahren Gewährleistung.</p><a class="knopf zwei" href="#">Stöbern</a></div>
+    </div>
+  </div>
+</section>
+
+<footer class="fuss">
+  <div class="wrap">
+    <div><h4>Hilfe</h4><a href="#">Versand</a><a href="#">Rückgabe</a><a href="#">Zahlung</a></div>
+    <div><h4>Nordwerk Studio</h4><a href="#">Über uns</a><a href="#">Werkstatt</a><a href="#">Karriere</a></div>
+    <div><h4>Rechtliches</h4><a href="#">Datenschutz</a><a href="#">Impressum</a><a href="#">AGB</a></div>
+    <div><h4>Folgen</h4><a href="#">Newsletter</a><a href="#">Journal</a><a href="#">Showroom</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

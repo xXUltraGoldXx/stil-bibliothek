@@ -1,0 +1,16 @@
+/* Notizbuch kursiv: Tokens */
+:root{
+  --papier:#FAFAF7; --weiss:#FFFFFF; --tinte:#16170E; --tinte-2:#5A5C50; --linie:#D5D4C9;
+  --akzent:#C2410C; --indigo:#3D49A6;
+  --font-display:"Crimson Pro",Georgia,serif;
+  --font-text:"Lora",Georgia,serif;
+  --font-mono:"Space Mono",ui-monospace,monospace;
+  --fs-h1:clamp(2.25rem,5vw,3.5rem); --fs-h2:clamp(1.5rem,3vw,2rem); --fs-text:1.125rem; --fs-meta:.6875rem; --fs-mono:.8125rem;
+  --lh-text:1.5; --lh-h1:1; --lh-h2:1.15;
+  --ls-h1:-.025em; --ls-h2:-.015em; --ls-meta:.14em;
+  --abstand-1:.5rem; --abstand-2:.875rem; --abstand-3:1.5rem; --abstand-4:2rem; --abstand-5:3.5rem;
+  --breite:1200px; --rand:2rem; --luecke:2rem; --spalten:12;
+  --r:0; --r-menue:10px; --linie-stark:1px;
+  --schatten-menue:0 12px 32px rgba(22,23,14,.16);
+  --ease-paper:cubic-bezier(.2,0,0,1); --ease-spring:cubic-bezier(.34,1.56,.64,1);
+}

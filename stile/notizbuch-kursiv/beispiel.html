@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Notizen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,700;1,800&family=Lora:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--papier);color:var(--tinte);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text)}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+.mono{font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:var(--ls-meta);text-transform:uppercase}
+.ak{color:var(--akzent)}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid var(--linie);transition:border-color .2s var(--ease-paper)}
+a:hover{border-color:var(--indigo)}
+.kopf{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.75rem 0 1.25rem;border-bottom:1px solid var(--linie);gap:1rem}
+.logo{font-family:var(--font-display);font-style:italic;font-weight:800;font-size:1.5rem;color:var(--tinte);border:0}
+.logo span{color:var(--akzent)}
+.kopf nav{display:flex;gap:1.75rem;flex-wrap:wrap;justify-content:center}
+.kopf nav a{color:var(--tinte-2);border:0}.kopf nav a.an{color:var(--akzent)}.kopf nav a:hover{color:var(--tinte)}
+.kopf .re{justify-self:end;color:var(--tinte-2)}
+.hero{display:flex;justify-content:space-between;gap:2rem;padding:3.5rem 0 2.5rem}
+h1{font-family:var(--font-display);font-style:italic;font-weight:800;font-size:var(--fs-h1);line-height:var(--lh-h1);letter-spacing:var(--ls-h1);max-width:12em}
+h1 i{color:var(--akzent);font-style:normal}
+.sub{color:var(--tinte-2);margin-top:1rem}
+.px{display:block;shape-rendering:crispEdges;fill:var(--akzent)}
+.px.blau{fill:var(--indigo)}
+.px rect{animation:flackern 2s steps(1) infinite}
+.px rect:nth-child(3n){animation-delay:.7s}.px rect:nth-child(4n){animation-delay:1.3s}
+@keyframes flackern{0%,70%{opacity:1}71%,100%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.px rect{animation:none}}
+.hero .pxs{display:flex;flex-direction:column;justify-content:space-between;gap:3rem}
+.trenner{display:flex;align-items:center;gap:1rem;margin:1rem 0 3rem}
+.trenner:before,.trenner:after{content:"";flex:1;height:1px;background:var(--linie)}
+.sp{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--luecke)}
+.seite{grid-column:span 4}.liste{grid-column:span 8}
+.seite p{margin-bottom:.75rem}.seite .vor{color:var(--tinte)}.seite p.grau{color:var(--tinte-2)}
+dl{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1.5rem;font-family:var(--font-mono);font-size:var(--fs-mono);margin:1.5rem 0}
+dt{color:var(--tinte-2)}dd a{display:inline-block}
+.tags{display:flex;flex-wrap:wrap;gap:.25rem .875rem;margin-top:.5rem}
+.beitrag{padding:1.5rem 0;border-bottom:1px solid var(--linie)}
+.beitrag:first-child{padding-top:0}
+h2{font-family:var(--font-display);font-style:italic;font-weight:700;font-size:var(--fs-h2);line-height:var(--lh-h2);letter-spacing:var(--ls-h2)}
+h2 a{border:0}h2 a:hover{color:var(--akzent)}
+.meta{display:flex;flex-wrap:wrap;gap:.25rem .875rem;align-items:baseline;margin:.4rem 0 .5rem}
+.dat{font-family:var(--font-mono);font-size:var(--fs-mono);color:var(--tinte-2)}
+.beitrag p{color:var(--tinte-2);max-width:62ch}
+.mehr{text-align:right;padding:1.5rem 0 0;color:var(--indigo)}
+.mehr a{border:0}
+.abo{margin-top:5rem;border-top:1px solid var(--linie);padding:2rem 0 3rem;display:grid;grid-template-columns:1fr 1fr;gap:var(--luecke);align-items:end}
+.zeile{display:flex;gap:0;flex-wrap:wrap}
+.zeile input{flex:1 1 200px;min-width:0;font-family:var(--font-mono);font-size:.9375rem;background:var(--weiss);color:var(--tinte);border:1px solid var(--linie);border-radius:var(--r);padding:.75rem .875rem}
+.zeile input:focus{outline:2px solid var(--indigo);outline-offset:2px}
+.knopf{font-family:var(--font-mono);font-weight:700;font-size:var(--fs-meta);letter-spacing:var(--ls-meta);text-transform:uppercase;background:var(--indigo);color:var(--papier);border:0;border-radius:var(--r);padding:.875rem 1.25rem;cursor:pointer;transition:background .2s var(--ease-paper)}
+.knopf:hover{background:var(--akzent)}
+.klein{color:var(--tinte-2);font-family:var(--font-mono);font-size:.6875rem;margin-top:.75rem;text-align:right}
+.fuss{display:flex;justify-content:flex-end;gap:1.5rem;flex-wrap:wrap;margin-top:1.5rem;color:var(--tinte-2)}
+.fuss a{color:var(--tinte-2);border:0}
+.band{max-width:100%;height:auto}
+@media(max-width:800px){
+.w{padding:0 1.25rem}
+.kopf{grid-template-columns:auto 1fr}.kopf nav{justify-content:flex-end;gap:1rem}.kopf .re{display:none}
+.hero{padding:2.5rem 0 2rem}.hero .pxs{display:none}
+body{font-size:1rem}
+.seite,.liste{grid-column:1/-1}
+.abo{grid-template-columns:1fr;margin-top:3rem}
+.klein{text-align:left}.fuss{justify-content:flex-start}
+}
+</style></head><body><div class="w">
+<header class="kopf"><a class="logo" href="#">N<span>.</span></a>
+<nav class="mono"><a class="an" href="#">Start</a><a href="#beitraege">Archiv</a><a href="#abo">Über uns</a><a href="#abo">Werkzeuge</a></nav>
+<span class="re mono">Hell</span></header>
+<section class="hero"><div>
+<h1>Notizen zu ruhigerem Handwerk am Rechner<i>.</i></h1>
+<p class="sub">Von einem kleinen Team aus Gestalterin und Entwickler.</p></div>
+<div class="pxs">
+<svg class="px" width="48" height="36" viewBox="0 0 48 36" aria-hidden="true"><rect x="12" y="0" width="4" height="4"/><rect x="28" y="4" width="4" height="4"/><rect x="36" y="4" width="4" height="4"/><rect x="0" y="12" width="4" height="4"/><rect x="4" y="16" width="4" height="4"/><rect x="40" y="16" width="4" height="4"/><rect x="20" y="24" width="4" height="4"/><rect x="24" y="28" width="4" height="4"/></svg>
+<svg class="px" width="60" height="84" viewBox="0 0 60 84" aria-hidden="true"><rect x="8" y="0" width="4" height="4"/><rect x="44" y="8" width="4" height="4"/><rect x="52" y="12" width="4" height="4"/><rect x="16" y="28" width="4" height="4"/><rect x="20" y="28" width="4" height="4"/><rect x="16" y="32" width="4" height="4"/><rect x="28" y="36" width="4" height="4"/><rect x="36" y="40" width="4" height="4"/><rect x="40" y="44" width="4" height="4"/><rect x="8" y="56" width="4" height="4"/><rect x="12" y="60" width="4" height="4"/><rect x="48" y="64" width="4" height="4"/><rect x="52" y="68" width="4" height="4"/><rect x="0" y="76" width="4" height="4"/><rect x="24" y="80" width="4" height="4"/></svg>
+</div></section>
+<div class="trenner mono ak">Neueste Beiträge</div>
+<section class="sp" id="beitraege">
+<aside class="seite">
+<p class="vor">Hallo, wir sind das Nordwerk Studio und bauen Webseiten.</p>
+<p class="grau">Hier schreiben wir über Gestaltung, Code und alles dazwischen.</p>
+<dl><dt>mail</dt><dd><a href="#">/kontakt</a></dd><dt>code</dt><dd><a href="#">/werkbank</a></dd><dt>über</dt><dd><a href="#">/studio</a></dd><dt>feed</dt><dd><a href="#">/feed.xml</a></dd></dl>
+<p class="mono ak">Themen:</p>
+<div class="tags mono ak"><span>Gestaltung</span><span>Schrift</span><span>Code</span><span>Raster</span><span>Farbe</span><span>Barrierefreiheit</span><span>Werkzeuge</span></div>
+<svg class="px" style="margin-top:2rem" width="100%" height="auto" viewBox="0 0 200 120" aria-hidden="true"><rect x="16" y="8" width="4" height="4"/><rect x="60" y="0" width="4" height="4"/><rect x="64" y="4" width="4" height="4"/><rect x="132" y="12" width="4" height="4"/><rect x="180" y="20" width="4" height="4"/><rect x="184" y="24" width="4" height="4"/><rect x="40" y="36" width="4" height="4"/><rect x="44" y="40" width="4" height="4"/><rect x="36" y="44" width="4" height="4"/><rect x="100" y="52" width="4" height="4"/><rect x="108" y="56" width="4" height="4"/><rect x="152" y="64" width="4" height="4"/><rect x="24" y="76" width="4" height="4"/><rect x="28" y="80" width="4" height="4"/><rect x="72" y="88" width="4" height="4"/><rect x="76" y="92" width="4" height="4"/><rect x="172" y="96" width="4" height="4"/><rect x="120" y="108" width="4" height="4"/></svg>
+</aside>
+<div class="liste">
+<article class="beitrag"><h2><a href="#">Warum wir Raster lieben</a></h2><div class="meta"><span class="dat">09.10.2026</span><span class="mono ak">Gestaltung · Raster</span></div><p>Zwölf Spalten, ein Rhythmus: wie wenig Regeln einer Seite viel Ruhe geben.</p></article>
+<article class="beitrag"><h2><a href="#">Schrift, die man nicht bemerkt</a></h2><div class="meta"><span class="dat">04.09.2026</span><span class="mono ak">Schrift · Lesbarkeit</span></div><p>Kleine Entscheidungen bei Zeilenhöhe und Laufweite, die einen Text angenehm machen.</p></article>
+<article class="beitrag"><h2><a href="#">Ein Werkzeugkasten für kleine Teams</a></h2><div class="meta"><span class="dat">21.07.2026</span><span class="mono ak">Werkzeuge · Code</span></div><p>Welche drei Programme bei uns jeden Tag laufen und welche wir wieder abgeschafft haben.</p></article>
+<article class="beitrag"><h2><a href="#">Farbe sparsam einsetzen</a></h2><div class="meta"><span class="dat">25.05.2026</span><span class="mono ak">Farbe</span></div><p>Ein Akzent, ein zweiter Ton für Links, der Rest bleibt Papier und Tinte.</p></article>
+<article class="beitrag"><h2><a href="#">Zugänglich von Anfang an</a></h2><div class="meta"><span class="dat">06.05.2026</span><span class="mono ak">Barrierefreiheit · Code</span></div><p>Kontraste, Fokusrahmen und Tastatur: drei Prüfungen vor jeder Abgabe.</p></article>
+<p class="mehr mono"><a href="#">12 ältere Beiträge →</a></p>
+</div></section>
+<footer class="abo" id="abo">
+<svg class="px blau band" width="340" height="40" viewBox="0 0 340 40" aria-hidden="true"><rect x="0" y="8" width="4" height="4"/><rect x="8" y="4" width="4" height="4"/><rect x="12" y="8" width="4" height="4"/><rect x="24" y="16" width="4" height="4"/><rect x="28" y="12" width="4" height="4"/><rect x="40" y="20" width="4" height="4"/><rect x="52" y="8" width="4" height="4"/><rect x="56" y="12" width="4" height="4"/><rect x="68" y="24" width="4" height="4"/><rect x="80" y="4" width="4" height="4"/><rect x="84" y="8" width="4" height="4"/><rect x="88" y="12" width="4" height="4"/><rect x="104" y="20" width="4" height="4"/><rect x="116" y="28" width="4" height="4"/><rect x="120" y="24" width="4" height="4"/><rect x="136" y="8" width="4" height="4"/><rect x="148" y="16" width="4" height="4"/><rect x="156" y="12" width="4" height="4"/><rect x="164" y="24" width="4" height="4"/><rect x="176" y="4" width="4" height="4"/><rect x="188" y="20" width="4" height="4"/><rect x="200" y="12" width="4" height="4"/><rect x="204" y="16" width="4" height="4"/><rect x="220" y="28" width="4" height="4"/><rect x="236" y="8" width="4" height="4"/><rect x="248" y="20" width="4" height="4"/><rect x="260" y="12" width="4" height="4"/><rect x="272" y="24" width="4" height="4"/><rect x="284" y="4" width="4" height="4"/><rect x="296" y="16" width="4" height="4"/><rect x="312" y="8" width="4" height="4"/><rect x="324" y="20" width="4" height="4"/></svg>
+<div>
+<div class="zeile"><input type="email" placeholder="du@example.org" aria-label="E-Mail-Adresse"><button class="knopf" type="button">Neue Beiträge per Mail</button></div>
+<p class="klein">Eine Mail pro neuem Beitrag. Sonst nichts.</p>
+<nav class="fuss mono"><a href="#">Start</a><a href="#beitraege">Archiv</a><a href="#">Über uns</a><a href="#">Werkzeuge</a></nav>
+<p class="klein">© 2026 Nordwerk Studio, ein fiktives Beispiel</p>
+</div></footer>
+</div></body></html>

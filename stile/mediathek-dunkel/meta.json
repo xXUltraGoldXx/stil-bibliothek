@@ -1,0 +1,21 @@
+{
+  "name": "Mediathek dunkel",
+  "slug": "mediathek-dunkel",
+  "beschreibung": "Dunkle, app-artige Oberfläche mit fast schwarzen Flächen, quadratischen Cover-Kacheln und einem einzigen leuchtend grünen Akzent. Weiße Pillen-Knöpfe und fette, kompakte Titel sorgen für klare Führung.",
+  "schlagworte": [
+    "dunkel",
+    "app-oberfläche",
+    "kacheln",
+    "pillen-knöpfe",
+    "grüner akzent",
+    "medienbibliothek",
+    "kompakt",
+    "regale"
+  ],
+  "kategorien": [
+    "Modern",
+    "Dunkel",
+    "Tech/SaaS"
+  ],
+  "gegenbeispiel": false
+}

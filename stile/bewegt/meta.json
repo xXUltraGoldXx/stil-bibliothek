@@ -1,0 +1,17 @@
+{
+  "name": "Bewegt",
+  "slug": "bewegt",
+  "beschreibung": "Die Seite lebt: Scroll-Animationen, gestaffeltes Einblenden, Laufbänder und spürbare Hover-Reaktionen, alles mit Keyframes und Ruhemodus.",
+  "schlagworte": [
+    "animation",
+    "scroll",
+    "hover",
+    "keyframes",
+    "bewegung"
+  ],
+  "kategorien": [
+    "Animiert",
+    "Modern"
+  ],
+  "gegenbeispiel": false
+}

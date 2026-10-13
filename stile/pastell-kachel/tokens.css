@@ -1,0 +1,18 @@
+/* Pastell Kachel: Tokens */
+:root{
+  --weiss:#ffffff; --grau-1:#f8f8f8; --grau-2:#fafafa; --linie:#e2e2e2; --linie-stark:#c1c1c1;
+  --tinte:#0b0b0b; --tinte-text:#141414; --tinte-2:#3e3e3e; --tinte-3:#666666; --schwarz:#000000;
+  --rosa:#fadadd; --flieder:#fab7fc; --weinbraun:#5a2830;
+  --gruen:#12504c; --gruen-hell:#1b7a74; --gruen-10:rgba(18,80,76,.1); --gruen-20:rgba(27,122,116,.2);
+  --magenta:#dd004f; --magenta-knopf:#f91f64; --rot:#e20000;
+  --font-display:"Jost","Futura","Helvetica Neue",Arial,sans-serif;
+  --font-text:"Work Sans",system-ui,sans-serif;
+  --fs-h1:clamp(1.9rem,4.5vw,3rem); --fs-h2:clamp(1.4rem,2.6vw,1.68rem); --fs-h3:1.25rem;
+  --fs-text:.94rem; --fs-nav:.9rem; --fs-label:1.15rem; --fs-meta:.75rem;
+  --lh-text:1.6; --lh-display:1.25; --ls-text:.1px; --ls-meta:.5px;
+  --r-s:5px; --r-m:8px; --r-l:12px; --r-pille:30px; --r-xl:32px;
+  --schatten-s:0 4px 14px rgba(0,0,0,.18); --schatten-m:0 6px 20px rgba(0,0,0,.12); --schatten-l:0 32px 68px rgba(0,0,0,.3);
+  --luecke:20px; --luecke-s:10px; --rand-seite:60px; --rand-seite-mobil:20px; --breite:1440px;
+  --h-kopf:70px; --h-leiste:50px;
+  --abstand-1:4px; --abstand-2:10px; --abstand-3:15px; --abstand-4:20px; --abstand-5:55px; --abstand-6:60px;
+}

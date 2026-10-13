@@ -1,0 +1,20 @@
+/* Showroom klar: Tokens */
+:root{
+  --buehne:#000000; --buehne-karte:#141414; --buehne-linie:#333333;
+  --flaeche:#ffffff; --flaeche-grau:#f8f8f8; --linie:#bbbbbb; --linie-fein:rgba(0,0,0,.1);
+  --text:#333333; --text-stark:#262626; --text-nebenher:#696969; --text-hinweis:#9f9f9f;
+  --text-auf-dunkel:#e8e8e8; --text-auf-dunkel-stark:#ffffff;
+  --akzent:#0078d6; --akzent-dunkel:#004f8d;
+  --grad-bildauslauf:linear-gradient(0deg,#000000 72%,rgba(0,0,0,0) 100%);
+  --font-display:"Cormorant Garamond","Times New Roman",serif;
+  --font-body:"Source Sans 3",Arial,sans-serif;
+  --fs-h1:clamp(2.5rem,5vw,4rem); --fs-h2:clamp(2rem,3.6vw,3rem); --fs-h3:clamp(1.25rem,2vw,1.5rem);
+  --fs-lead:1.125rem; --fs-body:1rem; --fs-sm:.875rem; --fs-xs:.75rem;
+  --lh-h1:1.125; --lh-h2:1.25; --lh-body:1.55; --laufweite:.2px;
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px; --s-6:32px; --s-7:48px; --s-8:64px; --s-9:96px;
+  --r-xs:4px; --r-md:12px; --r-pill:9999px; --r-rund:50%;
+  --shadow-karte:0 0 2px rgba(0,0,0,.1),0 2px 4px rgba(0,0,0,.1);
+  --shadow-dialog:0 6px 20px rgba(0,0,0,.35);
+  --ease-out:cubic-bezier(.16,1,.3,1); --dur-base:200ms; --dur-slow:600ms;
+  --breite:1160px; --abstand-sektion:clamp(3rem,8vw,6rem);
+}

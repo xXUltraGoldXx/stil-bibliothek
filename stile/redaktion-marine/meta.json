@@ -1,0 +1,18 @@
+{
+  "name": "Redaktion Marine",
+  "slug": "redaktion-marine",
+  "beschreibung": "Dichtes, seriöses Nachrichtenraster mit Serifen-Schlagzeilen, tiefem Marineblau und feinen grauen Linien. Jede Rubrik trägt eine eigene Signalfarbe, ein einzelner Rot-Ton markiert Kicker und Links.",
+  "schlagworte": [
+    "Nachrichten",
+    "Serife",
+    "Marineblau",
+    "Raster",
+    "Dicht",
+    "Linien"
+  ],
+  "kategorien": [
+    "Business",
+    "Editorial"
+  ],
+  "gegenbeispiel": false
+}

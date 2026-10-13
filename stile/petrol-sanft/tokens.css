@@ -1,0 +1,17 @@
+/* Petrol sanft: Tokens */
+:root{
+  --weiss:#ffffff; --sand:#ede7e0; --sand-hell:#faf8f5; --sand-linie:rgba(198,178,159,.25);
+  --petrol-dunkel:#003b39; --petrol-mittel:#045e58; --petrol:#088177;
+  --text:#1b1b1b; --text-2:#2a2a2a; --rahmen:#d9d9d9;
+  --font-display:"Outfit","DM Sans",system-ui,sans-serif;
+  --font-text:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fs-h1:clamp(3rem,7vw,5rem); --fs-h2:clamp(2.4rem,4.5vw,3.6rem); --fs-h3:1.125rem;
+  --fs-lead:1.25rem; --fs-text:1rem; --fs-klein:.875rem;
+  --lh-titel:1.1; --lh-text:1.5; --ls-text:.02em;
+  --gw-normal:400; --gw-mittel:500;
+  --r-pille:999px; --r-karte:32px; --r-gross:40px; --r-mittel:24px; --r-feld:8px;
+  --schatten:none;
+  --rand:var(--seitenrand,80px);
+  --abstand-1:4px; --abstand-2:8px; --abstand-3:12px; --abstand-4:16px; --abstand-5:24px; --abstand-6:40px; --abstand-7:56px; --abstand-8:80px;
+  --breite:1464px; --breite-text:60ch; --luecke:20px;
+}

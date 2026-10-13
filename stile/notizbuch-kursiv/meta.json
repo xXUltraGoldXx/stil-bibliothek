@@ -1,0 +1,22 @@
+{
+  "name": "Notizbuch kursiv",
+  "slug": "notizbuch-kursiv",
+  "beschreibung": "Ein ruhiges, persönliches Blog-Layout auf warmem Papierton: kursive Serifen-Schlagzeilen, Monospace-Rubriken und feine Linien. Kleine orange Pixelmuster geben dem Ganzen eine verspielte Handschrift.",
+  "schlagworte": [
+    "blog",
+    "serif",
+    "kursiv",
+    "mono",
+    "pixel",
+    "papier",
+    "linien"
+  ],
+  "kategorien": [
+    "Modern",
+    "Minimal",
+    "Editorial",
+    "Tech/SaaS",
+    "Aktuell"
+  ],
+  "gegenbeispiel": false
+}

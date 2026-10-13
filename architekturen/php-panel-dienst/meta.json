@@ -1,0 +1,33 @@
+{
+  "name": "PHP-Panel-Dienst",
+  "slug": "php-panel-dienst",
+  "beschreibung": "Schlichtes PHP im Container hinter Traefik und ein Auth-Proxy mit schreibgeschuetzten Mounts, CSRF aus Origin und Session-Token und Datei-Jobs fuer Host-Worker per systemd-Path.",
+  "sprache": "PHP",
+  "stack": [
+    "PHP 8.5",
+    "Apache",
+    "Docker",
+    "Traefik",
+    "ein Auth-Proxy",
+    "systemd Path-Unit",
+    "JSON-Dateien"
+  ],
+  "kategorien": [
+    "Panel-Dienst",
+    "Web-App"
+  ],
+  "schlagworte": [
+    "php",
+    "panel",
+    "csrf",
+    "csp",
+    "sandbox",
+    "datei-jobs",
+    "systemd",
+    "Auth-Proxy",
+    "traefik",
+    "readonly-mount"
+  ],
+  "quelle": "erprobt",
+  "reifegrad": "erprobt"
+}

@@ -1,0 +1,19 @@
+/* Datenblatt kondensiert: Tokens */
+:root{
+  --papier:#f7f6f2; --papier-2:#eceae2; --panel:#ffffff;
+  --tinte:#141414; --tinte-2:#4a4a4a; --linie:#d8d4c8; --rahmen:#141414;
+  --orange:#F4501E; --orange-dunkel:#9c440f; --gut:#2e7d32; --schlecht:#c62828;
+  --geraet-verlauf:linear-gradient(155deg,#fcfcfd,#e8eaed);
+  --font-display:"Barlow Condensed","Barlow",system-ui,sans-serif;
+  --font-text:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --fs-h1:clamp(2.6rem,7vw,4.75rem); --fs-h2:clamp(2rem,4.5vw,2.75rem); --fs-h3:1.5rem;
+  --fs-lead:1.19rem; --fs-text:1rem; --fs-klein:.9rem; --fs-mono:.78rem;
+  --lh-h1:.95; --lh-text:1.55; --ls-mono:.14em; --ls-knopf:.02em;
+  --abstand-1:8px; --abstand-2:14px; --abstand-3:22px; --abstand-4:32px; --abstand-5:44px; --abstand-6:64px;
+  --breite:1080px; --seitenrand:24px;
+  --r-0:0; --r-knopf:6px; --r-geraet:40px;
+  --rahmen-dick:2px; --rahmen-fein:1px;
+  --schatten-geraet:0 20px 44px rgba(20,20,20,.22),inset 0 0 0 1.5px rgba(255,255,255,.45);
+  --fokus:0 0 0 3px var(--papier),0 0 0 5px var(--orange);
+}

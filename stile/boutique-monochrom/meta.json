@@ -1,0 +1,20 @@
+{
+  "name": "Boutique monochrom",
+  "slug": "boutique-monochrom",
+  "beschreibung": "Ruhige Luxus-Händlerseite in Schwarz auf Weiß mit zarter Antiqua-Schlagzeile, kleinem Versaltext und rahmenlosen, großflächigen Bildkacheln. Alles ist eckig und flach, nur das Bild trägt Stimmung.",
+  "schlagworte": [
+    "Luxus",
+    "Mode",
+    "Schwarzweiß",
+    "Eckig",
+    "Bildstark",
+    "Reduziert",
+    "Antiqua"
+  ],
+  "kategorien": [
+    "Minimal",
+    "Editorial",
+    "Luxus"
+  ],
+  "gegenbeispiel": false
+}

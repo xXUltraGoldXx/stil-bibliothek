@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nova – Standard-KI (Gegenbeispiel)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;position:relative}
+.orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;z-index:0;pointer-events:none}
+.o1{width:420px;height:420px;background:var(--lila);top:-120px;left:-100px}.o2{width:380px;height:380px;background:var(--blau);top:260px;right:-120px}
+header,section,footer{position:relative;z-index:1}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem max(16px,calc((100% - 1100px)/2))}
+nav b{font-weight:800;font-size:1.3rem;background:var(--verlauf);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav a{color:var(--text-2);text-decoration:none;margin-left:1.5rem;font-size:.95rem}
+section{padding:6rem 16px;text-align:center}.in{max-width:1100px;margin:0 auto}
+.badge{display:inline-block;padding:.35rem 1rem;border-radius:99px;border:1px solid var(--linie);background:var(--bg-karte);font-size:.85rem;color:var(--text-2)}
+h1{font-size:clamp(2.4rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin:1.5rem 0}
+.grad{background:var(--verlauf);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:3rem}
+p.sub{color:var(--text-2);font-size:1.15rem;max-width:620px;margin:0 auto 2rem}
+.k{display:inline-block;padding:.85rem 1.8rem;border-radius:var(--r-knopf);font-weight:600;text-decoration:none;margin:.3rem;transition:transform .2s}
+.k:hover{transform:translateY(-3px)}.k.p{background:var(--verlauf);color:#fff;box-shadow:var(--schatten)}.k.s{border:1px solid var(--linie);color:var(--text);background:var(--bg-karte)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.card{background:var(--bg-karte);border:1px solid var(--linie);border-radius:var(--r-karte);padding:2rem;backdrop-filter:blur(12px);text-align:left;transition:transform .25s}
+.card:hover{transform:translateY(-6px)}
+.ic{width:52px;height:52px;border-radius:50%;background:var(--verlauf);display:grid;place-items:center;font-size:1.4rem;margin-bottom:1rem}
+.card h3{margin-bottom:.5rem}.card p{color:var(--text-2)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}.stats b{font-size:2.4rem;display:block}.stats span{color:var(--text-2)}
+.band{background:var(--verlauf);border-radius:24px;padding:4rem 1.5rem}
+footer{padding:2rem 16px;text-align:center;color:var(--text-2);font-size:.85rem;border-top:1px solid var(--linie)}
+@media(max-width:760px){.grid,.stats{grid-template-columns:1fr}nav a{display:none}section{padding:4rem 16px}}
+</style></head><body>
+<div class="orbs"><div class="orb o1"></div><div class="orb o2"></div></div>
+<header><nav><b>Nova</b><span><a href="#">Funktionen</a><a href="#">Preise</a><a href="#">Kontakt</a></span></nav></header>
+<section><div class="in">
+<span class="badge">✨ Neu: KI-gestützte Automatisierung</span>
+<h1>Revolutionieren Sie Ihren <span class="grad">Workflow</span> mit Nova</h1>
+<p class="sub">Die leistungsstarke Plattform, die Ihr Team nahtlos verbindet und die Zukunft der Zusammenarbeit gestaltet!</p>
+<a class="k p" href="#">Jetzt kostenlos starten</a><a class="k s" href="#">Demo ansehen</a>
+</div></section>
+<section><div class="in"><h2>Alles, was Sie brauchen</h2>
+<div class="grid">
+<div class="card"><div class="ic">🚀</div><h3>Blitzschnell</h3><p>Leistungsstarke Funktionen für maximale Produktivität.</p></div>
+<div class="card"><div class="ic">🔒</div><h3>Sicher</h3><p>Höchste Sicherheitsstandards für Ihre Daten.</p></div>
+<div class="card"><div class="ic">⚡</div><h3>Nahtlos</h3><p>Integriert sich einfach in Ihre bestehenden Tools.</p></div>
+</div></div></section>
+<section><div class="in"><div class="stats"><div><b class="grad">10.000+</b><span>Zufriedene Kunden</span></div><div><b class="grad">99,9 %</b><span>Verfügbarkeit</span></div><div><b class="grad">50+</b><span>Integrationen</span></div><div><b class="grad">24/7</b><span>Support</span></div></div></div></section>
+<section><div class="in"><div class="band"><h2 style="margin-bottom:1rem">Bereit durchzustarten?</h2><p class="sub" style="color:#fff">Schließen Sie sich Tausenden Teams an.</p><a class="k s" href="#" style="background:#fff;color:#4c1d95">Kostenlos testen</a></div></div></section>
+<footer>Nova ist eine fiktive Firma. Dies ist ein Gegenbeispiel: so nicht.</footer>
+</body></html>

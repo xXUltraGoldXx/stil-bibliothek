@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--schwarz);color:var(--text);font-family:var(--font-sans);font-size:var(--fs-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--weiss);outline-offset:2px}
+.hinweis{background:var(--grau-hell);color:var(--text-auf-hell);padding:1rem var(--rand-seite);display:flex;gap:1.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:var(--fs-sm)}
+.hinweis p{flex:1 1 320px;max-width:60ch}
+.hinweis .aktion{display:flex;gap:.5rem;flex-wrap:wrap}
+.hinweis a.std{background:var(--grau-knopf);color:var(--text-auf-hell);padding:.6rem 1.5rem;border-radius:var(--r-0);transition:background var(--dur-schnell)}
+.hinweis a.std:hover{background:#dcdcdc}
+.hinweis a.lnk{color:var(--blau);text-decoration:underline}
+nav{background:var(--schwarz);display:flex;align-items:center;gap:1.5rem;padding:.9rem var(--rand-seite);flex-wrap:wrap}
+nav b{font-weight:var(--gw-schwarz);font-size:1.3rem;letter-spacing:.04em;text-transform:uppercase}
+nav .menue{display:flex;gap:1.25rem;flex:1;flex-wrap:wrap}
+nav .menue a{font-size:var(--fs-body);transition:color var(--dur-schnell)}
+nav .menue a:hover{color:var(--rot)}
+nav .profil{width:36px;height:36px;border:1px solid var(--weiss);border-radius:var(--r-kreis);display:grid;place-items:center;font-size:.8rem}
+.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:34rem;background:var(--dunkel-1);overflow:hidden}
+.motiv{position:absolute;inset:0;background:
+radial-gradient(40% 35% at 30% 62%,rgba(255,150,60,.55),transparent 70%),
+radial-gradient(60% 50% at 20% 40%,rgba(120,50,20,.55),transparent 75%),
+linear-gradient(115deg,#2a1a14 0%,#120d0c 55%,#0a0808 100%);animation:zoom var(--dur-hero) ease-in-out infinite alternate}
+.motiv svg{position:absolute;left:0;bottom:0;width:60%;height:75%}
+.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:35%;background:var(--grad-unten)}
+.hero .text{grid-column:2;position:relative;z-index:2;align-self:center;padding:3rem var(--rand-seite) 3rem 0}
+@keyframes zoom{to{transform:scale(1.04)}}
+.etikett{display:inline-block;background:var(--rot);color:var(--weiss);font-weight:var(--gw-fett);font-size:.8rem;text-transform:uppercase;letter-spacing:var(--ls-versal);padding:.2rem .6rem}
+h1,h2,h3{font-weight:var(--gw-fett)}
+h1{font-size:var(--fs-h1);line-height:var(--lh-h1);letter-spacing:-.01em;margin:1.25rem 0 .75rem;max-width:14ch}
+.sub{font-size:var(--fs-sub);margin-bottom:1.75rem;max-width:30ch}
+.btns{display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center}
+.k{display:inline-block;font-weight:var(--gw-schwarz);font-size:var(--fs-btn);text-transform:uppercase;letter-spacing:var(--ls-versal);padding:.8rem 1.5rem;border-radius:var(--r-0);transition:background var(--dur-schnell)}
+.k:after{content:" \203A";margin-left:.35rem}
+.k.p{background:var(--rot)}.k.p:hover{background:var(--rot-dunkel)}
+.k.t{padding-inline:0}.k.t:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+.sek{padding:var(--abstand-sektion) var(--rand-seite);max-width:var(--breite);margin:0 auto}
+.sek h2{font-size:var(--fs-h2);line-height:1.2;margin-bottom:2rem}
+.piktos{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;text-align:center}
+.pikto svg{width:56px;height:56px;stroke:var(--rot);stroke-width:3;fill:none;margin-bottom:.75rem}
+.pikto span{display:block;font-size:var(--fs-sm)}
+.kacheln{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.kachel .bild{aspect-ratio:3/4;background:var(--dunkel-3)}
+.kachel:nth-child(1) .bild{background:radial-gradient(70% 50% at 50% 70%,rgba(229,18,18,.5),transparent 70%),linear-gradient(180deg,#1c1c1c,#000)}
+.kachel:nth-child(2) .bild{background:radial-gradient(60% 45% at 40% 40%,rgba(255,170,80,.45),transparent 70%),linear-gradient(160deg,#2b2320,#0a0a0a)}
+.kachel:nth-child(3) .bild{background:radial-gradient(70% 50% at 60% 60%,rgba(120,160,200,.35),transparent 70%),linear-gradient(200deg,#1b2430,#050505)}
+.kachel:nth-child(4) .bild{background:radial-gradient(60% 50% at 50% 30%,rgba(255,216,0,.3),transparent 70%),linear-gradient(180deg,#2a2618,#000)}
+.kachel h3{font-size:1.1rem;margin:.75rem 0 .25rem}
+.kachel p{color:var(--text-muted);font-size:var(--fs-sm)}
+.band{background:var(--dunkel-2);display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.band .fl{min-height:18rem;background:radial-gradient(50% 60% at 60% 50%,rgba(229,18,18,.4),transparent 70%),linear-gradient(135deg,#222,#0b0b0b)}
+.band .tx{padding:clamp(2rem,5vw,4rem) var(--rand-seite)}
+.band p{color:var(--text-muted);margin:0 0 1.5rem;max-width:44ch}
+.news{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem}
+.news input{background:var(--feld);color:var(--weiss);border:1px solid var(--feld-rand);border-radius:var(--r-0);padding:.7rem .75rem;font:inherit;flex:1 1 220px;min-width:0}
+.news input:focus{outline:2px solid var(--weiss);outline-offset:2px}
+.cta{text-align:left}
+.cta .gelb{display:inline-block;background:var(--gelb);color:var(--schwarz);font-weight:var(--gw-fett);padding:.3rem .75rem;margin-bottom:1rem;font-size:var(--fs-sm)}
+footer{background:var(--grau-hell);color:var(--grau-text);font-size:var(--fs-xs);line-height:1.5;padding:2rem var(--rand-seite)}
+footer .spalten{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:1.5rem}
+footer b{display:block;color:var(--text-auf-hell);margin-bottom:.4rem}
+footer a{display:block;color:var(--grau-text)}footer a:hover{text-decoration:underline}
+@media(max-width:1084px){.piktos{grid-template-columns:repeat(3,1fr)}.kacheln{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){
+.hero{grid-template-columns:1fr;min-height:0}
+.motiv{position:relative;height:18rem;inset:auto}
+.hero:after{display:none}
+.hero .text{grid-column:1;padding:2rem var(--rand-seite) 3rem}
+.band{grid-template-columns:1fr}
+footer .spalten{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:540px){.kacheln{grid-template-columns:1fr}.piktos{grid-template-columns:repeat(2,1fr)}nav .menue{display:none}}
+@media(prefers-reduced-motion:reduce){.motiv{animation:none}.k,nav .menue a{transition:none}}
+</style></head><body>
+<div class="hinweis"><p>Wir nutzen optionale Cookies, um das Angebot zu verbessern. Details stehen in der <a class="lnk" href="#">Datenschutzerklärung</a>.</p>
+<div class="aktion"><a class="std" href="#">Annehmen</a><a class="std" href="#">Ablehnen</a><a class="std" href="#">Verwalten</a></div></div>
+<nav><b>Nordwerk</b><div class="menue"><a href="#spiele">Projekte</a><a href="#welten">Welten</a><a href="#studio">Studio</a><a href="#kontakt">Kontakt</a></div><span class="profil">NS</span></nav>
+<header class="hero">
+<div class="motiv"><svg viewBox="0 0 300 300" preserveAspectRatio="xMinYMax slice" aria-hidden="true"><path d="M0 300V190l40-30 30 20 25-60 35 55 30-20 40 70 30-10 70 85v-0z" fill="#050404"/><circle cx="210" cy="120" r="46" fill="#000" opacity=".5"/></svg></div>
+<div class="text"><span class="etikett">Neu im Studio</span>
+<h1>Echo der Küste</h1>
+<p class="sub">Ein Abenteuer zwischen Nebel und Stahl.</p>
+<div class="btns"><a class="k p" href="#kontakt">Jetzt vormerken</a><a class="k t" href="#spiele">Mehr erfahren</a></div></div>
+</header>
+<section class="sek" id="studio"><h2>Was wir bauen</h2>
+<div class="piktos">
+<div class="pikto"><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="12" y="6" width="26" height="44"/><path d="M38 20h8v16h-8"/></svg><span>Mobil</span></div>
+<div class="pikto"><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="18" width="44" height="24" rx="12"/><path d="M18 24v12M12 30h12"/></svg><span>Konsole</span></div>
+<div class="pikto"><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="10" width="44" height="28"/><path d="M20 48h16"/></svg><span>Desktop</span></div>
+<div class="pikto"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M10 34V26a18 18 0 0136 0v8"/><rect x="6" y="32" width="10" height="16"/><rect x="40" y="32" width="10" height="16"/></svg><span>Klang</span></div>
+<div class="pikto"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M14 8l32 20-32 20z"/></svg><span>Film</span></div>
+<div class="pikto"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="18" r="10"/><path d="M8 50c0-12 9-18 20-18s20 6 20 18"/></svg><span>Community</span></div>
+</div></section>
+<section class="sek" id="spiele"><h2>Aktuelle Projekte</h2>
+<div class="kacheln">
+<a class="kachel" href="#"><div class="bild"></div><h3>Echo der Küste</h3><p>Erkundung in Nebel und Stahl</p></a>
+<a class="kachel" href="#"><div class="bild"></div><h3>Glutpfad</h3><p>Taktik in vulkanischen Tälern</p></a>
+<a class="kachel" href="#"><div class="bild"></div><h3>Stilles Signal</h3><p>Rätsel auf einer Polarstation</p></a>
+<a class="kachel" href="#"><div class="bild"></div><h3>Messinghafen</h3><p>Aufbau einer Stadt am Wasser</p></a>
+</div></section>
+<section class="band" id="welten"><div class="fl" aria-hidden="true"></div>
+<div class="tx"><span class="etikett">Studio-Zugang</span><h2 style="margin:1rem 0 .75rem">Ein Abo für alle Welten</h2>
+<p>Monatlich kündbar, Zugriff auf jedes Projekt von Nordwerk Studio, dazu frühe Testphasen.</p>
+<a class="k p" href="#kontakt">Zugang holen</a></div></section>
+<section class="sek cta" id="kontakt"><span class="gelb">Testphase startet im Herbst</span><h2>Bleib auf dem Laufenden</h2>
+<p style="color:var(--text-muted);max-width:44ch">Ein Hinweis pro Monat, keine Werbung von Dritten.</p>
+<div class="news"><input type="email" placeholder="E-Mail-Adresse" aria-label="E-Mail-Adresse"><a class="k p" href="#">Eintragen</a></div></section>
+<footer><div class="spalten">
+<div><b>Projekte</b><a href="#">Übersicht</a><a href="#">Neuheiten</a></div>
+<div><b>Studio</b><a href="#">Team</a><a href="#">Stellen</a></div>
+<div><b>Hilfe</b><a href="#">Kontakt</a><a href="#">Fragen</a></div>
+<div><b>Rechtliches</b><a href="#">Datenschutz</a><a href="#">Impressum</a></div></div>
+Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage.</footer>
+</body></html>

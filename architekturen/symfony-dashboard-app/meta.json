@@ -1,0 +1,42 @@
+{
+  "name": "Symfony-Dashboard (server-gerendert)",
+  "slug": "symfony-dashboard-app",
+  "beschreibung": "Symfony-Monolith mit Twig, Formular-Login, Vue-Inseln über Webpack Encore, Messenger-Worker und einer kleinen JWT-API für die App. Enthält eine Import-Pipeline mit Upload, Schwärzung, OCR und Vorschau; Deploy in-place im Container php-app.",
+  "sprache": "PHP",
+  "stack": [
+    "PHP 8.4+",
+    "Symfony",
+    "Twig",
+    "Doctrine ORM 3",
+    "Doctrine Migrations",
+    "MySQL",
+    "API Platform 4",
+    "LexikJWT",
+    "Webpack Encore",
+    "Vue 3",
+    "Stimulus",
+    "Symfony Messenger",
+    "Tesseract",
+    "poppler",
+    "PHPUnit 12"
+  ],
+  "kategorien": [
+    "Web-App",
+    "API"
+  ],
+  "schlagworte": [
+    "symfony",
+    "twig",
+    "server-rendering",
+    "encore",
+    "messenger",
+    "migrations",
+    "ocr",
+    "import-pipeline",
+    "upload",
+    "dashboard",
+    "buchhaltung"
+  ],
+  "quelle": "erprobt",
+  "reifegrad": "erprobt"
+}

@@ -1,0 +1,20 @@
+/* Galerie monochrom: Tokens */
+:root{
+  --grund:#f8f8f8; --grund-2:#ededed; --grund-3:#e9e9e9; --weiss:#ffffff;
+  --tinte:#222222; --tinte-2:#3e3e3e; --tinte-hell:#dedede;
+  --linie:#ededed; --linie-dunkel:#222222;
+  --signal:#ee6a38;
+  --pastell-mint:#aaeec4; --pastell-mint-2:#e2f4e9; --pastell-gelb:#fff083; --pastell-gelb-2:#fffbe2;
+  --pastell-korall:#ffc5b1; --pastell-blau:#b4d7f8; --akzent-violett:#502bd8;
+  --overlay:rgba(0,0,0,.7);
+  --font-ui:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fs-h1:clamp(2.75rem,9vw,7rem); --fs-h2:clamp(1.75rem,4vw,2.5rem); --fs-h3:1.25rem;
+  --fs-text:.9375rem; --fs-ui:.875rem; --fs-meta:.8125rem;
+  --fw-leicht:300; --fw-normal:400; --fw-mittel:500; --fw-fett:600;
+  --lh-h1:1; --lh-text:1.87; --lh-titel:1.15;
+  --r-klein:4px; --r:8px; --r-gross:14px; --r-rund:50%;
+  --sp-1:.25rem; --sp-2:.5rem; --sp-3:.75rem; --sp-4:1.25rem; --sp-5:1.5rem; --sp-6:2rem; --sp-7:3.2rem; --sp-8:5rem;
+  --luecke:20px; --rand:50px; --rand-mobil:20px; --breite:1200px; --breite-text:62ch;
+  --hoehe-kopf:64px; --hoehe-feld:48px; --hoehe-button:52px;
+  --schatten:none;
+}

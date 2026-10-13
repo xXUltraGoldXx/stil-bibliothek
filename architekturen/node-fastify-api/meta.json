@@ -1,0 +1,33 @@
+{
+  "name": "Node Fastify API",
+  "slug": "node-fastify-api",
+  "beschreibung": "JSON-API auf Node.js mit Fastify: gekapselte Plugins, Schema-Validierung, zentrale Fehlerbehandlung, pino-Logging und mehrstufiges Docker-Image hinter Traefik.",
+  "sprache": "TypeScript",
+  "stack": [
+    "Node.js",
+    "Fastify",
+    "TypeScript",
+    "TypeBox/Zod",
+    "pino",
+    "node:test/Vitest",
+    "Docker",
+    "Traefik"
+  ],
+  "kategorien": [
+    "API"
+  ],
+  "schlagworte": [
+    "fastify",
+    "node",
+    "api",
+    "plugins",
+    "json-schema",
+    "typebox",
+    "pino",
+    "healthcheck",
+    "docker",
+    "traefik"
+  ],
+  "quelle": "recherchiert",
+  "reifegrad": "recherchiert, ungetestet"
+}

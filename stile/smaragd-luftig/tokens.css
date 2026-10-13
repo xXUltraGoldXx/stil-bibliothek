@@ -1,0 +1,21 @@
+/* Smaragd luftig: Tokens */
+:root{
+  --weiss:#ffffff; --flaeche:#f8fafc; --flaeche-2:#f1f5f9; --nacht:#0f172a;
+  --text:#022c22; --text-fliess:#2c4a3f; --text-lead:#475569; --text-schwach:#64748b; --text-dunkel-grund:#94a3b8;
+  --akzent:#34d399; --akzent-tief:#059669; --akzent-text:#047857; --akzent-hell:#ecfdf5;
+  --linie:#e2e8f0; --linie-gruen:rgba(5,150,105,.12); --linie-gruen-stark:rgba(5,150,105,.28);
+  --raster:rgba(51,65,85,.04);
+  --grad-flaeche:linear-gradient(180deg,#f8fafc 0%,#f1f5f9 100%);
+  --licht-fleck:radial-gradient(circle,rgba(148,163,184,.22) 0%,rgba(0,0,0,0) 70%);
+  --font-display:"Geist","DM Sans",sans-serif; --font-body:"DM Sans","Segoe UI",sans-serif; --font-mono:"Geist Mono","JetBrains Mono",Consolas,monospace;
+  --fs-h1:clamp(2.5rem,5vw,3.6rem); --fs-h2:clamp(2.25rem,4vw,3.25rem); --fs-h3:1.3rem;
+  --fs-lead:1.1rem; --fs-body:1rem; --fs-sm:.875rem; --fs-xs:.75rem; --fs-btn:.9375rem;
+  --r-sm:6px; --r-md:10px; --r-lg:16px; --r-karte:24px; --r-pille:999px;
+  --shadow-karte:0 1px 3px rgba(0,0,0,.01),0 8px 24px rgba(15,23,42,.04);
+  --shadow-knopf:0 1px 2px rgba(15,23,42,.05),inset 0 1px 0 #fff;
+  --shadow-fenster:0 32px 80px rgba(15,23,42,.18),0 8px 24px rgba(15,23,42,.1),0 0 0 1px rgba(51,65,85,.12);
+  --shadow-schweben:0 12px 40px rgba(15,23,42,.12),0 4px 16px rgba(15,23,42,.04);
+  --ease:ease; --dur-base:220ms; --dur-slow:600ms;
+  --breite:1200px; --abstand-sektion:clamp(4rem,9vw,7rem);
+  --abstand-1:.5rem; --abstand-2:1rem; --abstand-3:1.5rem; --abstand-4:2rem; --abstand-5:3rem; --abstand-6:4rem;
+}

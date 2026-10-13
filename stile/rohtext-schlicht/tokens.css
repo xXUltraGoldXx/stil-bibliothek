@@ -1,0 +1,10 @@
+/* Rohtext schlicht: Tokens */
+:root{
+  --grund:#ffffff; --text:#000000; --link:#0000ee; --link-besucht:#551a8b; --linie:#808080;
+  --font-text:"Tinos","Times New Roman",Times,serif;
+  --fs-text:1rem; --fs-h1:2rem; --fw-text:400; --fw-h1:700;
+  --lh-text:1.15; --ls-text:normal;
+  --rand-seite:.5rem; --einzug-liste:2.5rem; --abstand-h1:.67em; --abstand-linie:.5rem;
+  --breite-text:80ch;
+  --r:0; --schatten:none; --linie-duenn:1px;
+}

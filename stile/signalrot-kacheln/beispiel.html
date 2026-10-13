@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@700&family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--font-text);font-size:var(--fs-basis);line-height:var(--lh-text);color:var(--text);background:var(--weiss);}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p{margin:0}
+.kopf{background:var(--rot);color:#fff;height:var(--kopf);display:flex;align-items:center;justify-content:space-between;padding:0 var(--s-5) 0 var(--s-6)}
+.marke{font-weight:700;font-size:1.25rem;border:2px solid #fff;border-radius:var(--r-pille);padding:2px 16px}
+.kopf-icons{display:flex;gap:var(--s-4)}
+.kopf-icons a{display:flex;flex-direction:column;align-items:center;font-size:var(--fs-meta);font-weight:600;gap:2px}
+.kopf-icons svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:2}
+.rahmen{display:flex;align-items:flex-start}
+.leiste{width:var(--leiste);flex:0 0 var(--leiste);background:var(--rot);color:#fff;display:flex;flex-direction:column;align-self:stretch}
+.leiste a{height:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:var(--fs-meta);font-weight:500;text-align:center;border-bottom:1px solid var(--rot-dunkel);transition:background .15s}
+.leiste a:hover{background:var(--rot-dunkel)}
+.leiste svg{width:28px;height:28px;fill:#fff}
+main{flex:1;min-width:0}
+.buehne{background:var(--buehne);padding:16px 0 24px}
+.buehne-innen{position:relative;max-width:1100px;margin:0 auto;padding:0 16px}
+.motiv{position:relative;height:420px;border-radius:var(--r);overflow:hidden;background:
+ radial-gradient(circle at 70% 40%,#f7a6c4 0 14%,transparent 15%),
+ radial-gradient(circle at 80% 70%,#ffd23f 0 10%,transparent 11%),
+ linear-gradient(135deg,#1a5fd1,#2fb4e8 60%,#8fe0d0)}
+.motiv::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.5),rgba(0,0,0,0) 45%)}
+.motiv .neu{position:absolute;top:0;left:0;z-index:2;background:var(--rot);color:#fff;font-weight:600;font-size:var(--fs-meta);text-transform:uppercase;padding:8px 6px;border-radius:0 0 var(--r) 0}
+.motiv-text{position:absolute;z-index:2;left:16px;right:16px;bottom:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;color:#fff}
+.motiv-text h1{font-size:var(--fs-h1);font-weight:700;line-height:1.15;max-width:22ch}
+.knopf-weiss{background:#fff;color:#000;font-weight:600;border-radius:var(--r);padding:10px 16px;display:inline-block}
+.knopf{background:var(--rot);color:#fff;font-weight:600;border-radius:var(--r);padding:11px 20px;display:inline-block;transition:background .15s}
+.knopf:hover{background:var(--rot-dunkel)}
+.knopf-rahmen{background:#fff;color:var(--rot);border:1px solid var(--rot);font-weight:600;border-radius:var(--r);padding:10px 20px;display:inline-block}
+.abschnitt{max-width:var(--breite);margin:0 auto;padding:var(--s-8) var(--s-4)}
+.abschnitt-kopf{display:flex;flex-wrap:wrap;gap:var(--s-3);align-items:center;justify-content:space-between;margin-bottom:var(--s-4)}
+.abschnitt-kopf h2{font-size:var(--fs-h2);font-weight:700}
+.pillen{display:flex;gap:var(--s-1);background:var(--grau-flaeche);border-radius:var(--r-pille);padding:4px}
+.pillen a{padding:6px 14px;border-radius:var(--r-pille);font-weight:600;font-size:var(--fs-meta)}
+.pillen a.aktiv{background:var(--rot);color:#fff}
+.band{background:var(--grau-flaeche)}
+.raster{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s-3)}
+.karte{background:#fff;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.band .karte{background:#fff}
+.bild{position:relative;aspect-ratio:1/1;transition:transform .2s}
+.karte:hover .bild{transform:scale(1.02)}
+.bild-wrap{overflow:hidden}
+.b1{background:linear-gradient(135deg,#ff7a59,#ffd23f)}
+.b2{background:linear-gradient(135deg,#3860be,#7fd1ff)}
+.b3{background:linear-gradient(135deg,#2e9e6b,#c8f0a0)}
+.b4{background:linear-gradient(135deg,#8a4fd1,#f7a6c4)}
+.b5{background:linear-gradient(135deg,#222,#676a6d)}
+.bild .neu{position:absolute;top:0;left:0;background:var(--rot);color:#fff;font-size:var(--fs-meta);font-weight:600;text-transform:uppercase;padding:8px 6px;border-radius:0 0 var(--r) 0}
+.karte-inhalt{padding:var(--s-3) var(--s-3) var(--s-2);display:flex;flex-direction:column;gap:var(--s-1);flex:1}
+.karte h3{font-size:var(--fs-basis);font-weight:700}
+.meta{font-size:var(--fs-meta);color:var(--meta)}
+.preis{font-weight:700;font-size:var(--fs-basis)}
+.alt{font-size:.75rem;font-weight:400;color:var(--text-4);text-decoration:line-through;margin-left:var(--s-2)}
+.rang{font-family:var(--font-mono);font-weight:700;font-size:var(--fs-meta);color:var(--rot)}
+.karte-fuss{border-top:var(--linie-gestrichelt);padding:var(--s-3) var(--s-2);font-size:var(--fs-meta);color:var(--text-4)}
+.doppel{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--r);overflow:hidden;background:var(--grau-flaeche);margin-bottom:var(--s-3)}
+.doppel .bild{aspect-ratio:auto;min-height:220px}
+.doppel-text{padding:var(--s-5);display:flex;flex-direction:column;gap:var(--s-2);justify-content:center}
+.doppel-text h3{font-size:1.25rem;font-weight:700}
+.doppel-text p{font-size:var(--fs-klein)}
+.cta{background:var(--buehne);color:#fff}
+.cta .abschnitt{display:flex;flex-wrap:wrap;gap:var(--s-5);align-items:center;justify-content:space-between}
+.cta h2{font-size:var(--fs-h1);font-weight:700;max-width:24ch}
+.cta p{color:#c9ccd0;font-size:var(--fs-klein);margin-top:var(--s-2);max-width:48ch}
+footer{background:var(--grau-flaeche);border-top:var(--linie-gestrichelt);padding:var(--s-6) var(--s-4);font-size:var(--fs-meta);color:var(--text-4)}
+footer div{max-width:var(--breite);margin:0 auto;display:flex;flex-wrap:wrap;gap:var(--s-4);justify-content:space-between}
+@media (max-width:1100px){.raster{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){
+ .rahmen{flex-direction:column}
+ .leiste{width:100%;flex:none;flex-direction:row;align-self:auto}
+ .leiste a{flex:1;min-width:0;height:72px;border-bottom:0;border-right:1px solid var(--rot-dunkel);font-size:.625rem}
+ .kopf{padding:0 var(--s-3);height:60px}
+ .kopf-icons{gap:var(--s-2)}
+ .motiv{height:320px}
+ .raster{grid-template-columns:repeat(2,1fr);gap:var(--s-2)}
+ .doppel{grid-template-columns:1fr}
+ .abschnitt{padding:var(--s-6) var(--s-3)}
+ .buehne-innen{padding:0 var(--s-2)}
+}
+</style>
+</head>
+<body>
+<header class="kopf">
+  <a class="marke" href="#">Nordwerk</a>
+  <nav class="kopf-icons" aria-label="Schnellzugriff">
+    <a href="#"><svg viewBox="0 0 28 28"><circle cx="12" cy="12" r="7"/><path d="M17 17l7 7"/></svg>Suchen</a>
+    <a href="#"><svg viewBox="0 0 28 28"><path d="M14 24S4 17 4 10a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 7-10 14-10 14z"/></svg>Merkliste</a>
+    <a href="#"><svg viewBox="0 0 28 28"><circle cx="14" cy="9" r="5"/><path d="M4 25c0-6 5-8 10-8s10 2 10 8z"/></svg>Konto</a>
+  </nav>
+</header>
+<div class="rahmen">
+  <nav class="leiste" aria-label="Bereiche">
+    <a href="#projekte"><svg viewBox="0 0 28 28"><path d="M14 2l3.5 8 8.5.8-6.5 5.7 2 8.5L14 20.5 6.5 25l2-8.5L2 10.8l8.5-.8z"/></svg>Projekte</a>
+    <a href="#neu"><svg viewBox="0 0 28 28"><rect x="3" y="3" width="9" height="9" rx="2"/><rect x="16" y="3" width="9" height="9" rx="2"/><rect x="3" y="16" width="9" height="9" rx="2"/><rect x="16" y="16" width="9" height="9" rx="2"/></svg>Werkstatt</a>
+    <a href="#team"><svg viewBox="0 0 28 28"><circle cx="14" cy="9" r="5"/><path d="M4 25c0-6 5-8 10-8s10 2 10 8z"/></svg>Team</a>
+    <a href="#kontakt"><svg viewBox="0 0 28 28"><path d="M3 6h22v16H3z"/></svg>Kontakt</a>
+  </nav>
+  <main>
+    <section class="buehne">
+      <div class="buehne-innen">
+        <div class="motiv">
+          <span class="neu">Neu</span>
+          <div class="motiv-text">
+            <h1>Gestaltung, die Spaß am Entdecken macht</h1>
+            <a class="knopf-weiss" href="#projekte">Ab 22.10. verfügbar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="abschnitt" id="projekte">
+      <div class="abschnitt-kopf">
+        <h2>Aktuelle Projekte</h2>
+        <div class="pillen"><a class="aktiv" href="#">Highlights</a><a href="#">Neuigkeiten</a></div>
+      </div>
+      <div class="doppel">
+        <div class="bild-wrap"><div class="bild b2" style="min-height:220px;height:100%"></div></div>
+        <div class="doppel-text">
+          <span class="meta">Fallstudie · 12. Oktober</span>
+          <h3>Ein Hafenviertel bekommt ein Gesicht</h3>
+          <p>Wir haben für ein Stadtquartier Wegeleitung, Plakate und eine Web-App entwickelt, die Besucher spielerisch durch den Tag führt.</p>
+          <div><a class="knopf-rahmen" href="#">Mehr lesen</a></div>
+        </div>
+      </div>
+      <div class="raster">
+        <article class="karte"><div class="bild-wrap"><div class="bild b1"><span class="neu">Neu</span></div></div><div class="karte-inhalt"><span class="rang">01</span><h3>Markenwelt Küstenbäckerei</h3><span class="meta">Branding · Verpackung</span><span class="preis">ab 2.400 €<span class="alt">3.000 €</span></span></div><div class="karte-fuss">12 Wochen Laufzeit</div></article>
+        <article class="karte"><div class="bild-wrap"><div class="bild b2"></div></div><div class="karte-inhalt"><span class="rang">02</span><h3>Fahrplan-App Landkreis</h3><span class="meta">Produkt · Mobil</span><span class="preis">ab 6.800 €</span></div><div class="karte-fuss">8 Wochen Laufzeit</div></article>
+        <article class="karte"><div class="bild-wrap"><div class="bild b3"></div></div><div class="karte-inhalt"><span class="rang">03</span><h3>Pflanzenshop Grünzeug</h3><span class="meta">Webshop</span><span class="preis">ab 4.200 €</span></div><div class="karte-fuss">10 Wochen Laufzeit</div></article>
+        <article class="karte"><div class="bild-wrap"><div class="bild b4"><span class="neu">Neu</span></div></div><div class="karte-inhalt"><span class="rang">04</span><h3>Festival-Leitsystem</h3><span class="meta">Signaletik</span><span class="preis">ab 3.100 €</span></div><div class="karte-fuss">6 Wochen Laufzeit</div></article>
+        <article class="karte"><div class="bild-wrap"><div class="bild b5"></div></div><div class="karte-inhalt"><span class="rang">05</span><h3>Jahresbericht Stiftung</h3><span class="meta">Print · Editorial</span><span class="preis">ab 1.900 €</span></div><div class="karte-fuss">5 Wochen Laufzeit</div></article>
+      </div>
+    </section>
+
+    <section class="band" id="neu">
+      <div class="abschnitt">
+        <div class="abschnitt-kopf"><h2>Aus der Werkstatt</h2><a class="knopf-rahmen" href="#">Alle ansehen</a></div>
+        <div class="raster">
+          <article class="karte"><div class="bild-wrap"><div class="bild b3" style="aspect-ratio:16/9"></div></div><div class="karte-inhalt"><span class="meta">Notiz · 3. Oktober</span><h3>Wie wir Farbräume testen</h3></div></article>
+          <article class="karte"><div class="bild-wrap"><div class="bild b4" style="aspect-ratio:16/9"></div></div><div class="karte-inhalt"><span class="meta">Notiz · 28. September</span><h3>Raster, die atmen</h3></div></article>
+          <article class="karte"><div class="bild-wrap"><div class="bild b1" style="aspect-ratio:16/9"></div></div><div class="karte-inhalt"><span class="meta">Notiz · 19. September</span><h3>Fünf Skizzen, ein Logo</h3></div></article>
+          <article class="karte"><div class="bild-wrap"><div class="bild b2" style="aspect-ratio:16/9"></div></div><div class="karte-inhalt"><span class="meta">Notiz · 4. September</span><h3>Schrift im Schaufenster</h3></div></article>
+          <article class="karte"><div class="bild-wrap"><div class="bild b5" style="aspect-ratio:16/9"></div></div><div class="karte-inhalt"><span class="meta">Notiz · 26. August</span><h3>Zu Besuch im Archiv</h3></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="abschnitt" id="team">
+      <div class="abschnitt-kopf"><h2>Das Team</h2></div>
+      <div class="raster">
+        <article class="karte" style="background:var(--grau-flaeche)"><div class="karte-inhalt"><h3>Mara Lindt</h3><span class="meta">Kreativleitung</span></div><div class="karte-fuss">Typografie, Marken</div></article>
+        <article class="karte" style="background:var(--grau-flaeche)"><div class="karte-inhalt"><h3>Jonas Weber</h3><span class="meta">Entwicklung</span></div><div class="karte-fuss">Web, Apps</div></article>
+        <article class="karte" style="background:var(--grau-flaeche)"><div class="karte-inhalt"><h3>Ilka Rose</h3><span class="meta">Illustration</span></div><div class="karte-fuss">Motive, Animation</div></article>
+        <article class="karte" style="background:var(--grau-flaeche)"><div class="karte-inhalt"><h3>Tim Hartwig</h3><span class="meta">Beratung</span></div><div class="karte-fuss">Strategie</div></article>
+        <article class="karte" style="background:var(--grau-flaeche)"><div class="karte-inhalt"><h3>Sofia Brandt</h3><span class="meta">Produktion</span></div><div class="karte-fuss">Druck, Planung</div></article>
+      </div>
+    </section>
+
+    <section class="cta" id="kontakt">
+      <div class="abschnitt">
+        <div>
+          <h2>Erzähl uns von deinem Vorhaben</h2>
+          <p>Wir melden uns innerhalb von zwei Werktagen mit ersten Ideen und einem Terminvorschlag.</p>
+        </div>
+        <a class="knopf" href="#">Gespräch anfragen</a>
+      </div>
+    </section>
+  </main>
+</div>
+<footer><div><span>© Nordwerk Studio, fiktives Beispiel</span><span>Impressum · Datenschutz · Kontakt</span></div></footer>
+</body>
+</html>

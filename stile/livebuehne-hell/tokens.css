@@ -1,0 +1,19 @@
+/* Livebühne hell: Tokens */
+:root{
+  --grund:#f7f7f8; --flaeche:#ffffff; --flaeche-2:#efeff1;
+  --pille:rgba(173,173,184,.22); --pille-hover:rgba(173,173,184,.4); --linie:rgba(173,173,184,.43);
+  --text:#0e0e10; --text-2:#3b3b44; --text-gedaempft:#53535f;
+  --violett:#8b4ff2; --violett-hover:#6e30dc; --violett-text:#5c16c5;
+  --band:#330c6e; --band-2:#451093;
+  --live:#eb0400; --live-punkt:#e91916;
+  --overlay:linear-gradient(0deg,rgba(0,0,0,.8) 0,rgba(0,0,0,.35) 60%,rgba(0,0,0,0));
+  --font:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --fs-basis:.875rem; --fs-meta:.75rem; --fs-titel:1.125rem; --fs-hero:clamp(1.5rem,3vw,2.5rem);
+  --lh-basis:1.4;
+  --r-klein:4px; --r-mittel:6px; --r-feld:8px; --r-pille:9000px;
+  --schatten-schwebend:0 6px 16px rgba(0,0,0,.22),0 0 4px rgba(0,0,0,.08);
+  --ring:0 0 0 1px rgba(50,50,57,.62) inset; --ring-fokus:0 0 0 2px #8b4ff2;
+  --a1:4px; --a2:8px; --a3:12px; --a4:16px; --a5:24px; --a6:32px; --a7:48px;
+  --leiste:240px; --kopf:50px; --breite:1040px;
+  --dauer:120ms; --ease:ease-out;
+}

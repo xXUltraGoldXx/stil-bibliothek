@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Sortiment klar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--weiss);color:var(--text);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text)}
+a{color:inherit;text-decoration:none}
+.hinweis{background:var(--greige);text-align:center;font-size:var(--fs-klein);padding:var(--raum-2) var(--rand);font-weight:500}
+.kopf{display:flex;align-items:center;justify-content:space-between;gap:var(--raum-3);height:4.5rem;padding:0 var(--rand);max-width:var(--breite);margin:0 auto}
+.marke{font-weight:700;font-size:1.4rem;letter-spacing:.02em}
+.kopf nav{display:flex;gap:var(--raum-5);font-size:var(--fs-klein)}
+.suche{border:1px solid var(--text-3);border-radius:var(--r-mittel);height:2.1rem;padding:0 var(--raum-2);display:flex;align-items:center;gap:var(--raum-1);font-size:var(--fs-mikro);color:var(--text-2);min-width:0}
+.hero{position:relative;min-height:34rem;background:linear-gradient(0deg,var(--bild),var(--bild));overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:var(--raum-5) var(--rand) var(--raum-5)}
+.hero svg{position:absolute;right:8%;bottom:0;height:92%;width:auto;max-width:60%}
+.hero>*{position:relative}
+.hero svg{position:absolute}
+h1{font-size:clamp(1.75rem,4.6vw,3.5rem);line-height:1.05;font-weight:700;max-width:14ch}
+.hero p{margin-top:var(--raum-2)}
+.knopf{display:inline-block;background:var(--marke);color:var(--weiss);border:0;border-radius:var(--r-klein);font:700 1rem var(--font-text);padding:.9rem 2rem;cursor:pointer;transition:background .3s var(--ease)}
+.knopf:hover{background:var(--marke-hover)}
+.striche{display:flex;gap:6px;margin-top:var(--raum-3)}.striche i{display:block;width:2.2rem;height:2px;background:var(--text-3)}.striche i:nth-child(2){background:var(--marke)}
+.sek{padding:var(--raum-7) 0 0;max-width:var(--breite);margin:0 auto}
+.sek>h2,.sek>p{padding:0 var(--rand)}
+h2{font-size:var(--fs-h2);line-height:var(--lh-kopf);font-weight:700;color:var(--marke);margin-bottom:var(--raum-1)}
+.sek>p{color:var(--text-2);margin-bottom:var(--raum-5)}
+.reihe{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr))}
+.bild{aspect-ratio:1/1;background:var(--bild);position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
+.bild:nth-child(even){background:var(--grau)}
+.bild svg{width:60%;height:auto;display:block}
+.prod .bild{margin:0}
+.prod{display:block}
+.prod .text{padding:var(--raum-3) var(--rand) var(--raum-5)}
+.prod h3{font-size:var(--fs-h3);font-weight:500}
+.var{font-size:var(--fs-klein);color:var(--text-2)}
+.sterne{display:flex;align-items:center;gap:2px;font-size:var(--fs-klein);margin-top:4px}
+.sterne svg{width:14px;height:14px;fill:var(--stern)}.sterne span{margin-left:6px;color:var(--text-2)}
+.preis{margin-top:4px;font-weight:500}.preis b{color:var(--gruen);font-weight:700}
+.kacheln{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+.kachel{aspect-ratio:4/3;background:var(--bild);padding:var(--raum-4) var(--rand);font-size:var(--fs-kachel);font-weight:700;color:var(--marke);position:relative;overflow:hidden}
+.kachel:nth-child(2){background:var(--grau)}.kachel:nth-child(3){background:var(--greige)}
+.kachel:after{content:"";position:absolute;right:-10%;bottom:-18%;width:55%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.55)}
+.vorteile{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:var(--raum-5);background:var(--greige);margin-top:var(--raum-7);padding:var(--raum-6) var(--rand)}
+.vorteile div{max-width:20rem}.vorteile b{display:block;font-weight:700}
+.vorteile span{color:var(--text-2);font-size:var(--fs-klein)}
+.news{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:var(--raum-5);align-items:center;padding:var(--raum-7) var(--rand);max-width:var(--breite);margin:0 auto}
+.news h2{padding:0}
+.feld{display:flex;gap:var(--raum-2);flex-wrap:wrap}
+.feld input{flex:1 1 12rem;min-width:0;font:inherit;border:1px solid var(--linie-form);border-radius:var(--r-mittel);padding:.8rem var(--raum-3);background:var(--weiss);color:var(--text)}
+.feld input:focus{outline:2px solid var(--marke);outline-offset:2px}
+footer{border-top:1px solid var(--linie);padding:var(--raum-5) var(--rand);display:flex;justify-content:space-between;gap:var(--raum-3);flex-wrap:wrap;font-size:var(--fs-klein);color:var(--text-2)}
+@media(max-width:800px){.kopf nav{display:none}.suche{flex:1}.sek{padding-top:3rem}.hero{min-height:30rem}.hero svg{right:-8%;max-width:75%}}
+</style></head><body>
+<div class="hinweis">Kostenloser Rückversand für alle Bestellungen</div>
+<header class="kopf"><span class="marke">NORDWERK</span><nav><a href="#sortiment">Sortiment</a><a href="#kategorien">Kategorien</a><a href="#hilfe">Hilfe</a></nav><div class="suche"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7"/><path d="M15 15l6 6"/></svg>Was suchst du?</div></header>
+<section class="hero" aria-label="Aktuelles Motiv">
+<div><h1>Gut gemacht für jeden Tag.</h1><p>Wohnstücke aus der Werkstatt, die bleiben.</p></div>
+<svg viewBox="0 0 200 300" role="img" aria-label="Platzhalter für ein Motiv"><ellipse cx="100" cy="60" rx="40" ry="48" fill="#b8b0a5"/><path d="M20 300c0-90 30-150 80-150s80 60 80 150z" fill="#a39a8e"/></svg>
+<div><a class="knopf" href="#sortiment">Jetzt ansehen</a><div class="striche"><i></i><i></i><i></i></div></div>
+</section>
+<section class="sek" id="sortiment"><h2>Bestseller.</h2><p>Diese Stücke werden am häufigsten bestellt.</p>
+<div class="reihe">
+<a class="prod" href="#"><div class="bild"><svg viewBox="0 0 120 100"><rect x="30" y="20" width="60" height="80" fill="#f2f0ea"/></svg></div><div class="text"><h3>Hocker Eiche</h3><div class="var">Natur · 1 Stück</div><div class="sterne"><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><span>(2418)</span></div></div></a>
+<a class="prod" href="#"><div class="bild"><svg viewBox="0 0 120 100"><circle cx="60" cy="70" r="32" fill="#f2f0ea"/></svg></div><div class="text"><h3>Leuchte Mini</h3><div class="var">Weiß · 1 Stück</div><div class="sterne"><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><span>(1032)</span></div></div></a>
+<a class="prod" href="#"><div class="bild"><svg viewBox="0 0 120 100"><rect x="20" y="50" width="80" height="50" rx="4" fill="#f2f0ea"/></svg></div><div class="text"><h3>Regalbox</h3><div class="var">Grau · 3 Stück</div><div class="sterne"><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><span>(690)</span></div><div class="preis"><b>-20 %</b> aktuell</div></div></a>
+<a class="prod" href="#"><div class="bild"><svg viewBox="0 0 120 100"><path d="M30 100l10-60h40l10 60z" fill="#f2f0ea"/></svg></div><div class="text"><h3>Tischvase</h3><div class="var">Sand · 2 Stück</div><div class="sterne"><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.500l1.600-7.200L2 9.600 9 9z"/></svg><span>(389)</span></div></div></a>
+</div></section>
+<section class="sek" id="kategorien"><h2>Beliebte Kategorien.</h2><p>Hier schauen gerade die meisten hin.</p>
+<div class="kacheln"><a class="kachel" href="#">Sitzen.</a><a class="kachel" href="#">Licht.</a><a class="kachel" href="#">Ordnung.</a></div></section>
+<section class="vorteile" id="hilfe"><div><b>30 Tage Rückgabe</b><span>Ohne Begründung, ohne Aufwand.</span></div><div><b>Versand in 2 Tagen</b><span>Aus unserem Lager in Kiel.</span></div><div><b>5 Jahre Garantie</b><span>Auf alle Holzprodukte.</span></div></section>
+<section class="news"><div><h2>Neuigkeiten.</h2><p style="color:var(--text-2)">Einmal im Monat, kurz und ohne Spam.</p></div>
+<div class="feld"><input type="email" placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse"><a class="knopf" href="#">Anmelden</a></div></section>
+<footer><span>Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage.</span><span>Impressum · Datenschutz · Kontakt</span></footer>
+</body></html>

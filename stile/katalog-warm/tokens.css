@@ -1,0 +1,17 @@
+/* Katalog warm: Tokens */
+:root{
+  --tinte:#1a1817; --grau:#808080; --grau-dunkel:#4d4d4d;
+  --grund:#f7f7f7; --karte:#ffffff; --linie:#e6e6e6; --creme:#f6f4ef;
+  --rot:#c8102e; --rot-hover:#b90003; --rot-text:#b30000;
+  --band:#da8d55; --band-text:#3b1e14;
+  --foto-verlauf:linear-gradient(rgba(0,0,0,.2) 0,rgba(0,0,0,.3) 75%,rgba(0,0,0,0) 100%);
+  --font-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --font-ui:"Manrope",system-ui,sans-serif;
+  --fs-hero:clamp(2.25rem,7vw,5.6rem); --fs-titel:clamp(1.9rem,4vw,3.25rem);
+  --fs-nav:.9375rem; --fs-text:.8125rem; --fs-meta:.6875rem;
+  --ls-knopf:.15em; --ls-meta:.1em; --lh-text:1.5; --lh-titel:1.2;
+  --r-knopf:0; --r-feld:4px; --r-karte:12px; --r-pille:999px;
+  --schatten:none;
+  --rand-x:3rem; --rand-x-mobil:1rem; --breite:1280px; --luecke:1rem;
+  --abstand-1:5px; --abstand-2:10px; --abstand-3:16px; --abstand-4:24px; --abstand-5:32px; --abstand-6:48px; --abstand-7:60px;
+}

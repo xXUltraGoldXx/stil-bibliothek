@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio – Werkstätten und Atelierplätze</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--font-ui);background:var(--weiss);color:var(--text);font-size:var(--fs-titel);line-height:1.43;font-weight:var(--gew-text)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand-mobil)}
+@media(min-width:800px){.wrap{padding:0 var(--rand)}}
+.kopf{background:linear-gradient(var(--weiss) 40%,#f8f8f8 100%);border-bottom:1px solid var(--linie-fein);padding-bottom:1.5rem}
+.leiste{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1rem 0}
+.marke{display:flex;align-items:center;gap:.5rem;font-weight:var(--gew-titel);font-size:1.25rem;color:var(--akzent);letter-spacing:var(--ls-h2)}
+.reiter{display:flex;gap:1.5rem;flex-wrap:wrap;order:3;width:100%;justify-content:center}
+@media(min-width:900px){.reiter{order:0;width:auto}}
+.reiter a{display:flex;align-items:center;gap:.5rem;color:var(--text-2);font-weight:var(--gew-mittel);padding:.5rem 0;border-bottom:2px solid transparent;transition:border-color var(--dauer-schnell) var(--ease-standard)}
+.reiter a.aktiv{color:var(--text);border-color:var(--text)}
+.sym{width:28px;height:28px;border-radius:var(--r-klein);display:block;flex:none}
+.rechts{display:flex;align-items:center;gap:.75rem}
+.kreis{width:40px;height:40px;border-radius:var(--r-kreis);background:var(--grau-kreis);display:inline-flex;align-items:center;justify-content:center;transition:transform var(--dauer-schnell) var(--ease-ein)}
+.kreis:hover{transform:scale(1.04)}
+.kreis.klein{width:32px;height:32px}
+.kreis.aus{opacity:.4}
+.suche{max-width:850px;margin:.5rem auto 0;background:var(--weiss);border-radius:var(--r-pille);box-shadow:var(--schatten-suche);display:grid;grid-template-columns:1fr;padding:.5rem}
+@media(min-width:700px){.suche{grid-template-columns:1fr 1fr 1fr auto;align-items:center;padding:.5rem .5rem .5rem 1.5rem}}
+.feld{padding:.5rem 1rem;font-size:var(--fs-klein);line-height:1.33}
+@media(min-width:700px){.feld+.feld{border-left:1px solid var(--linie)}}
+.feld b{display:block;font-weight:var(--gew-fett)}
+.feld span{font-size:var(--fs-titel);color:var(--text-2)}
+.such-knopf{background:var(--akzent);color:#fff;width:48px;height:48px;border-radius:var(--r-kreis);display:flex;align-items:center;justify-content:center;margin:.25rem auto}
+section.reihe{margin-top:var(--abschnitt)}
+.titelzeile{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+.titelzeile h2{margin:0;font-size:var(--fs-h2);line-height:var(--lh-h2);letter-spacing:var(--ls-h2);font-weight:var(--gew-fett)}
+.titelzeile p{margin:.25rem 0 0;font-size:var(--fs-meta);color:var(--text-2)}
+.pfeile{display:flex;gap:.5rem}
+.titel-links{display:flex;align-items:center;gap:.5rem}
+h1{font-size:var(--fs-h1);line-height:var(--lh-h1);font-weight:var(--gew-titel);margin:2rem 0 .25rem}
+.intro{color:var(--text-2);font-size:var(--fs-titel);margin:0;max-width:60ch}
+.orte{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--luecke)}
+@media(min-width:700px){.orte{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1000px){.orte{grid-template-columns:repeat(6,1fr)}}
+.bild{display:block;width:100%;aspect-ratio:1/.95;border-radius:var(--r-bild);position:relative;overflow:hidden}
+.bild.ort{aspect-ratio:1/.95}
+.ph1{background:linear-gradient(160deg,#e8c9a0,#c27b5a)}
+.ph2{background:linear-gradient(160deg,#b9cbb2,#5f7d6a)}
+.ph3{background:linear-gradient(160deg,#c6d4e6,#3d5a80)}
+.ph4{background:linear-gradient(160deg,#f1dfc2,#d59a54)}
+.ph5{background:linear-gradient(160deg,#d9cfe0,#7b6a94)}
+.ph6{background:linear-gradient(160deg,#e9d3d0,#a5584f)}
+.bild svg.form{position:absolute;left:0;bottom:0;width:100%;height:55%;opacity:.35}
+.beschr{padding-top:.5rem}
+.beschr b{display:block;font-weight:var(--gew-mittel);font-size:var(--fs-titel);line-height:1.29}
+.beschr span{display:block;font-size:var(--fs-meta);color:var(--text-2);line-height:var(--lh-meta);margin-top:2px}
+.karten{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--luecke)}
+@media(min-width:800px){.karten{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1100px){.karten{grid-template-columns:repeat(6,1fr)}}
+.badge{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.8);border-radius:var(--r-pille);padding:4px 10px;font-size:var(--fs-klein);font-weight:var(--gew-fett);color:var(--text)}
+.herz{position:absolute;right:10px;top:10px;width:26px;height:26px;transition:transform var(--dauer-schnell) var(--ease-ein)}
+.herz:hover{transform:scale(1.04)}
+.band{background:var(--grau-hell);border-radius:var(--r-bild);padding:2rem 1.25rem;display:grid;gap:1.5rem;grid-template-columns:1fr;align-items:center}
+@media(min-width:800px){.band{grid-template-columns:1.2fr 1fr;padding:2.5rem}}
+.band h2{margin:0 0 .5rem;font-size:var(--fs-h2);font-weight:var(--gew-fett);letter-spacing:var(--ls-h2)}
+.band p{margin:0 0 1.25rem;color:var(--text-2);font-size:var(--fs-titel)}
+.knopf{display:inline-block;padding:10px 19px;border-radius:40px;border:1px solid var(--linie);background:var(--weiss);font-weight:var(--gew-mittel);font-size:var(--fs-titel);line-height:18px;box-shadow:var(--schatten-knopf);transition:transform var(--dauer-schnell) var(--ease-ein)}
+.knopf:hover{transform:scale(1.04)}
+.knopf.primaer{background:var(--akzent);border-color:var(--akzent);color:#fff;font-weight:var(--gew-fett);border-radius:var(--r-knopf);box-shadow:none}
+.band .bild{aspect-ratio:16/9;box-shadow:var(--schatten-karte)}
+footer{background:var(--grau-hell);margin-top:var(--abschnitt);padding:2.5rem 0 3rem;border-top:1px solid var(--linie-fein)}
+.fuss{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+@media(min-width:800px){.fuss{grid-template-columns:repeat(4,1fr)}}
+.fuss b{display:block;font-weight:var(--gew-fett);font-size:var(--fs-titel);margin-bottom:.5rem}
+.fuss a{display:block;font-size:var(--fs-titel);color:var(--text-2);padding:.25rem 0}
+.klein{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--linie);font-size:var(--fs-meta);color:var(--text-2)}
+</style>
+</head>
+<body>
+<header class="kopf">
+ <div class="wrap">
+  <div class="leiste">
+   <a href="#" class="marke">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12" fill="none" stroke="#cf2a58" stroke-width="2.5"/><path d="M8 19 L14 8 L20 19" fill="none" stroke="#cf2a58" stroke-width="2.5" stroke-linejoin="round"/></svg>
+    Nordwerk Studio
+   </a>
+   <nav class="reiter" aria-label="Bereiche">
+    <a href="#orte" class="aktiv"><span class="sym ph4"></span>Alles</a>
+    <a href="#plaetze"><span class="sym ph2"></span>Atelierplätze</a>
+    <a href="#plaetze"><span class="sym ph3"></span>Kurse</a>
+    <a href="#service"><span class="sym ph6"></span>Services</a>
+   </nav>
+   <div class="rechts">
+    <a href="#service" style="font-weight:500">Werkstatt anbieten</a>
+    <a href="#" class="kreis" aria-label="Konto"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="none" stroke="#222" stroke-width="1.5"/><circle cx="9" cy="7" r="2.5" fill="none" stroke="#222" stroke-width="1.5"/></svg></a>
+    <a href="#" class="kreis" aria-label="Menü"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="#222" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+   </div>
+  </div>
+  <div class="suche" role="search">
+   <div class="feld"><b>Ort</b><span>Stadtviertel suchen</span></div>
+   <div class="feld"><b>Zeitraum</b><span>Datum hinzufügen</span></div>
+   <div class="feld"><b>Handwerk</b><span>Handwerk wählen</span></div>
+   <a href="#plaetze" class="such-knopf" aria-label="Suchen"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="none" stroke="#fff" stroke-width="2"/><path d="M12.5 12.5L16 16" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></a>
+  </div>
+ </div>
+</header>
+
+<main class="wrap">
+ <h1>Räume zum Machen, in deiner Nähe</h1>
+ <p class="intro">Hier findest du Werkbänke, Brennöfen und ruhige Schreibtische von Menschen aus deiner Stadt.</p>
+
+ <section class="reihe" id="orte">
+  <div class="titelzeile">
+   <h2>Viertel für dich</h2>
+   <div class="pfeile"><span class="kreis klein aus">‹</span><span class="kreis klein">›</span></div>
+  </div>
+  <div class="orte">
+   <a href="#" class="ort-k"><span class="bild ort ph1"><svg class="form" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50V30L20 10l20 20 20-15 20 20 20-8v23z" fill="#fff"/></svg></span><span class="beschr"><b>Hafenviertel</b><span>Offene Werkhallen</span></span></a>
+   <a href="#" class="ort-k"><span class="bild ort ph2"></span><span class="beschr"><b>Altstadt</b><span>Ruhige Hinterhöfe</span></span></a>
+   <a href="#" class="ort-k"><span class="bild ort ph3"></span><span class="beschr"><b>Südkreuz</b><span>Viel Tageslicht</span></span></a>
+   <a href="#" class="ort-k"><span class="bild ort ph4"></span><span class="beschr"><b>Mühlenpark</b><span>Nah am Wasser</span></span></a>
+   <a href="#" class="ort-k"><span class="bild ort ph5"></span><span class="beschr"><b>Westend</b><span>Gute Cafés</span></span></a>
+   <a href="#" class="ort-k"><span class="bild ort ph6"></span><span class="beschr"><b>Gleisdreieck</b><span>Große Hallen</span></span></a>
+  </div>
+ </section>
+
+ <section class="reihe" id="plaetze">
+  <div class="titelzeile">
+   <div class="titel-links"><h2>Beliebte Atelierplätze im Hafenviertel</h2><a href="#" class="kreis klein" aria-label="Alle ansehen">→</a></div>
+   <div class="pfeile"><span class="kreis klein aus">‹</span><span class="kreis klein">›</span></div>
+  </div>
+  <div class="karten">
+   <a href="#" class="karte"><span class="bild ph4"><span class="badge">Beliebt</span><svg class="herz" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22S4 16 4 9.5A4.5 4.5 0 0 1 13 7a4.5 4.5 0 0 1 9 2.5C22 16 13 22 13 22z" fill="rgba(0,0,0,.5)" stroke="#fff" stroke-width="2"/></svg></span><span class="beschr"><b>Töpferwerkstatt am Kai</b><span>4.–6. Dez. · Mit Brennofen</span><span>Gesamtpreis 145 € · ★ 4,9</span></span></a>
+   <a href="#" class="karte"><span class="bild ph2"><svg class="herz" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22S4 16 4 9.5A4.5 4.5 0 0 1 13 7a4.5 4.5 0 0 1 9 2.5C22 16 13 22 13 22z" fill="rgba(0,0,0,.5)" stroke="#fff" stroke-width="2"/></svg></span><span class="beschr"><b>Holzwerkstatt Nord</b><span>8.–10. Jan. · Mit Hobelbank</span><span>Gesamtpreis 210 € · ★ 5,0</span></span></a>
+   <a href="#" class="karte"><span class="bild ph3"><svg class="herz" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22S4 16 4 9.5A4.5 4.5 0 0 1 13 7a4.5 4.5 0 0 1 9 2.5C22 16 13 22 13 22z" fill="rgba(0,0,0,.5)" stroke="#fff" stroke-width="2"/></svg></span><span class="beschr"><b>Siebdruck-Atelier</b><span>8.–10. Jan. · Mit Belichter</span><span>Gesamtpreis 172 € · ★ 5,0</span></span></a>
+   <a href="#" class="karte"><span class="bild ph6"><svg class="herz" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22S4 16 4 9.5A4.5 4.5 0 0 1 13 7a4.5 4.5 0 0 1 9 2.5C22 16 13 22 13 22z" fill="rgba(0,0,0,.5)" stroke="#fff" stroke-width="2"/></svg></span><span class="beschr"><b>Nähstube im Hinterhof</b><span>6.–8. Aug. · Mit Zuschneidetisch</span><span>Gesamtpreis 98 € · ★ 4,8</span></span></a>
+   <a href="#" class="karte"><span class="bild ph1"><span class="badge">Beliebt</span><svg class="herz" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22S4 16 4 9.5A4.5 4.5 0 0 1 13 7a4.5 4.5 0 0 1 9 2.5C22 16 13 22 13 22z" fill="rgba(0,0,0,.5)" stroke="#fff" stroke-width="2"/></svg></span><span class="beschr"><b>Metallwerkstatt Süd</b><span>27.–29. Nov. · Mit Schweißplatz</span><span>Gesamtpreis 207 € · ★ 5,0</span></span></a>
+   <a href="#" class="karte"><span class="bild ph5"><span class="badge">Beliebt</span><svg class="herz" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22S4 16 4 9.5A4.5 4.5 0 0 1 13 7a4.5 4.5 0 0 1 9 2.5C22 16 13 22 13 22z" fill="rgba(0,0,0,.5)" stroke="#fff" stroke-width="2"/></svg></span><span class="beschr"><b>Schreibraum Dachgeschoss</b><span>19.–21. Feb. · Ruhig</span><span>Gesamtpreis 120 € · ★ 4,9</span></span></a>
+  </div>
+ </section>
+
+ <section class="reihe" id="service">
+  <div class="band">
+   <div>
+    <h2>Du hast Platz übrig?</h2>
+    <p>Stelle deine Werkstatt stundenweise zur Verfügung. Wir kümmern uns um Buchung, Versicherung und Zahlung.</p>
+    <a href="#" class="knopf primaer">Werkstatt eintragen</a>
+    <a href="#orte" class="knopf" style="margin-left:.5rem">Mehr erfahren</a>
+   </div>
+   <span class="bild ph4"></span>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="fuss">
+   <div><b>Unterstützung</b><a href="#">Hilfebereich</a><a href="#">Stornierung</a><a href="#">Sicherheit</a></div>
+   <div><b>Anbieten</b><a href="#">Werkstatt eintragen</a><a href="#">Ressourcen</a><a href="#">Forum</a></div>
+   <div><b>Nordwerk</b><a href="#">Über uns</a><a href="#">Neuigkeiten</a><a href="#">Karriere</a></div>
+   <div><b>Rechtliches</b><a href="#">Datenschutz</a><a href="#">Impressum</a><a href="#">Bedingungen</a></div>
+  </div>
+  <div class="klein">© Nordwerk Studio · Alle Angaben frei erfunden</div>
+ </div>
+</footer>
+</body>
+</html>

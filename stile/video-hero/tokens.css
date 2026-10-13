@@ -1,0 +1,13 @@
+/* Video-Hero: Tokens. Die Buehne ist ein Film; alles andere ist Untertitel, Rahmen und Pause. */
+:root{
+  --kino:#08090c; --kino-2:#101218; --kino-3:#1a1d27; --papier:#f4f1ec; --papier-2:#e6e1d8;
+  --text:#f4f1ec; --text-dim:#a9adbb; --text-dunkel:#15171d; --linie:rgba(244,241,236,.16);
+  --licht:#ffb86b; --licht-2:#ff7a45; --kalt:#4d7cff; --tief:#0b2540;
+  --film-1:#0b2540; --film-2:#2a4f7a; --film-3:#ff9a5a; --film-4:#1b1030;
+  --font-display:"Archivo","Inter",sans-serif; --font-body:"Inter Tight","Inter",sans-serif; --font-mono:"JetBrains Mono",monospace;
+  --fs-titel:clamp(3rem,9.5vw,8.5rem); --fs-h2:clamp(1.8rem,3.6vw,3rem); --fs-h3:1.2rem; --fs-body:1.0625rem; --fs-sm:.875rem; --fs-xs:.75rem;
+  --buehne-hoehe:100vh; --buehne-min:560px; --buehne-max:980px; --verdunkelung:linear-gradient(180deg,rgba(8,9,12,.55) 0%,rgba(8,9,12,.15) 35%,rgba(8,9,12,.85) 100%);
+  --dur-film:26s; --dur-ueberblende:900ms; --dur-hover:300ms; --ease:cubic-bezier(.22,.8,.24,1);
+  --r-sm:8px; --r-md:14px; --r-pille:999px;
+  --breite:1240px; --abstand-sektion:clamp(4.5rem,10vw,8.5rem);
+}

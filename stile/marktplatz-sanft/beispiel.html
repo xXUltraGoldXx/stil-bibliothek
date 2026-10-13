@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Marktplatz sanft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--grund);color:var(--navy);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh);font-weight:var(--fw-text)}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--rand-mobil)}
+@media(min-width:800px){.w{padding:0 var(--rand)}}
+.oben{background:var(--grund);font-size:var(--fs-klein)}
+.oben .w{display:flex;gap:var(--s-5);flex-wrap:wrap;padding-top:var(--s-3);padding-bottom:var(--s-3)}
+.kopf{background:var(--weiss)}
+.kopf .zeile{display:flex;align-items:center;gap:var(--s-5);padding:var(--s-4) 0;flex-wrap:wrap}
+.logo{font-weight:var(--fw-fett);font-size:1.5rem;letter-spacing:-.01em;display:flex;align-items:center;gap:var(--s-2)}
+.suche{flex:1 1 260px;position:relative;min-width:0}
+.suche input{width:100%;font:inherit;color:var(--navy);background:var(--grund);border:2px solid transparent;border-radius:var(--r-suche);padding:.65rem 40px .65rem 24px}
+.suche input::placeholder{color:var(--grau)}
+.suche input:focus{outline:0;border-color:var(--navy)}
+.suche svg{position:absolute;right:14px;top:50%;transform:translateY(-50%)}
+.symbole{display:flex;gap:var(--s-4)}
+.hauptnav{display:flex;gap:var(--s-5);flex-wrap:wrap;padding:var(--s-3) 0 var(--s-4);font-weight:var(--fw-titel)}
+.vorteile{background:var(--weiss);border-top:1px solid var(--grund)}
+.vorteile .w{display:flex;justify-content:space-around;gap:var(--s-4) var(--s-5);flex-wrap:wrap;padding-top:var(--s-3);padding-bottom:var(--s-3);font-size:var(--fs-klein);font-weight:var(--fw-titel)}
+.vorteile span{display:flex;align-items:center;gap:var(--s-2)}
+.banner{background:var(--aktion);padding:var(--s-6) 0;overflow:hidden}
+.banner .w{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-5);align-items:center}
+.motiv{aspect-ratio:4/3;border-radius:var(--r-karte);background:radial-gradient(circle at 25% 30%,rgba(255,255,255,.25) 0 14%,transparent 15%),linear-gradient(135deg,#e9d8e6,#d8c7e3);position:relative}
+.motiv:after{content:"";position:absolute;left:22%;top:28%;width:46%;height:52%;border-radius:var(--r-klein);background:var(--weiss);box-shadow:var(--schatten)}
+.textkarte{background:var(--weiss);border-radius:var(--r-karte);padding:var(--s-5);box-shadow:var(--schatten)}
+.textkarte h2{margin-bottom:var(--s-2)}
+.punkte{display:flex;gap:var(--s-4);justify-content:center;padding:var(--s-5) 0 var(--s-2)}
+.punkte i{width:18px;height:18px;border-radius:var(--r-kreis);border:2px solid var(--navy);display:block}
+.punkte i:first-child{background:var(--navy)}
+h1{font-size:var(--fs-h1-mobil);line-height:var(--lh);font-weight:var(--fw-titel);padding:var(--s-6) 0 var(--s-4)}
+h2{font-size:var(--fs-h2);line-height:var(--lh);font-weight:var(--fw-titel)}
+h3{font-size:var(--fs-text);line-height:var(--lh);font-weight:var(--fw-titel)}
+@media(min-width:800px){h1{font-size:var(--fs-h1);padding-top:var(--s-7)}}
+.sek{padding:var(--s-5) 0 var(--s-6)}
+.sek h2{margin-bottom:var(--s-4)}
+.raster{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--luecke)}
+@media(min-width:800px){.raster{grid-template-columns:repeat(4,1fr)}}
+.kachel{background:var(--weiss);border-radius:var(--r-karte);box-shadow:var(--schatten);padding:var(--s-4);display:flex;flex-direction:column;gap:var(--s-2);transition:box-shadow .2s}
+.kachel:hover{box-shadow:1px 2px 4px rgba(0,0,0,.08),1px 8px 16px rgba(0,0,0,.12)}
+.foto{aspect-ratio:1;border-radius:var(--r-klein);background:var(--grund);display:grid;place-items:center}
+.foto.a{background:var(--rose)}.foto.b{background:var(--lavendel)}
+.kachel p{font-size:var(--fs-klein);color:var(--grau)}
+.preis{font-weight:var(--fw-fett)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s-2)}
+.chip{background:var(--weiss);border-radius:var(--r-pille);padding:.4rem 1rem;font-size:var(--fs-klein);font-weight:var(--fw-titel)}
+.btn{display:inline-block;font:inherit;font-weight:var(--fw-titel);background:var(--navy);color:var(--weiss);border:2px solid var(--navy);border-radius:var(--r-pille);padding:.75rem 1.5rem;cursor:pointer;text-align:center;transition:background .2s}
+.btn:hover{background:#2a4573;text-decoration:none}
+.btn.zwei{background:var(--weiss);color:var(--navy)}
+.btn.zwei:hover{background:var(--grund)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+.paar{display:flex;gap:var(--s-3);margin-top:var(--s-4);flex-wrap:wrap}
+.paar .btn{flex:1 1 140px}
+.news{background:var(--weiss);border-radius:var(--r-karte);padding:var(--s-5);display:grid;grid-template-columns:1fr 1fr;gap:var(--s-5);align-items:center;box-shadow:var(--schatten)}
+.news .eingabe{display:flex;gap:var(--s-3);flex-wrap:wrap}
+.news input{flex:1 1 180px;min-width:0;font:inherit;color:var(--navy);background:var(--grund);border:2px solid transparent;border-radius:var(--r-suche);padding:.65rem 24px}
+.news input:focus{outline:0;border-color:var(--navy)}
+footer{background:var(--grund);padding:var(--s-6) 0;margin-top:var(--s-6);font-size:var(--fs-klein)}
+.fuss{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-5)}
+.fuss div{display:flex;flex-direction:column;gap:var(--s-2)}
+@media(max-width:800px){.banner .w,.news,.fuss{grid-template-columns:1fr}.hauptnav{gap:var(--s-4)}.symbole{margin-left:auto}}
+</style></head><body>
+<div class="oben"><div class="w"><a href="#">Über uns</a><a href="#">Journal</a><a href="#">Service</a><a href="#">Karriere</a></div></div>
+<header class="kopf"><div class="w">
+<div class="zeile"><a class="logo" href="#"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="#192f50"/><path d="M7 21V7l14 14V7" stroke="#fff" stroke-width="2.5" fill="none"/></svg>Nordwerk</a>
+<div class="suche"><input type="text" placeholder="Suchen und finden" aria-label="Suche"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="#192f50" stroke-width="2"/><path d="M15 15l6 6" stroke="#192f50" stroke-width="2"/></svg></div>
+<div class="symbole" aria-label="Konto und Warenkorb"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" fill="#192f50"/></svg><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21l-8-8a5 5 0 017-7l1 1 1-1a5 5 0 017 7z" fill="#192f50"/></svg><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="#192f50"/><path d="M4 21c0-5 4-7 8-7s8 2 8 7z" fill="#192f50"/></svg><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h3l3 12h10l3-9H7" fill="#192f50"/><circle cx="9" cy="20" r="1.8" fill="#192f50"/><circle cx="17" cy="20" r="1.8" fill="#192f50"/></svg></div></div>
+<nav class="hauptnav"><a href="#">Neu</a><a href="#">Wohnen</a><a href="#">Küche</a><a href="#">Büro</a><a href="#">Garten</a><a href="#">Geschenke</a><a href="#">Ausverkauf</a></nav>
+</div></header>
+<div class="vorteile"><div class="w"><span><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10l5 5 9-10" stroke="#0f6b3d" stroke-width="3" fill="none"/></svg>Kostenloser Versand ab 49 €</span><span><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10l5 5 9-10" stroke="#0f6b3d" stroke-width="3" fill="none"/></svg>Abholung in der Werkstatt nach 2 Stunden</span><span><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10l5 5 9-10" stroke="#0f6b3d" stroke-width="3" fill="none"/></svg>30 Tage Rückgabe</span></div></div>
+<section class="banner" aria-label="Aktion"><div class="w"><div class="motiv" role="img" aria-label="Platzhalter für ein Aktionsmotiv"></div>
+<div class="textkarte"><h2>Herbstwochen im Studio</h2><p>Warme Textilien und Leuchten für lange Abende, jetzt zum Dauerpreis.</p><div class="paar"><a class="btn" href="#">Zur Aktion</a><a class="btn zwei" href="#">Später</a></div></div></div></section>
+<div class="punkte" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<main class="w">
+<h1>Willkommen bei Nordwerk Studio</h1>
+<section class="sek"><h2>Unsere Empfehlungen</h2>
+<div class="raster">
+<a class="kachel" href="#"><div class="foto"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="20" fill="#fff"/><circle cx="32" cy="32" r="8" fill="#e7e0ef"/></svg></div><h3>Stehleuchte Lund</h3><p>Eiche, warmweißes Licht</p><span class="preis">89,90 €</span></a>
+<a class="kachel" href="#"><div class="foto a"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="18" width="36" height="30" rx="8" fill="#fff"/></svg></div><h3>Wolldecke Fjell</h3><p>Reine Schurwolle, 130 × 180 cm</p><span class="preis">59,00 €</span></a>
+<a class="kachel" href="#"><div class="foto b"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><path d="M20 48V24h24v24z" fill="#fff"/></svg></div><h3>Keramikset Möwe</h3><p>Vier Teile, spülmaschinenfest</p><span class="preis">34,50 €</span></a>
+<a class="kachel" href="#"><div class="foto"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="38" r="16" fill="#e5e5e5"/><rect x="28" y="12" width="8" height="14" rx="4" fill="#fff"/></svg></div><h3>Notizbuch Anker</h3><p>Leinen, 192 Seiten</p><span class="preis">14,90 €</span></a>
+</div></section>
+<section class="sek"><h2>Nach Raum stöbern</h2>
+<div class="chips"><a class="chip" href="#">Wohnzimmer</a><a class="chip" href="#">Schlafzimmer</a><a class="chip" href="#">Küche</a><a class="chip" href="#">Arbeitszimmer</a><a class="chip" href="#">Balkon</a><a class="chip" href="#">Flur</a></div></section>
+<section class="sek"><div class="news"><div><h2>Neuigkeiten per E-Mail</h2><p>Einmal im Monat kurz und nützlich, jederzeit abbestellbar.</p></div>
+<div class="eingabe"><input type="email" placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse"><a class="btn" href="#">Anmelden</a></div></div></section>
+</main>
+<footer><div class="w"><div class="fuss"><div><h3>Service</h3><a href="#">Versand</a><a href="#">Rückgabe</a><a href="#">Kontakt</a></div><div><h3>Studio</h3><a href="#">Über uns</a><a href="#">Journal</a><a href="#">Karriere</a></div><div><h3>Rechtliches</h3><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Einstellungen</a></div></div><p style="margin-top:24px;color:var(--grau)">Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage.</p></div></footer>
+</body></html>

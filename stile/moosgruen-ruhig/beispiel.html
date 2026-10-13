@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--grund);color:var(--text);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);font-weight:400}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:var(--lh-titel);margin:0}
+h2{font-size:var(--fs-h2)}
+h3{font-family:var(--font-text);font-size:var(--fs-text);font-weight:400;line-height:1.4;margin:0}
+p{margin:0}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+.versal{text-transform:uppercase;letter-spacing:var(--ls-versal)}
+.bar{background:var(--gruen-tief);color:var(--flaeche);height:40px;display:flex;align-items:center;justify-content:center;font-size:var(--fs-klein);padding:0 var(--sp-3);text-align:center}
+header{background:var(--flaeche)}
+.kopf{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);min-height:80px;flex-wrap:wrap;padding-top:var(--sp-2);padding-bottom:var(--sp-2)}
+.marke{font-family:var(--font-display);font-size:1.5rem;display:flex;align-items:center;gap:var(--sp-2)}
+nav{display:flex;gap:var(--sp-4);flex-wrap:wrap;font-size:.8125rem;letter-spacing:.05em;text-transform:uppercase}
+nav a{padding:var(--sp-2) 0;transition:color .2s}
+nav a:hover{color:var(--gruen)}
+.hero{min-height:600px;background:var(--overlay),linear-gradient(100deg,#3d3a35 0%,#7b705f 45%,#b9a98f 100%);color:var(--flaeche);display:flex;align-items:flex-end;position:relative;overflow:hidden}
+.hero .form{position:absolute;right:8%;bottom:0;width:min(34vw,420px);height:82%;background:linear-gradient(180deg,#8d7f68,#5a5446);border-radius:200px 200px 0 0;opacity:.7}
+.hero .wrap{position:relative;padding-bottom:var(--sp-7);padding-top:var(--sp-7);width:100%}
+.hero p.eyebrow{font-size:var(--fs-nav);letter-spacing:.11em;text-transform:uppercase;margin-bottom:var(--sp-2)}
+.hero h1{font-size:var(--fs-hero);margin-bottom:var(--sp-3)}
+.hero p.lead{max-width:34rem;margin-bottom:var(--sp-4)}
+.knopf{display:inline-block;background:var(--gruen);color:var(--flaeche);font-family:var(--font-text);font-weight:700;font-size:.8125rem;text-transform:uppercase;letter-spacing:var(--ls-versal);padding:.9rem 2rem;border-radius:var(--r-knopf);border:0;cursor:pointer;transition:background .2s}
+.knopf:hover{background:var(--gruen-hover)}
+.knopf.hell{background:var(--flaeche);color:var(--gruen-tief)}
+.knopf.hell:hover{background:#fff}
+section.s{padding:var(--sp-7) 0}
+.kopfzeile{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-4)}
+.pfeile{display:flex;gap:var(--sp-2)}
+.pfeil{width:40px;height:40px;border-radius:var(--r-rund);background:var(--linie);display:flex;align-items:center;justify-content:center;font-weight:700}
+.tabs{display:flex;gap:var(--sp-4);border-bottom:1px solid var(--linie);margin-bottom:var(--sp-4);flex-wrap:wrap}
+.tabs a{font-size:var(--fs-nav);letter-spacing:var(--ls-versal);text-transform:uppercase;color:var(--text-3);padding:var(--sp-2) 0;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs a.aktiv{color:var(--gruen-tief);border-color:var(--gruen-tief)}
+.raster{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--luecke)}
+.karte .bild{aspect-ratio:4/5;background:var(--bild);margin-bottom:var(--sp-3);position:relative;overflow:hidden;border-radius:var(--r-karte)}
+.karte .bild svg{position:absolute;inset:0;width:100%;height:100%}
+.karte .preis{font-weight:700;margin-top:var(--sp-1)}
+.karte .meta{font-size:var(--fs-klein);color:var(--text-3);letter-spacing:.05em;text-transform:uppercase;margin-top:var(--sp-1)}
+.band{background:var(--gruen-tief);color:var(--flaeche)}
+.band h2{margin-bottom:var(--sp-5)}
+.zahlen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5)}
+.zahl{border-top:1px solid var(--gruen-hell);padding-top:var(--sp-3)}
+.zahl strong{display:block;font-family:var(--font-display);font-weight:400;font-size:3rem;line-height:1.1;margin-bottom:var(--sp-2)}
+.story{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-6);align-items:center}
+.story .foto{min-height:420px;background:var(--overlay),linear-gradient(160deg,#66776c,#a9b3a2 60%,#d3d3c6);border-radius:var(--r-karte)}
+.story .text{display:grid;gap:var(--sp-3);max-width:32rem}
+.story .eyebrow{font-size:var(--fs-klein);letter-spacing:var(--ls-meta);text-transform:uppercase;color:var(--gruen)}
+.pillen{display:flex;gap:var(--sp-2);flex-wrap:wrap}
+.pille{border:1px solid var(--linie);border-radius:var(--r-pille);padding:.35rem 1rem;font-size:.8125rem}
+.pille.an{background:var(--gruen);border-color:var(--gruen);color:var(--flaeche)}
+.news{background:var(--flaeche)}
+.news .zeile{display:flex;gap:var(--sp-4);align-items:flex-end;flex-wrap:wrap;margin-top:var(--sp-4)}
+.news input{flex:1 1 240px;min-width:0;background:transparent;border:0;border-bottom:1px solid var(--text-2);font:inherit;font-size:1rem;color:var(--text-2);padding:.4rem 2rem .4rem 0;border-radius:0;outline:none}
+.news input:focus{border-color:var(--gruen)}
+footer{background:var(--gruen-tief);color:var(--flaeche);padding:var(--sp-7) 0 var(--sp-5)}
+.fuss{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-5)}
+.fuss h3{font-family:var(--font-text);font-weight:700;font-size:.8125rem;text-transform:uppercase;letter-spacing:var(--ls-versal);margin-bottom:var(--sp-3)}
+.fuss ul{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-2)}
+.fuss a:hover{text-decoration:underline}
+.klein{margin-top:var(--sp-6);padding-top:var(--sp-3);border-top:1px solid var(--gruen-hell);font-size:var(--fs-klein);color:#c3c3c0}
+@media (max-width:900px){
+  .raster{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .story{grid-template-columns:1fr}
+  .fuss{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:600px){
+  :root{--rand:1.25rem}
+  section.s{padding:var(--sp-6) 0}
+  .hero{min-height:520px}
+  .hero .form{right:-10%;width:60vw;opacity:.45}
+  .zahlen{grid-template-columns:1fr}
+  .story .foto{min-height:280px}
+  nav{gap:var(--sp-3)}
+}
+</style>
+</head>
+<body>
+<div class="bar versal">Kostenloser Versand ab 80 € Bestellwert</div>
+<header>
+  <div class="wrap kopf">
+    <a href="#" class="marke">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 6l5 9h-3l4 6H8l4-6H9z" fill="currentColor"/></svg>
+      Nordwerk
+    </a>
+    <nav>
+      <a href="#neu">Damen</a>
+      <a href="#neu">Herren</a>
+      <a href="#neu">Zubehör</a>
+      <a href="#wirkung">Wirkung</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="form" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="eyebrow">Neu im Herbst</p>
+    <h1>Stücke für<br>lange Wege</h1>
+    <p class="lead">Jacken, Pullover und Mützen aus recycelten Fasern. Für jede Bestellung pflanzen wir zehn Bäume in unseren Partnerwäldern.</p>
+    <a href="#neu" class="knopf hell">Herbst entdecken</a>
+  </div>
+</section>
+
+<section class="s" id="neu">
+  <div class="wrap">
+    <div class="kopfzeile">
+      <h2>Neu eingetroffen</h2>
+      <div class="pfeile" aria-hidden="true"><span class="pfeil">←</span><span class="pfeil">→</span></div>
+    </div>
+    <div class="tabs">
+      <a href="#neu" class="aktiv">Damen</a>
+      <a href="#neu">Herren</a>
+      <a href="#neu">Zubehör</a>
+    </div>
+    <div class="raster">
+      <a href="#" class="karte">
+        <div class="bild"><svg viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="100" height="125" fill="#e4e4df"/><path d="M30 30l20-8 20 8 8 40-14 4-4 34H40l-4-34-14-4z" fill="#a9b3a2"/></svg></div>
+        <h3>Wollmantel Fjord</h3>
+        <p class="preis">149 €</p>
+        <p class="meta">3 Farben</p>
+      </a>
+      <a href="#" class="karte">
+        <div class="bild"><svg viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="100" height="125" fill="#e4e4df"/><path d="M28 34l22-8 22 8 6 36-12 4-2 30H38l-2-30-12-4z" fill="#c9b99c"/></svg></div>
+        <h3>Strickpullover Moor</h3>
+        <p class="preis">89 €</p>
+        <p class="meta">Neu</p>
+      </a>
+      <a href="#" class="karte">
+        <div class="bild"><svg viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="100" height="125" fill="#e4e4df"/><path d="M34 40h32l4 50H30z" fill="#66776c"/></svg></div>
+        <h3>Wanderhose Kiefer</h3>
+        <p class="preis">99 €</p>
+        <p class="meta">4 Farben</p>
+      </a>
+      <a href="#" class="karte">
+        <div class="bild"><svg viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="100" height="125" fill="#e4e4df"/><ellipse cx="50" cy="70" rx="24" ry="22" fill="#516559"/><rect x="26" y="78" width="48" height="10" fill="#475a4f"/></svg></div>
+        <h3>Mütze Birke</h3>
+        <p class="preis">29 €</p>
+        <p class="meta">Recycelt</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="s band" id="wirkung">
+  <div class="wrap">
+    <h2>Was bisher entstanden ist</h2>
+    <div class="zahlen">
+      <div class="zahl"><strong>420.000</strong><p>Bäume in Partnerwäldern gepflanzt</p></div>
+      <div class="zahl"><strong>78 %</strong><p>der Fasern stammen aus Recycling</p></div>
+      <div class="zahl"><strong>12</strong><p>Werkstätten mit fairen Verträgen</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="s">
+  <div class="wrap story">
+    <div class="foto" role="img" aria-label="Platzhalter für ein Werkstattfoto"></div>
+    <div class="text">
+      <p class="eyebrow">Unsere Werkstatt</p>
+      <h2>Gemacht, um zu bleiben</h2>
+      <p>Wir entwerfen in Hamburg und lassen in kleinen Serien nähen. Jedes Stück bekommt eine Reparaturanleitung und eine zweite Chance im Rückkauf.</p>
+      <div class="pillen"><span class="pille an">Reparatur</span><span class="pille">Rückkauf</span><span class="pille">Pflege</span></div>
+      <div><a href="#" class="knopf">Mehr erfahren</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="s news">
+  <div class="wrap">
+    <h2>Neuigkeiten aus dem Studio</h2>
+    <p style="margin-top:var(--sp-2);max-width:32rem">Einmal im Monat: neue Stücke, Pflegetipps und ein Blick in die Werkstatt.</p>
+    <div class="zeile">
+      <input type="text" placeholder="Ihre E-Mail-Adresse" aria-label="E-Mail-Adresse">
+      <a href="#" class="knopf">Anmelden</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fuss">
+      <div><h3>Shop</h3><ul><li><a href="#">Damen</a></li><li><a href="#">Herren</a></li><li><a href="#">Zubehör</a></li></ul></div>
+      <div><h3>Hilfe</h3><ul><li><a href="#">Versand</a></li><li><a href="#">Rückgabe</a></li><li><a href="#">Größen</a></li></ul></div>
+      <div><h3>Studio</h3><ul><li><a href="#">Werkstatt</a></li><li><a href="#">Wirkung</a></li><li><a href="#">Karriere</a></li></ul></div>
+      <div><h3>Kontakt</h3><ul><li><a href="#">Kundendienst</a></li><li><a href="#">Presse</a></li></ul></div>
+    </div>
+    <p class="klein">© Nordwerk Studio. Fiktives Beispiel.</p>
+  </div>
+</footer>
+</body>
+</html>

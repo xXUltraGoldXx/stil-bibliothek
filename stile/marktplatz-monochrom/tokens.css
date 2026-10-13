@@ -1,0 +1,16 @@
+/* Marktplatz monochrom: Tokens */
+:root{
+  --weiss:#ffffff; --flaeche:#f1f1f1; --schwarz:#000000; --text-2:#5c6169; --linie:#d2d8dd;
+  --signal:#d2451e; --sale:#da0410;
+  --font-ui:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --fs-hero:2.375rem; --lh-hero:2.75rem; --ls-hero:-.2px;
+  --fs-h2:1.5rem; --lh-h2:1.875rem; --ls-h2:-.08px;
+  --fs-h3:1rem; --lh-h3:1.5rem;
+  --fs-text:.875rem; --lh-text:1.25rem; --fs-klein:.75rem; --lh-klein:1rem;
+  --fw-normal:400; --fw-mittel:520; --fw-fett:650;
+  --abstand-1:4px; --abstand-2:6px; --abstand-3:8px; --abstand-4:12px; --abstand-5:16px; --abstand-6:24px; --abstand-7:32px; --abstand-8:36px;
+  --breite:1216px; --rand:2rem; --luecke:1rem;
+  --r-pille:9999px; --r-bild:12px; --r-klein:4px;
+  --ring:inset 0 0 0 1px #000; --ring-dick:inset 0 0 0 2px #000;
+  --zeit:.15s;
+}

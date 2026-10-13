@@ -1,0 +1,22 @@
+{
+  "name": "Rohtext schlicht",
+  "slug": "rohtext-schlicht",
+  "beschreibung": "Ungestaltetes Browser-Standard-Dokument aus Serifenschrift, schwarzem Text und blauen Unterstrichlinks auf weißem Grund. Die Seite besteht aus Überschrift, Aufzählung und einer Trennlinie.",
+  "schlagworte": [
+    "Rohtext",
+    "Serif",
+    "Links",
+    "Liste",
+    "Weiß",
+    "Spartanisch",
+    "Standard"
+  ],
+  "kategorien": [
+    "Modern",
+    "Minimal",
+    "Tech/SaaS",
+    "Retro",
+    "Aktuell"
+  ],
+  "gegenbeispiel": false
+}

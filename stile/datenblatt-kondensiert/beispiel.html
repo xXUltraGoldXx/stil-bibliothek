@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Messstation Pegel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--papier);color:var(--tinte);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text)}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--seitenrand)}
+a{color:inherit}
+.kopf{position:sticky;top:0;z-index:5;background:rgba(247,246,242,.94);border-bottom:var(--rahmen-dick) solid var(--rahmen)}
+.kopf .w{display:flex;align-items:center;justify-content:space-between;gap:var(--abstand-2);min-height:60px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.marke{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:1.35rem;letter-spacing:.02em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.marke i{width:26px;height:26px;border:var(--rahmen-dick) solid var(--rahmen);border-radius:6px;display:inline-block;position:relative}
+.marke i:after{content:"";position:absolute;inset:6px;border-radius:50%;border:2px solid var(--orange)}
+.kopf nav{display:flex;align-items:center;gap:var(--abstand-3);flex-wrap:wrap}
+.kopf nav a{text-decoration:none;color:var(--tinte-2);font-weight:500}
+.kopf nav a.dunkel{background:var(--tinte);color:var(--papier);padding:9px 16px;border-radius:var(--r-knopf);font-weight:600}
+.tag{display:inline-block;border:var(--rahmen-dick) solid var(--rahmen);padding:10px 14px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.82rem}
+h1,h2,h3{font-family:var(--font-display);font-weight:700}
+h1{font-size:var(--fs-h1);line-height:var(--lh-h1);letter-spacing:-.01em;margin:var(--abstand-3) 0 var(--abstand-3)}
+h2{font-size:var(--fs-h2);line-height:1;margin:var(--abstand-2) 0 var(--abstand-2)}
+h3{font-size:var(--fs-h3);line-height:1.1;letter-spacing:.01em}
+.lead{font-size:var(--fs-lead);line-height:1.55;color:var(--tinte-2);max-width:34rem}
+.rubrik{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:var(--ls-mono);text-transform:uppercase;color:var(--orange);font-weight:400}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--abstand-4);align-items:center;padding:var(--abstand-6) 0}
+.knoepfe{display:flex;gap:var(--abstand-2);flex-wrap:wrap;margin-top:var(--abstand-4)}
+.kn{display:inline-block;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:var(--ls-knopf);font-size:1.1rem;padding:14px 22px;text-decoration:none;border:var(--rahmen-dick) solid var(--tinte);border-radius:var(--r-knopf)}
+.kn.p{background:var(--orange);border-color:var(--orange);color:#fff}
+.kn.p:hover{background:var(--tinte);border-color:var(--tinte)}
+.kn.s:hover{background:var(--tinte);color:var(--papier)}
+.kn:focus-visible{outline:none;box-shadow:var(--fokus)}
+.geraet{max-width:290px;width:100%;margin:0 auto;aspect-ratio:9/16;background:var(--geraet-verlauf);border-radius:var(--r-geraet);box-shadow:var(--schatten-geraet);padding:16px 14px 56px;position:relative}
+.geraet:after{content:"";position:absolute;bottom:12px;left:50%;width:38px;height:38px;margin-left:-19px;border-radius:50%;border:1.5px solid #c9ccd2;background:#f2f3f5}
+.disp{background:#fff;border:1px solid var(--tinte);height:100%;padding:8px;display:grid;grid-template-rows:2fr 1fr 1fr;gap:6px}
+.kachel{border:var(--rahmen-dick) solid var(--rahmen);padding:6px 8px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.kachel small{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase}
+.kachel b{font-family:var(--font-display);font-weight:700;line-height:1;text-align:center}
+.gross b{font-size:4.2rem}.gross{align-items:stretch;text-align:center}
+.reihe{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.reihe b{font-size:1.7rem}
+.band{background:var(--tinte);color:var(--papier)}
+.band ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:var(--abstand-1) var(--abstand-4);padding-top:16px;padding-bottom:16px;font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:var(--ls-mono);text-transform:uppercase}
+.sek{padding:var(--abstand-6) 0}
+.dim{background:var(--papier-2);border-top:var(--rahmen-dick) solid var(--rahmen);border-bottom:var(--rahmen-dick) solid var(--rahmen)}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:var(--abstand-5);margin-top:var(--abstand-4);align-items:start}
+.liste{list-style:none;padding:0;border-top:var(--rahmen-fein) solid var(--linie)}
+.liste li{border-bottom:var(--rahmen-fein) solid var(--linie);padding:16px 0;display:grid;grid-template-columns:32px 1fr;gap:10px}
+.liste .n{font-family:var(--font-mono);font-size:var(--fs-mono);color:var(--tinte-2);padding-top:6px}
+.liste h3{margin-bottom:4px}
+.liste p{color:var(--tinte-2);font-size:var(--fs-klein)}
+.panel{background:var(--panel);border:var(--rahmen-fein) solid var(--linie);padding:24px}
+.panel dl{display:grid;grid-template-columns:1fr auto;gap:10px 16px;font-size:var(--fs-klein)}
+.panel dt{color:var(--tinte-2)}
+.panel dd{font-family:var(--font-mono);font-size:.82rem;text-align:right}
+.kontrast{display:grid;grid-template-columns:1fr 1fr;margin-top:var(--abstand-4)}
+.kontrast div{padding:var(--abstand-4) 24px;min-width:0}
+.k1{background:var(--tinte);color:var(--papier)}.k2{background:var(--orange);color:#fff}
+.kontrast h3{text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.kontrast p{font-size:var(--fs-klein);opacity:.92}
+.cta{display:flex;justify-content:space-between;align-items:center;gap:var(--abstand-4);flex-wrap:wrap}
+footer{padding:36px 0 56px;color:var(--tinte-2);font-size:.9rem;border-top:var(--rahmen-fein) solid var(--linie)}
+@media(max-width:800px){
+.hero,.zwei,.kontrast{grid-template-columns:1fr}
+.hero{padding:var(--abstand-5) 0}.sek{padding:var(--abstand-5) 0}
+.kn{width:100%;text-align:center}
+}
+</style></head><body>
+<header class="kopf"><div class="w"><a class="marke" href="#"><i></i>Nordwerk Studio</a>
+<nav><a href="#geraet">Messstation</a><a href="#technik">Technik</a><a class="dunkel" href="#kontakt">Bestellen</a></nav></div></header>
+<main>
+<div class="w"><section class="hero">
+<div><span class="tag">Messtechnik · Eigenbau-Kit</span>
+<h1>Eine Pegelstation für den eigenen Bach</h1>
+<p class="lead">Pegel liest Wasserstand, Temperatur und Durchfluss aus und zeigt sie auf einem Display ohne Hintergrundlicht. Du baust sie selbst auf, wir liefern Sensoren, Gehäuse und Anleitung.</p>
+<div class="knoepfe"><a class="kn p" href="#kontakt">Bausatz bestellen →</a><a class="kn s" href="#technik">Datenblatt ansehen</a></div></div>
+<div class="geraet" role="img" aria-label="Platzhalter: Gerät mit Display und Messwerten"><div class="disp">
+<div class="kachel gross"><small>Pegel · 10 Min.</small><b>148</b><small>cm über Sohle</small></div>
+<div class="reihe"><div class="kachel"><small>Wasser</small><b>11.4°</b></div><div class="kachel"><small>Fluss</small><b>2.3</b></div></div>
+<div class="reihe"><div class="kachel"><small>Akku</small><b>82%</b></div><div class="kachel"><small>Signal</small><b>-71</b></div></div>
+</div></div>
+</section></div>
+<div class="band"><div class="w"><ul><li>400×300 E-Paper</li><li>90 Tage Laufzeit</li><li>LoRa 868 MHz</li><li>IP67 Gehäuse</li><li>Offene Firmware</li></ul></div></div>
+<section class="sek" id="geraet"><div class="w">
+<span class="rubrik">01 — Messstation</span>
+<h2>Was die Station alle zehn Minuten tut</h2>
+<p class="lead">Jeder Schritt ist in der Anleitung beschrieben und lässt sich ohne Spezialwerkzeug nachvollziehen.</p>
+<div class="zwei">
+<ol class="liste">
+<li><span class="n">01</span><div><h3>Pegel messen</h3><p>Ein Ultraschallsensor misst den Abstand zur Wasseroberfläche auf drei Millimeter genau.</p></div></li>
+<li><span class="n">02</span><div><h3>Temperatur erfassen</h3><p>Eine Edelstahlsonde liefert den Wert im Wasser, nicht in der Luft.</p></div></li>
+<li><span class="n">03</span><div><h3>Daten funken</h3><p>Die Werte gehen per LoRa an ein Gateway in bis zu 3 km Entfernung.</p></div></li>
+<li><span class="n">04</span><div><h3>Display aktualisieren</h3><p>Das E-Paper hält den letzten Stand, auch wenn der Akku leer ist.</p></div></li>
+</ol>
+<div class="panel"><span class="rubrik">Kurzdaten</span>
+<dl style="margin-top:14px"><dt>Messbereich</dt><dd>0.2–4.0 m</dd><dt>Genauigkeit</dt><dd>± 3 mm</dd><dt>Betrieb</dt><dd>−20 bis 60 °C</dd><dt>Gewicht</dt><dd>740 g</dd><dt>Stromversorgung</dt><dd>2× 18650</dd></dl></div>
+</div></div></section>
+<section class="sek dim" id="technik"><div class="w">
+<span class="rubrik">02 — Technik</span>
+<h2>Baust du selbst, wir helfen dabei</h2>
+<p class="lead">Die Platine ist fertig bestückt. Du verschraubst Gehäuse, steckst Sensoren an und lädst die Firmware per Browser.</p>
+<div class="kontrast"><div class="k1"><h3>Im Bausatz</h3><p>Platine, Ultraschallsensor, Temperatursonde, Gehäuse, Dichtungen, Halterung und Kabel.</p></div>
+<div class="k2"><h3>Nicht enthalten</h3><p>Akkus, Gateway und Montagematerial am Gewässer. Die Anleitung nennt passende Teile.</p></div></div>
+</div></section>
+<section class="sek" id="kontakt"><div class="w"><div class="cta">
+<div><span class="rubrik">03 — Bestellung</span><h2>Lieferzeit derzeit drei Wochen</h2><p class="lead">Preis 189 € inklusive Versand innerhalb Deutschlands.</p></div>
+<a class="kn p" href="#">Jetzt bestellen →</a></div></div></section>
+</main>
+<footer><div class="w">Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage · Impressum · Kontakt</div></footer>
+</body></html>

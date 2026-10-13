@@ -1,0 +1,7 @@
+# Beispielliste (nicht vollstaendig). Eine Marke pro Zeile. Betreiber ergaenzen eigene Marken in dieser Datei, per --marken <datei> oder STIL_MARKEN=<datei>.
+coca-cola
+pepsi
+ferrari
+toyota
+starbucks
+samsung

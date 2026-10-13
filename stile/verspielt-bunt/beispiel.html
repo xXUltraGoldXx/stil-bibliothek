@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kleckse &amp; Co – Verspielt-bunt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tinte);font-family:var(--font-text);font-size:var(--fs-text);line-height:1.6;overflow-x:hidden}
+.w{max-width:var(--breite);margin:0 auto;padding:0 16px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;font-family:var(--font-display);font-weight:700}
+nav b{font-size:1.6rem}nav a{text-decoration:none;color:inherit;margin-left:1.2rem}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--luecke);align-items:center;padding:2rem 0 4rem}
+h1{font-family:var(--font-display);font-size:var(--fs-hero);line-height:1;font-weight:700}
+h1 mark{background:var(--gelb);color:inherit;padding:0 .2em;border-radius:.3em;display:inline-block;transform:rotate(-2deg)}
+h1 .r{color:var(--rosa);-webkit-text-stroke:0}
+.k{display:inline-block;font:700 1.2rem var(--font-display);background:var(--rosa);color:var(--tinte);border:var(--kontur);border-radius:var(--r-knopf);box-shadow:var(--schatten);padding:.8rem 2rem;text-decoration:none;margin-top:1.5rem;transition:transform .15s var(--huepf),box-shadow .15s;cursor:pointer}
+.k:hover{transform:translateY(-3px) rotate(-2deg)}.k:active{transform:translateY(6px);box-shadow:0 0 0 var(--tinte)}
+.maskott{aspect-ratio:1;max-width:380px;justify-self:center;width:100%;animation:schwebe 3.5s ease-in-out infinite}
+@keyframes schwebe{50%{transform:translateY(-14px) rotate(3deg)}}
+.wellen{height:40px;background:radial-gradient(circle at 20px 0,var(--bg) 19px,transparent 20px) 0 0/40px 40px repeat-x;margin-top:-1px}
+.sek{padding:4rem 0}.sek.m{background:var(--mint);border-block:var(--kontur)}
+h2{font-family:var(--font-display);font-size:var(--fs-h2);text-align:center;margin-bottom:2.5rem;line-height:1.1}
+.karten{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.karte{border:var(--kontur);border-radius:var(--r-karte);box-shadow:var(--schatten);padding:1.8rem;transition:transform .25s var(--huepf)}
+.karte:nth-child(1){background:var(--gelb);transform:rotate(-1.5deg)}.karte:nth-child(2){background:var(--blau);transform:rotate(1deg) translateY(10px)}.karte:nth-child(3){background:var(--rosa);transform:rotate(-1deg)}
+.karte:hover{transform:rotate(2deg) scale(1.03)}
+.karte h3{font-family:var(--font-display);font-size:1.6rem;margin:.6rem 0 .3rem}
+.emo{width:64px;height:64px;border-radius:50%;background:#fff;border:var(--kontur);display:grid;place-items:center;font-size:2rem}
+.blase{background:var(--lila);color:#fff;border:var(--kontur);border-radius:var(--r-blob);text-align:center;padding:4rem 1.5rem;box-shadow:var(--schatten)}
+.blase h2{color:#fff;margin-bottom:1rem}
+form{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.2rem}
+input{font:inherit;border:var(--kontur);border-radius:var(--r-knopf);padding:.8rem 1.4rem;min-width:0;flex:1 1 220px;max-width:340px}input:focus{outline:0;background:var(--gelb)}
+.blase .k{margin-top:0;background:var(--gelb)}
+footer{text-align:center;padding:2.5rem 16px;font-weight:700}
+@media(max-width:760px){.hero,.karten{grid-template-columns:1fr}.maskott{max-width:240px}nav a{display:none}.karte:nth-child(n){transform:none}}
+@media(prefers-reduced-motion:reduce){.maskott{animation:none}*{transition:none!important}}
+</style></head><body>
+<div class="w"><nav><b>Kleckse &amp; Co</b><span><a href="#a">Kurse</a><a href="#b">Los</a></span></nav>
+<header class="hero"><div><h1>Malen macht <mark>Spaß</mark> <span class="r">und Mut!</span></h1>
+<p style="margin-top:1rem;max-width:34ch">Kreativkurse für Kinder von 5 bis 12. Mit Farbe, Kleber und ganz viel Quatsch.</p>
+<a class="k" href="#b">Mitmachen!</a></div>
+<svg class="maskott" viewBox="0 0 200 200" role="img" aria-label="Platzhalter-Maskottchen"><path d="M100 14c40 0 80 28 82 70s-24 90-82 94S18 128 18 88 60 14 100 14z" fill="#ffd23f" stroke="#2b2150" stroke-width="5"/><circle cx="72" cy="84" r="13" fill="#fff" stroke="#2b2150" stroke-width="4"/><circle cx="128" cy="84" r="13" fill="#fff" stroke="#2b2150" stroke-width="4"/><circle cx="75" cy="86" r="5" fill="#2b2150"/><circle cx="125" cy="86" r="5" fill="#2b2150"/><path d="M70 122q30 30 60 0" fill="none" stroke="#2b2150" stroke-width="6" stroke-linecap="round"/><circle cx="52" cy="112" r="9" fill="#ff6fa8" opacity=".8"/><circle cx="148" cy="112" r="9" fill="#ff6fa8" opacity=".8"/></svg></header></div>
+<div class="sek m" id="a"><div class="w"><h2>Was wir so treiben</h2>
+<div class="karten">
+<div class="karte"><div class="emo">🎨</div><h3>Farbklecks-Labor</h3><p>Mischen, matschen, staunen. Ab 5 Jahren.</p></div>
+<div class="karte"><div class="emo">✂️</div><h3>Schnipsel-Werkstatt</h3><p>Aus Papier werden Tiere, Burgen und Monster.</p></div>
+<div class="karte"><div class="emo">🌈</div><h3>Regenbogen-Tag</h3><p>Ein ganzer Samstag voller Farben, mit Snack.</p></div>
+</div></div></div>
+<div class="sek" id="b"><div class="w"><div class="blase"><h2>Hallo, Farbklecks!</h2><p>Trag dich ein, wir schicken dir den nächsten Termin.</p>
+<form><input type="email" placeholder="Deine E-Mail" aria-label="E-Mail"><button class="k">Los geht’s!</button></form></div></div></div>
+<footer>Kleckse &amp; Co ist eine fiktive Firma für diese Stilvorlage.</footer>
+</body></html>

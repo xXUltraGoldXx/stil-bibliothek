@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Klangbibliothek für Ihre Projekte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{max-width:100%}
+body{background:var(--grund);color:var(--text-muted);font-family:var(--font-ui);font-size:var(--fs-body);line-height:1.5}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{color:var(--text);font-family:var(--font-ui)}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--sp-4)}
+.kopf{background:var(--tiefst);padding:var(--sp-4) 0 var(--sp-2)}
+.kopf .w{display:flex;align-items:center;gap:var(--sp-3);flex-wrap:wrap}
+.zeichen{width:2.5rem;height:2.5rem;border-radius:var(--r-kreis);background:var(--text);position:relative;flex:none}
+.zeichen:after{content:"";position:absolute;inset:30%;border-radius:var(--r-sm);background:var(--tiefst)}
+.suche{flex:1 1 12rem;min-width:0;background:var(--feld);border-radius:var(--r-pill);padding:var(--sp-3) var(--sp-5);color:var(--text-muted);font-size:var(--fs-sm)}
+.kopf nav{display:flex;gap:var(--sp-4);font-weight:var(--fw-fett);flex-wrap:wrap}
+.kopf nav a:hover{color:var(--text)}
+.knopf{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:var(--fw-fett);background:var(--text);color:var(--tiefst);border-radius:var(--r-pill);padding:var(--sp-3) var(--sp-6);transition:transform var(--dur) var(--ease)}
+.knopf:hover{transform:scale(1.04)}
+.knopf.gruen{background:var(--akzent)}.knopf.gruen:hover{background:var(--akzent-hover)}
+.knopf.dunkel{background:var(--panel);color:var(--text);text-transform:uppercase;letter-spacing:var(--ls-versal);font-size:var(--fs-versal)}
+.hero{background:var(--grad-kopf),linear-gradient(135deg,#2a2a2a,#161616);padding:var(--sp-8) 0 var(--sp-7)}
+.hero .w{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--sp-7);align-items:center}
+h1{font-size:var(--fs-h1);font-weight:var(--fw-extra);line-height:1.1;margin-bottom:var(--sp-3)}
+.hero p{max-width:34rem;margin-bottom:var(--sp-5)}
+.hero .aktion{display:flex;gap:var(--sp-3);flex-wrap:wrap}
+.cover{aspect-ratio:1/1;border-radius:var(--r-sm);box-shadow:var(--shadow-kachel);position:relative;overflow:hidden}
+.c1{background:linear-gradient(135deg,#e1009d,#3a0a5a)}
+.c2{background:radial-gradient(circle at 30% 30%,#f5c04a 0 18%,transparent 19%),linear-gradient(160deg,#a3694f,#2b1a12)}
+.c3{background:repeating-linear-gradient(45deg,#595959 0 12px,#333 12px 24px)}
+.c4{background:linear-gradient(90deg,#af2896,#509bf5)}
+.c5{background:conic-gradient(from 90deg at 50% 60%,#232323,#a3694f,#232323)}
+.c6{background:linear-gradient(#f2e34a,#d98a1c)}
+.kreis{border-radius:var(--r-kreis)}
+.sek{padding:var(--abstand-sektion) 0 0}
+.regal-kopf{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--sp-4);gap:var(--sp-3)}
+h2{font-size:var(--fs-h2);font-weight:var(--fw-fett);line-height:1.2}
+.alle{font-size:var(--fs-sm);font-weight:var(--fw-fett);color:var(--text-muted)}.alle:hover{color:var(--text);text-decoration:underline}
+.regal{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:var(--luecke)}
+.kachel{padding:var(--sp-3);border-radius:var(--r-sm);background:var(--panel);transition:background var(--dur) var(--ease)}
+.kachel:hover{background:var(--feld)}
+.kachel .cover{margin-bottom:var(--sp-3)}
+.kachel h3{font-size:var(--fs-body);font-weight:var(--fw-fett);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kachel p{font-size:var(--fs-sm);margin-top:var(--sp-1)}
+.play{position:absolute;right:var(--sp-2);bottom:var(--sp-2);width:2.5rem;height:2.5rem;border-radius:var(--r-kreis);background:var(--akzent);box-shadow:var(--shadow-kachel);opacity:0;transform:translateY(8px);transition:all var(--dur) var(--ease)}
+.play:after{content:"";position:absolute;left:1rem;top:.75rem;border-left:.7rem solid var(--tiefst);border-top:.5rem solid transparent;border-bottom:.5rem solid transparent}
+.kachel:hover .play{opacity:1;transform:none}
+.panels{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.panel{background:var(--panel);border-radius:var(--r-md);padding:var(--sp-5);display:flex;flex-direction:column;gap:var(--sp-2);align-items:flex-start}
+.panel h3{font-size:1.125rem;font-weight:var(--fw-fett)}
+.panel p{margin-bottom:var(--sp-3);font-size:var(--fs-sm)}
+.panel .icon{width:3rem;height:3rem;border-radius:var(--r-kreis);background:var(--feld);display:grid;place-items:center;margin-bottom:var(--sp-2)}
+.preise{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.preis{background:var(--panel);border-radius:var(--r-md);padding:var(--sp-5)}
+.preis .zahl{font-size:2rem;font-weight:var(--fw-extra);color:var(--text);margin:var(--sp-2) 0}
+.preis ul{list-style:none;margin:var(--sp-4) 0;display:grid;gap:var(--sp-2);font-size:var(--fs-sm)}
+.preis li:before{content:"";display:inline-block;width:.5rem;height:.5rem;border-radius:var(--r-kreis);background:var(--akzent);margin-right:var(--sp-2)}
+.preis.top{box-shadow:inset 0 0 0 2px var(--akzent)}
+.tag{display:inline-block;font-size:var(--fs-xs);font-weight:var(--fw-fett);background:var(--linie);color:var(--text);border-radius:var(--r-xs);padding:0 var(--sp-2)}
+.band{background:var(--hell);color:var(--text-on-hell);margin-top:var(--abstand-sektion);padding:var(--sp-7) 0}
+.band .w{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-5);flex-wrap:wrap}
+.band h2{color:var(--text-on-hell);font-size:1.5rem;margin-bottom:var(--sp-2)}
+.band .aktion{display:flex;gap:var(--sp-3);flex-wrap:wrap}
+footer{background:var(--tiefst);padding:var(--sp-6) 0;font-size:var(--fs-sm)}
+footer .w{display:flex;justify-content:space-between;gap:var(--sp-4);flex-wrap:wrap}
+footer nav{display:flex;gap:var(--sp-4);flex-wrap:wrap}
+@media(max-width:800px){.hero .w,.panels,.preise{grid-template-columns:1fr}.hero{padding:var(--sp-7) 0 var(--sp-6)}.hero .cover{max-width:14rem}.knopf{padding:var(--sp-3) var(--sp-5)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header class="kopf"><div class="w">
+<span class="zeichen" aria-hidden="true"></span>
+<div class="suche">Was suchen Sie in der Bibliothek?</div>
+<nav><a href="#regal">Katalog</a><a href="#vorteile">Vorteile</a><a href="#preise">Preise</a></nav>
+<a class="knopf" href="#preise">Anmelden</a>
+</div></header>
+
+<section class="hero"><div class="w">
+<div>
+<h1>Klänge für Ihre Projekte, immer griffbereit.</h1>
+<p>Nordwerk Studio sammelt lizenzfreie Atmosphären, Jingles und Stimmen in einer Bibliothek, die sich so schnell durchsuchen lässt wie Ihre Lieblingsliste.</p>
+<div class="aktion"><a class="knopf gruen" href="#preise">Kostenlos testen</a><a class="knopf" href="#regal">Katalog ansehen</a></div>
+</div>
+<div class="cover c1" role="img" aria-label="Platzhalter für ein Cover"><span class="play" style="opacity:1;transform:none"></span></div>
+</div></section>
+
+<section class="sek" id="regal"><div class="w">
+<div class="regal-kopf"><h2>Neu im Katalog</h2><a class="alle" href="#">Alle anzeigen</a></div>
+<div class="regal">
+<a class="kachel" href="#"><div class="cover c2"><span class="play"></span></div><h3>Morgenlicht Loop</h3><p>Ambient, 3 Min.</p></a>
+<a class="kachel" href="#"><div class="cover c3"><span class="play"></span></div><h3>Werkbank</h3><p>Geräusche, 12 Spuren</p></a>
+<a class="kachel" href="#"><div class="cover c4"><span class="play"></span></div><h3>Neonstraße</h3><p>Elektronik, 4 Min.</p></a>
+<a class="kachel" href="#"><div class="cover c5"><span class="play"></span></div><h3>Holzbläser</h3><p>Akustik, 8 Spuren</p></a>
+<a class="kachel" href="#"><div class="cover c6"><span class="play"></span></div><h3>Sommerjingle</h3><p>Werbung, 30 Sek.</p></a>
+</div></div></section>
+
+<section class="sek" id="stimmen"><div class="w">
+<div class="regal-kopf"><h2>Beliebte Sprecher*innen</h2><a class="alle" href="#">Alle anzeigen</a></div>
+<div class="regal">
+<a class="kachel" href="#"><div class="cover kreis c4"></div><h3>Lena Brandt</h3><p>Erzählstimme</p></a>
+<a class="kachel" href="#"><div class="cover kreis c2"></div><h3>Jonas Keller</h3><p>Werbung</p></a>
+<a class="kachel" href="#"><div class="cover kreis c1"></div><h3>Mira Sandt</h3><p>Hörbuch</p></a>
+<a class="kachel" href="#"><div class="cover kreis c5"></div><h3>Tom Eckhardt</h3><p>Dokumentation</p></a>
+<a class="kachel" href="#"><div class="cover kreis c3"></div><h3>Ida Voss</h3><p>Erklärfilm</p></a>
+</div></div></section>
+
+<section class="sek" id="vorteile"><div class="w">
+<div class="regal-kopf"><h2>Warum Nordwerk Studio</h2></div>
+<div class="panels">
+<div class="panel"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b9b9b9" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div><h3>Schnell gefunden</h3><p>Filtern Sie nach Stimmung, Tempo und Länge. Die Vorschau startet sofort.</p><a class="knopf" href="#">Katalog öffnen</a></div>
+<div class="panel"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b9b9b9" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg></div><h3>Rechtlich sauber</h3><p>Jede Spur kommt mit einer klaren Lizenz für Web, Film und Podcast.</p><a class="knopf" href="#">Lizenzen ansehen</a></div>
+<div class="panel"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b9b9b9" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div><h3>Eigene Listen</h3><p>Sammeln Sie Favoriten pro Projekt und teilen Sie sie mit dem Team.</p><a class="knopf" href="#">Liste anlegen</a></div>
+</div></div></section>
+
+<section class="sek" id="preise"><div class="w">
+<div class="regal-kopf"><h2>Wählen Sie Ihren Plan</h2></div>
+<div class="preise">
+<div class="preis"><h3>Probe</h3><div class="zahl">0 €</div><p>Zum Hineinhören</p><ul><li>10 Downloads pro Monat</li><li>Vorschau in voller Länge</li></ul><a class="knopf" href="#">Starten</a></div>
+<div class="preis top"><span class="tag">Beliebt</span><h3>Studio</h3><div class="zahl">19 € / Monat</div><p>Für freie Teams</p><ul><li>Unbegrenzte Downloads</li><li>Gemeinsame Listen</li><li>Lizenz für Web und Film</li></ul><a class="knopf gruen" href="#">Plan wählen</a></div>
+<div class="preis"><h3>Haus</h3><div class="zahl">49 € / Monat</div><p>Für Agenturen</p><ul><li>Bis zu 15 Plätze</li><li>Individuelle Lizenzen</li></ul><a class="knopf" href="#">Anfragen</a></div>
+</div></div></section>
+
+<section class="band"><div class="w">
+<div><h2>Noch Fragen zur Lizenz?</h2><p>Wir helfen Ihnen gern, die passende Nutzung zu finden.</p></div>
+<div class="aktion"><a class="knopf dunkel" href="#">Beratung anfragen</a><a class="knopf dunkel" href="#">Häufige Fragen</a></div>
+</div></section>
+
+<footer><div class="w"><span>© Nordwerk Studio, fiktives Beispiel</span><nav><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></nav></div></footer>
+</body></html>

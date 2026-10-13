@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--font-ui);font-size:var(--fs-text);line-height:var(--lh-text);letter-spacing:var(--ls-text);color:var(--text);background:var(--weiss)}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,p{margin:0}
+.nav{position:sticky;top:0;z-index:10;height:var(--nav-h);background:var(--nav-bg);backdrop-filter:saturate(180%) blur(20px)}
+.nav-in{max-width:1024px;margin:0 auto;height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;gap:.5rem;flex-wrap:nowrap;overflow:hidden}
+.nav a{color:var(--text-dunkel-2);font-size:.75rem;padding:0 8px;white-space:nowrap}
+.nav .marke{font-weight:600;color:#fff}
+.band{background:var(--band);color:#fff;text-align:center;font-size:.875rem;padding:1rem}
+.band a{color:var(--link-dunkel)}
+.dunkel{background:var(--schwarz);color:var(--text-dunkel)}
+.hell{background:var(--grau-hell)}
+.sektion{padding:var(--abstand-7) 1.25rem;text-align:center}
+.inner{max-width:var(--breite);margin:0 auto}
+.hero h1{font-size:var(--fs-hero);line-height:var(--lh-hero);letter-spacing:var(--ls-hero);font-weight:600}
+.sub{font-size:var(--fs-sub);line-height:1.14;margin-top:.4em;letter-spacing:.2px}
+.knoepfe{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
+.btn{display:inline-block;font-size:var(--fs-text);padding:11px 21px;border-radius:var(--r-pille);background:var(--blau);color:#fff;transition:background .3s}
+.btn:hover{background:var(--blau-hover);text-decoration:none}
+.btn.zweit{background:transparent;border:1px solid var(--link-dunkel);color:var(--link-dunkel)}
+.hell .btn.zweit{border-color:var(--link);color:var(--link)}
+.objekt{margin:3rem auto 0;max-width:var(--breite-hero);height:clamp(200px,40vw,420px);border-radius:var(--r-kachel);background:radial-gradient(ellipse at 50% 40%,#3a3a40 0%,#111 55%,#000 100%);position:relative;overflow:hidden}
+.objekt svg{position:absolute;inset:0;width:100%;height:100%}
+h2{font-size:var(--fs-h2);line-height:1.1;font-weight:600}
+.kacheln{display:grid;grid-template-columns:1fr 1fr;gap:var(--luecke);max-width:var(--breite);margin:3rem auto 0}
+.kachel{border-radius:var(--r-kachel);padding:3rem 1.5rem 0;overflow:hidden;min-height:420px;display:flex;flex-direction:column;align-items:center}
+.kachel.d{background:var(--schwarz);color:var(--text-dunkel)}
+.kachel.h{background:var(--weiss)}
+.kachel h3{font-size:2rem;line-height:1.12;font-weight:600}
+.kachel .links{display:flex;gap:1.25rem;margin-top:1rem;flex-wrap:wrap;justify-content:center}
+.d .links a{color:var(--link-dunkel)}
+.platz{margin-top:auto;width:70%;height:160px;border-radius:24px 24px 0 0;background:linear-gradient(180deg,#8a8a92,#d2d2d7)}
+.d .platz{background:linear-gradient(180deg,#4a4a52,#1d1d1f)}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:900px;margin:3rem auto 0}
+.zahlen strong{display:block;font-size:2.5rem;line-height:1.1;font-weight:700;letter-spacing:-.28px}
+.zahlen span{color:var(--text-2);font-size:.875rem}
+footer{background:var(--grau-hell);color:var(--text-2);font-size:var(--fs-klein);line-height:1.33;letter-spacing:-.12px;padding:3rem 1.25rem}
+.fuss{max-width:1024px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem}
+.fuss b{color:var(--text);font-weight:600;display:block;margin-bottom:.5rem}
+.fuss a{display:block;color:var(--text-2);margin:.3rem 0}
+.klein{max-width:1024px;margin:2rem auto 0;border-top:1px solid #d2d2d7;padding-top:1rem}
+@media (max-width:734px){
+ .kacheln{grid-template-columns:1fr}
+ .zahlen{grid-template-columns:1fr}
+ .sektion{padding:3.5rem 1rem}
+ .nav a.opt{display:none}
+ .kachel h3{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in">
+ <a class="marke" href="#">Nordwerk</a>
+ <a class="opt" href="#leuchten">Leuchten</a>
+ <a class="opt" href="#regale">Regale</a>
+ <a class="opt" href="#zahlen">Zahlen</a>
+ <a href="#kontakt">Kontakt</a>
+</div></nav>
+<div class="band">Bis Ende des Monats: Lieferung für alle Bestellungen frei Haus. <a href="#">Mehr erfahren ›</a></div>
+
+<section class="sektion dunkel hero">
+ <div class="inner">
+  <h1>Lumen Eins</h1>
+  <p class="sub">Licht, das mitdenkt.</p>
+  <div class="knoepfe"><a class="btn" href="#leuchten">Mehr erfahren</a><a class="btn zweit" href="#kontakt">Bestellen</a></div>
+ </div>
+ <div class="objekt" aria-hidden="true">
+  <svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice"><rect x="180" y="110" width="440" height="110" rx="55" fill="#2b2b30"/><rect x="190" y="116" width="420" height="30" rx="15" fill="#5a5a62" opacity=".6"/></svg>
+ </div>
+</section>
+
+<section class="sektion hell" id="leuchten">
+ <div class="inner">
+  <h2>Gebaut für lange Abende.</h2>
+  <p class="sub" style="color:var(--text-2)">Drei Leuchten, ein ruhiges Prinzip.</p>
+  <div class="kacheln">
+   <div class="kachel d"><h3>Lumen Eins</h3><p class="sub" style="font-size:1.25rem">Warm, präzise, dimmbar.</p><div class="links"><a href="#">Mehr erfahren ›</a><a href="#">Bestellen ›</a></div><div class="platz"></div></div>
+   <div class="kachel h"><h3>Lumen Mini</h3><p class="sub" style="font-size:1.25rem">Klein genug für jedes Regal.</p><div class="links"><a href="#">Mehr erfahren ›</a><a href="#">Bestellen ›</a></div><div class="platz"></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="sektion dunkel" id="regale">
+ <div class="inner">
+  <h2>Regal Linie</h2>
+  <p class="sub">Aus Eiche, ohne Schrauben sichtbar.</p>
+  <div class="knoepfe"><a class="btn" href="#">Ansehen</a></div>
+  <div class="objekt" aria-hidden="true" style="height:clamp(160px,30vw,320px)"><svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice"><rect x="150" y="70" width="500" height="14" rx="4" fill="#6b6b73"/><rect x="150" y="150" width="500" height="14" rx="4" fill="#6b6b73"/><rect x="150" y="230" width="500" height="14" rx="4" fill="#6b6b73"/></svg></div>
+ </div>
+</section>
+
+<section class="sektion" id="zahlen">
+ <div class="inner">
+  <h2>Zahlen, die genügen.</h2>
+  <div class="zahlen">
+   <div><strong>12</strong><span>Jahre Werkstatt</span></div>
+   <div><strong>48</strong><span>Stunden bis zum Versand</span></div>
+   <div><strong>10</strong><span>Jahre Garantie</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="sektion hell" id="kontakt">
+ <div class="inner">
+  <h2>Sprechen wir darüber.</h2>
+  <p class="sub" style="color:var(--text-2)">Wir antworten innerhalb eines Werktags.</p>
+  <div class="knoepfe"><a class="btn" href="#">Termin anfragen</a><a class="btn zweit" href="#">Katalog ansehen</a></div>
+ </div>
+</section>
+
+<footer>
+ <div class="fuss">
+  <div><b>Produkte</b><a href="#">Leuchten</a><a href="#">Regale</a><a href="#">Zubehör</a></div>
+  <div><b>Studio</b><a href="#">Über uns</a><a href="#">Werkstatt</a><a href="#">Karriere</a></div>
+  <div><b>Service</b><a href="#">Lieferung</a><a href="#">Garantie</a><a href="#">Kontakt</a></div>
+ </div>
+ <div class="klein">Nordwerk Studio, Beispielstraße 1, 20000 Musterstadt. Alle Angaben fiktiv.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "Firmenwebsite mit Symfony und Video-Hintergründen",
+  "slug": "symfony-twig-onepager",
+  "beschreibung": "Oeffentlicher One-Pager als Symfony-Anwendung mit Twig, Webpack-Encore-Build und Video-Hintergruenden; Release-Layout (releases, shared, current) ist vorbereitet, alternativ klassisch als Git-Checkout.",
+  "sprache": "PHP",
+  "stack": [
+    "PHP 8.4+",
+    "Symfony",
+    "Twig",
+    "Webpack Encore",
+    "Vue 3",
+    "GSAP",
+    "Three.js",
+    "Apache",
+    "Traefik"
+  ],
+  "kategorien": [
+    "Website"
+  ],
+  "schlagworte": [
+    "website",
+    "symfony",
+    "twig",
+    "encore",
+    "video-hintergrund",
+    "lazy-video",
+    "releases",
+    "symlink",
+    "seo",
+    "performance",
+    "one-pager"
+  ],
+  "quelle": "erprobt",
+  "reifegrad": "erprobt"
+}

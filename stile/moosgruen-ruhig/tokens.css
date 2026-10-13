@@ -1,0 +1,18 @@
+/* Moosgrün ruhig: Tokens */
+:root{
+  --grund:#f4f4f2; --flaeche:#eeeee9; --bild:#e4e4df;
+  --gruen-tief:#475a4f; --gruen:#516559; --gruen-hover:#47594e; --gruen-hell:#66776c;
+  --text:#111827; --text-2:#424242; --text-3:#838381;
+  --linie:#c3c3c0; --linie-hell:#d9d9d5;
+  --overlay:linear-gradient(23deg,rgba(0,0,0,.2) 20%,rgba(0,0,0,0) 100%);
+  --font-display:"Fraunces",Georgia,"Times New Roman",serif;
+  --font-text:"Nunito","Nunito Sans",system-ui,Arial,sans-serif;
+  --fs-hero:clamp(2.25rem,6vw,3.75rem); --fs-h2:clamp(1.875rem,3vw,2.25rem); --fs-h3:1.25rem;
+  --fs-text:.9375rem; --fs-klein:.75rem; --fs-nav:.9375rem;
+  --lh-text:1.5; --lh-titel:1.1;
+  --ls-versal:.1em; --ls-meta:.14em;
+  --sp-1:.25rem; --sp-2:.5rem; --sp-3:1rem; --sp-4:1.5rem; --sp-5:2rem; --sp-6:2.5rem; --sp-7:4rem;
+  --rand:2rem; --breite:1280px; --luecke:1rem;
+  --r-knopf:4px; --r-pille:9999px; --r-rund:50%; --r-karte:0;
+  --schatten:none;
+}

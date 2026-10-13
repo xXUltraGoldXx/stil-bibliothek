@@ -1,0 +1,17 @@
+/* Schwarzstahl Rot: Tokens */
+:root{
+  --schwarz:#000000; --grund:#0a0a0a; --karte:#111111; --flaeche:#141414;
+  --rot:#df0023; --rot-dunkel:#b8001d; --rot-rahmen:rgba(223,0,35,.3); --rot-tint:rgba(223,0,35,.15);
+  --weiss:#ffffff; --text:#a0a0a0; --text-hell:#c7c7c7;
+  --linie:rgba(255,255,255,.08); --linie-fein:rgba(255,255,255,.06);
+  --font-display:"Oswald","Arial Narrow",Impact,sans-serif;
+  --font-text:"Inter",system-ui,Arial,sans-serif;
+  --fs-h1:clamp(2.5rem,9vw,6rem); --fs-h2:clamp(1.8rem,4vw,2.6rem); --fs-h3:1.35rem;
+  --fs-text:.95rem; --fs-klein:.8rem; --fs-zahl:clamp(2.6rem,6vw,3.5rem);
+  --ls-versal:.05em; --ls-rubrik:.2em; --lh-text:1.6;
+  --r-knopf:4px; --r-karte:12px;
+  --breite:1152px; --rand:20px; --luecke:20px; --abschnitt:100px; --abschnitt-mobil:56px;
+  --kopf-hoehe:80px; --kopf-hoehe-mobil:64px;
+  --schatten:none;
+  --dauer:.25s; --dauer-lang:.6s;
+}

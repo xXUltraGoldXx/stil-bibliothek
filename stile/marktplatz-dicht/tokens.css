@@ -1,0 +1,13 @@
+/* Marktplatz dicht: Tokens */
+:root{
+  --weiss:#ffffff; --band:#eeeeee; --text:#222222; --link:#0000ee; --link-besucht:#800080;
+  --linie:#cccccc; --hell-auf-blau:#e6e6fa; --aktion:#008a00; --heute:#ffffcc;
+  --font-text:"Open Sans",Helvetica,Arial,sans-serif;
+  --font-logo:"Times New Roman",Times,serif;
+  --fs-logo:1.6rem; --fs-gruppe:1rem; --fs-text:.9rem; --fs-basis:1rem; --fs-klein:.8rem;
+  --fw:400; --fw-gruppe:700; --lh-liste:1.45rem;
+  --r-klein:4px; --r-knopf:5px; --linie-dick:1px;
+  --pad-band:.8rem; --pad-klein:.5rem; --pad-mini:.2rem;
+  --breite:960px; --spalte-links:210px; --spalte-rechts:120px; --luecke:.9rem;
+  --schatten:none;
+}

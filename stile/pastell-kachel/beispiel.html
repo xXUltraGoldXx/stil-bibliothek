@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--weiss);color:var(--tinte);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);letter-spacing:var(--ls-text)}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--font-display);line-height:var(--lh-display);margin:0}
+p{margin:0}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand-seite)}
+.leiste{background:var(--magenta);color:var(--weiss);min-height:var(--h-leiste);display:flex;align-items:center;justify-content:center;gap:var(--luecke);padding:8px var(--rand-seite-mobil);text-align:center;font-weight:600;font-size:.85rem;flex-wrap:wrap}
+.pille-klein{background:var(--weiss);color:var(--magenta);border-radius:var(--r-pille);padding:5px 15px;font-size:var(--fs-meta);font-weight:700;letter-spacing:var(--ls-meta);text-transform:uppercase}
+header.kopf{height:var(--h-kopf);display:flex;align-items:center;justify-content:space-between;padding:0 var(--rand-seite)}
+.marke{font-family:var(--font-display);font-weight:700;font-size:1.4rem;color:var(--rot)}
+.symbole{display:flex;gap:15px}
+.symbole svg,.menue svg{width:26px;height:26px;stroke:var(--tinte);fill:none;stroke-width:1.8}
+.hero{position:relative;min-height:440px;background:linear-gradient(to top,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 65%),var(--gruen);color:var(--weiss);display:flex;align-items:flex-end}
+.hero .wrap{width:100%;padding-top:60px;padding-bottom:60px}
+.badge{display:inline-block;background:var(--rot);color:var(--weiss);border-radius:var(--r-pille);padding:4px 15px;font-size:var(--fs-meta);font-weight:700;letter-spacing:var(--ls-meta);text-transform:uppercase;margin-bottom:var(--abstand-3)}
+.hero h1{font-size:var(--fs-h1);font-weight:700;max-width:16ch}
+.hero p{font-size:1.2rem;margin:10px 0 var(--abstand-4);max-width:36ch}
+.knopf{display:inline-block;border:1px solid var(--gruen);background:var(--gruen);color:var(--weiss);font-weight:700;font-size:var(--fs-text);padding:13px 28px;border-radius:var(--r-pille);transition:background .18s ease,transform .18s ease}
+.knopf:hover{background:var(--gruen-hell);transform:translateY(-2px)}
+.knopf.hell{background:var(--weiss);color:var(--tinte);border-color:var(--weiss)}
+.knopf.outline{background:transparent;color:var(--gruen)}
+.knopf.outline:hover{background:var(--gruen-20)}
+section{padding:48px 0}
+.kacheln{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--luecke)}
+.kachel{text-align:center}
+.kachel .bild{aspect-ratio:1/1;border-radius:var(--r-m);margin-bottom:var(--abstand-3);display:flex;align-items:center;justify-content:center;transition:transform .18s ease}
+.kachel:hover .bild{transform:translateY(-4px)}
+.kachel b{font-family:var(--font-display);font-size:var(--fs-label);font-weight:700}
+.bild svg{width:46%;height:46%;fill:rgba(255,255,255,.85)}
+.c1{background:var(--gruen)}.c2{background:var(--flieder)}.c3{background:var(--magenta)}.c4{background:var(--rosa)}.c5{background:var(--gruen-hell)}.c6{background:var(--rot)}
+.c2 svg,.c4 svg{fill:var(--weinbraun)}
+.band{background:var(--flieder);border-radius:var(--r-l);padding:var(--abstand-5) var(--abstand-4);text-align:center}
+.band h2{color:var(--rot);text-transform:uppercase;font-size:var(--fs-h1)}
+.band p{margin-top:var(--abstand-3);color:var(--tinte)}
+.titel{color:var(--rot);font-size:var(--fs-h2);margin-bottom:var(--abstand-4)}
+.karten{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--luecke)}
+.karte{background:var(--grau-1);border:1px solid var(--linie);border-radius:var(--r-l);padding:var(--abstand-4);transition:box-shadow .18s ease,transform .18s ease}
+.karte:hover{box-shadow:var(--schatten-s);transform:translateY(-3px)}
+.karte .bild{height:150px;border-radius:var(--r-m);margin-bottom:var(--abstand-3);display:flex;align-items:center;justify-content:center}
+.karte h3{font-size:var(--fs-h3);color:var(--tinte-2);margin-bottom:6px}
+.karte .preis{display:block;color:var(--rot);font-weight:700;margin:var(--abstand-2) 0 var(--abstand-3)}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:var(--abstand-5);align-items:center}
+.zwei .gross{aspect-ratio:4/3;border-radius:var(--r-xl);background:var(--rosa);display:flex;align-items:center;justify-content:center}
+.zwei .gross svg{width:30%;fill:var(--magenta)}
+.zwei p{margin:var(--abstand-3) 0 var(--abstand-4);color:var(--tinte-text)}
+footer{background:var(--rosa);color:var(--tinte);padding:48px 0 24px}
+.spalten{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--luecke)}
+.spalten h3{font-size:1.05rem;margin-bottom:var(--abstand-2);color:var(--weinbraun)}
+.spalten a{display:block;padding:3px 0;font-size:var(--fs-nav)}
+.klein{margin-top:var(--abstand-5);font-size:.8rem;color:var(--weinbraun)}
+@media (max-width:900px){
+  .kacheln{grid-template-columns:repeat(3,1fr)}
+  .zwei{grid-template-columns:1fr;gap:var(--abstand-4)}
+}
+@media (max-width:600px){
+  .wrap{padding:0 var(--rand-seite-mobil)}
+  header.kopf{padding:0 var(--rand-seite-mobil)}
+  .kacheln{grid-template-columns:repeat(2,1fr)}
+  .hero{min-height:380px}
+  .band{padding:40px var(--abstand-3)}
+  section{padding:36px 0}
+}
+</style>
+</head>
+<body>
+<div class="leiste"><span>Frühjahrsaktion bei Nordwerk: nur solange der Vorrat reicht</span><a class="pille-klein" href="#aktion">Jetzt sichern</a></div>
+<header class="kopf">
+  <a class="menue" href="#" aria-label="Menü"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></a>
+  <a class="marke" href="#">Nordwerk Studio</a>
+  <div class="symbole">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6 19c2-3 10-3 12 0"/></svg>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">Neu</span>
+    <h1>Dein Werkraum für gute Ideen</h1>
+    <p>Gestaltung, die sich leicht anfühlt und im Alltag funktioniert.</p>
+    <a class="knopf hell" href="#kategorien">Projekte ansehen</a>
+  </div>
+</div>
+
+<section id="kategorien">
+  <div class="wrap">
+    <div class="kacheln">
+      <a class="kachel" href="#"><div class="bild c1"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg></div><b>Marke</b></a>
+      <a class="kachel" href="#"><div class="bild c2"><svg viewBox="0 0 24 24"><path d="M12 3l9 18H3z"/></svg></div><b>Web</b></a>
+      <a class="kachel" href="#"><div class="bild c3"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></div><b>Druck</b></a>
+      <a class="kachel" href="#"><div class="bild c4"><svg viewBox="0 0 24 24"><path d="M12 2c6 6 6 14 0 20C6 16 6 8 12 2z"/></svg></div><b>Verpackung</b></a>
+      <a class="kachel" href="#"><div class="bild c5"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="6"/><circle cx="16" cy="12" r="6"/></svg></div><b>Illustration</b></a>
+      <a class="kachel" href="#"><div class="bild c6"><svg viewBox="0 0 24 24"><path d="M3 18a9 9 0 0118 0z"/></svg></div><b>Beratung</b></a>
+    </div>
+  </div>
+</section>
+
+<section id="aktion">
+  <div class="wrap">
+    <div class="band">
+      <h2>Mach aus deiner Idee ein Ergebnis</h2>
+      <p>Drei Schritte vom ersten Gespräch bis zur fertigen Lösung.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="titel">Beliebte Pakete</h2>
+    <div class="karten">
+      <article class="karte"><div class="bild c2"><svg viewBox="0 0 24 24" width="50" height="50" fill="#5a2830"><circle cx="12" cy="12" r="8"/></svg></div><h3>Starter</h3><p>Logo, Farbwelt und eine Schriftempfehlung für den Einstieg.</p><span class="preis">ab 890 Euro</span><a class="knopf" href="#">Auswählen</a></article>
+      <article class="karte"><div class="bild c1"><svg viewBox="0 0 24 24" width="50" height="50" fill="#fff"><rect x="4" y="4" width="16" height="16" rx="4"/></svg></div><h3>Auftritt</h3><p>Komplette Website mit Gestaltungsregeln und Bausteinen.</p><span class="preis">ab 3.400 Euro</span><a class="knopf" href="#">Auswählen</a></article>
+      <article class="karte"><div class="bild c3"><svg viewBox="0 0 24 24" width="50" height="50" fill="#fff"><path d="M12 3l9 18H3z"/></svg></div><h3>Rundum</h3><p>Marke, Web und Druck aus einer Hand, mit festem Ansprechpartner.</p><span class="preis">ab 7.200 Euro</span><a class="knopf outline" href="#">Anfragen</a></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap zwei">
+    <div class="gross"><svg viewBox="0 0 24 24"><path d="M12 2c6 6 6 14 0 20C6 16 6 8 12 2z"/></svg></div>
+    <div>
+      <h2 class="titel">So arbeiten wir</h2>
+      <p>Wir hören zu, skizzieren schnell und zeigen früh erste Ergebnisse. Du entscheidest in jedem Schritt, wohin die Reise geht.</p>
+      <a class="knopf" href="#">Gespräch vereinbaren</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="spalten">
+      <div><h3>Studio</h3><a href="#">Über uns</a><a href="#">Team</a><a href="#">Karriere</a></div>
+      <div><h3>Leistungen</h3><a href="#">Marke</a><a href="#">Web</a><a href="#">Druck</a></div>
+      <div><h3>Hilfe</h3><a href="#">Kontakt</a><a href="#">Preise</a><a href="#">Fragen</a></div>
+    </div>
+    <p class="klein">Nordwerk Studio, ein erfundenes Beispiel für diese Stilbibliothek.</p>
+  </div>
+</footer>
+</body>
+</html>

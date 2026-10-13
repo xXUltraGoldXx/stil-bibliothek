@@ -1,0 +1,15 @@
+/* Sportlich plakativ: Tokens */
+:root{
+  --weiss:#ffffff; --flaeche:#f5f5f5; --linie:#e5e5e5; --text:#111111; --text-2:#707072;
+  --akzent:#ff5000; --fehler:#d30005; --schleier:rgba(17,17,17,.35); --buehne:#111111;
+  --font-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --font-text:"Inter",system-ui,Helvetica,Arial,sans-serif;
+  --fs-hero:clamp(3rem,10vw,6rem); --fs-display:clamp(2.5rem,6vw,4.75rem); --fs-titel:clamp(1.5rem,3vw,2.5rem);
+  --fs-text:1rem; --fs-klein:.875rem; --fs-meta:.75rem;
+  --fw-normal:400; --fw-mittel:500; --lh-display:1; --lh-titel:1.2; --lh-text:1.5;
+  --sp-1:4px; --sp-2:6px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:36px; --sp-7:48px;
+  --rand:48px; --rand-mobil:24px; --luecke:12px; --breite:1824px;
+  --r-pille:30px; --r-feld:24px; --r-karte:8px;
+  --schatten:0 4px 8px rgba(17,17,17,.06),0 0 24px 4px rgba(17,17,17,.03);
+  --zeit:.15s;
+}

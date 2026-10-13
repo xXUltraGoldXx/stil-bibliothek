@@ -1,0 +1,15 @@
+/* Sportkatalog kantig: Tokens */
+:root{
+  --weiss:#ffffff; --schwarz:#191919; --reinschwarz:#000000; --flieder:#d7dcfe;
+  --grau-hell:#dfe0e1; --grau:#a1a8af; --grau-dunkel:#7c7e83; --rand:#e5e7eb; --rand-dunkel:#676d75; --schwarz-hover:#333333;
+  --font-ui:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
+  --fs-h1:3rem; --fs-h2:2rem; --fs-h3:1.5rem; --fs-text:1rem; --fs-klein:.8125rem; --fs-knopf:.875rem;
+  --fs-h1-mobil:1.75rem; --fs-h2-mobil:1.75rem;
+  --lh-h1:1; --lh-h2:1.125; --lh-text:1.5;
+  --gew-normal:400; --gew-fett:700; --ls-klein:.01em;
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:40px; --sp-8:64px;
+  --rand-seite:20px; --breite:1600px; --luecke:16px;
+  --r:2px; --r-pille:9999px;
+  --schatten:0 0 18px rgba(0,0,0,.2);
+  --nav-hoehe:80px; --knopf-pad:12px 16px; --zeit:.2s;
+}

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Mitternacht leicht</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--schwarz);color:var(--text);font-family:var(--font-ui);font-size:var(--fs-text);line-height:var(--lh-text);font-weight:var(--fw-text)}
+.w{max-width:calc(var(--breite) + 2*var(--rand));margin:0 auto;padding:0 var(--rand)}
+a{color:inherit}
+.btn{display:inline-block;text-decoration:none;font-size:var(--fs-ui);font-weight:var(--fw-ui);padding:.85rem 1.6rem;border-radius:var(--r-pille);background:var(--text);color:var(--schwarz);border:2px solid var(--text);transition:opacity .2s}
+.btn:hover{opacity:.85}
+.btn.zwei{background:transparent;color:var(--text)}
+.kopf{background:var(--schwarz);height:72px}
+.kopf .w{display:flex;align-items:center;justify-content:space-between;height:72px;gap:1rem}
+.logo{font-weight:var(--fw-ui);font-size:1.25rem;letter-spacing:-.02em;text-decoration:none}
+.logo span{color:var(--akzent)}
+.kopf nav{display:flex;gap:1.5rem;flex:1;margin-left:2rem;font-size:var(--fs-ui)}
+.kopf nav a{text-decoration:none}
+.kopf .re{display:flex;align-items:center;gap:1.5rem}
+.kopf .btn{padding:.6rem 1.3rem}
+.hero{position:relative;min-height:44rem;display:flex;align-items:flex-end;background:
+ radial-gradient(ellipse at 75% 30%,rgba(18,96,255,.35),rgba(0,0,0,0) 55%),
+ radial-gradient(ellipse at 20% 80%,rgba(54,244,164,.14),rgba(0,0,0,0) 50%),
+ linear-gradient(#02090a,#000a1e);padding:4rem 0 5rem}
+.hero h1{font-size:var(--fs-hero);font-weight:var(--fw-hell);line-height:var(--lh-titel);letter-spacing:var(--ls-hero);max-width:12ch}
+.hero .lead{font-size:var(--fs-lead);color:var(--text-4);max-width:24rem;margin:1.5rem 0 2rem;font-weight:330}
+.knoepfe{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.sek{background:var(--grund);border-radius:var(--r-sektion) var(--r-sektion) 0 0;margin-top:-20px;position:relative;padding:var(--abstand-sektion) 0}
+.sek.blau{background:var(--nachtblau)}.sek.gruen{background:var(--tiefgruen)}
+.label{font-size:var(--fs-meta);text-transform:uppercase;letter-spacing:.06em;color:var(--akzent);margin-bottom:1rem;display:block}
+h2{font-size:var(--fs-h2);font-weight:var(--fw-hell);line-height:var(--lh-titel);letter-spacing:var(--ls-h2);max-width:16ch;margin-bottom:3rem}
+h3{font-size:1.375rem;font-weight:var(--fw-hell);letter-spacing:-.01em;margin-bottom:.6rem}
+.raster{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.karte{background:var(--petrol);border:1px solid var(--linie);border-radius:var(--r-karte);padding:2rem;display:flex;flex-direction:column;gap:1rem}
+.karte p{color:var(--text-3);font-size:1rem}
+.bild{aspect-ratio:16/10;border-radius:var(--r-feld);background:
+ radial-gradient(circle at 70% 30%,rgba(54,244,164,.3),rgba(0,0,0,0) 45%),
+ linear-gradient(#2c007f 0%,#000a1d 100%);border:1px solid var(--linie)}
+.bild.b2{background:radial-gradient(circle at 30% 70%,rgba(18,96,255,.45),rgba(0,0,0,0) 50%),linear-gradient(#061a1c,#02090a)}
+.bild.b3{background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.18),rgba(0,0,0,0) 40%),linear-gradient(#041e18,#02090a)}
+.logos{display:flex;gap:2rem;flex-wrap:wrap;color:var(--text-2);font-size:1.125rem;padding:2rem 0;border-bottom:1px solid var(--linie);margin-bottom:var(--abstand-sektion)}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.zahl{font-size:clamp(3rem,6vw,4.5rem);font-weight:var(--fw-hell);letter-spacing:-.03em;line-height:1;color:var(--akzent)}
+.zahlen p{color:var(--text-3);margin-top:.75rem;font-size:1rem}
+.zwei-sp{display:grid;grid-template-columns:1fr 1fr;gap:var(--luecke);align-items:center}
+.zwei-sp p{color:var(--text-4);font-size:var(--fs-lead);max-width:28rem;margin-bottom:2rem}
+.zwei-sp h2{margin-bottom:1.5rem}
+.cta{text-align:left}
+.cta h2{max-width:14ch}
+.feld{display:flex;gap:1rem;flex-wrap:wrap;max-width:32rem}
+.feld input{flex:1 1 200px;font:inherit;font-size:var(--fs-ui);color:var(--text);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-feld);padding:.85rem 1rem}
+.feld input:focus{outline:2px solid var(--akzent);outline-offset:2px}
+footer{background:var(--schwarz);color:var(--text-3);padding:5rem 0;font-size:.9375rem}
+.fuss{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:2rem}
+.fuss h4{color:var(--text);font-weight:var(--fw-ui);font-size:var(--fs-ui);margin-bottom:1rem}
+.fuss a{display:block;text-decoration:none;margin-bottom:.6rem}.fuss a:hover{color:var(--text)}
+@media(max-width:800px){
+ :root{--rand:16px}
+ .kopf nav{display:none}
+ .hero{min-height:36rem;padding:3rem 0 4rem}
+ .sek{padding:var(--abstand-sektion-m) 0}
+ .raster,.zahlen,.zwei-sp,.fuss{grid-template-columns:1fr}
+ .zahlen,.zwei-sp{gap:2rem}
+ .logos{margin-bottom:var(--abstand-sektion-m)}
+ .kopf .re a:not(.btn){display:none}
+}
+</style></head><body>
+<header class="kopf"><div class="w"><a class="logo" href="#">Nordwerk<span>.</span></a>
+<nav><a href="#leistung">Leistungen</a><a href="#zahlen">Zahlen</a><a href="#kontakt">Kontakt</a></nav>
+<div class="re"><a href="#">Anmelden</a><a class="btn" href="#kontakt">Gespräch buchen</a></div></div></header>
+
+<section class="hero"><div class="w">
+<h1>Was baust du als Nächstes?</h1>
+<p class="lead">Wir entwerfen digitale Produkte, die Ideen in kurzer Zeit tragfähig machen. Ruhig, klar und gemeinsam mit dir.</p>
+<div class="knoepfe"><a class="btn" href="#kontakt">Gespräch buchen</a><a class="btn zwei" href="#leistung">Leistungen ansehen</a></div>
+</div></section>
+
+<section class="sek" id="leistung"><div class="w">
+<div class="logos"><span>Kiefernhof</span><span>Brandungsamt</span><span>Lichtwerk</span><span>Talsohle</span><span>Morgenblatt</span></div>
+<span class="label">Leistungen</span>
+<h2>Von der Skizze bis zum Start</h2>
+<div class="raster">
+<div class="karte"><div class="bild" role="img" aria-label="Platzhalter"></div><h3>Strategie</h3><p>Wir klären Ziel, Zielgruppe und Reihenfolge, bevor die erste Zeile Code entsteht.</p></div>
+<div class="karte"><div class="bild b2" role="img" aria-label="Platzhalter"></div><h3>Gestaltung</h3><p>Klare Oberflächen mit wenigen Mitteln, getestet mit echten Menschen.</p></div>
+<div class="karte"><div class="bild b3" role="img" aria-label="Platzhalter"></div><h3>Umsetzung</h3><p>Schnelle, saubere Entwicklung mit festen Terminen und offener Kommunikation.</p></div>
+</div></div></section>
+
+<section class="sek blau" id="zahlen"><div class="w">
+<span class="label">Zahlen</span>
+<h2>Ergebnisse, die man messen kann</h2>
+<div class="zahlen">
+<div><div class="zahl">120</div><p>abgeschlossene Projekte in sieben Jahren</p></div>
+<div><div class="zahl">4,8</div><p>Wochen von der Idee bis zur ersten Version</p></div>
+<div><div class="zahl">96%</div><p>der Kundschaft arbeitet mit uns erneut</p></div>
+</div></div></section>
+
+<section class="sek gruen"><div class="w"><div class="zwei-sp">
+<div><span class="label">Arbeitsweise</span><h2>Klein anfangen, groß denken</h2>
+<p>Jedes Projekt startet mit einem kurzen Prototyp. So siehst du früh, wohin die Reise geht, und wir sparen beiden Seiten Zeit.</p>
+<a class="btn" href="#kontakt">Mehr erfahren</a></div>
+<div class="bild b2" role="img" aria-label="Platzhalter"></div>
+</div></div></section>
+
+<section class="sek blau cta" id="kontakt"><div class="w">
+<span class="label">Kontakt</span>
+<h2>Lass uns sprechen</h2>
+<div class="feld"><input type="email" placeholder="E-Mail-Adresse eingeben" aria-label="E-Mail-Adresse"><a class="btn" href="#">Absenden</a></div>
+</div></section>
+
+<footer><div class="w"><div class="fuss">
+<div><a class="logo" href="#" style="color:var(--text)">Nordwerk<span>.</span></a><p style="margin-top:1rem;max-width:18rem">Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage.</p></div>
+<div><h4>Studio</h4><a href="#">Über uns</a><a href="#">Team</a><a href="#">Karriere</a></div>
+<div><h4>Arbeit</h4><a href="#">Projekte</a><a href="#">Ablauf</a><a href="#">Preise</a></div>
+<div><h4>Rechtliches</h4><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
+</div></div></footer>
+</body></html>

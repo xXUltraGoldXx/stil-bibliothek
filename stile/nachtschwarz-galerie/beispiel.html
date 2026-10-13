@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--leinwand);color:var(--text);font-family:var(--font-sans);font-weight:var(--fw);font-size:var(--fs-text);line-height:var(--lh-text)}
+h1,h2,h3,p{margin:0;font-weight:var(--fw)}
+a{color:var(--link);text-decoration:none;transition:opacity var(--dauer-sm) var(--kurve)}
+a:hover{opacity:.7}
+a:focus-visible,button:focus-visible{outline:2px solid var(--fokus);outline-offset:2px}
+.kopf{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:24px var(--rand);z-index:2}
+.kopf a{color:var(--text)}
+.marke{letter-spacing:.2em;font-size:var(--fs-xs);font-weight:var(--fw-fett)}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:var(--fluid-2xl) var(--rand) var(--fluid-lg);overflow:hidden;
+  background:radial-gradient(ellipse 30% 35% at 55% 38%,rgba(190,60,30,.55),transparent 70%),radial-gradient(ellipse 50% 40% at 60% 45%,#2a1210,transparent 75%),var(--leinwand)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.8),rgba(0,0,0,0) 60%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.hero h1{font-size:var(--fs-hero);line-height:var(--lh-kopf);max-width:14ch;color:var(--text-gedaempft)}
+.knopf{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 28px;border:0;border-radius:var(--r-knopf);font:inherit;font-size:var(--fs-text);cursor:pointer;transition:background var(--dauer-sm) var(--kurve)}
+.knopf.glas{background:var(--milchglas);color:var(--text);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur)}
+.knopf.glas:hover{background:var(--milchglas-stark);opacity:1}
+.knopf.hell{background:var(--text);color:var(--text-hell)}
+.knopf.dunkel{background:var(--schwarz);color:var(--text)}
+.knopf.grau{background:var(--knopf-hell);color:var(--text-hell)}
+.hero .knopf{margin-top:var(--fluid-md);align-self:flex-start}
+.pause{position:absolute;right:var(--rand);bottom:var(--fluid-lg);width:56px;height:56px;border-radius:var(--r-voll);background:var(--milchglas);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);z-index:2;display:flex;align-items:center;justify-content:center}
+.sektion{padding:var(--fluid-2xl) var(--rand)}
+.innen{max-width:var(--breite);margin:0 auto}
+.sektion h2{font-size:var(--fs-h2);line-height:var(--lh-kopf);max-width:18ch}
+.lead{font-size:var(--fs-lead);color:var(--text-gedaempft);max-width:var(--breite-text);margin-top:var(--fluid-md)}
+.dunkelgrau{background:var(--flaeche)}
+.karten{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:var(--fluid-md);margin-top:var(--fluid-lg)}
+.karte{background:var(--flaeche);border-radius:var(--r-karte);overflow:hidden;display:flex;flex-direction:column}
+.dunkelgrau .karte{background:var(--leinwand)}
+.bild{aspect-ratio:4/3;background:radial-gradient(circle at 70% 40%,rgba(210,120,60,.45),transparent 55%),linear-gradient(160deg,#2b2b30,#0a0a0d)}
+.bild.b2{background:radial-gradient(circle at 30% 60%,rgba(120,140,255,.4),transparent 55%),linear-gradient(200deg,#202028,#050509)}
+.bild.b3{background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.25),transparent 50%),linear-gradient(180deg,#303034,#08080a)}
+.karte .text{padding:var(--fluid-md) var(--fluid-md) var(--fluid-md);display:flex;flex-direction:column;gap:var(--abstand-sm)}
+.karte h3{font-size:var(--fs-h3);line-height:var(--lh-kopf)}
+.karte p{color:var(--text-gedaempft);font-size:var(--fs-xs)}
+.buehne{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:var(--fluid-lg);align-items:center}
+.buehne .bild{aspect-ratio:1/1;border-radius:var(--r-karte)}
+.zahlen{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:var(--fluid-md);margin-top:var(--fluid-lg)}
+.zahl{border-top:1px solid var(--milchglas-stark);padding-top:var(--abstand-md)}
+.zahl b{display:block;font-size:var(--fs-h3);font-weight:var(--fw)}
+.zahl span{color:var(--text-leise);font-size:var(--fs-xs)}
+.panel{background:var(--weiss);color:var(--text-hell);border-radius:var(--r-dialog);box-shadow:var(--schatten-lg);padding:clamp(24px,5vw,58px);max-width:var(--breite);margin:0 auto}
+.panel h2{max-width:none}
+.panel p{margin-top:var(--abstand-md);max-width:var(--breite-text)}
+.panel .reihe{display:flex;flex-wrap:wrap;gap:var(--abstand-md);margin-top:var(--abstand-lg)}
+.panel a{color:var(--fokus);text-decoration:underline}
+footer{background:var(--leinwand);padding:var(--fluid-xl,48px) var(--rand) var(--abstand-xl);border-top:1px solid var(--milchglas)}
+.fuss{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:var(--abstand-lg);max-width:var(--breite);margin:0 auto}
+.fuss h3{font-size:var(--fs-xs);font-weight:var(--fw-fett);margin-bottom:var(--abstand-sm)}
+.fuss a{display:block;color:var(--text-gedaempft);font-size:var(--fs-xs);padding:3px 0}
+.klein{max-width:var(--breite);margin:var(--abstand-xl) auto 0;color:var(--text-leise);font-size:var(--fs-xs)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="kopf">
+  <a href="#menue">Menü</a>
+  <a href="#" class="marke">NORDWERK</a>
+  <a href="#konto">Konto</a>
+</header>
+
+<section class="hero">
+  <h1>Räume, die Ruhe ausstrahlen.</h1>
+  <a href="#leistungen" class="knopf glas">Mehr entdecken</a>
+  <span class="pause" aria-label="Pause">
+    <svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><rect x="1" y="1" width="3" height="14" fill="#fafbff"/><rect x="10" y="1" width="3" height="14" fill="#fafbff"/></svg>
+  </span>
+</section>
+
+<section class="sektion" id="leistungen">
+  <div class="innen">
+    <h2>Gestaltung für Orte mit Haltung.</h2>
+    <p class="lead">Nordwerk Studio entwirft Innenräume, Lichtkonzepte und Möbel für Häuser, die lange bestehen sollen. Wenige Materialien, sauber gefügt.</p>
+    <div class="karten">
+      <article class="karte"><div class="bild"></div><div class="text"><h3>Innenräume</h3><p>Grundrisse, Oberflächen und Details aus einer Hand.</p><a href="#">Mehr erfahren</a></div></article>
+      <article class="karte"><div class="bild b2"></div><div class="text"><h3>Lichtkonzepte</h3><p>Warmes, gerichtetes Licht statt heller Flächen.</p><a href="#">Mehr erfahren</a></div></article>
+      <article class="karte"><div class="bild b3"></div><div class="text"><h3>Möbel</h3><p>Kleine Serien, gefertigt in Werkstätten der Region.</p><a href="#">Mehr erfahren</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sektion dunkelgrau">
+  <div class="innen buehne">
+    <div>
+      <h2>Ein Material, ein Gedanke.</h2>
+      <p class="lead">Wir reduzieren, bis nur noch bleibt, was trägt. Geölte Eiche, gebürsteter Stahl, mattes Glas.</p>
+      <div class="zahlen">
+        <div class="zahl"><b>14 Jahre</b><span>Erfahrung im Ausbau</span></div>
+        <div class="zahl"><b>62</b><span>realisierte Projekte</span></div>
+      </div>
+    </div>
+    <div class="bild b2" role="img" aria-label="Platzhalter für ein Motiv"></div>
+  </div>
+</section>
+
+<section class="sektion">
+  <div class="innen">
+    <h2>Vorgehen in drei Schritten.</h2>
+    <div class="zahlen">
+      <div class="zahl"><b>Gespräch</b><span>Wünsche und Rahmen klären</span></div>
+      <div class="zahl"><b>Entwurf</b><span>Modelle, Muster, Lichtproben</span></div>
+      <div class="zahl"><b>Umsetzung</b><span>Bauleitung und Übergabe</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sektion dunkelgrau">
+  <div class="panel">
+    <h2>Lassen Sie uns sprechen.</h2>
+    <p>Schildern Sie uns Ihr Vorhaben in wenigen Sätzen. Wir melden uns innerhalb von zwei Werktagen mit einem Terminvorschlag. Mehr dazu in unserer <a href="#">Datenschutzerklärung</a>.</p>
+    <div class="reihe">
+      <a href="#" class="knopf dunkel">Termin anfragen</a>
+      <a href="#" class="knopf grau">Mappe ansehen</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fuss">
+    <div><h3>Studio</h3><a href="#">Über uns</a><a href="#">Team</a><a href="#">Karriere</a></div>
+    <div><h3>Leistungen</h3><a href="#">Innenräume</a><a href="#">Licht</a><a href="#">Möbel</a></div>
+    <div><h3>Kontakt</h3><a href="#">Anfrage</a><a href="#">Standort</a><a href="#">Presse</a></div>
+  </div>
+  <p class="klein">© Nordwerk Studio. Alle Inhalte frei erfunden.</p>
+</footer>
+</body>
+</html>

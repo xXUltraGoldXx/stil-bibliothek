@@ -1,0 +1,18 @@
+/* Himmel kompakt: Tokens */
+:root{
+  --himmel-1:#5592d2; --himmel-2:#439adc;
+  --grad-himmel:linear-gradient(180deg,var(--himmel-1) 0%,var(--himmel-2) 100%);
+  --grad-banner:linear-gradient(90deg,#2a3ff5 0%,#7aa8f5 100%);
+  --schwarz:#000000; --anthrazit:#191c1f; --weiss:#ffffff; --grund-aussen:#f7f7f7;
+  --text:#1f1f1f; --text-muted:#717173; --text-hell:#c9c9cd; --text-dunkel-flaeche:#f4f4f4;
+  --glas:rgba(255,255,255,.1); --rahmen-telefon:rgba(255,255,255,.8); --indigo:#5a60e8;
+  --font-display:"Hanken Grotesk","Inter",sans-serif; --font-body:"Inter",sans-serif;
+  --fs-display:clamp(3rem,6.6vw,5.3rem); --fs-h2:clamp(2.25rem,4vw,3.15rem); --fs-h3:1.125rem;
+  --fs-body:1rem; --fs-sm:.875rem; --fs-xs:.75rem;
+  --lh-display:1; --lh-body:1.5; --ls-display:-.025em; --ls-h2:-.012em; --ls-body:.015em;
+  --r-sm:12px; --r-card:20px; --r-telefon:22.5px; --r-pill:9999px;
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem; --s-6:2.5rem; --s-7:3.5rem; --s-8:4.5rem; --s-9:6rem;
+  --shadow-keiner:none;
+  --ease:cubic-bezier(.15,.5,.5,1); --dur-sm:200ms; --dur-md:300ms; --dur-lg:450ms;
+  --breite:1000px; --text-breite:720px; --abstand-sektion:clamp(4.5rem,9vw,7rem);
+}

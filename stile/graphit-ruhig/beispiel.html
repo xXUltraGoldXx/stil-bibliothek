@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+html{background:var(--canvas)}
+body{background:var(--canvas);color:var(--text);font-family:var(--font-body);font-size:var(--fs-body);line-height:1.6;letter-spacing:var(--ls-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+.mono{font-family:var(--font-mono);font-size:var(--fs-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--text-faint)}
+.band{background:var(--accent);color:var(--accent-text);font-size:var(--fs-sm);font-weight:var(--w-medium);text-align:center;padding:6px var(--rand)}
+header.top{border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:1rem}
+.logo{display:flex;align-items:center;gap:10px;font-weight:var(--w-medium);font-size:1.125rem;letter-spacing:-.01em}
+.nav-links{display:flex;align-items:center;gap:1.5rem;font-size:var(--fs-sm);color:var(--text-muted)}
+.nav-links a{transition:color var(--dur-fast)}.nav-links a:hover{color:var(--text)}
+.sep{width:1px;height:16px;background:var(--line-strong)}
+.pill{display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:var(--r-pill);background:var(--btn-light);color:var(--btn-light-text);font-size:14px;font-weight:var(--w-medium);letter-spacing:0;transition:background var(--dur-fast)}
+.pill:hover{background:var(--text)}
+.ghost{display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:var(--r-pill);color:var(--text-muted);font-size:var(--fs-sm);transition:background var(--dur-fast),color var(--dur-fast)}
+.ghost:hover{background:rgba(255,255,255,.04);color:var(--text)}
+.btn-ac{display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:var(--r-md);background:var(--accent);color:var(--accent-text);font-size:14px;font-weight:var(--w-medium);letter-spacing:0;transition:filter var(--dur-fast)}
+.btn-ac:hover{filter:brightness(1.12)}
+.hero{padding:clamp(5rem,16vw,12.5rem) 0 var(--sp-10)}
+h1{font-size:var(--fs-h1);font-weight:var(--w-medium);letter-spacing:var(--ls-h1);line-height:1.02;max-width:17ch}
+.hero-sub{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap;margin-top:clamp(1.5rem,4vw,3rem)}
+.hero-sub p{color:var(--text-muted);max-width:40ch}
+.hero-sub .links{display:flex;gap:12px;align-items:center;font-weight:var(--w-medium)}
+.hero-sub .links span{color:var(--text-muted);font-weight:var(--w-regular)}
+.stage{position:relative;padding:var(--sp-10) 0 0;background:radial-gradient(60% 50% at 50% 100%,rgba(208,214,224,.16),transparent 70%)}
+.screen{display:grid;grid-template-columns:200px 1fr 260px;height:clamp(300px,52vw,520px);overflow:hidden;background:var(--canvas-2);border:1px solid var(--line);border-bottom:0;border-radius:var(--r-lg) var(--r-lg) 0 0;box-shadow:var(--shadow-inset)}
+.side{padding:20px 16px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:10px;font-size:var(--fs-sm);color:var(--text-2);font-weight:var(--w-medium)}
+.side .grp{color:var(--text-faint);font-size:var(--fs-xs);margin-top:14px;font-weight:var(--w-regular)}
+.side i,.row i{display:inline-block;width:10px;height:10px;border-radius:3px;border:1px solid var(--text-faint);margin-right:10px;vertical-align:-1px}
+.main{padding:28px clamp(16px,4vw,56px);overflow:hidden}
+.main h3{font-size:1.125rem;font-weight:var(--w-medium);letter-spacing:-.01em;color:var(--text)}
+.main p{color:var(--text-muted);font-size:var(--fs-sm);margin:6px 0 20px;max-width:52ch}
+.chip{font-family:var(--font-mono);font-size:12px;background:var(--canvas-3);border:1px solid var(--line);border-radius:var(--r-sm);padding:1px 6px;color:var(--text-2)}
+.row{display:flex;align-items:center;gap:8px;padding:8px 0;font-size:var(--fs-sm);color:var(--text-muted);border-top:1px solid var(--line-soft)}
+.row b{color:var(--text-2);font-weight:var(--w-medium)}
+.panel{margin:36px 16px 0 0;background:var(--canvas-3);border:1px solid var(--line-strong);border-radius:var(--r-lg) var(--r-lg) 0 0;box-shadow:var(--shadow-float);padding:16px;font-size:var(--fs-sm);color:var(--text-muted)}
+.panel .bubble{background:var(--canvas-2);border-radius:var(--r-md);padding:10px 12px;margin:12px 0;color:var(--text-2)}
+.logos{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem 2rem;padding:clamp(2.5rem,6vw,4rem) 0 var(--sp-6);color:var(--text-2);font-size:1.25rem;font-weight:var(--w-medium);letter-spacing:-.02em}
+.logos span:nth-child(even){font-weight:var(--w-regular);letter-spacing:.04em}
+.sek{padding:var(--abstand-sektion) 0}
+.statement{font-size:var(--fs-statement);line-height:1.25;letter-spacing:-.02em;font-weight:var(--w-medium);color:var(--text);max-width:34ch}
+.statement span{color:var(--text-muted)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(3rem,7vw,5rem);border-top:1px solid var(--line)}
+.col{padding:var(--sp-6) var(--sp-8) var(--sp-8);border-left:1px solid var(--line)}
+.col:first-child{border-left:0;padding-left:0}
+.col svg{display:block;width:100%;max-width:240px;height:auto;margin:var(--sp-10) 0}
+.col h3{font-size:var(--fs-h3);font-weight:var(--w-semi);letter-spacing:-.012em;color:var(--text-2);margin-bottom:var(--sp-2)}
+.col p,.split p{color:var(--text-muted)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-10);align-items:start}
+h2{font-size:var(--fs-h2);font-weight:var(--w-medium);letter-spacing:var(--ls-h1);line-height:1.1;color:var(--text)}
+.split .more{display:inline-block;margin-top:var(--sp-4);color:var(--text-2);font-size:var(--fs-sm);font-weight:var(--w-medium)}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:clamp(2.5rem,6vw,4rem);padding:12px;background:var(--canvas-2);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-inset)}
+.lane h4{font-size:var(--fs-sm);font-weight:var(--w-medium);color:var(--text-2);padding:4px 4px 10px}
+.lane h4 em{font-style:normal;color:var(--text-faint);margin-left:6px}
+.card{background:var(--surface-hover);border:1px solid var(--line);border-radius:var(--r-md);padding:12px;margin-bottom:8px;font-size:var(--fs-sm);color:var(--text-2)}
+.card .mono{display:block;margin-bottom:6px}
+.tag{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:var(--fs-xs);color:var(--text-muted);border:1px solid var(--line);border-radius:var(--r-pill);padding:1px 8px}
+.tag:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--c,var(--dot-tuerkis))}
+.cta{border-top:1px solid var(--line);background:var(--glow)}
+.cta .w{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+.cta p{color:var(--text-muted);margin-top:var(--sp-3);max-width:44ch}
+.cta .b{display:flex;gap:12px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:var(--sp-8) 0;color:var(--text-faint);font-size:var(--fs-sm)}
+.rv{animation:ein var(--dur-reveal) var(--ease-out) both}
+@keyframes ein{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(max-width:900px){
+ .screen{grid-template-columns:1fr}.side,.panel{display:none}
+ .cols{grid-template-columns:1fr}.col{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-right:0}.col:first-child{border-top:0}
+ .split{grid-template-columns:1fr}
+ .board{grid-template-columns:1fr}
+ .nav-links a.hide-m,.sep{display:none}
+}
+@media(max-width:520px){.nav-links{gap:.75rem}.logos{font-size:1.0625rem}.hero-sub{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.rv{animation:none}}
+</style></head><body>
+<a class="band" href="#a" style="display:block">Neu: Wochenplanung mit automatischer Priorisierung</a>
+<header class="top"><div class="w"><nav>
+<a class="logo" href="#"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#f7f8f8" stroke-width="1.5"><circle cx="11" cy="11" r="9.25"/><path d="M4 15 15 4M7.5 18.5 18.5 7.5"/></svg>Nordwerk</a>
+<div class="nav-links"><a class="hide-m" href="#a">Produkt</a><a class="hide-m" href="#b">Ablauf</a><a class="hide-m" href="#c">Preise</a><span class="sep"></span><a href="#">Anmelden</a><a class="pill" href="#c">Starten</a></div>
+</nav></div></header>
+
+<section class="hero"><div class="w">
+<h1 class="rv">Das Planungssystem für Teams, die liefern.</h1>
+<div class="hero-sub rv"><p>Gebaut für Aufgaben, Abstimmung und Auslieferung in einem Werkzeug. Ruhig, schnell, übersichtlich.</p>
+<div class="links"><a href="#a">Neu</a><a href="#b"><span>Wochenplanung →</span></a></div></div>
+</div></section>
+
+<div class="stage"><div class="w">
+<div class="screen" aria-hidden="true">
+<div class="side"><b style="color:var(--text)">Nordwerk</b>
+<span><i></i>Übersicht</span><span><i></i>Eingang</span><span><i></i>Meine Aufgaben</span><span><i></i>Prüfungen</span>
+<span class="grp">Arbeitsbereich</span><span><i></i>Vorhaben</span><span><i></i>Projekte</span><span class="grp">Favoriten</span><span><i></i>Lieferung Q4</span><span><i></i>Neugestaltung</span></div>
+<div class="main"><span class="chip">NW-1204</span>
+<h3 style="margin-top:14px">Schnellerer Start der App</h3>
+<p>Oberfläche zuerst darstellen, sobald der Mindestzustand vorliegt, statt auf die volle Aktualisierung zu warten.</p>
+<h3 style="font-size:1rem">Verlauf</h3>
+<div class="row"><i></i><b>Nordwerk</b> hat die Aufgabe angelegt · vor 2 Min.</div>
+<div class="row"><i></i><b>Sortierung</b> ergänzte die Marken Tempo und Mobil · vor 2 Min.</div>
+<div class="row"><i></i><b>Mara</b> fragt: Können wir das heute noch prüfen?</div></div>
+<div class="panel"><b style="color:var(--text-2)">Assistent</b>
+<div class="bubble">Lade die Startansicht vor dem Abgleich der Daten.</div>
+<span>Entwurf eröffnet · 2 Dateien geändert</span>
+<div class="bubble" style="margin-top:12px">Antworten …</div></div>
+</div></div></div>
+
+<section class="w"><div class="logos" aria-hidden="true"><span>Kaskade</span><span>HAFENWERK</span><span>Lindqvist</span><span>Brückenbau</span><span>OSTLICHT</span><span>Tannen&amp;Co</span><span>Meridian</span></div>
+<span class="mono">Im Einsatz bei Teams, die Produkte bauen</span></section>
+
+<section class="sek" id="a"><div class="w">
+<p class="statement">Planung, die im Alltag trägt. <span>Aufgaben, Entscheidungen und Übergaben liegen an einem Ort und bleiben für das ganze Team nachvollziehbar.</span></p>
+<div class="cols">
+<div class="col"><span class="mono">Eins</span>
+<svg viewBox="0 0 240 180" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1"><path d="M120 20 210 55 120 90 30 55Z"/><path d="M30 55v20l90 35 90-35V55"/><path d="M30 75v20l90 35 90-35V75"/><path d="M30 95v20l90 35 90-35V95"/><ellipse cx="120" cy="55" rx="30" ry="9"/></svg>
+<h3>Klar im Aufbau</h3><p>Wenige Bausteine, die sich in jeder Teamgröße gleich verhalten.</p></div>
+<div class="col"><span class="mono">Zwei</span>
+<svg viewBox="0 0 240 180" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1"><path d="M90 30 140 48 90 66 40 48Z"/><path d="M40 48v40l50 18V66M140 48v40l-50 18"/><path d="M160 90 205 106 160 122 115 106Z"/><path d="M115 106v32l45 16v-32M205 106v32l-45 16"/></svg>
+<h3>Abläufe ohne Handarbeit</h3><p>Wiederkehrende Schritte laufen von selbst, vom Entwurf bis zur Freigabe.</p></div>
+<div class="col"><span class="mono">Drei</span>
+<svg viewBox="0 0 240 180" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1"><path d="M40 140 120 150V70L40 60Z"/><path d="M60 138l80 8V66L60 58"/><path d="M80 136l80 8V62L80 54"/><path d="M100 134l80 8V58L100 50"/><path d="M120 132l80 8V54L120 46"/></svg>
+<h3>Schnell in der Bedienung</h3><p>Kurze Wege und wenig Ablenkung halten das Team bei der Sache.</p></div>
+</div></div></section>
+
+<section class="sek" id="b" style="padding-top:0"><div class="w">
+<div class="split"><h2>Eingang<br>und Anbindungen</h2>
+<div><p>Gespräche und Rückmeldungen werden automatisch zu klaren Aufgaben, die sofort sortiert, markiert und dem richtigen Team zugeteilt sind.</p><a class="more" href="#">Mehr erfahren →</a></div></div>
+<div class="board" aria-hidden="true">
+<div class="lane"><h4>Offen<em>12</em></h4>
+<div class="card"><span class="mono">NW-1187</span>Kontraste im Dunkelmodus prüfen<br><span class="tag" style="--c:var(--dot-orange)">Gestaltung</span></div>
+<div class="card"><span class="mono">NW-1190</span>Ladezeit der Startseite senken<br><span class="tag" style="--c:var(--dot-rot)">Fehler</span></div></div>
+<div class="lane"><h4>In Arbeit<em>3</em></h4>
+<div class="card"><span class="mono">NW-1204</span>Schnellerer Start der App<br><span class="tag" style="--c:var(--dot-gelb)">Tempo</span></div>
+<div class="card"><span class="mono">NW-1211</span>Duplikate bei Anfragen verhindern<br><span class="tag" style="--c:var(--dot-tuerkis)">Daten</span></div></div>
+<div class="lane"><h4>Fertig<em>48</em></h4>
+<div class="card"><span class="mono">NW-1166</span>Exportfunktion für Berichte<br><span class="tag" style="--c:var(--dot-gruen)">Erledigt</span></div>
+<div class="card"><span class="mono">NW-1172</span>Neue Seitenleiste<br><span class="tag" style="--c:var(--dot-gruen)">Erledigt</span></div></div>
+</div></div></section>
+
+<section class="sek cta" id="c"><div class="w">
+<div><h2>Bereit für ruhigere Planung?</h2><p>Zwei Wochen kostenlos testen, ohne Zahlungsdaten. Einrichtung in unter zehn Minuten.</p></div>
+<div class="b"><a class="btn-ac" href="#">Kostenlos starten</a><a class="ghost" href="#">Gespräch vereinbaren</a></div>
+</div></section>
+
+<footer><div class="w">Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage.</div></footer>
+</body></html>

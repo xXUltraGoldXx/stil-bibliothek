@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Werkbank</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:radial-gradient(ellipse 60% 220px at 50% 0,var(--akzent-weich),transparent) no-repeat,var(--seite);color:var(--tinte);font-family:var(--font-ui);font-size:var(--fs-ui);line-height:var(--lh-text)}
+.w{max-width:var(--breite);margin:0 auto;padding:var(--s-6) var(--s-4) var(--s-7);display:flex;flex-direction:column;gap:var(--s-4)}
+a{color:var(--akzent);text-decoration:none}a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--akzent);outline-offset:3px}
+.label{font-size:var(--fs-label);letter-spacing:var(--ls-label);text-transform:uppercase;font-weight:var(--fw-fett);color:var(--tinte-2)}
+.kopf{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-6);align-items:center;padding:var(--s-4) var(--s-4) var(--s-2)}
+h1{font-size:var(--fs-h1);line-height:1;font-weight:var(--fw-titel);letter-spacing:var(--ls-h1)}
+.sub{margin-top:var(--s-4);font-size:1.15rem;line-height:1.35;color:var(--tinte-2);max-width:26ch}
+.skizze{height:150px;background:#000;border:var(--rand) solid var(--linie);display:flex;align-items:center;justify-content:center}
+.skizze svg{width:100%;height:100%;max-width:240px}
+.kasten{background:var(--linie);padding:var(--rand);-webkit-mask:var(--kerbe-maske);mask:var(--kerbe-maske)}
+.in{background:var(--panel);padding:var(--s-5);-webkit-mask:var(--kerbe-maske);mask:var(--kerbe-maske);height:100%}
+.paar{display:grid;grid-template-columns:1fr 56px 1fr;gap:var(--s-3);align-items:center}
+.mitte{display:flex;flex-direction:column;gap:var(--s-3);align-items:center}
+.rund{width:40px;height:40px;border-radius:var(--r-rund);background:var(--panel);border:var(--rand) solid var(--linie);color:var(--tinte);font:inherit;cursor:pointer;transition:border-color var(--t)}
+.rund:hover{border-color:var(--akzent)}
+.feld{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2);margin-top:var(--s-3);padding:5px 6px;border-bottom:var(--rand) solid var(--akzent-40);font-size:1rem;color:var(--tinte)}
+.feld span:last-child{color:var(--akzent)}
+.satz{text-align:center;font-size:var(--fs-satz);line-height:1.4;color:var(--tinte-2);padding:var(--s-4) 0}
+.satz input{width:3.2ch;font:inherit;font-weight:var(--fw-titel);color:var(--akzent);background:transparent;border:0;border-bottom:var(--rand) solid var(--akzent-40);text-align:center;border-radius:0}
+.pfeil{text-align:center;font-size:2rem;color:var(--tinte-2);line-height:1}
+.status{display:flex;justify-content:space-between;align-items:center;gap:var(--s-2);flex-wrap:wrap}
+.pille{display:inline-block;border-radius:var(--r-pille);border:var(--rand) solid var(--linie);background:var(--panel);padding:5px 12px;font-weight:var(--fw-fett);color:var(--tinte-2);font-size:.82rem}
+.pille.ok{color:var(--ok);background:var(--ok-flaeche);border-color:var(--ok-rand);animation:puls 2s ease-in-out infinite}
+@keyframes puls{50%{opacity:.6}}
+.vorschau{font-size:1.7rem;line-height:1.45;color:var(--tinte)}
+.balken{height:10px;border-radius:var(--r-pille);background:var(--linie);overflow:hidden}
+.balken i{display:block;height:100%;width:62%;background:var(--akzent-40);border-radius:var(--r-pille)}
+.hinweis{color:var(--tinte-2);font-size:.85rem;margin-top:var(--s-2)}
+.knoepfe{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-3);margin-top:var(--s-3)}
+.knopf{font:inherit;font-weight:var(--fw-fett);font-size:1rem;color:var(--tinte-2);background:transparent;border:var(--rand) solid var(--linie);border-radius:var(--r-pille);padding:var(--s-3) var(--s-4);cursor:pointer;transition:border-color var(--t),color var(--t)}
+.knopf:hover,.knopf.an{border-color:var(--akzent);color:var(--tinte)}
+.liste{list-style:none;padding:0;margin-top:var(--s-3);display:flex;flex-direction:column}
+.liste li{display:flex;justify-content:space-between;gap:var(--s-3);padding:var(--s-3) 0;border-top:var(--rand) solid var(--linie);color:var(--tinte-2)}
+.liste li b{color:var(--tinte);font-weight:var(--fw-fett)}
+p.t{font-size:var(--fs-text);color:var(--tinte-2);margin-top:var(--s-2)}
+footer{display:flex;justify-content:space-between;gap:var(--s-4);flex-wrap:wrap;padding-top:var(--s-5);color:var(--tinte-2);margin-top:var(--s-4)}
+@media(max-width:700px){
+ h1{font-size:2.4rem}
+ .kopf{grid-template-columns:1fr;text-align:center;gap:var(--s-4);padding-inline:0}
+ .sub{margin-inline:auto}
+ .paar{grid-template-columns:1fr}
+ .mitte{flex-direction:row;justify-content:center}
+ .satz{font-size:1.4rem}
+ .vorschau{font-size:1.3rem}
+ .knoepfe{grid-template-columns:1fr}
+ .in{padding:var(--s-4)}
+}
+</style></head><body><div class="w">
+<header class="kopf">
+<div><h1>Nordwerk</h1><p class="sub">Eine kleine Werkbank für eigenwillige Schriftmischungen. Mischen, dehnen, quetschen.</p></div>
+<div class="skizze" role="img" aria-label="Platzhalter für eine Strichzeichnung"><svg viewBox="0 0 240 150" fill="none" stroke="#f3efe6" stroke-width="2" stroke-linecap="round"><circle cx="70" cy="60" r="26"/><path d="M52 100c10-12 30-12 40 0v34M52 100v34"/><path d="M150 40h60M150 60h40"/><rect x="156" y="88" width="48" height="36" rx="4"/></svg></div>
+</header>
+
+<section class="paar" aria-label="Schriftwahl">
+<div class="kasten"><div class="in"><div class="label">Grundschrift</div><div class="feld"><span>Serifenschrift A</span><span>⌄</span></div><div class="feld"><span>Normal</span><span>⌄</span></div></div></div>
+<div class="mitte"><button class="rund" type="button" aria-label="Tauschen">⇄</button><button class="rund" type="button" aria-label="Zurücksetzen">□</button></div>
+<div class="kasten"><div class="in"><div class="label">Beimischung</div><div class="feld"><span>Groteskschrift B</span><span>⌄</span></div><div class="feld"><span>Normal</span><span>⌄</span></div></div></div>
+</section>
+
+<p class="satz">Schrift A, aber jedes <input type="text" value="7" aria-label="Takt"> . Zeichen ist Schrift B</p>
+<div class="pfeil" aria-hidden="true">↓</div>
+
+<div class="status"><span class="pille">Aktualisiert …</span><span><button class="rund" type="button" aria-label="Einstellungen" style="width:32px;height:32px">⚙</button> <span class="pille ok">✓ Live</span></span></div>
+
+<section class="kasten"><div class="in"><div class="label">Vorschau</div><p class="vorschau" style="margin-top:12px">Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich. Hier darfst du tippen.</p></div></section>
+<div><div class="balken"><i></i></div><p class="hinweis">Vorschau wird gebaut</p></div>
+
+<section class="kasten"><div class="in"><div class="label">Ausgabeformate</div>
+<div class="knoepfe"><button class="knopf an" type="button">TTF laden</button><button class="knopf" type="button">OTF bauen</button><button class="knopf" type="button">WOFF2 bauen</button></div></div></section>
+
+<section class="kasten"><div class="in"><div class="label">Voreinstellungen · eine antippen</div>
+<ul class="liste"><li><b>Schiefer Dienstag</b><span>jedes 3. Zeichen</span></li><li><b>Hafenlicht</b><span>jedes 7. Zeichen</span></li><li><b>Sägewerk</b><span>jedes 12. Zeichen</span></li></ul>
+<p class="t">Alles läuft im Browser. Deine Einstellungen bleiben bei dir. <a href="#hilfe">Mehr dazu</a></p></div></section>
+
+<footer class="label"><span>Nordwerk Studio · fiktives Beispiel</span><a href="#kontakt">Kontakt</a></footer>
+</div></body></html>

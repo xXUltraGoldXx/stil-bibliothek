@@ -1,0 +1,39 @@
+{
+  "name": "Python FastAPI + Vue (Bot mit Engine-Prozessen)",
+  "slug": "python-fastapi-vue",
+  "beschreibung": "FastAPI-API, mehrere langlaufende Engine-Prozesse und Vue-3-SPA auf gemeinsamer SQLite-Datenbank (WAL); Container mit Bind-Mount hinter Traefik. Aus einem produktiven Bot abgelesen.",
+  "sprache": "Python",
+  "stack": [
+    "Python 3.14",
+    "FastAPI",
+    "Pydantic 2",
+    "SQLAlchemy 2",
+    "SQLite (WAL)",
+    "uvicorn",
+    "pytest",
+    "Vue 3",
+    "Vite",
+    "Pinia",
+    "Docker Compose",
+    "Traefik"
+  ],
+  "kategorien": [
+    "Web-App",
+    "API",
+    "Bot/Worker"
+  ],
+  "schlagworte": [
+    "fastapi",
+    "vue",
+    "sqlite",
+    "engine",
+    "watchdog",
+    "jwt",
+    "rollen",
+    "bot",
+    "docker",
+    "bind-mount"
+  ],
+  "quelle": "erprobt",
+  "reifegrad": "erprobt"
+}

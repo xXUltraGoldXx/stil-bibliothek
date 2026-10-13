@@ -1,0 +1,18 @@
+/* Mitternacht leicht: Tokens */
+:root{
+  --grund:#02090a; --schwarz:#000000; --tiefgruen:#041e18; --nachtblau:#000a1e; --petrol:#061a1c;
+  --text:#ffffff; --text-2:#9797a2; --text-3:#a1a1aa; --text-4:#bdbdca;
+  --akzent:#36f4a4; --linie:rgba(255,255,255,.1); --flaeche-glas:rgba(255,255,255,.05);
+  --glow-blau:radial-gradient(rgba(18,96,255,.35),rgba(0,0,0,0) 50%,rgba(0,0,0,0));
+  --verlauf-violett:linear-gradient(#2c007f 42%,#000a1d 100%);
+  --font-ui:"Inter",Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --fs-hero:clamp(3.5rem,8vw,6rem); --fs-h2:clamp(2.25rem,5vw,3.5rem); --fs-h3:clamp(1.5rem,3vw,2.25rem);
+  --fs-lead:1.25rem; --fs-text:1.125rem; --fs-ui:1rem; --fs-meta:.8125rem;
+  --fw-hell:300; --fw-text:400; --fw-ui:500;
+  --ls-hero:-.02em; --ls-h2:-.03em; --lh-titel:1.08; --lh-text:1.4;
+  --r-karte:12px; --r-feld:8px; --r-pille:9999px; --r-sektion:20px;
+  --abstand-sektion:6rem; --abstand-sektion-m:4rem; --luecke:4rem; --rand:90px; --rand-m:16px; --breite:1100px;
+  --schatten-ring:0 0 0 1px rgba(255,255,255,.08);
+  --schatten-schweben:0 8px 32px rgba(0,0,0,.25);
+}

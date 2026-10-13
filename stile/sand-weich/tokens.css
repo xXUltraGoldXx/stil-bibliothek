@@ -1,0 +1,16 @@
+/* Sand weich: Tokens */
+:root{
+  --sand:#ece9e2; --sand-2:#e0dacf; --weiss:#ffffff; --schwarz:#000000; --text:#1f1f1f; --text-2:#575757; --anker:#212121;
+  --kachel-blau:#4f6478; --kachel-kaffee:#4a3a37; --kachel-rosa:#8a625c; --kachel-salbei:#7f8c78;
+  --abdunkeln:rgba(0,0,0,.15);
+  --font-text:"Hanken Grotesk",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+  --font-serif:"Playfair Display",Georgia,serif;
+  --fs-hero:1.5rem; --fs-h2:clamp(1.875rem,4vw,2.5rem); --fs-text:1rem; --fs-label:.8125rem; --fs-klein:.75rem;
+  --ls-label:.05em; --lh-text:1.45;
+  --r-karte:16px; --r-dialog:8px; --r-pille:9999px; --r-klein:4px;
+  --s-1:4px; --s-2:8px; --s-3:16px; --s-4:24px; --s-5:32px; --s-6:40px; --s-7:80px;
+  --rand:10px; --luecke:12px; --breite:1280px;
+  --schatten-leicht:0 2px 6px rgba(0,0,0,.1);
+  --dauer:.3s;
+}

@@ -1,0 +1,16 @@
+/* Marine weich: Tokens */
+:root{
+  --grund:#fdfaf8; --creme:#f9f3ed; --marine:#283455; --dunst:#dde3ec; --weiss:#ffffff;
+  --gruen:#417823; --grau:#6e6e6e; --linie:#dddddd; --warn:#aa3f00; --sand:#d4cec2;
+  --schleier:rgba(40,52,85,.55);
+  --font-display:"DM Serif Display",Georgia,"Times New Roman",serif;
+  --font-text:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fs-hero:clamp(2.8rem,6vw,3.75rem); --fs-band:clamp(1.75rem,3vw,2.25rem); --fs-h2:clamp(1.25rem,2vw,1.5rem);
+  --fs-lead:1.25rem; --fs-text:1rem; --fs-meta:.875rem; --fs-mini:.75rem;
+  --ls-text:-.01em; --ls-mini:.1em; --lh-text:1.5; --lh-display:1.15;
+  --r-klein:4px; --r-bild:12px; --r-gross:16px; --r-pille:20px; --r-rund:50%;
+  --sp-1:.5rem; --sp-2:1rem; --sp-3:1.5rem; --sp-4:2.5rem; --sp-5:4rem;
+  --rand-seite:4rem; --rand-seite-mobil:1.5rem; --breite:1440px; --luecke:1rem;
+  --knopf-hoehe:56px; --chip-hoehe:39px;
+  --schatten-rund:0 0 25px rgba(0,0,0,.2);
+}

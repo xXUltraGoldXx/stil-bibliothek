@@ -1,0 +1,11 @@
+/* Editorial: Tokens */
+:root{
+  --papier:#f4efe6; --papier-2:#ebe4d6; --tinte:#161412; --tinte-2:#5a544b; --rot:#b3261e; --linie:#161412;
+  --font-display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --font-text:"Lora",Georgia,serif;
+  --font-ui:"Inter",system-ui,sans-serif;
+  --fs-masthead:clamp(3rem,11vw,9rem); --fs-h2:clamp(2rem,4.5vw,3.4rem); --fs-h3:1.5rem; --fs-text:1.125rem; --fs-meta:.72rem;
+  --ls-meta:.16em; --lh-text:1.65;
+  --r:0; --linie-dick:3px; --linie-duenn:1px;
+  --spalten:12; --luecke:2rem; --breite:1200px; --breite-text:62ch;
+}

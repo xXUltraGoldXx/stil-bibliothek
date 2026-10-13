@@ -1,0 +1,15 @@
+/* Leinwand klar: Tokens */
+:root{
+  --grund:#fafcfd; --flaeche:#f1f5f9; --dunkel:#141a20; --dunkel-2:#192028; --dunkel-linie:#28313a;
+  --text:#23313b; --text-2:#4c5864; --text-3:#3d4751; --text-dunkel-2:#a9b2bc; --tinte:#0a0e12; --hell:#fafcfd;
+  --cyan:#17d5ff; --cyan-tief:#00b8e0; --schleier:rgba(10,14,18,.4); --glas:rgba(255,255,255,.6);
+  --font-display:"Inter Tight",Helvetica,Arial,sans-serif;
+  --font-text:"Inter Tight",Helvetica,Arial,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --fs-h1:clamp(2.5rem,6.5vw,4.5rem); --fs-h2:clamp(1.75rem,3.6vw,2.5rem); --fs-h3:1.5rem; --fs-lead:1.25rem; --fs-text:1rem; --fs-klein:.875rem;
+  --ls-h1:-.05em; --ls-h2:-.04em; --ls-text:-.02em;
+  --r-s:6px; --r-m:8px; --r-l:12px; --r-xl:16px;
+  --schatten-panel:0 0 32px -5px rgba(14,18,22,.24);
+  --s-1:4px; --s-2:8px; --s-3:16px; --s-4:24px; --s-5:32px; --s-6:56px;
+  --breite:1440px; --breite-text:40rem; --luecke:2.5rem; --rand:2rem;
+}

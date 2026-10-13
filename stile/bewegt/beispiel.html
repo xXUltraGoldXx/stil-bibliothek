@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flinkwerk – Bewegt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--grund);color:var(--tinte);font-family:var(--font-body);font-size:var(--fs-body);line-height:1.6;overflow-x:clip}
+.w{max-width:var(--breite);margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--font-display);font-weight:800;line-height:1.05;letter-spacing:-.025em}
+/* Fortschrittsbalken (scrollgesteuert, ohne Unterstuetzung einfach unsichtbar) */
+.fort{position:fixed;left:0;top:0;height:5px;width:100%;background:var(--koralle);transform:scaleX(0);transform-origin:0 50%;z-index:9}
+@supports (animation-timeline:scroll()){.fort{animation:fort linear both;animation-timeline:scroll(root)}}
+@keyframes fort{to{transform:scaleX(1)}}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+nav b{font:800 1.4rem var(--font-display)}
+nav a{color:var(--tinte);text-decoration:none;margin-left:1.5rem;font-size:var(--fs-sm);background:linear-gradient(var(--koralle),var(--koralle)) 0 100%/0 3px no-repeat;transition:background-size var(--dur-hover) var(--ease-aus)}
+nav a:hover{background-size:100% 3px}
+/* Einblenden beim Laden, gestaffelt ueber --i */
+.rein{opacity:0;transform:translateY(var(--hub-rein));animation:rein var(--dur-rein) var(--ease-aus) forwards;animation-delay:calc(var(--i,0) * var(--staffel))}
+@keyframes rein{to{opacity:1;transform:none}}
+.hero{padding:clamp(2.5rem,7vw,5.5rem) 0 var(--abstand-sektion);position:relative}
+h1{font-size:var(--fs-display);max-width:13ch;margin-bottom:1.25rem}
+h1 em{font-style:normal;color:var(--koralle);display:inline-block;animation:wippe 3.2s var(--ease-feder) infinite}
+@keyframes wippe{0%,60%,100%{transform:none}70%{transform:rotate(-4deg) translateY(-6px)}85%{transform:rotate(3deg)}}
+.lead{max-width:48ch;color:var(--tinte-2);font-size:1.25rem}
+.btns{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+.k{display:inline-flex;gap:.6rem;align-items:center;border:2px solid var(--tinte);border-radius:var(--r-pille);padding:.8rem 1.6rem;font:500 1rem var(--font-body);text-decoration:none;color:var(--tinte);box-shadow:var(--schatten);transition:transform var(--dur-hover) var(--ease-feder),box-shadow var(--dur-hover) var(--ease-feder)}
+.k:hover{transform:translateY(var(--hub-hover));box-shadow:var(--schatten-hover)}.k:active{transform:translateY(2px);box-shadow:0 1px 0 var(--tinte);transition-duration:var(--dur-fix)}
+.k.p{background:var(--gelb)}.k.s{background:var(--flaeche)}
+.k i{font-style:normal;display:inline-block;transition:transform var(--dur-hover) var(--ease-feder)}.k:hover i{transform:translateX(6px)}
+.stempel{position:absolute;right:2%;top:12%;width:clamp(96px,16vw,170px);aspect-ratio:1;border-radius:50%;background:var(--minze);border:2px solid var(--tinte);display:grid;place-items:center;text-align:center;font:800 clamp(.8rem,1.6vw,1.1rem)/1.1 var(--font-display);animation:dreh var(--dur-schleife) var(--ease-lin) infinite}
+@keyframes dreh{to{transform:rotate(360deg)}}
+/* Laufband */
+.band{border-block:2px solid var(--tinte);background:var(--tinte);color:var(--grund);overflow:hidden;white-space:nowrap}
+.spur{display:inline-flex;gap:2.5rem;padding:.9rem 0;animation:lauf 28s var(--ease-lin) infinite}
+.spur span{font:800 1.4rem var(--font-display);display:inline-flex;gap:2.5rem}.spur span:after{content:"✦";color:var(--gelb)}
+.band:hover .spur{animation-play-state:paused}
+@keyframes lauf{to{transform:translateX(-50%)}}
+.sek{padding:var(--abstand-sektion) 0}
+h2{font-size:var(--fs-h2);max-width:20ch;margin-bottom:1rem}
+.karten{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.kart{background:var(--flaeche);border:2px solid var(--tinte);border-radius:var(--r-lg);padding:2rem;box-shadow:var(--schatten);transition:transform var(--dur-hover) var(--ease-feder),box-shadow var(--dur-hover) var(--ease-feder)}
+.kart:nth-child(2){background:var(--gelb)}.kart:nth-child(3){background:#dcd5ff}
+.kart:hover{transform:translateY(var(--hub-hover)) rotate(var(--kipp));box-shadow:var(--schatten-hover)}
+.kart .sym{width:56px;height:56px;border-radius:16px;background:var(--koralle);border:2px solid var(--tinte);margin-bottom:1.25rem;transition:transform var(--dur-hover) var(--ease-feder)}
+.kart:hover .sym{transform:rotate(18deg) scale(1.12)}
+.kart h3{font-size:var(--fs-h3);margin-bottom:.5rem}.kart p{color:var(--tinte-2);font-size:var(--fs-sm)}
+/* Scroll-Einblenden: Grundzustand sichtbar, Animation nur mit Unterstuetzung */
+.sc{opacity:1}
+@supports (animation-timeline:view()){.sc{opacity:0;transform:translateY(48px);animation:sc linear both;animation-timeline:view();animation-range:entry 0% entry 55%}}
+@keyframes sc{to{opacity:1;transform:none}}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:center}
+.zahlen b{display:block;font:800 clamp(2.4rem,6vw,4.5rem) var(--font-display);color:var(--violett)}
+.cta{background:var(--koralle);border:2px solid var(--tinte);border-radius:var(--r-lg);padding:clamp(2.5rem,6vw,4.5rem);text-align:center;box-shadow:0 8px 0 var(--tinte);overflow:hidden}
+.cta h2{margin-inline:auto;color:#fff}.cta p{margin-bottom:1.75rem;color:#fff}
+footer{padding:2.5rem 0;color:var(--tinte-2);font-size:var(--fs-sm)}
+@media(max-width:800px){.karten,.zahlen{grid-template-columns:1fr}nav a{display:none}.stempel{top:auto;bottom:6%}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rein,.sc{opacity:1;transform:none}.fort{display:none}}
+</style></head><body>
+<div class="fort" aria-hidden="true"></div>
+<div class="w">
+<nav><b>Flinkwerk</b><div><a href="#leistung">Leistung</a><a href="#zahlen">Zahlen</a><a href="#kontakt">Kontakt</a></div></nav>
+<header class="hero">
+ <h1 class="rein" style="--i:0">Seiten, die <em>sich bewegen</em>.</h1>
+ <p class="lead rein" style="--i:2">Flinkwerk gestaltet Webauftritte mit Rhythmus: Elemente kommen nacheinander, reagieren auf die Maus und bleiben dabei ruhig lesbar.</p>
+ <div class="btns rein" style="--i:4"><a class="k p" href="#kontakt">Projekt starten <i>→</i></a><a class="k s" href="#leistung">Was wir tun</a></div>
+ <div class="stempel" aria-hidden="true">seit<br>2014<br>in Bewegung</div>
+</header>
+</div>
+<div class="band" aria-hidden="true"><div class="spur"><span>Tempo</span><span>Rhythmus</span><span>Feder</span><span>Fluss</span><span>Takt</span><span>Schwung</span><span>Tempo</span><span>Rhythmus</span><span>Feder</span><span>Fluss</span><span>Takt</span><span>Schwung</span></div></div>
+<div class="w">
+<section class="sek" id="leistung"><h2 class="sc">Drei Dinge, die sich lohnen.</h2>
+ <div class="karten">
+  <article class="kart sc"><div class="sym"></div><h3>Einstieg</h3><p>Der erste Eindruck kommt gestaffelt herein, Element für Element, in unter einer Sekunde.</p></article>
+  <article class="kart sc"><div class="sym"></div><h3>Reaktion</h3><p>Knöpfe federn, Karten kippen leicht, Links unterstreichen sich. Jede Berührung bekommt eine Antwort.</p></article>
+  <article class="kart sc"><div class="sym"></div><h3>Fluss</h3><p>Beim Scrollen erscheinen Inhalte genau dann, wenn man sie braucht. Kein Ruckeln, kein Springen.</p></article>
+ </div></section>
+<section class="sek" id="zahlen"><div class="zahlen sc"><div><b>0,7 s</b>bis alles steht</div><div><b>60 fps</b>auch auf dem Handy</div><div><b>100 %</b>ruhig bei „weniger Bewegung“</div></div></section>
+<section class="sek" id="kontakt"><div class="cta sc"><h2>Bringen wir Ihre Seite in Schwung.</h2><p>Ein Anruf, ein Entwurf, dann läuft es.</p><a class="k s" href="#kontakt">Gespräch buchen <i>→</i></a></div></section>
+<footer>Flinkwerk – ein fiktives Beispiel für den Stil Bewegt.</footer>
+</div></body></html>

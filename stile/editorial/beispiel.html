@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Das Fundstück – Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--papier);color:var(--tinte);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);overflow-x:hidden}
+.w{max-width:var(--breite);margin:0 auto;padding:0 16px}
+.meta{font-family:var(--font-ui);font-size:var(--fs-meta);letter-spacing:var(--ls-meta);text-transform:uppercase;font-weight:600}
+.rot{color:var(--rot)}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}a:hover{color:var(--rot)}
+.kopf{border-top:var(--linie-dick) solid var(--linie);border-bottom:var(--linie-duenn) solid var(--linie);margin-top:1rem;padding:.6rem 0;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.kopf nav{display:flex;gap:1.5rem;flex-wrap:wrap}.kopf a{text-decoration:none}
+.mast{font-family:var(--font-display);font-weight:900;font-size:var(--fs-masthead);line-height:.95;letter-spacing:-.02em;text-align:center;padding:2rem 0 1.2rem;border-bottom:var(--linie-duenn) solid var(--linie)}
+.mast em{font-weight:700}
+.hero{display:grid;grid-template-columns:7fr 5fr;gap:var(--luecke);padding:2.5rem 0 3rem;border-bottom:var(--linie-dick) solid var(--linie)}
+h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.05;font-weight:900;margin:.6rem 0 1rem}
+.lead{font-size:1.4rem;font-style:italic;line-height:1.45;color:var(--tinte-2)}
+.bild{aspect-ratio:4/5;background:repeating-linear-gradient(135deg,var(--papier-2) 0 14px,#e1d9c8 14px 28px);border:var(--linie-duenn) solid var(--linie);position:relative}
+.bild:after{content:"";position:absolute;inset:18%;border-radius:50%;border:var(--linie-duenn) solid var(--linie);background:var(--papier)}
+.cap{margin-top:.5rem;font-family:var(--font-ui);font-size:.75rem;color:var(--tinte-2)}
+.sek{padding:3rem 0;border-bottom:var(--linie-duenn) solid var(--linie)}
+h2{font-family:var(--font-display);font-size:var(--fs-h2);line-height:1.1;font-weight:700;margin:.5rem 0 1.5rem;max-width:20ch}
+.sp{column-count:2;column-gap:var(--luecke);column-rule:1px solid var(--linie)}
+.sp p+p{margin-top:1em}.sp p:first-child:first-letter{font-family:var(--font-display);font-weight:900;float:left;font-size:4.6rem;line-height:.8;padding:.4rem .6rem 0 0;color:var(--rot)}
+blockquote{border-left:var(--linie-dick) solid var(--rot);padding-left:1.5rem;margin:2.5rem 0;font-family:var(--font-display);font-style:italic;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.25;max-width:30ch}
+.tz{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke);margin-top:1.5rem}
+.tz article{border-top:var(--linie-dick) solid var(--linie);padding-top:.8rem}
+.tz h3{font-family:var(--font-display);font-size:var(--fs-h3);line-height:1.2;margin:.4rem 0}.tz p{color:var(--tinte-2);font-size:1rem}
+.abo{background:var(--papier-2);border-top:var(--linie-dick) solid var(--linie);padding:2.5rem 1.5rem;margin:3rem 0;display:grid;grid-template-columns:1fr 1fr;gap:var(--luecke);align-items:end}
+.abo h2{margin:0}
+form{display:flex;gap:1rem;flex-wrap:wrap}
+input{flex:1 1 200px;font:inherit;background:transparent;border:0;border-bottom:var(--linie-duenn) solid var(--linie);padding:.6rem 0;border-radius:0}input:focus{outline:2px solid var(--rot);outline-offset:4px}
+button{font-family:var(--font-ui);text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:600;background:var(--tinte);color:var(--papier);border:0;border-radius:0;padding:.9rem 1.4rem;cursor:pointer}button:hover{background:var(--rot)}
+footer{padding:1.5rem 0 3rem;color:var(--tinte-2)}
+@media(max-width:800px){.hero,.abo{grid-template-columns:1fr}.sp{column-count:1}.tz{grid-template-columns:1fr}.bild{aspect-ratio:3/2}}
+</style></head><body><div class="w">
+<div class="kopf meta"><span>Ausgabe 12 · Herbst</span><nav><a href="#a">Reportage</a><a href="#b">Handwerk</a><a href="#c">Abo</a></nav></div>
+<div class="mast">Das <em>Fund</em>stück</div>
+<header class="hero"><div>
+<span class="meta rot">Titelgeschichte</span>
+<h1>Die leise Rückkehr der guten Dinge</h1>
+<p class="lead">Warum immer mehr Menschen weniger kaufen, dafür aber besser, und was eine Werkstatt in einer Kleinstadt damit zu tun hat.</p>
+<p class="meta" style="margin-top:1.5rem">Von Mara Linden · 12 Min. Lesezeit</p></div>
+<figure><div class="bild" role="img" aria-label="Platzhalter für ein Foto"></div><figcaption class="cap">Abb. 1 – Platzhalter. Fiktives Motiv, Bildnachweis: Archiv.</figcaption></figure></header>
+<section class="sek" id="a"><span class="meta rot">Reportage</span>
+<h2>Ein Montagmorgen in der Werkstatt</h2>
+<div class="sp"><p>Es riecht nach Holz und warmem Leim, als Jonas Brandt die Tür aufschließt. Um sieben Uhr ist es still, nur die Uhr über der Werkbank tickt. Hier entstehen Stühle, die länger halten sollen als ihre Besitzer.</p>
+<p>Brandt rechnet nicht in Stückzahlen, sondern in Jahrzehnten. Ein Stuhl, sagt er, sei erst dann fertig, wenn ihn das dritte Kind der Familie erbt. Das klingt nach Nostalgie, ist aber nüchterne Kalkulation.</p>
+<p>Die Nachfrage steigt trotzdem. Seit zwei Jahren ist die Warteliste länger als das Jahr, und Brandt hat gelernt, Nein zu sagen. Qualität, so seine Erfahrung, verträgt kein Tempo.</p></div>
+<blockquote>„Ein guter Gegenstand erzählt nichts. Er ist einfach da, Jahr um Jahr.“</blockquote></section>
+<section class="sek" id="b"><span class="meta rot">Mehr zum Thema</span>
+<div class="tz">
+<article><span class="meta">Handwerk · 6 Min.</span><h3>Vom Wert der Reparatur</h3><p>Was ein Schuhmacher über Wegwerfkultur denkt.</p></article>
+<article><span class="meta">Essay · 9 Min.</span><h3>Weniger, aber besser</h3><p>Eine kurze Geschichte der Zurückhaltung im Design.</p></article>
+<article><span class="meta">Porträt · 8 Min.</span><h3>Die Frau mit den Nadeln</h3><p>Eine Schneiderin, ein Laden, vierzig Jahre.</p></article></div></section>
+<section class="abo" id="c"><div><span class="meta rot">Abonnement</span><h2>Vier Ausgaben im Jahr. Auf Papier und online.</h2></div>
+<form><input type="email" placeholder="Ihre E-Mail-Adresse" aria-label="E-Mail-Adresse"><button>Abonnieren →</button></form></section>
+<footer class="meta">Das Fundstück ist ein fiktives Magazin für diese Stilvorlage · Impressum · Kontakt</footer>
+</div></body></html>

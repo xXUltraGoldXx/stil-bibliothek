@@ -1,0 +1,13 @@
+/* Bonbon Katalog: Tokens */
+:root{
+  --weiss:#ffffff; --flaeche:#f5f5f5; --feld:#ebebf0; --rosa:#ff849e; --schwarz:#000000; --grau:#363638; --creme:#fdf2e7;
+  --flieder:#c9b6e8; --hellblau:#cfe3ff; --beere:#c2184b; --haar:#eeeeee; --rand:#f5f5f5;
+  --font-ui:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fs-h1:clamp(2.3rem,5vw,2.55rem); --fs-h2:1.6rem; --fs-h3:.94rem; --fs-text:.975rem; --fs-klein:.7rem; --fs-knopf:.8rem;
+  --ls:.05em; --ls-knopf:.1em; --lh-text:1.7; --gw:500; --gw-fett:700;
+  --abstand-1:5px; --abstand-2:.625rem; --abstand-3:1rem; --abstand-4:2rem; --abstand-5:3rem;
+  --rand-seite:1rem; --breite:1400px; --luecke:1rem;
+  --r-pille:9999px; --r-karte:10px; --r-klein:8px;
+  --schatten-1:0 1px 2px rgba(0,0,0,.24); --schatten-2:0 4px 8px rgba(0,0,0,.2);
+  --knopf-hoehe:48px; --feld-hoehe:45px;
+}

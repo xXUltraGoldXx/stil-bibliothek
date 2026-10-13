@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio – Termine für Gestaltung und Druck</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700;900&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--grund);color:var(--text);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);font-weight:var(--fw-text)}
+h1,h2,h3{font-family:var(--font-kopf);font-weight:var(--fw-kopf);line-height:var(--lh-kopf);margin:0}
+h1{font-size:var(--fs-h1)} h2{font-size:var(--fs-h2)} h3{font-size:var(--fs-h3)}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--abst-1)}
+.meta{background:var(--grund);font-size:var(--fs-meta);color:var(--text-3)}
+.meta .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--abst-1) var(--abst-3);min-height:2rem;align-items:center}
+.meta a{color:var(--link);text-decoration:none}
+.meta .aktiv{color:var(--text);font-weight:var(--fw-fett);border-bottom:2px solid var(--text);text-decoration:none}
+header.kopf{background:var(--flaeche);box-shadow:var(--schatten);max-width:var(--breite);margin:0 auto;position:relative}
+.kopf-in{display:flex;flex-wrap:wrap;align-items:center;gap:var(--abst-2) var(--abst-5);padding:var(--abst-3) var(--abst-3)}
+.logo{display:flex;align-items:center;gap:.5rem;font-weight:var(--fw-kopf);font-size:1.25rem;text-decoration:none}
+.logo svg{flex:none}
+nav.haupt{display:flex;flex-wrap:wrap;gap:var(--abst-1) var(--abst-5);font-weight:var(--fw-fett)}
+nav.haupt a{text-decoration:none}
+nav.haupt a:hover{color:var(--signal)}
+.kopf-rechts{margin-left:auto;font-weight:var(--fw-fett)}
+.hero{max-width:var(--breite-max);margin:0 auto;position:relative;height:22rem;background:
+ repeating-linear-gradient(90deg,transparent 0 46px,rgba(225,37,47,.55) 46px 52px),
+ linear-gradient(#8a97a6,#5d6a79)}
+.hero-karte{position:absolute;right:var(--abst-3);top:var(--abst-5);width:min(20rem,calc(100% - 2rem));background:rgba(255,255,255,.94);border-radius:var(--r-karte);padding:var(--abst-4);display:grid;gap:var(--abst-2)}
+.sektion{padding:var(--abst-6) 0}
+.maske{background:var(--flaeche);border-radius:var(--r-karte);box-shadow:var(--schatten);padding:var(--abst-4);margin-top:-5rem;position:relative}
+.maske h2{font-size:1.125rem;padding-bottom:.5rem;position:relative}
+.maske h2::after{content:"";display:block;width:2rem;height:3px;background:var(--signal);margin-top:.5rem}
+.felder{display:grid;grid-template-columns:1fr 1fr auto;gap:var(--abst-3);align-items:center;margin-top:var(--abst-3)}
+.feld{background:var(--linie);border-radius:var(--r-feld);height:var(--feldhoehe);display:flex;align-items:center;padding:0 var(--abst-3);color:var(--text-3);font-size:1.125rem;gap:.5rem;min-width:0}
+.knopf{display:inline-flex;align-items:center;justify-content:center;height:var(--feldhoehe);padding:0 var(--abst-5);background:var(--signal);color:#fff;font-weight:var(--fw-fett);border-radius:var(--r-feld);text-decoration:none;font-size:1rem;transition:background .2s}
+.knopf:hover{background:var(--signal-dunkel)}
+.knopf2{display:inline-flex;align-items:center;justify-content:center;min-height:3rem;padding:0 var(--abst-4);background:var(--flaeche);border:1px solid var(--text);border-radius:var(--r-feld);text-decoration:none;transition:background .2s}
+.knopf2:hover{background:var(--grund)}
+a:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.optionen{display:flex;flex-wrap:wrap;gap:var(--abst-2) var(--abst-4);margin-top:var(--abst-3);font-weight:var(--fw-fett);align-items:center}
+.optionen span::after{content:" ›";color:var(--signal)}
+.pillen{display:flex;gap:var(--abst-1);margin-left:auto;flex-wrap:wrap}
+.pille{border-radius:var(--r-pille);padding:.25rem .875rem;background:var(--linie);font-size:var(--fs-klein);font-weight:var(--fw-fett)}
+.pille.an{background:var(--pille-dunkel);color:#fff}
+.hinweis{display:grid;grid-template-columns:4rem 1fr;background:var(--flaeche);border:2px solid var(--warn);border-radius:var(--r-feld);overflow:hidden;margin-bottom:var(--abst-5)}
+.hinweis .streifen{background:var(--warn);display:flex;align-items:flex-start;justify-content:center;padding-top:var(--abst-3)}
+.hinweis .inhalt{padding:var(--abst-3) var(--abst-4);display:grid;gap:.5rem}
+.kopfzeile{display:flex;justify-content:space-between;align-items:baseline;gap:var(--abst-3);flex-wrap:wrap;margin-bottom:var(--abst-4)}
+.raster{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:var(--abst-3)}
+.karte{background:var(--flaeche);border-radius:var(--r-karte);overflow:hidden;display:flex;flex-direction:column}
+.bild{height:9rem;background:repeating-linear-gradient(90deg,#c9d1da 0 14px,#d7dce1 14px 28px)}
+.bild.b2{background:linear-gradient(135deg,#9aa7b5,#d7dce1)}
+.bild.b3{background:repeating-linear-gradient(0deg,#d7dce1 0 10px,#c3ccd6 10px 20px)}
+.bild.b4{background:radial-gradient(circle at 30% 40%,#e4e8ec,#9aa7b5)}
+.karte .text{padding:var(--abst-4);display:grid;gap:.5rem;flex:1}
+.karte .text p{font-size:var(--fs-klein);color:var(--text-2)}
+.karte a.mehr{margin-top:auto;font-weight:var(--fw-fett);text-decoration:none;color:var(--link)}
+.karte a.mehr::after{content:" →";color:var(--signal)}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:var(--abst-5);align-items:center}
+.schnell{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:var(--abst-3)}
+.schnell a{background:var(--flaeche);border-radius:var(--r-feld);padding:var(--abst-3);text-decoration:none;font-weight:var(--fw-fett);display:flex;gap:.75rem;align-items:center;min-height:3.5rem}
+.schnell a:hover{box-shadow:inset 0 -3px 0 var(--signal)}
+footer{background:var(--flaeche);margin-top:var(--abst-6);padding:var(--abst-6) 0}
+.fuss{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:var(--abst-5)}
+.fuss ul{list-style:none;margin:var(--abst-2) 0 0;padding:0;display:grid;gap:.5rem;font-size:var(--fs-klein)}
+.fuss a{color:var(--link)}
+.klein{background:var(--linie);padding:var(--abst-4) 0;font-size:var(--fs-meta);color:var(--text-2)}
+@media (max-width:960px){
+ .felder{grid-template-columns:1fr}
+ .knopf{width:100%}
+ .zwei{grid-template-columns:1fr}
+}
+@media (max-width:767px){
+ :root{--fs-h1:1.5rem;--fs-h2:1.25rem;--fs-h3:1rem}
+ body{font-size:.875rem}
+ .hero{height:17rem}
+ .hero-karte{position:relative;right:auto;top:auto;margin:var(--abst-3) auto 0;width:calc(100% - 1rem)}
+ .hero{display:flex;align-items:flex-end}
+ .hinweis{grid-template-columns:2.5rem 1fr}
+ .sektion{padding:var(--abst-5) 0}
+ .pillen{margin-left:0}
+}
+</style>
+</head>
+<body>
+<div class="meta"><div class="wrap">
+ <span><a class="aktiv" href="#">Für Einzelne</a> &nbsp; <a href="#">Für Teams</a></span>
+ <span><a href="#">Hilfe</a> &nbsp; <a href="#">Kontakt</a> &nbsp; <a href="#">Deutsch</a></span>
+</div></div>
+<header class="kopf"><div class="kopf-in">
+ <a class="logo" href="#"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="4" fill="none" stroke="#e1252f" stroke-width="2.5"/><path d="M9 22V10l14 12V10" fill="none" stroke="#282d37" stroke-width="2.5"/></svg>Nordwerk Studio</a>
+ <nav class="haupt" aria-label="Hauptnavigation"><a href="#leistungen">Leistungen</a><a href="#angebote">Angebote</a><a href="#service">Service</a></nav>
+ <a class="kopf-rechts" href="#">Anmelden</a>
+</div></header>
+
+<div class="hero" role="img" aria-label="Platzhalter für ein Titelbild">
+ <div class="hero-karte">
+  <h3>Frühjahrs-Aktion</h3>
+  <p>Zehn Prozent auf alle Beratungstermine im April.</p>
+  <a class="knopf2" href="#termin">Angebot wählen</a>
+ </div>
+</div>
+
+<main>
+<section class="sektion" id="termin" style="padding-top:0"><div class="wrap">
+ <div class="maske">
+  <h2>Termin finden</h2>
+  <div class="felder">
+   <div class="feld">◎ Thema wählen</div>
+   <div class="feld">⌖ Ort oder online</div>
+   <a class="knopf" href="#">Suchen</a>
+  </div>
+  <div class="optionen"><span>Diese Woche</span><span>Persönlich</span><span>Teilnehmende, Unterlagen</span>
+   <div class="pillen"><span class="pille">Kurz</span><span class="pille an">Ausführlich</span></div></div>
+ </div>
+</div></section>
+
+<section class="sektion" style="padding-top:0"><div class="wrap">
+ <div class="hinweis">
+  <div class="streifen"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z" fill="#fff"/><path d="M12 10v5M12 17.5v1" stroke="#d96000" stroke-width="2"/></svg></div>
+  <div class="inhalt"><h3>Neue Terminverwaltung</h3><p>Ältere Browser zeigen die Terminliste nicht vollständig an. Bitte aktualisieren Sie Ihren Browser oder rufen Sie uns an.</p></div>
+ </div>
+</div></section>
+
+<section class="sektion" id="angebote" style="padding-top:0"><div class="wrap">
+ <div class="kopfzeile"><h2>Beliebte Angebote</h2><a href="#">Alle anzeigen →</a></div>
+ <div class="raster">
+  <article class="karte"><div class="bild"></div><div class="text"><h3>Markenberatung</h3><p>Ein Vormittag, ein klarer Fahrplan für Ihren Auftritt.</p><a class="mehr" href="#">Ansehen</a></div></article>
+  <article class="karte"><div class="bild b2"></div><div class="text"><h3>Druckfreigabe</h3><p>Dateien prüfen lassen, bevor sie in die Produktion gehen.</p><a class="mehr" href="#">Ansehen</a></div></article>
+  <article class="karte"><div class="bild b3"></div><div class="text"><h3>Workshop Plakat</h3><p>Zwei Stunden Gestaltung mit Papier, Schrift und Farbe.</p><a class="mehr" href="#">Ansehen</a></div></article>
+  <article class="karte"><div class="bild b4"></div><div class="text"><h3>Jahresbegleitung</h3><p>Feste Ansprechperson und monatliche Sprechstunde.</p><a class="mehr" href="#">Ansehen</a></div></article>
+ </div>
+</div></section>
+
+<section class="sektion" id="leistungen" style="padding-top:0"><div class="wrap">
+ <div class="zwei">
+  <div style="display:grid;gap:var(--abst-3)">
+   <h2>Planen Sie ohne Umwege</h2>
+   <p>Wählen Sie Thema, Ort und Zeit. Sie sehen sofort, welche Termine frei sind und was sie kosten. Änderungen sind bis 24 Stunden vorher kostenlos.</p>
+   <div><a class="knopf2" href="#">Mehr zum Ablauf</a></div>
+  </div>
+  <div class="bild b2" style="height:14rem;border-radius:var(--r-karte)" role="img" aria-label="Platzhalter"></div>
+ </div>
+</div></section>
+
+<section class="sektion" id="service" style="padding-top:0"><div class="wrap">
+ <div class="kopfzeile"><h2>Schnellzugriff</h2></div>
+ <div class="schnell">
+  <a href="#"><span style="color:var(--signal)">●</span>Meine Termine</a>
+  <a href="#"><span style="color:var(--signal)">●</span>Rechnungen</a>
+  <a href="#"><span style="color:var(--signal)">●</span>Dateien hochladen</a>
+  <a href="#"><span style="color:var(--signal)">●</span>Hilfe und Kontakt</a>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="wrap fuss">
+ <div><h3>Studio</h3><ul><li><a href="#">Über uns</a></li><li><a href="#">Team</a></li><li><a href="#">Karriere</a></li></ul></div>
+ <div><h3>Service</h3><ul><li><a href="#">Häufige Fragen</a></li><li><a href="#">Kontakt</a></li><li><a href="#">Barrierefreiheit</a></li></ul></div>
+ <div><h3>Rechtliches</h3><ul><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li><li><a href="#">AGB</a></li></ul></div>
+</div></footer>
+<div class="klein"><div class="wrap">© Nordwerk Studio, ein fiktives Beispiel</div></div>
+</body>
+</html>

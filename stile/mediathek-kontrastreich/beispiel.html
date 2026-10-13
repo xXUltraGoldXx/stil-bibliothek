@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Gespräche über Gestaltung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--weiss);color:var(--tinte);font-family:var(--font-ui);font-size:var(--fs-text);line-height:var(--lh-text)}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--abstand-4)}
+.nav{background:var(--weiss);border-bottom:1px solid var(--linie)}
+.nav .w{display:flex;align-items:center;justify-content:space-between;gap:var(--abstand-4);min-height:60px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.logo{font-weight:700;font-size:1.5rem;letter-spacing:var(--ls-eng);color:var(--rot)}
+.nav ul{list-style:none;padding:0;display:flex;gap:var(--abstand-6);flex-wrap:wrap;font-size:var(--fs-meta);font-weight:600;letter-spacing:var(--ls-nav);text-transform:uppercase}
+.btn{display:inline-block;background:var(--rot-knopf);color:var(--weiss);font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:var(--ls-nav);padding:10px 16px;border-radius:var(--r-m);border:0;font-family:inherit}
+.btn:hover{background:var(--rot);text-decoration:none}
+.btn.zwei{background:transparent;color:var(--tinte);border:1px solid var(--tinte)}
+.rub{font-size:var(--fs-klein);font-weight:600;color:var(--rot);text-transform:uppercase;letter-spacing:var(--ls-nav)}
+.meta{font-size:var(--fs-meta);color:var(--meta)}
+.bild{position:relative;aspect-ratio:16/9;border-radius:var(--r-m);overflow:hidden;background:linear-gradient(135deg,#1b1b1b,#3a1c6b 55%,#e07a1f)}
+.bild.b2{background:linear-gradient(160deg,#101820,#2763ff 80%)}
+.bild.b3{background:linear-gradient(120deg,#000,#5b2a86 60%,#c23b5a)}
+.bild.b4{background:linear-gradient(200deg,#222,#9a5b13 90%)}
+.bild svg{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:85%;width:auto}
+.dauer{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.7);color:var(--weiss);font-size:.6875rem;font-weight:700;padding:2px 5px;border-radius:var(--r-s);text-transform:uppercase}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:var(--luecke);align-items:center;padding:var(--abstand-8) 0}
+h1{font-size:var(--fs-h1);line-height:var(--lh-titel);letter-spacing:var(--ls-eng);font-weight:700;margin:var(--abstand-3) 0 var(--abstand-4)}
+.hero p.an{color:var(--tinte-2);font-size:var(--fs-text);max-width:60ch;margin-bottom:var(--abstand-4)}
+.reihe{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--luecke);padding:var(--abstand-7) 0;border-top:1px solid var(--linie)}
+.reihe article+article{border-left:1px solid var(--linie);padding-left:calc(var(--luecke)/2);margin-left:calc(var(--luecke)/-2)}
+.reihe h3,.k h3{font-size:var(--fs-h3);font-weight:600;letter-spacing:var(--ls-titel);line-height:var(--lh-titel);margin:var(--abstand-3) 0 var(--abstand-2)}
+.reihe .rub{display:block;margin-top:var(--abstand-3)}
+.dunkel{background:var(--buehne);color:var(--weiss);padding:var(--abstand-9) 0}
+.kopfzeile{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--abstand-4);flex-wrap:wrap}
+.gross{font-size:var(--fs-gross);font-weight:600;letter-spacing:var(--ls-eng);line-height:1}
+.alle{text-decoration:underline;font-weight:600}
+.chips{display:flex;gap:var(--abstand-2);flex-wrap:wrap;margin:var(--abstand-7) 0 var(--abstand-6)}
+.chip{background:var(--buehne-2);color:var(--weiss);font-weight:600;font-size:var(--fs-klein);padding:8px 16px;border-radius:var(--r-m)}
+.chip.an{background:var(--weiss);color:var(--tinte)}
+.dunkel .reihe{border-top:0;padding:0}
+.dunkel .reihe article+article{border-left:1px solid var(--linie-dunkel)}
+.dunkel .meta{color:var(--grau-hell)}
+.band{background:var(--grau-1);padding:var(--abstand-9) 0}
+.band .zwei-sp{display:grid;grid-template-columns:1fr 1fr;gap:var(--luecke);align-items:start}
+h2{font-size:var(--fs-h2);font-weight:600;letter-spacing:var(--ls-eng);line-height:var(--lh-titel);margin:var(--abstand-3) 0 var(--abstand-4)}
+.band p{color:var(--tinte-2);margin-bottom:var(--abstand-4);max-width:56ch}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--abstand-6)}
+.zahlen div{border-top:1px solid var(--tinte);padding-top:var(--abstand-3)}
+.zahlen b{display:block;font-size:2rem;letter-spacing:var(--ls-titel);font-weight:600}
+.cta{padding:var(--abstand-9) 0;display:flex;justify-content:space-between;align-items:center;gap:var(--luecke);flex-wrap:wrap}
+.cta h2{max-width:20ch;margin:0}
+footer{border-top:1px solid var(--linie);padding:var(--abstand-6) 0 var(--abstand-8);color:var(--meta);font-size:var(--fs-meta)}
+@media(max-width:900px){.reihe{grid-template-columns:1fr 1fr}.reihe article+article{border-left:0;padding-left:0;margin-left:0}.hero,.band .zwei-sp{grid-template-columns:1fr}}
+@media(max-width:560px){.reihe{grid-template-columns:1fr}.zahlen{grid-template-columns:1fr}.nav ul{gap:var(--abstand-3)}.hero{padding:var(--abstand-6) 0}}
+</style></head><body>
+<header class="nav"><div class="w"><a class="logo" href="#">Nordwerk</a>
+<ul><li><a href="#neu">Ansehen</a></li><li><a href="#themen">Themen</a></li><li><a href="#studio">Studio</a></li></ul>
+<a class="btn" href="#mitmachen">Mitglied werden</a></div></header>
+
+<main>
+<div class="w"><section class="hero" id="neu">
+<div><span class="rub">Gestaltung</span>
+<h1>Drei Regeln, die unseren Messestand gerettet haben</h1>
+<p class="an">Als der Aufbau schiefging, blieben vier Stunden und ein halber Lieferwagen Material. Die Werkstattleiterin erzählt, was sie dabei über Reduktion gelernt hat und warum weniger Lampen mehr Besucher brachten.</p>
+<p class="meta">Mara Linden · 47 Tsd. Aufrufe · vor 2 Tagen</p></div>
+<div class="bild"><svg viewBox="0 0 100 120" aria-hidden="true"><circle cx="50" cy="30" r="16" fill="#0b0b0b"/><path d="M10 120c0-34 18-62 40-62s40 28 40 62z" fill="#0b0b0b"/></svg><span class="dauer">15 Min</span></div>
+</section>
+<section class="reihe" aria-label="Neu im Programm">
+<article><div class="bild b2"><span class="dauer">33 Min</span></div><span class="rub">Material</span><h3>Warum Holz wieder ins Büro zieht</h3><p class="meta">Jonas Brandt · 12 Tsd. Aufrufe</p></article>
+<article><div class="bild b3"><span class="dauer">12 Min</span></div><span class="rub">Licht</span><h3>Der Raum, der nie dunkel wird</h3><p class="meta">Lea Vogt · 8 Tsd. Aufrufe</p></article>
+<article><div class="bild b4"><span class="dauer">14 Min</span></div><span class="rub">Handwerk</span><h3>Vierzig Jahre am selben Tisch</h3><p class="meta">Ida Rosen · 21 Tsd. Aufrufe</p></article>
+<article><div class="bild"><span class="dauer">20 Min</span></div><span class="rub">Gespräch</span><h3>Was Kunden wirklich meinen</h3><p class="meta">Tim Arndt · 5 Tsd. Aufrufe</p></article>
+</section></div>
+
+<section class="dunkel" id="themen"><div class="w">
+<div class="kopfzeile"><div class="gross">Entdecken</div><a class="alle" href="#">Alle ansehen</a></div>
+<div class="chips"><span class="chip an">Alle</span><span class="chip">Material</span><span class="chip">Licht</span><span class="chip">Nachhaltigkeit</span><span class="chip">Handwerk</span></div>
+<div class="reihe k">
+<article class="k"><div class="bild b3"><span class="dauer">9 Min</span></div><h3>Eine Stunde ohne Bildschirm</h3><p class="meta">Mara Linden · 3 Tsd. Aufrufe</p></article>
+<article class="k"><div class="bild b2"><span class="dauer">18 Min</span></div><h3>Wie ein Regal zum Archiv wurde</h3><p class="meta">Jonas Brandt · 9 Tsd. Aufrufe</p></article>
+<article class="k"><div class="bild"><span class="dauer">11 Min</span></div><h3>Farbe als Wegweiser</h3><p class="meta">Lea Vogt · 7 Tsd. Aufrufe</p></article>
+<article class="k"><div class="bild b4"><span class="dauer">26 Min</span></div><h3>Planen mit Resten</h3><p class="meta">Ida Rosen · 4 Tsd. Aufrufe</p></article>
+</div></div></section>
+
+<section class="band" id="studio"><div class="w"><div class="zwei-sp">
+<div><span class="rub">Das Studio</span><h2>Ein kleines Team mit langem Atem</h2>
+<p>Nordwerk Studio gestaltet Räume, Ausstellungen und Messeauftritte. Alle Gespräche hier entstehen aus echten Projekten, ohne Drehbuch und ohne Eile.</p>
+<a class="btn zwei" href="#">Mehr über uns</a></div>
+<div class="zahlen"><div><b>120</b><span class="meta">Gespräche</span></div><div><b>14</b><span class="meta">Themenreihen</span></div><div><b>9</b><span class="meta">Jahre Archiv</span></div></div>
+</div></div></section>
+
+<div class="w"><section class="cta" id="mitmachen"><h2>Neue Gespräche jede Woche, ohne Werbung.</h2><a class="btn" href="#">Mitglied werden</a></section></div>
+</main>
+<footer><div class="w">Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage · Impressum · Kontakt</div></footer>
+</body></html>

@@ -1,0 +1,19 @@
+{
+  "name": "Nachrichten kompakt",
+  "slug": "nachrichten-kompakt",
+  "beschreibung": "Sachliches Nachrichtenportal in dichtem Raster auf hellgrauem Grund, mit Serifen-Schlagzeilen, schwarzen Rechteck-Knöpfen und einem einzigen Rot als Signal. Alles ist eckig und flach, die Ordnung kommt aus Spalten, Linien und Typografie.",
+  "schlagworte": [
+    "Nachrichten",
+    "Serif",
+    "Dicht",
+    "Eckig",
+    "Sachlich",
+    "Raster"
+  ],
+  "kategorien": [
+    "Modern",
+    "Minimal",
+    "Editorial"
+  ],
+  "gegenbeispiel": false
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Stil-Vorlage",
+  "slug": "stil-vorlage",
+  "beschreibung": "Neutrale Beitragsvorlage: zeigt Aufbau und Pflichtabschnitte eines Stils. Name, Beschreibung, Schlagworte und Kategorien ersetzen.",
+  "schlagworte": ["vorlage", "beispiel", "neutral"],
+  "kategorien": ["Minimal"]
+}

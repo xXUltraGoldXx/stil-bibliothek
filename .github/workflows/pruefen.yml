@@ -1,0 +1,85 @@
+name: Beitrag prüfen
+
+# Läuft bei Pull Requests (nicht pull_request_target): keine Secrets, nur Lesezugriff.
+# Es wird bewusst keine Fremd-Action verwendet; der Code wird mit git geholt.
+# Der Prüfer läuft aus dem Basiszweig, nicht aus dem Beitrag.
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      AUTOR_ROLLE: ${{ github.event.pull_request.author_association }}
+      REPO: ${{ github.repository }}
+    steps:
+      - name: Code holen (git, ohne Fremd-Action)
+        run: |
+          set -eu
+          git init -q .
+          git remote add origin "https://github.com/${REPO}.git"
+          git fetch -q --no-tags origin "+refs/heads/main:refs/remotes/origin/main" "+refs/pull/${PR_NUMBER}/merge:refs/remotes/pull/merge"
+          git checkout -q --detach refs/remotes/pull/merge
+          git config user.name ci && git config user.email ci@invalid
+
+      - name: Geänderte Dateien ermitteln
+        run: |
+          set -eu
+          # Der Merge-Commit hat als ersten Elternteil den Basiszweig.
+          git diff --name-status --no-renames HEAD^1 HEAD > "$RUNNER_TEMP/geaendert.txt"
+          echo "Geänderte Dateien:"; cat "$RUNNER_TEMP/geaendert.txt"
+          test -s "$RUNNER_TEMP/geaendert.txt" || { echo "Keine Änderungen."; exit 1; }
+
+      - name: Pfadfilter (nur neue Einträge unter stile/ oder architekturen/)
+        run: |
+          set -eu
+          case "$AUTOR_ROLLE" in
+            OWNER|MEMBER|COLLABORATOR) echo "Betreuung: Pfadfilter übersprungen."; exit 0;;
+          esac
+          fehler=0
+          while IFS="$(printf '\t')" read -r status pfad; do
+            if [ "$status" != "A" ]; then
+              echo "::error::Nur neue Dateien erlaubt (Status $status): $pfad"; fehler=1; continue
+            fi
+            # In case-Mustern steht * auch für "/": Tiefe deshalb zusätzlich prüfen (genau Ordner/Slug/Datei).
+            tiefe=$(printf '%s' "$pfad" | tr -cd '/' | wc -c)
+            if [ "$tiefe" -ne 2 ]; then
+              echo "::error::Pfad hat falsche Tiefe: $pfad"; fehler=1; continue
+            fi
+            case "$pfad" in
+              *..*|*[!A-Za-z0-9/._-]*) echo "::error::Unzulässige Zeichen im Pfad: $pfad"; fehler=1; continue;;
+            esac
+            case "$pfad" in
+              stile/*/meta.json|stile/*/STIL.md|stile/*/tokens.css|stile/*/beispiel.html) ;;
+              architekturen/*/meta.json|architekturen/*/ARCHITEKTUR.md) ;;
+              *) echo "::error::Pfad nicht erlaubt: $pfad"; fehler=1;;
+            esac
+          done < "$RUNNER_TEMP/geaendert.txt"
+          exit $fehler
+
+      - name: DCO (Signed-off-by in jedem Commit)
+        run: |
+          set -eu
+          fehler=0
+          for c in $(git rev-list HEAD^1..HEAD^2); do
+            if ! git log -1 --format=%B "$c" | grep -Eq '^Signed-off-by: .+ <[^<>@ ]+@[^<>@ ]+>$'; then
+              echo "::error::Commit ohne Signed-off-by: $c (git commit -s)"; fehler=1
+            fi
+          done
+          exit $fehler
+
+      - name: Prüfer ausführen (Version aus dem Basiszweig)
+        run: |
+          set -eu
+          git show origin/main:werkzeuge/pruefer.py > "$RUNNER_TEMP/pruefer.py"
+          python3 -I "$RUNNER_TEMP/pruefer.py" --selbsttest
+          ordner=$(cut -f2 "$RUNNER_TEMP/geaendert.txt" | grep -E '^(stile|architekturen)/[a-z0-9-]+/' | cut -d/ -f1-2 | sort -u || true)
+          if [ -z "$ordner" ]; then echo "Keine Stil-/Architekturordner geändert."; exit 0; fi
+          # shellcheck disable=SC2086
+          python3 -I "$RUNNER_TEMP/pruefer.py" --wurzel . $ordner

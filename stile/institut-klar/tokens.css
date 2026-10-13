@@ -1,0 +1,16 @@
+/* Institut klar: Tokens */
+:root{
+  --seite:#f6f7f9; --flaeche:#ffffff; --flaeche-2:#edeff3; --linie:#c9cfdb;
+  --marine:#00205c; --marine-nav:#0c2b64; --marine-leiste:#274375; --marine-balken:rgba(0,32,92,.85);
+  --text:#3c4245; --h2:#092862;
+  --aktion:#006cbe; --aktion-hover:#0078d4; --aktion-aktiv:#005ca3; --fokus:#64789c;
+  --gelb:#f5ac25; --auf-gelb:#000000;
+  --font-text:"Noto Sans",Arial,Helvetica,sans-serif;
+  --fs-h1:clamp(1.55rem,4.5vw+.4rem,3.125rem); --lh-h1:1.6; --fs-h2:clamp(1.25rem,1.5vw+1rem,1.625rem); --fs-h3:1.125rem;
+  --fs-text:1rem; --fs-meta:.875rem; --fs-nav:.9375rem; --lh-text:1.5;
+  --gewicht-text:400; --gewicht-fett:700;
+  --r:4px; --r-oben:4px 4px 0 0;
+  --s-1:4px; --s-2:8px; --s-3:15px; --s-4:24px; --s-5:30px; --s-6:40px; --s-7:60px;
+  --breite:1280px; --rand:30px; --luecke:30px;
+  --schatten:none;
+}

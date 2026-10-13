@@ -1,0 +1,17 @@
+/* Elfenbein ruhig: Tokens */
+:root{
+  --grund:#f3f0e7; --karte:#faf9f5; --sand:#e3dacc; --elfenbein-dunkel:#e8e6dc;
+  --tinte:#141413; --tinte-60:rgba(20,20,19,.6); --grau-dunkel:#b0aea5;
+  --akzent:#d07e5e; --akzent-dunkel:#bb6845; --linie:rgba(20,20,19,.1);
+  --font-display:"Schibsted Grotesk",Arial,sans-serif;
+  --font-text:"Newsreader",Georgia,serif;
+  --font-mono:ui-monospace,Menlo,Consolas,monospace;
+  --fs-h1:clamp(2.5rem,5vw,3.6rem); --fs-h2:clamp(2.6rem,6vw,4.4rem); --fs-h3:1.5rem;
+  --fs-lead:1.5rem; --fs-text:1.25rem; --fs-ui:1rem; --fs-meta:.75rem;
+  --lh-h1:1.1; --lh-h2:1.15; --lh-text:1.4; --ls-h2:-.015em; --ls-ui:-.015em;
+  --space-1:.25rem; --space-2:.5rem; --space-3:.75rem; --space-4:1rem; --space-5:1.5rem;
+  --space-6:2rem; --space-7:2.5rem; --space-8:3rem; --space-9:4rem; --space-11:6rem; --space-12:7.5rem;
+  --rand:4rem; --rand-mobil:1.5rem; --breite:1150px; --breite-text:56rem; --luecke:2rem;
+  --r-klein:.25rem; --r:.5rem; --r-gross:1rem; --r-karte:1.5rem;
+  --schatten:none; --dauer:.2s;
+}

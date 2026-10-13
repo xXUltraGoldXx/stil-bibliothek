@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lindenhof Werkstatt – Stil-Vorlage</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font-text);color:var(--farbe-text);background:var(--farbe-grund);line-height:1.6;font-size:1rem}
+.wrap{max-width:var(--breite-inhalt);margin:0 auto;padding:0 var(--abstand-2)}
+header{border-bottom:1px solid var(--farbe-linie)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:var(--abstand-2);flex-wrap:wrap}
+.marke{font-family:var(--font-ueberschrift);font-weight:700;font-size:1.125rem}
+nav a{color:var(--farbe-text-leise);text-decoration:none;margin-left:var(--abstand-3)}
+nav a:hover{color:var(--farbe-text)}
+.hero{padding:var(--abstand-5) 0 var(--abstand-4)}
+.hero h1{font-family:var(--font-ueberschrift);font-size:clamp(2rem,6vw,3.5rem);line-height:1.1;margin:0 0 var(--abstand-2);max-width:18ch}
+.hero p{color:var(--farbe-text-leise);font-size:1.125rem;max-width:52ch;margin:0 0 var(--abstand-3)}
+.knopf{display:inline-block;background:var(--farbe-akzent);color:#fff;text-decoration:none;padding:12px 20px;border-radius:var(--radius-klein);transition:background var(--dauer) ease-out}
+.knopf:hover{background:var(--farbe-akzent-dunkel)}
+section{padding:var(--abstand-4) 0}
+h2{font-family:var(--font-ueberschrift);font-size:1.75rem;margin:0 0 var(--abstand-3)}
+.kacheln{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--abstand-3)}
+.karte{border:1px solid var(--farbe-linie);border-radius:var(--radius-gross);padding:var(--abstand-3)}
+.karte h3{margin:0 0 var(--abstand-1);font-size:1.125rem}
+.karte p{margin:0;color:var(--farbe-text-leise)}
+.bild{height:160px;border-radius:var(--radius-gross);background:linear-gradient(135deg,var(--farbe-linie),var(--farbe-grund));margin-bottom:var(--abstand-2)}
+form{display:grid;gap:var(--abstand-2);max-width:480px}
+label{font-weight:600;font-size:.9375rem}
+input,textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--farbe-linie);border-radius:var(--radius-klein);background:var(--farbe-grund);color:var(--farbe-text)}
+input:focus,textarea:focus{outline:2px solid var(--farbe-akzent);outline-offset:1px}
+button{font:inherit;cursor:pointer;border:0;background:var(--farbe-akzent);color:#fff;padding:12px 20px;border-radius:var(--radius-klein)}
+footer{border-top:1px solid var(--farbe-linie);padding:var(--abstand-4) 0;color:var(--farbe-text-leise);font-size:.9375rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:600px){nav a{margin-left:var(--abstand-2)}.hero{padding:var(--abstand-4) 0 var(--abstand-3)}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<span class="marke">Lindenhof Werkstatt</span>
+<nav><a href="#leistungen">Leistungen</a><a href="#kontakt">Kontakt</a></nav>
+</div>
+</header>
+<main>
+<div class="wrap">
+<div class="hero">
+<h1>Möbel, die bleiben.</h1>
+<p>Die Lindenhof Werkstatt ist eine erfundene Firma. Diese Seite zeigt, wie ein Stil in Kopfzeile, Einstieg, Kacheln, Formular und Fußzeile aussieht.</p>
+<a class="knopf" href="#kontakt">Termin anfragen</a>
+</div>
+<section id="leistungen">
+<h2>Leistungen</h2>
+<div class="kacheln">
+<div class="karte"><div class="bild"></div><h3>Maßanfertigung</h3><p>Regale, Tische und Schränke nach Ihrem Raum, mit Holz aus der Region.</p></div>
+<div class="karte"><div class="bild"></div><h3>Restaurierung</h3><p>Alte Stücke aufarbeiten, ohne ihren Charakter zu verlieren.</p></div>
+<div class="karte"><div class="bild"></div><h3>Beratung</h3><p>Ein Gespräch vor Ort, ein klarer Plan und ein fester Preis.</p></div>
+</div>
+</section>
+<section id="kontakt">
+<h2>Kontakt</h2>
+<form>
+<div><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Vor- und Nachname"></div>
+<div><label for="mail">E-Mail</label><input id="mail" name="mail" type="email" placeholder="name@example.org"></div>
+<div><label for="text">Nachricht</label><textarea id="text" name="text" rows="4" placeholder="Wie können wir helfen?"></textarea></div>
+<button type="button">Absenden</button>
+</form>
+</section>
+</div>
+</main>
+<footer>
+<div class="wrap">Lindenhof Werkstatt (fiktiv) · Beispielstraße 1 · 00000 Beispielstadt · Alle Angaben frei erfunden.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "name": "Symfony-API mit Vue-SPA",
+  "slug": "symfony-api-vue-spa",
+  "beschreibung": "API-first-Aufbau: Symfony mit API Platform, Doctrine und JWT als reine JSON-API plus eigenständige Vue-3-SPA (Vite, Pinia). Geeignet für Fachanwendungen mit Rechten und Mandanten.",
+  "sprache": "PHP",
+  "stack": [
+    "PHP 8.4+",
+    "Symfony",
+    "API Platform 4",
+    "Doctrine ORM 3",
+    "MySQL",
+    "LexikJWT",
+    "dompdf",
+    "Vue 3",
+    "Vite",
+    "Pinia",
+    "vue-router",
+    "vue-i18n",
+    "axios"
+  ],
+  "kategorien": [
+    "Web-App",
+    "API"
+  ],
+  "schlagworte": [
+    "symfony",
+    "api-platform",
+    "jwt",
+    "vue",
+    "spa",
+    "vite",
+    "pinia",
+    "doctrine",
+    "rechtesystem",
+    "api-first",
+    "mandantenfaehig"
+  ],
+  "quelle": "erprobt",
+  "reifegrad": "erprobt"
+}

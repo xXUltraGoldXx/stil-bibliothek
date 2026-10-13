@@ -1,0 +1,17 @@
+/* Leitstand dunkel: Tokens */
+:root{
+  --grund:#05070d; --glas:rgba(6,22,36,.55); --glas-dicht:rgba(13,20,36,.92); --feld:rgba(20,80,110,.12);
+  --flaeche:#1c2a4a; --flaeche-2:#16203a;
+  --text:#dfe6f5; --text-hell:#a8f2ff; --text-2:#8fa3c8; --text-3:#5d6d8e;
+  --rand-aktiv:rgba(90,220,255,.45); --rand-struktur:#2c3a5c;
+  --handlung:#f15f2c; --handlung-text:#ffffff; --hinweis:#ffd166; --warnung:#ff8a8a;
+  --font-ui:system-ui,sans-serif;
+  --font-mono:ui-monospace,Consolas,monospace;
+  --fs-meta:.6875rem; --fs-label:.75rem; --fs-text:.8125rem; --fs-liste:.875rem; --fs-titel:.9375rem; --fs-zahl:1.25rem; --fs-hero:1.75rem;
+  --lh-text:1.45;
+  --sp-1:3px; --sp-2:6px; --sp-3:9px; --sp-4:12px; --sp-5:18px; --sp-6:32px;
+  --r-klein:3px; --r:6px; --r-panel:12px; --r-rund:50%;
+  --glow:0 0 18px rgba(80,200,255,.22),inset 0 0 26px rgba(80,200,255,.1);
+  --aktiv-kante:inset 0 -2px 0 rgba(120,190,255,.85);
+  --panel-breite:330px; --breite:1100px; --touch:46px;
+}

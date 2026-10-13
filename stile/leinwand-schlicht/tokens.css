@@ -1,0 +1,25 @@
+/* Leinwand schlicht: Tokens */
+:root{
+  --weiss:#ffffff; --schwarz:#000000;
+  --text:#000000; --text-2:rgba(0,0,0,.54); --text-auf-schwarz:#ffffff; --text-2-auf-schwarz:rgba(255,255,255,.6);
+  --linie:rgba(0,0,0,.16); --linie-auf-schwarz:rgba(255,255,255,.16); --hover-hell:rgba(0,0,0,.04); --hover-schwarz:#222222;
+  --bild-violett:#a98bf8; --bild-dunkel:#3b2d63; --bild-gelb:#ffff5c; --bild-blau:#00b6ff; --bild-gruen:#7fb58f;
+
+  --font-sans:"Inter Tight",system-ui,"SF Pro Display",Helvetica,Arial,sans-serif;
+  --font-mono:"DM Mono","SF Mono",Menlo,monospace;
+
+  --fs-display:clamp(3rem,7vw,5.5rem); --fs-h2:clamp(2rem,3.5vw,2.75rem); --fs-h3:1.875rem; --fs-titel:1.375rem;
+  --fs-text:1.125rem; --fs-ui:1rem; --fs-label:.8125rem;
+  --fw-leicht:330; --fw-normal:400;
+  --lh-display:1; --lh-h2:1.1; --lh-text:1.4;
+  --ls-display:-.078rem; --ls-h2:-.04rem; --ls-ui:-.01em; --ls-label:.03rem;
+
+  --sp-1:.25rem; --sp-2:.5rem; --sp-3:.75rem; --sp-4:1rem; --sp-6:1.5rem; --sp-8:2rem; --sp-10:2.5rem; --sp-14:3.5rem; --sp-16:4rem; --sp-20:5rem; --sp-30:7.5rem;
+  --rand:1rem; --rand-gross:2.5rem; --luecke:1rem; --breite:95rem; --breite-text:45ch;
+  --abschnitt:5rem; --abschnitt-mobil:2.5rem;
+
+  --r-mikro:2px; --r-klein:4px; --r-knopf:.5rem; --r-box:1rem; --r-bild:1.5rem; --r-pille:9999px;
+  --schatten-ring:0 0 0 1px rgba(0,0,0,.16) inset;
+  --schatten-weich:0 .25rem 2rem rgba(0,0,0,.1);
+  --zeit:.15s;
+}

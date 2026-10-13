@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@600&family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);color:var(--schwarz);background:var(--weiss);overflow-wrap:break-word}
+h1,h2,h3{font-family:var(--font-titel);font-weight:var(--gw-titel);letter-spacing:var(--ls-titel);line-height:var(--lh-titel);margin:0}
+h1{font-size:var(--fs-h1)}
+h2{font-size:var(--fs-h2);line-height:1.125}
+h3{font-size:var(--fs-h3);line-height:1.17}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+.nav{background:var(--weiss);border-bottom:1px solid var(--grau-4)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-md);min-height:57px;flex-wrap:wrap}
+.logo{font-family:var(--font-titel);font-weight:600;font-size:1.25rem;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{display:inline-block;width:12px;height:12px;background:var(--gruen)}
+.nav ul{display:flex;gap:var(--sp-lg);list-style:none;margin:0;padding:0}
+.nav a{font-weight:600;text-decoration:none}
+.dunkel{background:var(--tiefschwarz);color:var(--weiss)}
+.hero{padding:var(--abschnitt) 0 calc(var(--abschnitt) + var(--stufe))}
+.hero .wrap{display:grid;grid-template-columns:1fr;gap:var(--sp-xl);align-items:center}
+.hero p.lead{font-size:var(--fs-lead);line-height:1.3;margin:var(--sp-lg) 0 var(--sp-xl);max-width:36ch}
+.textlink{font-weight:600;text-decoration:none;border-bottom:2px solid currentColor;padding-bottom:2px;transition:color .15s}
+.textlink:hover{color:var(--gruen)}
+.pixel{width:100%;max-width:240px;aspect-ratio:1/1.2;display:block}
+.treppe{height:var(--stufe);background:var(--tiefschwarz);position:relative}
+.treppe::before,.treppe::after{content:"";position:absolute;bottom:0;height:50%;background:var(--weiss)}
+.treppe::before{left:0;width:25%;height:100%}
+.treppe::after{left:25%;width:35%}
+.treppe.rev{background:var(--weiss)}
+.treppe.rev::before,.treppe.rev::after{background:var(--tiefschwarz)}
+.abschnitt{padding:var(--abschnitt) 0}
+.abschnitt h2{max-width:20ch}
+.abschnitt .lead{font-size:var(--fs-lead);line-height:1.3;margin-top:var(--sp-lg);max-width:var(--breite-text)}
+.knopf{display:inline-block;font-family:var(--font-text);font-size:var(--fs-text);font-weight:var(--gw-knopf);line-height:24px;padding:6px 24px;border:var(--linie) solid var(--schwarz);border-radius:var(--r);background:var(--schwarz);color:var(--weiss);text-decoration:none;transition:background .15s,color .15s}
+.knopf:hover{background:var(--weiss);color:var(--schwarz)}
+.knopf.zwei{background:transparent;color:var(--schwarz)}
+.knopf.zwei:hover{background:var(--schwarz);color:var(--weiss)}
+.dunkel .knopf{background:var(--weiss);color:var(--schwarz);border-color:var(--weiss)}
+.dunkel .knopf:hover{background:transparent;color:var(--weiss)}
+.knopf:focus-visible,.textlink:focus-visible{outline:2px solid var(--gruen);outline-offset:3px}
+.karten{display:grid;grid-template-columns:1fr;gap:var(--sp-md);margin-top:var(--sp-2xl)}
+.karte{border:1px solid var(--grau-1);border-radius:var(--r-karte);display:flex;flex-direction:column}
+.karte .bild{aspect-ratio:16/10;background:var(--grau-1);position:relative;overflow:hidden}
+.karte .bild::after{content:"";position:absolute;right:16px;bottom:16px;width:48px;height:48px;background:var(--gruen)}
+.karte:nth-child(2) .bild{background:var(--rosa)}
+.karte:nth-child(2) .bild::after{background:var(--tiefschwarz)}
+.karte:nth-child(3) .bild{background:var(--grau-hell)}
+.karte:nth-child(3) .bild::after{background:var(--tiefschwarz);width:96px;height:24px}
+.karte .inhalt{padding:var(--sp-lg);display:flex;flex-direction:column;gap:var(--sp-sm)}
+.karte p{color:var(--grau-hell)}
+.zahlen{display:grid;grid-template-columns:1fr;gap:var(--sp-xl);margin-top:var(--sp-2xl)}
+.zahlen strong{display:block;font-family:var(--font-titel);font-weight:600;font-size:3rem;line-height:1;letter-spacing:-.01em}
+.zahlen span{color:var(--grau-1)}
+.rosa{background:var(--rosa-flaeche)}
+.rosa blockquote{margin:0;font-family:var(--font-titel);font-weight:600;font-size:clamp(1.5rem,3.5vw,2.5rem);line-height:1.15;max-width:28ch}
+.rosa cite{display:block;margin-top:var(--sp-lg);font-style:normal;font-size:var(--fs-klein);color:var(--grau-1)}
+.kontakt .wrap{display:grid;grid-template-columns:1fr;gap:var(--sp-xl)}
+.kontakt .zeile{display:flex;gap:var(--sp-md);flex-wrap:wrap;margin-top:var(--sp-xl)}
+footer{padding:var(--sp-2xl) 0}
+footer .spalten{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-xl)}
+footer h3{font-size:1rem;margin-bottom:var(--sp-sm)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-xs);color:var(--grau-3)}
+footer small{display:block;margin-top:var(--sp-xl);color:var(--grau-3);font-size:var(--fs-klein)}
+@media (min-width:900px){
+  .hero .wrap{grid-template-columns:1.6fr 1fr}
+  .pixel{margin-left:auto;max-width:300px}
+  .karten{grid-template-columns:repeat(3,1fr);gap:var(--sp-lg)}
+  .zahlen{grid-template-columns:repeat(3,1fr)}
+  .kontakt .wrap{grid-template-columns:1.4fr 1fr;align-items:end}
+  footer .spalten{grid-template-columns:2fr 1fr 1fr 1fr}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="#"><i></i>Nordwerk</a>
+    <ul>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#haltung">Haltung</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="dunkel hero">
+  <div class="wrap">
+    <div>
+      <h1>Gutes Design beginnt mit Haltung.</h1>
+      <p class="lead">Wir bauen digitale Werkzeuge für Menschen, die Kontrolle über ihre Daten behalten wollen – klar, schnell und verständlich.</p>
+      <a class="textlink" href="#leistungen">Mehr erfahren</a>
+    </div>
+    <svg class="pixel" viewBox="0 0 100 120" role="img" aria-label="Pixelzeichen aus Quadraten">
+      <rect x="0" y="0" width="12" height="120" fill="#00d230"/>
+      <rect x="28" y="20" width="12" height="12" fill="#00d230"/>
+      <rect x="44" y="0" width="56" height="12" fill="#00d230"/>
+      <rect x="44" y="12" width="12" height="60" fill="#00d230"/>
+      <rect x="28" y="52" width="72" height="20" fill="#00d230"/>
+      <rect x="88" y="12" width="12" height="40" fill="#00d230"/>
+    </svg>
+  </div>
+</header>
+<div class="treppe" aria-hidden="true"></div>
+
+<section class="abschnitt" id="leistungen">
+  <div class="wrap">
+    <h2>Lerne digitale Produkte wieder zu mögen.</h2>
+    <p class="lead">Wir entwerfen Oberflächen, die wenig verlangen und viel zurückgeben: ehrliche Texte, saubere Abläufe, keine Tricks.</p>
+    <div class="zahlen">
+      <div><strong>120</strong><span>abgeschlossene Projekte</span></div>
+      <div><strong>14</strong><span>Menschen im Team</span></div>
+      <div><strong>9 Jahre</strong><span>unabhängig und eigenfinanziert</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="treppe rev" aria-hidden="true"></div>
+<section class="dunkel abschnitt" id="produkte">
+  <div class="wrap">
+    <h2>Drei Wege, gemeinsam zu starten.</h2>
+    <div class="karten">
+      <article class="karte">
+        <div class="bild" role="img" aria-label="Platzhalter"></div>
+        <div class="inhalt"><h3>Strategie-Werkstatt</h3><p>In zwei Wochen von der vagen Idee zum klaren Bild.</p><a class="textlink" href="#kontakt" style="align-self:flex-start">Ansehen</a></div>
+      </article>
+      <article class="karte">
+        <div class="bild" role="img" aria-label="Platzhalter"></div>
+        <div class="inhalt"><h3>Oberflächen</h3><p>Gestaltung und Umsetzung für Web und Mobilgeräte.</p><a class="textlink" href="#kontakt" style="align-self:flex-start">Ansehen</a></div>
+      </article>
+      <article class="karte">
+        <div class="bild" role="img" aria-label="Platzhalter"></div>
+        <div class="inhalt"><h3>Design-Systeme</h3><p>Ein gemeinsames Regelwerk, das Teams wirklich nutzen.</p><a class="textlink" href="#kontakt" style="align-self:flex-start">Ansehen</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+<div class="treppe" aria-hidden="true"></div>
+
+<section class="rosa abschnitt" id="haltung">
+  <div class="wrap">
+    <blockquote>Wir gestalten nur, was wir selbst gern benutzen würden.</blockquote>
+    <cite>Lena Hartmann, Gründerin</cite>
+  </div>
+</section>
+
+<section class="abschnitt kontakt" id="kontakt">
+  <div class="wrap">
+    <div>
+      <h2>Lass uns über dein Vorhaben sprechen.</h2>
+      <p class="lead">Wir antworten innerhalb von zwei Werktagen, persönlich und ohne Verkaufsdruck.</p>
+    </div>
+    <div class="zeile">
+      <a class="knopf" href="#">Gespräch vereinbaren</a>
+      <a class="knopf zwei" href="#">Arbeiten ansehen</a>
+    </div>
+  </div>
+</section>
+
+<footer class="dunkel">
+  <div class="wrap">
+    <div class="spalten">
+      <div><h3>Nordwerk Studio</h3><p style="color:var(--grau-3);max-width:30ch">Digitale Gestaltung mit Haltung, seit 2017.</p></div>
+      <div><h3>Studio</h3><ul><li>Über uns</li><li>Team</li><li>Karriere</li></ul></div>
+      <div><h3>Leistungen</h3><ul><li>Strategie</li><li>Oberflächen</li><li>Systeme</li></ul></div>
+      <div><h3>Rechtliches</h3><ul><li>Impressum</li><li>Datenschutz</li></ul></div>
+    </div>
+    <small>© Nordwerk Studio, alle Inhalte frei erfunden.</small>
+  </div>
+</footer>
+</body>
+</html>

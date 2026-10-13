@@ -1,0 +1,14 @@
+/* Fachmarkt freundlich: Tokens */
+:root{
+  --grund:#f3f3f3; --karte:#ffffff; --dunkel:#070707; --text:#1f1f1f; --text-2:#686868; --text-3:#8a8a8a;
+  --linie:#e6e6e6; --rahmen:#b4b4b4; --gruen:#13e47c; --gruen-text:#07140d; --mint:#e8fafb;
+  --violett:#7e00f3; --cyan:#00ddf6; --fehler:#e64155; --erfolg:#00b27d;
+  --font-text:"Open Sans",system-ui,sans-serif;
+  --fs-h2:clamp(1.375rem,4vw,2.25rem); --fs-h3:clamp(1.25rem,3vw,1.75rem); --fs-text:1rem; --fs-klein:.875rem; --fs-meta:.75rem; --fs-knopf:1.125rem;
+  --ls-h2:-.045em; --ls-h3:-.025em; --ls-knopf:-.02em;
+  --lh-h2:1.28; --lh-text:1.5;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:40px; --s8:64px; --s9:96px;
+  --r-klein:4px; --r-karte:6px; --r-dialog:12px; --r-pille:9999px;
+  --schatten-dialog:0 0 26px rgba(28,28,28,.2);
+  --breite:1200px; --luecke:40px;
+}

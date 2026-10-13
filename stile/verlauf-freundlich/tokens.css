@@ -1,0 +1,24 @@
+/* Verlauf freundlich: Tokens */
+:root{
+  --weiss:#ffffff; --grau-hell:#f6f7f8; --lavendel:#f1ebff;
+  --tinte:#0f1015; --tinte-2:rgba(15,16,21,.85); --tinte-3:rgba(16,18,25,.7);
+  --dunkel:#0f1015;
+  --violett:#8947f0; --violett-start:#992bff; --indigo:#5a32fa; --violett-tief:#7332d8;
+  --tuerkis:#13a3b5; --eisblau:#93e8f6; --cyan:#12bcc4;
+  --rosa:#ffd6d8; --butter:#ffe9ac;
+  --knopf-hell:#ebecff;
+  --verlauf-hero:linear-gradient(180deg,#992bff 0%,#5a32fa 30%,#13a3b5 57%,#93e8f6 77%,#f1ebff 95%);
+  --verlauf-knopf:linear-gradient(90deg,#12bcc4,#5a32fa,#7332d8);
+  --verlauf-koralle:linear-gradient(180deg,#eb2139 10%,#ff697a 31%,#ffb8c0 65%);
+  --verlauf-blau:linear-gradient(180deg,#0a87cc 0%,#2babc9 50%,#97e1ee 100%);
+  --verlauf-orange:linear-gradient(180deg,#fec19c 0%,#ff6108 98%);
+  --font-text:"Figtree","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --fs-hero:clamp(2.6rem,6.5vw,5rem); --fs-h2:clamp(1.9rem,4vw,3.5rem); --fs-h3:1.75rem;
+  --fs-text:1.0625rem; --fs-ui:.875rem; --fs-label:.6875rem;
+  --lh-titel:1.1; --lh-text:1.5; --ls-titel:-.01em;
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:48px; --sp-8:72px;
+  --breite:1216px; --rand:3rem; --rand-mobil:1.25rem; --luecke:1.5rem;
+  --r-ui:10px; --r-knopf:12px; --r-gross:24px; --r-chip:9999px;
+  --schatten-knopf:0 2px 5px rgba(21,30,130,.12),0 6px 12px rgba(21,30,130,.06);
+  --glanz:inset 0 1px .5px rgba(255,255,255,.25),inset 0 -1px .5px rgba(0,0,0,.2);
+}

@@ -1,0 +1,24 @@
+/* Weich freundlich: Tokens */
+:root{
+  --grund:#fbfaf9; --grund-warm:#f7f5f2; --karte:#ffffff;
+  --text:rgba(0,0,0,.96); --text-2:rgba(0,0,0,.66);
+  --aktion:#f26a2e; --aktion-text:#ffffff;
+  --link:#1074cc; --fokus:#3969ef;
+  --himmel:#cbeaff; --himmel-text:#01142d;
+  --pfirsich:#ffe4cc; --pfirsich-text:#290e0a;
+  --mint:#cfebda; --mint-text:#082119;
+  --butter:#ffeab8; --butter-text:#240f04;
+  --knopf-neutral:#eeeeee; --haarlinie:rgba(0,0,0,.08); --linie:rgba(0,0,0,.12);
+  --font-text:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --font-display:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --fs-h1:clamp(2.75rem,5vw,3.25rem); --fs-h2:clamp(2.25rem,4vw,2.75rem); --fs-h3:1.25rem;
+  --fs-text:1rem; --fs-klein:.875rem; --fs-etikett:.675rem;
+  --lh-h1:1; --lh-h2:1.1; --lh-text:1.5; --ls-h:-1px;
+  --gw-text:400; --gw-knopf:700;
+  --r-karte:32px 32px 32px 0; --r-pastell:24px; --r-gross:40px; --r-pille:999px; --r-etikett:32px 0 32px 0;
+  --schatten-karte:0 2px 4px rgba(0,0,0,.04),0 4px 20px rgba(0,0,0,.04);
+  --schatten-knopf:0 1px 2px rgba(0,0,0,.06);
+  --schatten-suche:0 8px 16px rgba(0,0,0,.06),0 2px 6px rgba(0,0,0,.06),0 0 0 1px rgba(0,0,0,.08);
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:36px; --s7:64px; --s8:80px;
+  --breite:1152px; --breite-text:900px;
+}

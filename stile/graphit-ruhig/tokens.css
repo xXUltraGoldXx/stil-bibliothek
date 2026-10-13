@@ -1,0 +1,21 @@
+/* Graphit ruhig: Tokens */
+:root{
+  --canvas:#08090a; --canvas-2:#0f1011; --canvas-3:#161718;
+  --surface:rgba(255,255,255,.01); --surface-hover:rgba(255,255,255,.03);
+  --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.12); --line-soft:rgba(255,255,255,.05);
+  --text:#f7f8f8; --text-2:#d0d6e0; --text-muted:#8a8f98; --text-faint:#62666d;
+  --accent:#6c76dc; --accent-text:#ffffff; --btn-light:#e6e6e6; --btn-light-text:#08090a;
+  --dot-gelb:#e4f222; --dot-orange:#f7bf8b; --dot-rosa:#f79ce0; --dot-tuerkis:#83dcdc; --dot-gruen:#27a644; --dot-rot:#f34e52;
+  --glow:radial-gradient(circle,rgba(255,255,255,.04) 0%,rgba(0,0,0,0) 50%);
+  --font-body:"Inter","SF Pro Display",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --w-regular:400; --w-medium:510; --w-semi:590;
+  --fs-h1:clamp(2.375rem,5.2vw,4rem); --fs-h2:clamp(1.5rem,3.2vw,2.5rem); --fs-statement:clamp(1.5rem,2.8vw,2.25rem);
+  --fs-h3:1.25rem; --fs-body:.9375rem; --fs-sm:.8125rem; --fs-xs:.75rem; --fs-mono:.6875rem;
+  --ls-h1:-.022em; --ls-body:-.011em;
+  --sp-1:.25rem; --sp-2:.5rem; --sp-3:.75rem; --sp-4:1rem; --sp-6:1.5rem; --sp-8:2rem; --sp-10:2.5rem; --sp-16:4rem; --sp-24:6rem; --sp-32:8rem;
+  --r-xs:4px; --r-sm:6px; --r-md:8px; --r-lg:12px; --r-pill:9999px;
+  --shadow-float:0 2px 32px rgba(0,0,0,.25); --shadow-inset:inset 0 0 0 .5px rgba(255,255,255,.08);
+  --ease-out:cubic-bezier(.16,1,.3,1); --dur-fast:150ms; --dur-base:200ms; --dur-reveal:500ms;
+  --breite:1280px; --rand:clamp(1rem,3vw,2rem); --abstand-sektion:clamp(4.5rem,10vw,8rem);
+}

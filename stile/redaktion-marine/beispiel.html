@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio: Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;700&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--weiss);color:var(--tinte);font-family:var(--font-ui);font-size:var(--fs-text);line-height:var(--lh-text)}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p,ul{margin:0;padding:0}
+ul{list-style:none}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+.kopf{background:var(--marine);color:var(--weiss)}
+.kopf-zeile{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:var(--s4);padding-top:var(--s6)}
+.logo{font-family:var(--font-display);font-weight:700;font-size:clamp(2.25rem,8vw,4.5rem);line-height:1;color:var(--hellblau);padding-bottom:var(--s3)}
+.haupt{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5);padding-bottom:0}
+.haupt a{font-family:var(--font-display);font-weight:700;font-size:1.5rem;padding:var(--s2) 0 var(--s3);border-bottom:4px solid transparent}
+.haupt a.aktiv{border-color:var(--rot)}
+.unter{background:var(--marine-dunkel);color:var(--hellblau);font-size:.875rem}
+.unter ul{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);padding:var(--s3) 0}
+.hinweis{background:var(--hellblau);color:var(--tinte);font-size:.875rem}
+.hinweis .wrap{display:flex;align-items:center;gap:var(--s3);padding-top:var(--s3);padding-bottom:var(--s3)}
+.hinweis svg{flex:none}
+.hero{display:grid;grid-template-columns:1fr;gap:var(--luecke);padding-top:var(--s5);padding-bottom:var(--s6)}
+.rubrik-name{font-family:var(--font-display);font-weight:700;font-size:var(--fs-h2);line-height:1.15}
+.kicker{font-family:var(--font-display);font-weight:500;font-size:.9375rem;color:var(--rot)}
+.hero h1{font-family:var(--font-display);font-weight:500;font-size:var(--fs-hero);line-height:var(--lh-hero);margin:var(--s1) 0 var(--s3)}
+.standfirst{font-size:var(--fs-standfirst);line-height:1.3;color:var(--tinte-2)}
+.meta{font-size:var(--fs-meta);color:var(--tinte-3);margin-top:var(--s2)}
+.bild{background:repeating-linear-gradient(135deg,var(--grau-2) 0 10px,#e4e4e4 10px 11px);position:relative;min-height:180px;aspect-ratio:5/3;width:100%}
+.bild.gross{aspect-ratio:3/2}
+.bild.blau{background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.8) 100%),var(--marine)}
+.bild.kreis{border-radius:var(--r-kreis);aspect-ratio:1/1;min-height:0;width:98px}
+.band{background:var(--grau-1);height:100px}
+.rubrik{display:grid;grid-template-columns:1fr;gap:var(--s4) var(--luecke);padding-top:var(--s4);padding-bottom:var(--s6);border-top:1px solid var(--linie)}
+.rubrik>header{border-top:2px solid var(--tinte-2);padding-top:var(--s2)}
+.teaser-reihe{display:grid;grid-template-columns:1fr;gap:var(--s5) 0}
+.teaser{padding-top:var(--s2);border-top:1px solid var(--linie)}
+.teaser h3{font-family:var(--font-display);font-weight:var(--gewicht-teaser);font-size:var(--fs-klein);line-height:var(--lh-teaser);margin:var(--s1) 0 var(--s2)}
+.teaser .kicker{display:block}
+.teaser .bild{margin-bottom:var(--s3)}
+.sport .kicker,.sport header{color:var(--sport)}
+.sport header{border-top-color:var(--sport)}
+.sport .teaser{border-top-color:var(--sport)}
+.sport .kicker{color:var(--sport)}
+.meinung{background:var(--meinung-flaeche)}
+.meinung .rubrik{border-top:0}
+.meinung header{border-top-color:var(--meinung)}
+.meinung .kicker{color:var(--meinung)}
+.meinung .teaser{border-top-color:var(--meinung);display:flex;gap:var(--s4);align-items:flex-start}
+.meinung .bild.kreis{flex:none;width:72px}
+.cta{background:var(--grau-1);padding:var(--s6) 0}
+.cta-box{display:grid;grid-template-columns:1fr;gap:var(--s5);border-top:2px solid var(--tinte);padding-top:var(--s4)}
+.cta h2{font-family:var(--font-display);font-weight:700;font-size:var(--fs-h2);line-height:1.15;margin-bottom:var(--s2)}
+.feld{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s4)}
+.feld input{flex:1 1 200px;min-width:0;height:var(--hoehe-knopf);border:1px solid var(--linie-stark);border-radius:var(--r);padding:0 var(--s3);font:inherit;background:var(--weiss)}
+.knopf{display:inline-flex;align-items:center;justify-content:center;height:var(--hoehe-knopf);padding:0 var(--s5);border-radius:var(--r-pille);background:var(--marine);color:var(--weiss);font-family:var(--font-ui);font-weight:700;font-size:1.0625rem;border:1px solid var(--marine);cursor:pointer}
+.knopf.zwei{background:var(--weiss);color:var(--marine)}
+.knopf:hover{background:var(--marine-dunkel)}
+.knopf.zwei:hover{background:var(--grau-2)}
+.teaser a:hover h3{color:var(--rot)}
+.fuss{background:var(--weiss);border-top:1px solid var(--linie-stark);padding:var(--s5) 0 var(--s6);font-size:var(--fs-meta);font-weight:700}
+.fuss .spalten{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5) var(--luecke)}
+.fuss li{padding:var(--s1) 0;font-weight:400}
+.fuss h4{margin:0 0 var(--s2);font-size:var(--fs-meta)}
+@media (min-width:740px){
+  .hero{grid-template-columns:1fr 1.3fr;align-items:start}
+  .rubrik{grid-template-columns:1fr 4fr}
+  .teaser-reihe{grid-template-columns:repeat(2,1fr);gap:var(--s5) var(--luecke)}
+  .cta-box{grid-template-columns:2fr 1fr}
+  .fuss .spalten{grid-template-columns:repeat(4,1fr)}
+}
+@media (min-width:1040px){
+  .hero{grid-template-columns:.7fr 1.6fr 1.9fr}
+  .teaser-reihe{grid-template-columns:repeat(4,1fr)}
+  .teaser h3{font-size:var(--fs-teaser)}
+  .hero h1{font-size:2.125rem}
+}
+@media (max-width:739px){
+  .rubrik-name{font-size:1.5rem;line-height:1.15}
+  .haupt a{font-size:1.25rem}
+}
+</style>
+</head>
+<body>
+<header class="kopf">
+  <div class="wrap">
+    <div class="kopf-zeile">
+      <nav class="haupt" aria-label="Hauptnavigation">
+        <a class="aktiv" href="#top">Lage</a>
+        <a href="#meinung">Meinung</a>
+        <a href="#sport">Sport</a>
+        <a href="#abo">Brief</a>
+      </nav>
+      <div class="logo">Nordwerk Journal</div>
+    </div>
+  </div>
+  <div class="unter">
+    <div class="wrap">
+      <ul>
+        <li><a href="#top">Stadt</a></li>
+        <li><a href="#top">Region</a></li>
+        <li><a href="#top">Wirtschaft</a></li>
+        <li><a href="#top">Klima</a></li>
+        <li><a href="#top">Wissenschaft</a></li>
+        <li><a href="#top">Handwerk</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="hinweis">
+  <div class="wrap">
+    <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="#0c3068"/><rect x="10" y="9" width="2" height="7" fill="#fff"/><circle cx="11" cy="6.2" r="1.3" fill="#fff"/></svg>
+    <span>Sie lesen die Gesamtausgabe. Die Regionalausgabe finden Sie unter Region.</span>
+  </div>
+</div>
+
+<main id="top">
+  <section class="wrap hero" aria-labelledby="h-lage">
+    <div class="rubrik-name" id="h-lage">Lage</div>
+    <div>
+      <span class="kicker">Stadtentwicklung</span>
+      <h1>Alte Werfthalle wird zum offenen Arbeitsquartier für 300 Betriebe</h1>
+      <p class="standfirst">Der Umbau beginnt im Frühjahr. Statt Büros entstehen Werkstätten, Lager und ein gemeinsamer Innenhof.</p>
+      <p class="meta">Von Marlene Kühn · vor 2 Stunden · 6 Min. Lesezeit</p>
+    </div>
+    <div class="bild gross blau" role="img" aria-label="Platzhalter für ein Pressefoto"></div>
+  </section>
+
+  <div class="band" aria-hidden="true"></div>
+
+  <section class="wrap rubrik" aria-labelledby="h-wirt">
+    <header><h2 class="rubrik-name" id="h-wirt">Wirtschaft</h2></header>
+    <div class="teaser-reihe">
+      <article class="teaser">
+        <div class="bild"></div>
+        <a href="#top"><span class="kicker">Mittelstand</span><h3>Zulieferer stellen ihre Lieferketten auf regionale Lager um</h3></a>
+        <p class="standfirst">Kürzere Wege sollen Engpässe im Winter abfedern.</p>
+        <p class="meta">vor 3 Stunden</p>
+      </article>
+      <article class="teaser">
+        <div class="bild"></div>
+        <a href="#top"><span class="kicker">Handel</span><h3>Wochenmärkte verzeichnen so viele Stände wie seit zehn Jahren nicht</h3></a>
+        <p class="standfirst">Besonders Direktvermarkter profitieren.</p>
+        <p class="meta">vor 5 Stunden</p>
+      </article>
+      <article class="teaser">
+        <a href="#top"><span class="kicker">Arbeit</span><h3>Vier-Tage-Woche im Handwerk: Erste Betriebe ziehen Bilanz</h3></a>
+        <p class="standfirst">Weniger Krankmeldungen, aber mehr Planungsaufwand.</p>
+        <p class="meta">vor 6 Stunden</p>
+      </article>
+      <article class="teaser">
+        <a href="#top"><span class="kicker">Energie</span><h3>Neue Wärmenetze erreichen erstmals die Randbezirke</h3></a>
+        <p class="standfirst">Anschlussquote liegt bei 62 Prozent.</p>
+        <p class="meta">gestern</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="band" aria-hidden="true"></div>
+
+  <div class="meinung" id="meinung">
+    <section class="wrap rubrik" aria-labelledby="h-mein">
+      <header><h2 class="rubrik-name" id="h-mein">Meinung</h2></header>
+      <div class="teaser-reihe">
+        <article class="teaser">
+          <div class="bild kreis"></div>
+          <a href="#top"><span class="kicker">Kommentar</span><h3>Warum gute Werkstätten Platz in der Innenstadt verdienen</h3></a>
+          <p class="meta">Jonas Reimer</p>
+        </article>
+        <article class="teaser">
+          <div class="bild kreis"></div>
+          <a href="#top"><span class="kicker">Analyse</span><h3>Der Mietmarkt braucht weniger Versprechen und mehr Baukräne</h3></a>
+          <p class="meta">Selma Ortega</p>
+        </article>
+        <article class="teaser">
+          <div class="bild kreis"></div>
+          <a href="#top"><span class="kicker">Gastbeitrag</span><h3>Lernen, wie man repariert, ist Bildungspolitik</h3></a>
+          <p class="meta">Tarek Vogt</p>
+        </article>
+        <article class="teaser">
+          <div class="bild kreis"></div>
+          <a href="#top"><span class="kicker">Kolumne</span><h3>Was wir von der Nachbarschaftsbäckerei über Vertrauen lernen</h3></a>
+          <p class="meta">Ines Falk</p>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <section class="sport wrap rubrik" id="sport" aria-labelledby="h-sport">
+    <header><h2 class="rubrik-name" id="h-sport">Sport</h2></header>
+    <div class="teaser-reihe">
+      <article class="teaser">
+        <div class="bild"></div>
+        <a href="#top"><span class="kicker">Rudern</span><h3>Der Stadtachter gewinnt das Hafenrennen mit zwei Bootslängen Vorsprung</h3></a>
+        <p class="meta">vor 1 Stunde</p>
+      </article>
+      <article class="teaser">
+        <a href="#top"><span class="kicker">Fußball</span><h3>Aufsteiger siegt im Derby und führt die Tabelle an</h3></a>
+        <p class="meta">vor 4 Stunden</p>
+      </article>
+      <article class="teaser">
+        <a href="#top"><span class="kicker">Laufen</span><h3>Rekordfeld beim Herbstlauf entlang des Kanals</h3></a>
+        <p class="meta">gestern</p>
+      </article>
+      <article class="teaser">
+        <a href="#top"><span class="kicker">Handball</span><h3>Heimserie endet nach elf Siegen in Folge</h3></a>
+        <p class="meta">gestern</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta" id="abo" aria-labelledby="h-abo">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2 id="h-abo">Der Morgenbrief aus dem Nordwerk</h2>
+          <p class="standfirst">Jeden Werktag um 6 Uhr: die fünf wichtigsten Meldungen aus Stadt und Region, ruhig erklärt und ohne Werbung.</p>
+          <div class="feld">
+            <input type="text" placeholder="E-Mail-Adresse" aria-label="E-Mail-Adresse">
+            <a class="knopf" href="#abo">Brief abonnieren</a>
+          </div>
+        </div>
+        <div>
+          <p class="standfirst">Lieber vertiefen? Das Wochenmagazin liefert Hintergründe, Reportagen und lange Interviews.</p>
+          <p style="margin-top:12px"><a class="knopf zwei" href="#abo">Magazin ansehen</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="fuss">
+  <div class="wrap">
+    <div class="spalten">
+      <div><h4>Themen</h4><ul><li>Stadt</li><li>Region</li><li>Wirtschaft</li><li>Klima</li></ul></div>
+      <div><h4>Redaktion</h4><ul><li>Kontakt</li><li>Team</li><li>Hinweise geben</li><li>Korrekturen</li></ul></div>
+      <div><h4>Angebote</h4><ul><li>Morgenbrief</li><li>Magazin</li><li>Archiv</li><li>Veranstaltungen</li></ul></div>
+      <div><h4>Rechtliches</h4><ul><li>Impressum</li><li>Datenschutz</li><li>Barrierefreiheit</li><li>Nutzungsbedingungen</li></ul></div>
+    </div>
+    <p class="meta" style="font-weight:400;margin-top:24px">© Nordwerk Studio, erfundene Inhalte zu Demonstrationszwecken.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Gemeinsam planen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);color:var(--schwarz);background:var(--weiss)}
+h1,h2,h3{font-family:var(--font-display)}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--s4)}
+a{color:var(--link)}
+.knopf{display:inline-block;font-family:var(--font-text);font-size:var(--fs-knopf);font-weight:700;letter-spacing:var(--ls-knopf);text-transform:uppercase;text-decoration:none;text-align:center;padding:19px 40px 20px;border-radius:var(--r-knopf);background:var(--violett);color:var(--weiss);border:1px solid var(--violett);transition:background .2s,color .2s}
+.knopf:hover{background:var(--aubergine);border-color:var(--aubergine)}
+.knopf.kontur{background:transparent;color:var(--violett)}
+.knopf.kontur:hover{background:var(--lavendel);color:var(--aubergine)}
+.knopf.klein{padding:10px 20px}
+.dunkel .knopf.kontur{color:var(--weiss);border-color:var(--weiss)}
+.dunkel .knopf.kontur:hover{background:rgba(255,255,255,.12)}
+.dunkel .knopf:not(.kontur){background:var(--weiss);color:var(--aubergine);border-color:var(--weiss)}
+nav.top{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);min-height:80px;flex-wrap:wrap;padding-top:var(--s2);padding-bottom:var(--s2)}
+.logo{display:flex;align-items:center;gap:var(--s1);font-family:var(--font-display);font-weight:700;font-size:1.5rem;text-decoration:none;color:var(--schwarz)}
+.logo svg{width:28px;height:28px}
+.links{display:flex;gap:var(--s4);font-weight:600;flex-wrap:wrap}
+.links a{color:var(--schwarz);text-decoration:none}.links a:hover{color:var(--violett)}
+.aktionen{display:flex;gap:var(--s2);flex-wrap:wrap}
+.hero{background:linear-gradient(var(--lavendel) 5%,var(--weiss) 60%);text-align:center;padding:var(--s7) 0 0}
+.hero h1{font-size:var(--fs-h1);line-height:var(--lh-h1);font-weight:700;letter-spacing:-.012em;max-width:16ch;margin:0 auto var(--s4)}
+.lead{font-size:var(--fs-lead);max-width:44ch;margin:0 auto var(--s5);color:var(--schwarz)}
+.paar{display:flex;gap:var(--s3);justify-content:center;flex-wrap:wrap}
+.hinweis{margin-top:var(--s5);font-size:.875rem;font-weight:600;color:var(--text-2)}
+.vertrauen{display:flex;gap:var(--s5);justify-content:center;align-items:center;flex-wrap:wrap;margin:var(--s7) 0 var(--s6);color:var(--text-2);font-weight:700}
+.vertrauen span{font-family:var(--font-display);font-size:1.25rem;opacity:.75}
+.fenster{max-width:800px;margin:0 auto;background:var(--aubergine);border-radius:var(--r-karte) var(--r-karte) 0 0;padding:12px 12px 0;box-shadow:var(--schatten);text-align:left;position:relative}
+.fenster .leiste{display:flex;gap:8px;align-items:center;padding:0 4px 12px}
+.fenster .leiste i{width:12px;height:12px;border-radius:50%;background:#ff6a5f}
+.fenster .leiste i:nth-child(2){background:#ffc12f}.fenster .leiste i:nth-child(3){background:#2fc84a}
+.fenster .suche{flex:1;height:22px;border-radius:var(--r-pille);background:#83388a;margin-left:12px}
+.fenster .innen{display:grid;grid-template-columns:64px 1fr 1fr;gap:12px;min-height:280px}
+.fenster .seite{background:#400d40;border-radius:8px 8px 0 0}
+.fenster .spalte{background:var(--weiss);border-radius:8px 8px 0 0;padding:16px}
+.balken{height:12px;border-radius:var(--r-pille);background:#e8e8ea;margin-bottom:12px}
+.balken.k{width:50%}.balken.m{width:75%}
+.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f5a623,#a012cd);margin-bottom:12px}
+.pillen{display:flex;gap:var(--s2);justify-content:center;flex-wrap:wrap;padding:var(--s6) 0 var(--s8)}
+.pille{padding:12px 20px;border-radius:var(--r-pille);background:var(--lavendel);font-weight:600}
+.pille.an{background:var(--aubergine);color:var(--weiss)}
+.buehne{background:var(--aubergine);color:var(--weiss);padding:var(--s8) 0 calc(var(--s8) + 40px);border-radius:0 0 50% 50%/0 0 var(--r-buehne) var(--r-buehne);position:relative;overflow:hidden}
+.buehne h2{font-size:var(--fs-h2);line-height:1.25;font-weight:600;letter-spacing:-.008em;text-align:center;max-width:18ch;margin:0 auto var(--s4)}
+.buehne .lead{color:var(--weiss);text-align:center;margin-bottom:var(--s7)}
+.stern{position:absolute;width:22px;height:22px;animation:funkel 3s ease-in-out infinite}
+.s1{top:18%;left:8%}.s2{top:34%;right:9%;animation-delay:1s}.s3{bottom:14%;left:14%;animation-delay:2s}
+@keyframes funkel{0%,100%{opacity:.4}50%{opacity:1}}
+.funk{display:grid;grid-template-columns:1fr 1fr;gap:var(--s7);align-items:center;position:relative}
+.liste{display:flex;flex-direction:column;gap:var(--s3)}
+.liste div{padding:14px 24px;border-radius:var(--r-pille);font-weight:600;font-size:1.125rem;line-height:1.35;transition:background .3s}
+.liste div.an{background:var(--weiss);color:var(--schwarz)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:var(--ls-knopf);text-transform:uppercase;padding:2px 10px;border-radius:var(--r-pille);background:var(--lavendel);color:var(--violett);margin-left:8px}
+.bildfl{background:var(--weiss);border-radius:var(--r-karte);padding:var(--s4);min-height:260px;box-shadow:var(--schatten)}
+.neues{padding:var(--s8) 0}
+.kopfzeile{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s5)}
+.kopfzeile h2{font-size:2rem;font-weight:600;line-height:1.25}
+.kopfzeile a{font-weight:700}
+.karten{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.karte{background:var(--weiss);border-radius:var(--r-karte);box-shadow:var(--schatten);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.karte:hover{transform:translateY(-4px);box-shadow:var(--schatten-hover)}
+.karte .bf{height:170px;border-radius:var(--r-karte) var(--r-karte) 0 0;background:radial-gradient(60% 80% at 20% 70%,var(--schimmer-rosa),transparent),radial-gradient(60% 80% at 80% 60%,var(--schimmer-blau),transparent),var(--lavendel);display:flex;align-items:center;justify-content:center}
+.karte .bf span{display:block;width:60%;height:60%;background:var(--weiss);border-radius:8px 8px 0 0;align-self:flex-end;box-shadow:0 0 16px rgba(79,35,96,.12)}
+.karte .tx{padding:var(--s4)}
+.meta{font-size:var(--fs-meta);font-weight:700;letter-spacing:var(--ls-knopf);text-transform:uppercase;color:var(--violett)}
+.karte h3{font-size:var(--fs-h3);font-weight:700;line-height:1.3;margin:var(--s1) 0}
+.karte p{color:var(--text-2)}
+.schluss{background:var(--aubergine);color:var(--weiss);text-align:center;padding:var(--s8) 0}
+.schluss h2{font-size:clamp(1.75rem,4vw,3rem);font-weight:600;line-height:1.25;max-width:20ch;margin:0 auto var(--s5)}
+footer{padding:var(--s7) 0;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--luecke);font-size:.9rem}
+footer h4{font-size:.8rem;text-transform:uppercase;letter-spacing:var(--ls-knopf);margin-bottom:var(--s2)}
+footer a{display:block;color:var(--schwarz);text-decoration:none;margin-bottom:var(--s1)}footer a:hover{color:var(--violett)}
+@media(max-width:800px){
+.karten,.funk{grid-template-columns:1fr}
+footer{grid-template-columns:1fr 1fr}
+.links{display:none}
+.paar .knopf{width:100%}
+.fenster .innen{grid-template-columns:40px 1fr}
+.fenster .spalte+.spalte{display:none}
+.buehne{padding:var(--s7) 0 var(--s8)}
+.vertrauen{gap:var(--s3)}
+}
+@media(prefers-reduced-motion:reduce){.stern{animation:none}.karte{transition:none}}
+</style></head><body>
+<div class="w"><nav class="top">
+<a class="logo" href="#"><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="2" width="11" height="11" rx="3" fill="#7d0f9c"/><rect x="15" y="2" width="11" height="11" rx="5.5" fill="#f5a623"/><rect x="2" y="15" width="11" height="11" rx="5.5" fill="#2fc8b8"/><rect x="15" y="15" width="11" height="11" rx="3" fill="#4f2360"/></svg>Nordwerk</a>
+<div class="links"><a href="#funk">Funktionen</a><a href="#neu">Neuigkeiten</a><a href="#preise">Preise</a></div>
+<div class="aktionen"><a class="knopf kontur klein" href="#">Demo</a><a class="knopf klein" href="#preise">Starten</a></div></nav></div>
+
+<header class="hero"><div class="w">
+<h1>Dein Team und Assistenten arbeiten zusammen</h1>
+<p class="lead">Nordwerk Studio bündelt Gespräche, Aufgaben und Dateien an einem Ort, damit Projekte ohne Umwege vorankommen.</p>
+<div class="paar"><a class="knopf" href="#preise">Jetzt starten</a><a class="knopf kontur" href="#funk">Funktionen ansehen →</a></div>
+<p class="hinweis">Deine Daten bleiben in Europa gespeichert.</p>
+<div class="vertrauen"><span>Von Teams genutzt</span><span>Brunnen&amp;Co</span><span>Kaltwerk</span><span>Lindner</span><span>Fährhaus</span></div>
+<div class="fenster" role="img" aria-label="Platzhalter für eine Produktansicht">
+<div class="leiste"><i></i><i></i><i></i><div class="suche"></div></div>
+<div class="innen"><div class="seite"></div>
+<div class="spalte"><div class="avatar"></div><div class="balken m"></div><div class="balken"></div><div class="balken k"></div><div class="balken"></div></div>
+<div class="spalte"><div class="balken k"></div><div class="balken"></div><div class="balken m"></div></div></div></div>
+</div></header>
+
+<div class="w"><div class="pillen"><span class="pille an">Assistent fragen</span><span class="pille">Launch planen</span><span class="pille">Projekte ausführen</span><span class="pille">Kundschaft betreuen</span><span class="pille">Aufgaben automatisieren</span></div></div>
+
+<section class="buehne dunkel" id="funk"><div class="w">
+<svg class="stern s1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z" fill="#fff"/></svg>
+<svg class="stern s2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z" fill="#fff"/></svg>
+<svg class="stern s3" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z" fill="#fff"/></svg>
+<h2>Deine Möglichkeiten mit Assistenten erweitern</h2>
+<p class="lead">Die Assistenten fassen Gespräche zusammen, suchen Antworten und halten Aufgaben im Blick, damit du dich auf das Wesentliche konzentrierst.</p>
+<div class="funk"><div class="liste">
+<div class="an">Code vor dem Release prüfen</div>
+<div>Angebote aktualisieren lassen <span class="badge">Neu</span></div>
+<div>Verpasste Unterhaltung zusammenfassen</div>
+<div>Schnelle Antworten auf Fachfragen</div>
+<div>Notizen im Kurzgespräch festhalten</div></div>
+<div class="bildfl" role="img" aria-label="Platzhalter für eine Detailansicht"><div class="avatar"></div><div class="balken m"></div><div class="balken"></div><div class="balken k"></div><div class="balken m"></div><div class="balken"></div></div>
+</div></div></section>
+
+<section class="neues" id="neu"><div class="w">
+<div class="kopfzeile"><div><h2>Was gibt es Neues?</h2><a href="#">Alle Updates anzeigen →</a></div></div>
+<div class="karten">
+<article class="karte"><div class="bf"><span></span></div><div class="tx"><span class="meta">Neue Funktion</span><h3>Gemeinsame Pläne</h3><p>Aufgaben, Termine und Zuständigkeiten lassen sich in einer Ansicht für das ganze Team bündeln.</p></div></article>
+<article class="karte"><div class="bf"><span></span></div><div class="tx"><span class="meta">Neue Funktion</span><h3>Tiefe Recherche</h3><p>Offene Fragen werden gründlich aufbereitet, statt nur kurz beantwortet zu werden.</p></div></article>
+<article class="karte"><div class="bf"><span></span></div><div class="tx"><span class="meta">Neue Funktion</span><h3>Freigaben im Gespräch</h3><p>Genehmigungen laufen direkt dort, wo sie besprochen werden, ohne Wechsel der Anwendung.</p></div></article>
+</div></div></section>
+
+<section class="schluss dunkel" id="preise"><div class="w">
+<h2>Starte noch heute mit deinem Team</h2>
+<div class="paar"><a class="knopf" href="#">Jetzt starten</a><a class="knopf kontur" href="#">Deinen Plan finden →</a></div></div></section>
+
+<div class="w"><footer>
+<div><a class="logo" href="#">Nordwerk</a><p style="color:var(--text-2);margin-top:8px">Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage.</p></div>
+<div><h4>Produkt</h4><a href="#">Funktionen</a><a href="#">Preise</a><a href="#">Sicherheit</a></div>
+<div><h4>Firma</h4><a href="#">Über uns</a><a href="#">Karriere</a><a href="#">Presse</a></div>
+<div><h4>Hilfe</h4><a href="#">Kontakt</a><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+</footer></div>
+</body></html>

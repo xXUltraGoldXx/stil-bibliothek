@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Farbblock Rund</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--weiss);color:var(--text);font-family:var(--font-ui);font-size:var(--fs-text);line-height:var(--lh-text)}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--a4)}
+@media(min-width:900px){.w{padding:0 var(--a7)}}
+a{color:var(--link)}
+h1,h2,h3{color:var(--tinte);font-weight:700;line-height:var(--lh-titel)}
+h1{font-size:var(--fs-h1)}h2{font-size:var(--fs-h2)}h3{font-size:var(--fs-h3)}
+.meta{font-size:var(--fs-meta);letter-spacing:var(--ls-klein);font-weight:500}
+.btn{display:inline-block;border-radius:var(--r-pille);padding:var(--a3) var(--a5);background:var(--tinte);color:var(--weiss);font:inherit;font-weight:700;text-decoration:none;border:2px solid var(--tinte);cursor:pointer;transition:transform .15s}
+.btn:hover{transform:scale(1.04)}
+.btn:focus-visible{outline:2px solid var(--tinte);outline-offset:2px}
+.btn.hell{background:var(--weiss);color:var(--tinte);border-color:var(--weiss)}
+.btn.rahmen{background:transparent;color:var(--tinte)}
+.kopf{background:var(--gelb);min-height:var(--kopf-hoehe)}
+.kopf .w{display:flex;align-items:center;justify-content:space-between;gap:var(--a4);flex-wrap:wrap;padding-top:var(--a4);padding-bottom:var(--a4)}
+.logo{display:flex;align-items:center;gap:var(--a3);font-weight:700;color:var(--tinte);text-decoration:none;font-size:1.2rem}
+.kopf nav{display:flex;gap:var(--a2);flex-wrap:wrap}
+.kopf nav a{color:var(--tinte);text-decoration:none;font-weight:500;padding:var(--a2) var(--a4);border-radius:var(--r-pille)}
+.kopf nav a:hover{background:var(--weiss)}
+.hero{display:grid;grid-template-columns:1fr 1fr}
+.hero>div{padding:var(--a8) var(--a5);display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--a5);justify-content:center}
+.hero .l{background:var(--blau);color:var(--weiss)}.hero .l h1{color:var(--weiss)}
+.hero .r{background:var(--gelb)}
+.ph{width:min(280px,100%);aspect-ratio:7/5;border-radius:var(--r-karte);position:relative;overflow:hidden}
+.ph:before{content:"";position:absolute;left:12%;bottom:-20%;width:44%;aspect-ratio:1;border-radius:50%;background:var(--weiss);opacity:.9}
+.ph:after{content:"";position:absolute;right:12%;top:18%;width:34%;height:34%;border-radius:var(--r-klein);background:var(--tinte);opacity:.85}
+.p-blau{background:var(--blau)}.p-gelb{background:var(--gelb)}.p-violett{background:var(--violett)}.p-tuerkis{background:var(--tuerkis)}.p-gruen{background:var(--gruen)}
+.sek{padding:var(--a8) 0}
+.kopfzeile{display:flex;justify-content:space-between;align-items:end;gap:var(--a4);flex-wrap:wrap;margin-bottom:var(--a5)}
+.raster{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--luecke)}
+.karte{border:1px solid var(--rand);border-radius:var(--r-karte);overflow:hidden;background:var(--weiss);transition:transform .2s}
+.karte:hover{transform:translateY(-4px)}
+.karte .ph{width:100%;border-radius:var(--r-karte) var(--r-karte) 0 0}
+.karte div.t{padding:var(--a4);display:flex;flex-direction:column;gap:var(--a2)}
+.etikett{align-self:flex-start;background:var(--gelb);color:var(--tinte);border-radius:var(--r-pille);padding:2px var(--a3);font-size:var(--fs-meta);font-weight:700}
+.etikett.rot{background:var(--rot);color:var(--weiss)}
+.band{padding:var(--a8) 0}
+.band .zwei{display:grid;grid-template-columns:1fr 1fr;gap:var(--a7);align-items:center}
+.band.v{background:var(--violett);color:var(--weiss)}.band.v h2{color:var(--weiss)}
+.band.t{background:var(--tuerkis);color:var(--tinte)}
+.band .txt{display:flex;flex-direction:column;gap:var(--a4);align-items:flex-start}
+.band .ph{width:100%;aspect-ratio:4/3}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.zahlen div{background:var(--weiss);border-radius:var(--r-karte);padding:var(--a5)}
+.zahlen b{display:block;font-size:2.2rem;line-height:1.2;color:var(--tinte)}
+.news{background:var(--butter);padding:var(--a8) 0}
+.news .zwei{display:grid;grid-template-columns:1fr 1fr;gap:var(--a6);align-items:center}
+.feld{display:flex;gap:var(--a3);flex-wrap:wrap}
+.eingabe{flex:1 1 200px;min-width:0;height:48px;border-radius:var(--r-pille);border:2px solid var(--rand-stark);background:var(--weiss);padding:0 var(--a5);font:inherit;color:var(--tinte)}
+footer{background:var(--tinte);color:var(--weiss);padding:var(--a8) 0}
+footer .spalten{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--a6)}
+footer h3{color:var(--weiss);margin-bottom:var(--a3)}
+footer a{display:block;color:var(--weiss);text-decoration:none;font-size:var(--fs-klein);padding:var(--a1) 0;letter-spacing:var(--ls-klein)}
+footer a:hover{text-decoration:underline}
+@media(max-width:900px){.raster{grid-template-columns:1fr 1fr}.band .zwei,.news .zwei,.hero{grid-template-columns:1fr}footer .spalten{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.raster,.zahlen{grid-template-columns:1fr}.hero>div{padding:var(--a7) var(--a4)}}
+@media(prefers-reduced-motion:reduce){.btn,.karte{transition:none}.btn:hover,.karte:hover{transform:none}}
+</style></head><body>
+<header class="kopf"><div class="w">
+<a class="logo" href="#"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="#141414"/><circle cx="14" cy="16" r="5" fill="#ffd502"/><circle cx="26" cy="16" r="5" fill="#ffd502"/><rect x="8" y="22" width="24" height="10" rx="3" fill="#ffd502"/></svg>Nordwerk Studio</a>
+<nav aria-label="Hauptmenü"><a href="#leistungen">Leistungen</a><a href="#projekte">Projekte</a><a href="#zahlen">Zahlen</a><a href="#kontakt">Kontakt</a></nav>
+</div></header>
+
+<section class="hero">
+<div class="l"><h1>Gestaltung, die man gern anfasst</h1><p>Wir bauen Marken, Produkte und Räume mit klaren Farben und einfachen Formen.</p><div class="ph p-gelb" role="img" aria-label="Platzhalter Bildfläche"></div><a class="btn hell" href="#leistungen">Entdecken</a></div>
+<div class="r"><h2>Zusammen anpacken</h2><p>Kleine Teams, kurze Wege und ein Workshop pro Woche, in dem alle mitmachen dürfen.</p><div class="ph p-violett" role="img" aria-label="Platzhalter Bildfläche"></div><a class="btn" href="#kontakt">Jetzt starten</a></div>
+</section>
+
+<section class="sek" id="leistungen"><div class="w">
+<div class="kopfzeile"><div><h2>Was wir für dich tun</h2><p>Vier Bereiche, ein gemeinsamer Anspruch.</p></div><a class="btn rahmen" href="#">Alle ansehen</a></div>
+<div class="raster">
+<article class="karte"><div class="ph p-blau" role="img" aria-label="Platzhalter"></div><div class="t"><span class="etikett">Neu</span><h3>Markenbild</h3><p>Farben, Formen und Sprache aus einem Guss.</p></div></article>
+<article class="karte"><div class="ph p-gelb" role="img" aria-label="Platzhalter"></div><div class="t"><h3>Webseiten</h3><p>Schnell, klar und auf jedem Gerät bedienbar.</p></div></article>
+<article class="karte"><div class="ph p-gruen" role="img" aria-label="Platzhalter"></div><div class="t"><h3>Verpackung</h3><p>Robuste Hüllen, die Freude beim Auspacken machen.</p></div></article>
+<article class="karte"><div class="ph p-tuerkis" role="img" aria-label="Platzhalter"></div><div class="t"><span class="etikett rot">Beliebt</span><h3>Workshops</h3><p>Gemeinsam skizzieren, bauen und ausprobieren.</p></div></article>
+</div></div></section>
+
+<section class="band v" id="projekte"><div class="w zwei">
+<div class="txt"><span class="meta">Projekt des Monats</span><h2>Ein Spielplatz für das Quartier</h2><p>Aus zwölf Farben und drei Grundformen entstand ein Leitsystem, das auch Kinder ohne Worte verstehen.</p><a class="btn hell" href="#">Mehr erfahren</a></div>
+<div class="ph p-gelb" role="img" aria-label="Platzhalter Bildfläche"></div></div></section>
+
+<section class="sek" id="zahlen"><div class="w">
+<div class="kopfzeile"><h2>Nordwerk in Zahlen</h2></div>
+<div class="zahlen" style="background:var(--grau);padding:var(--a5);border-radius:var(--r-karte)">
+<div><b>120</b><p>abgeschlossene Projekte</p></div><div><b>14</b><p>Menschen im Team</p></div><div><b>9</b><p>Jahre Erfahrung</p></div></div>
+</div></section>
+
+<section class="band t"><div class="w zwei">
+<div class="ph p-violett" role="img" aria-label="Platzhalter Bildfläche"></div>
+<div class="txt"><span class="meta">Mitmachen</span><h2>Baustelle offen für Ideen</h2><p>Jeden Freitag öffnen wir die Werkstatt. Bring deine Skizze mit, wir bringen Kaffee und Klebeband.</p><a class="btn" href="#">Platz sichern</a></div></div></section>
+
+<section class="news" id="kontakt"><div class="w zwei">
+<div><h2>Neuigkeiten aus der Werkstatt</h2><p>Einmal im Monat, kurz und bunt.</p></div>
+<div class="feld"><input class="eingabe" type="email" placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse"><a class="btn" href="#">Anmelden</a></div></div></section>
+
+<footer><div class="w"><div class="spalten">
+<div><h3>Studio</h3><a href="#">Über uns</a><a href="#">Team</a><a href="#">Karriere</a></div>
+<div><h3>Leistungen</h3><a href="#">Markenbild</a><a href="#">Webseiten</a><a href="#">Verpackung</a></div>
+<div><h3>Hilfe</h3><a href="#">Kontakt</a><a href="#">Fragen</a><a href="#">Versand</a></div>
+<div><h3>Rechtliches</h3><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Cookies</a></div>
+</div><p class="meta" style="margin-top:var(--a6)">Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage.</p></div></footer>
+</body></html>

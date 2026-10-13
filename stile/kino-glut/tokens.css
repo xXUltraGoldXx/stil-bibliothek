@@ -1,0 +1,19 @@
+/* Kino Glut: Tokens */
+:root{
+  --schwarz:#000000; --flaeche:#232323; --flaeche-2:#2d2d2d; --leiste:rgba(22,22,22,.7); --hell:#f2f2f2; --hell-text:#333333;
+  --text:#ffffff; --text-gedaempft:rgba(255,255,255,.7); --text-schwach:rgba(255,255,255,.5);
+  --rot:#d4161f; --rot-hover:#ad1019; --glut:#6f181d; --glut-2:#461518;
+  --nacht-a:#192247; --nacht-b:#210e17; --banner-a:#261733; --banner-b:#151a3f; --lichtkegel:rgba(64,97,231,.4);
+  --rand:rgba(128,128,128,.7);
+  --grad-karte:linear-gradient(149deg,var(--nacht-a) 0%,var(--nacht-b) 100%);
+  --grad-banner:linear-gradient(91deg,var(--banner-a),var(--banner-b));
+  --grad-abdunkeln:linear-gradient(0deg,rgba(0,0,0,1) 8%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.85) 100%);
+  --font-display:"Figtree","Helvetica Neue","Segoe UI",Roboto,sans-serif; --font-body:"Figtree","Helvetica Neue","Segoe UI",Roboto,sans-serif;
+  --fs-h1:clamp(2rem,5vw,3.5rem); --fs-h2:clamp(1.125rem,2vw,1.5rem); --fs-feature:clamp(1.75rem,4vw,3rem);
+  --fs-lead:clamp(1rem,1.6vw,1.25rem); --fs-body:1rem; --fs-sm:.875rem; --fs-xs:.8125rem; --fs-knopf-gross:clamp(1.125rem,2vw,1.5rem);
+  --abstand-1:2px; --abstand-2:4px; --abstand-3:8px; --abstand-4:12px; --abstand-5:16px; --abstand-6:24px; --abstand-7:32px; --abstand-8:48px; --abstand-9:72px;
+  --r-xs:2px; --r-sm:4px; --r-md:8px; --r-lg:16px;
+  --shadow-karte:0 0 18px rgba(0,0,0,.2);
+  --dur-schnell:200ms; --dur-base:250ms; --ease:ease-out;
+  --breite:1152px; --breite-hero:590px;
+}

@@ -1,0 +1,16 @@
+/* Katalog hell: Tokens */
+:root{
+  --grund:#f8f9fa; --band:#f1f2f3; --flaeche:#ffffff;
+  --text:#000000; --text-2:#222222; --text-3:#333333; --text-fliess:rgba(0,0,0,.7);
+  --dunkel-1:#3a3e41; --dunkel-2:#1c1d1f; --auf-dunkel:#ffffff;
+  --linie:rgba(0,0,0,.05);
+  --font-text:"Source Sans 3",system-ui,Helvetica,Arial,sans-serif;
+  --fs-gross:1.9rem; --fs-h2:1.25rem; --fs-titel:1.125rem; --fs-text:1rem; --fs-meta:.8125rem;
+  --lh-eng:1.2; --lh-text:1.5;
+  --gw-normal:400; --gw-mittel:600; --gw-fett:700;
+  --r-klein:2px; --r-knopf:5px; --r-rund:100%;
+  --schatten-haar:0 0 1px rgba(0,0,0,.25);
+  --breite:1120px; --rand:80px; --rand-mobil:20px;
+  --luecke:24px; --luecke-gross:20px; --abschnitt:80px; --kopf-zu-reihe:30px;
+  --karte-b:205px; --verhaeltnis-karte:2/3;
+}

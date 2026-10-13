@@ -1,0 +1,14 @@
+/* Katalog kompakt: Tokens */
+:root{
+  --schwarz:#000000; --weiss:#ffffff; --grau-1:#f4f4f5; --grau-2:#f5f5f5; --text-2:#434343; --linie:#d9d9d9;
+  --rot:#d9232a; --neon:#f9ff00; --glas:rgba(255,255,255,.7); --abdunkeln:rgba(0,0,0,.4);
+  --font-ui:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fs-buehne:2rem; --fs-h2:1.75rem; --fs-h3:1.5rem; --fs-text:1rem; --fs-knopf:.875rem; --fs-klein:.75rem; --fs-mikro:.625rem; --fs-mikro-2:.5625rem;
+  --fw-text:400; --fw-mittel:500; --fw-fett:700; --lh-klein:1.5; --lh-h2:1.15; --ls-mikro:.04em;
+  --s-1:4px; --s-2:8px; --s-3:16px; --s-4:24px; --s-5:32px;
+  --luecke-kachel:6px; --rand-seite:16px; --breite:1280px;
+  --r-1:2px; --r-2:4px; --r-3:8px; --r-4:16px; --r-pille:999px;
+  --schatten-nav:0 2px 5px rgba(0,0,0,.1);
+  --schatten-popup:0 2px 10px rgba(0,0,0,.08);
+  --schatten-schwebend:0 0 8px rgba(0,0,0,.24);
+}

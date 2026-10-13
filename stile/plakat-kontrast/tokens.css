@@ -1,0 +1,20 @@
+/* Plakat Kontrast: Tokens */
+:root{
+  --schwarz:#000000; --weiss:#ffffff; --grau-hell:#f2f2f2;
+  --text:#333333; --text-auf-dunkel:#ffffff; --text-gedaempft-dunkel:rgba(255,255,255,.8); --text-schwach-dunkel:rgba(255,255,255,.5);
+  --gelb:#fed60a;
+  --linie-dunkel:rgba(255,255,255,.2); --linie-hell:rgba(0,0,0,.08); --feld:rgba(0,0,0,.05);
+  --grad-aus-dunkel:linear-gradient(0deg,#000,rgba(0,0,0,0));
+  --font-display:"Anton",Arial,sans-serif; --font-body:Helvetica,Arial,sans-serif;
+  --fs-riesig:clamp(8rem,22vw,10rem); --fs-h1:clamp(2.25rem,5vw,4rem); --fs-h2:clamp(2rem,4.5vw,3.125rem);
+  --fs-statement:clamp(1.75rem,5.2vw,4rem); --fs-kennzahl:1.75rem; --fs-h3:1.625rem;
+  --fs-lead:1.25rem; --fs-body:1rem; --fs-sm:.875rem; --fs-xs:.8rem;
+  --lh-display:1.05; --lh-body:1.4;
+  --r-sm:.125rem; --r-md:.25rem; --r-lg:.5rem;
+  --shadow-keine:none;
+  --abstand-1:.5rem; --abstand-2:1rem; --abstand-3:1.5rem; --abstand-4:4rem;
+  --rand-seite:clamp(1.5rem,5vw,5rem);
+  --abstand-sektion-s:5rem; --abstand-sektion:clamp(5rem,10vw,8rem); --abstand-sektion-l:clamp(6rem,12vw,10.5rem);
+  --dur-schnell:150ms; --dur-base:200ms; --dur-einblenden:600ms; --ease-out:cubic-bezier(.16,1,.3,1);
+  --breite:1280px;
+}

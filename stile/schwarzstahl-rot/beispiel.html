@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Schwarzstahl Rot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+html{background:var(--schwarz)}
+body{background:var(--grund);color:var(--text);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+.kopf{background:rgba(0,0,0,.87);border-bottom:1px solid var(--linie);position:sticky;top:0;z-index:5}
+.kopf .w{height:var(--kopf-hoehe);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.08em;text-transform:uppercase;color:var(--weiss)}
+.logo svg{width:28px;height:28px;flex:none}
+.menue{display:flex;gap:2.2rem;font-family:var(--font-display);text-transform:uppercase;letter-spacing:1px;color:var(--weiss);font-size:1rem}
+.menue a:hover{color:var(--rot)}
+.knopf{display:inline-block;background:var(--rot);border:1px solid var(--rot);color:var(--weiss);font-family:var(--font-display);text-transform:uppercase;letter-spacing:1px;font-size:1rem;line-height:20px;padding:10px 24px;border-radius:var(--r-knopf);transition:background var(--dauer),border-color var(--dauer)}
+.knopf:hover{background:var(--rot-dunkel);border-color:var(--rot-dunkel)}
+.hero{background:var(--schwarz);min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem var(--rand) 7rem;position:relative}
+.rubrik{font-size:var(--fs-klein);font-weight:500;letter-spacing:var(--ls-rubrik);text-transform:uppercase;color:var(--rot)}
+h1{font-family:var(--font-display);font-weight:700;font-size:var(--fs-h1);line-height:1.1;letter-spacing:.05em;text-transform:uppercase;color:transparent;-webkit-text-stroke:2px var(--weiss);margin:1.2rem 0 2.2rem;max-width:12ch;border-bottom:4px solid var(--weiss);padding-bottom:.1em}
+.hero .linie{position:absolute;bottom:0;left:50%;width:1px;height:90px;background:var(--rot)}
+.sek{padding:var(--abschnitt) 0}
+.sek.dunkel{background:var(--schwarz)}
+.mitte{text-align:center}
+h2{font-family:var(--font-display);font-weight:700;font-size:var(--fs-h2);line-height:1.25;color:var(--weiss);text-transform:uppercase;letter-spacing:.03em}
+.unter{color:var(--text-hell);margin:.6rem auto 0;max-width:46ch}
+.raster{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--luecke);margin-top:3rem;text-align:left}
+.karte{background:var(--karte);border:1px solid var(--linie-fein);border-radius:var(--r-karte);overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--dauer)}
+.karte:hover{border-color:var(--rot-rahmen)}
+.bildfl{aspect-ratio:4/3;position:relative;background:radial-gradient(120% 90% at 50% 20%,#34343a 0,#1b1b1f 60%,#101012 100%)}
+.bildfl::after{content:"";position:absolute;left:50%;top:50%;width:46%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:conic-gradient(from 30deg,#9a9a9f,#4d4d52,#c4c4c8,#55555a,#9a9a9f);box-shadow:none;-webkit-mask:radial-gradient(circle,transparent 22%,#000 23%);mask:radial-gradient(circle,transparent 22%,#000 23%)}
+.bildfl.b2::after{width:14%;aspect-ratio:1/4;border-radius:3px;background:linear-gradient(90deg,#8a7a3a,#e0c060,#8a7a3a);-webkit-mask:none;mask:none}
+.bildfl.b3::after{width:40%;-webkit-mask:radial-gradient(circle,transparent 38%,#000 39%);mask:radial-gradient(circle,transparent 38%,#000 39%)}
+.bildfl.b4::after{width:10%;aspect-ratio:1/4;border-radius:3px;background:linear-gradient(90deg,#222,#555,#222);-webkit-mask:none;mask:none}
+.kk{padding:20px;display:flex;flex-direction:column;gap:.6rem;flex:1}
+h3{font-family:var(--font-display);font-weight:600;font-size:var(--fs-h3);color:var(--weiss);line-height:1.3}
+.kk p{font-size:.85rem;color:var(--text);flex:1}
+.mehr{color:var(--rot);font-weight:500;font-size:.9rem;margin-top:.8rem}
+.mehr:hover{color:#ff3b57}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke);margin:3.5rem auto 0;max-width:820px}
+.zahl{font-family:var(--font-display);font-weight:700;font-size:var(--fs-zahl);line-height:1.2;color:var(--rot)}
+.beschr{font-size:var(--fs-klein);letter-spacing:.15em;text-transform:uppercase;color:var(--text)}
+.cta{background:var(--flaeche);border:1px solid var(--linie);border-radius:var(--r-karte);padding:3rem 1.5rem;margin:0 var(--rand)}
+.cta .knopf{margin-top:1.8rem}
+.fuss{background:var(--schwarz);padding:56px 0 24px;font-size:.85rem}
+.fuss .oben{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--luecke)}
+.fuss h4{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--weiss);margin-bottom:.9rem;font-weight:600}
+.fuss ul{list-style:none;padding:0;display:grid;gap:.5rem}
+.fuss a:hover{color:var(--weiss)}
+.recht{border-top:1px solid var(--linie);margin-top:2.5rem;padding-top:1.2rem;text-align:center;font-size:.75rem}
+@media(max-width:900px){.raster{grid-template-columns:repeat(2,1fr)}.fuss .oben{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.menue{display:none}.kopf .w{height:var(--kopf-hoehe-mobil)}.sek{padding:var(--abschnitt-mobil) 0}.knopf{padding:14px 24px}.hero{min-height:80vh}h1{-webkit-text-stroke:1.5px var(--weiss);letter-spacing:.04em}h2{letter-spacing:1px}}
+@media(max-width:560px){.raster{grid-template-columns:1fr}.zahlen{grid-template-columns:1fr;gap:2rem}.fuss .oben{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:no-preference){.hero>*{animation:ein var(--dauer-lang) ease-out both}.hero>*:nth-child(2){animation-delay:.1s}.hero>*:nth-child(3){animation-delay:.2s}@keyframes ein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}}
+</style></head><body>
+<header class="kopf"><div class="w">
+<a class="logo" href="#"><svg viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="4" fill="#df0023"/><path d="M7 21V7l14 14V7" fill="none" stroke="#fff" stroke-width="2.5"/></svg>Nordwerk</a>
+<nav class="menue" aria-label="Hauptmenü"><a href="#leistungen">Leistungen</a><a href="#zahlen">Zahlen</a><a href="#kontakt">Kontakt</a></nav>
+<a class="knopf" href="#kontakt">Anfragen</a></div></header>
+
+<section class="hero">
+<span class="rubrik">Industriedesign und Fertigungsberatung</span>
+<h1>Form mit Haltung</h1>
+<a class="knopf" href="#leistungen">Leistungen</a>
+<span class="linie"></span>
+</section>
+
+<section class="sek" id="leistungen"><div class="w mitte">
+<h2>Unsere Leistungen</h2>
+<p class="unter">Gestaltung, die Toleranzen ernst nimmt</p>
+<div class="raster">
+<article class="karte"><div class="bildfl" role="img" aria-label="Platzhalter Bildfläche"></div><div class="kk"><h3>Konzeptstudien</h3><p>Erste Entwürfe mit Materialmustern und klaren Entscheidungen, bevor die Werkzeuge entstehen.</p><a class="mehr" href="#">Mehr erfahren →</a></div></article>
+<article class="karte"><div class="bildfl b2" role="img" aria-label="Platzhalter Bildfläche"></div><div class="kk"><h3>Prototypen</h3><p>Funktionsmuster aus Metall und Kunststoff, geprüft unter realen Einsatzbedingungen.</p><a class="mehr" href="#">Mehr erfahren →</a></div></article>
+<article class="karte"><div class="bildfl b3" role="img" aria-label="Platzhalter Bildfläche"></div><div class="kk"><h3>Serienbegleitung</h3><p>Wir begleiten die Anlaufphase, dokumentieren Maße und halten die Qualität über Jahre stabil.</p><a class="mehr" href="#">Mehr erfahren →</a></div></article>
+<article class="karte"><div class="bildfl b4" role="img" aria-label="Platzhalter Bildfläche"></div><div class="kk"><h3>Prüfmittel</h3><p>Messlehren und Vorrichtungen, auf Ihr Bauteil zugeschnitten und nachvollziehbar kalibriert.</p><a class="mehr" href="#">Mehr erfahren →</a></div></article>
+</div></div></section>
+
+<section class="sek dunkel" id="zahlen"><div class="w mitte">
+<h2>Erfahrung trifft Genauigkeit</h2>
+<p class="unter">Seit über zwei Jahrzehnten entwickeln wir Produkte, die im Alltag der Werkstatt bestehen.</p>
+<div class="zahlen">
+<div><div class="zahl">20+</div><div class="beschr">Jahre Praxis</div></div>
+<div><div class="zahl">400</div><div class="beschr">Projekte</div></div>
+<div><div class="zahl">0,01</div><div class="beschr">Millimeter Toleranz</div></div>
+</div></div></section>
+
+<section class="sek" id="kontakt" style="padding-top:var(--abschnitt-mobil)"><div class="w"><div class="cta mitte">
+<span class="rubrik">Projekt starten</span>
+<h2 style="margin-top:.8rem">Sprechen wir über Ihr Bauteil</h2>
+<p class="unter">Antwort innerhalb eines Werktags, mit konkretem nächsten Schritt.</p>
+<a class="knopf" href="#">Gespräch vereinbaren</a>
+</div></div></section>
+
+<footer class="fuss"><div class="w">
+<div class="oben">
+<div><a class="logo" href="#"><svg viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="4" fill="#df0023"/><path d="M7 21V7l14 14V7" fill="none" stroke="#fff" stroke-width="2.5"/></svg>Nordwerk</a></div>
+<div><h4>Leistungen</h4><ul><li><a href="#">Konzept</a></li><li><a href="#">Prototypen</a></li><li><a href="#">Serie</a></li></ul></div>
+<div><h4>Studio</h4><ul><li><a href="#">Über uns</a></li><li><a href="#">Projekte</a></li><li><a href="#">Karriere</a></li></ul></div>
+<div><h4>Kontakt</h4><ul><li><a href="#">Anfrage</a></li><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li></ul></div>
+</div>
+<div class="recht">© 2026 Nordwerk Studio. Fiktives Beispiel für eine Stilvorlage.</div>
+</div></footer>
+</body></html>

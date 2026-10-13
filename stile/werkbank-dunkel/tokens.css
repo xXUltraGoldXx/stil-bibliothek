@@ -1,0 +1,20 @@
+/* Werkbank dunkel: Tokens */
+:root{
+  --seite:#000000; --bg:#14130f; --panel:#1e1c18; --linie:#322f28;
+  --tinte:#f3efe6; --tinte-2:#a39c8e;
+  --akzent:#fb923c; --akzent-40:rgba(251,146,60,.4); --akzent-weich:#2a1c10;
+  --ok:#4ade80; --ok-flaeche:rgba(74,222,128,.12); --ok-rand:rgba(74,222,128,.45);
+  --font-ui:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --fs-h1:4rem; --fs-satz:2.1rem; --fs-text:1.05rem; --fs-ui:.9rem; --fs-label:.72rem;
+  --ls-h1:-.03em; --ls-label:.08em; --lh-text:1.5;
+  --fw-normal:400; --fw-fett:600; --fw-titel:700;
+  --breite:880px; --rand:2px;
+  --r-kerbe:14px; --r-pille:999px; --r-rund:50%;
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:20px; --s-6:32px; --s-7:51px;
+  --schatten:none; --t:150ms ease;
+  --kerbe-maske:
+    radial-gradient(circle at 0 0,transparent var(--r-kerbe),#000 calc(var(--r-kerbe) + .5px)) top left/51% 51% no-repeat,
+    radial-gradient(circle at 100% 0,transparent var(--r-kerbe),#000 calc(var(--r-kerbe) + .5px)) top right/51% 51% no-repeat,
+    radial-gradient(circle at 0 100%,transparent var(--r-kerbe),#000 calc(var(--r-kerbe) + .5px)) bottom left/51% 51% no-repeat,
+    radial-gradient(circle at 100% 100%,transparent var(--r-kerbe),#000 calc(var(--r-kerbe) + .5px)) bottom right/51% 51% no-repeat;
+}

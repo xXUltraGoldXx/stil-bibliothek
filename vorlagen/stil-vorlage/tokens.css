@@ -1,0 +1,20 @@
+/* Stil-Vorlage: Tokens. Nur :root-Variablen, keine Regeln, keine fremden URLs. */
+:root {
+  --farbe-grund: #ffffff;
+  --farbe-text: #1a1a1a;
+  --farbe-text-leise: #5c5c5c;
+  --farbe-akzent: #2457d6;
+  --farbe-akzent-dunkel: #1b43a8;
+  --farbe-linie: #e6e6e6;
+  --font-text: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-ueberschrift: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --abstand-1: 8px;
+  --abstand-2: 16px;
+  --abstand-3: 24px;
+  --abstand-4: 48px;
+  --abstand-5: 96px;
+  --radius-klein: 8px;
+  --radius-gross: 12px;
+  --breite-inhalt: 1120px;
+  --dauer: 200ms;
+}

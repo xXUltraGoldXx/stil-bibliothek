@@ -1,0 +1,19 @@
+{
+  "name": "Portal sachlich",
+  "slug": "portal-sachlich",
+  "beschreibung": "Zentrierte, fast werbefreie Einstiegsseite im Stil eines öffentlichen Verzeichnisses: weiße Fläche, ein Blau für alles Klickbare, Serifen-Wortmarke über nüchterner Systemschrift. Das Design tritt zurück, damit Orientierung und Suche sofort funktionieren.",
+  "schlagworte": [
+    "Portal",
+    "Sachlich",
+    "Zentriert",
+    "Blau",
+    "Serife",
+    "Suche",
+    "Verzeichnis"
+  ],
+  "kategorien": [
+    "Minimal",
+    "Editorial"
+  ],
+  "gegenbeispiel": false
+}

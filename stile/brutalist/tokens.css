@@ -1,0 +1,10 @@
+/* Brutalist: Tokens */
+:root{
+  --bg:#e8e8e3; --weiss:#ffffff; --schwarz:#000000; --grell:#ffe600; --alarm:#ff2d1a; --blau:#1a3cff;
+  --font-display:"Archivo Black","Arial Black",Impact,sans-serif;
+  --font-mono:"Space Mono","Courier New",monospace;
+  --fs-hero:clamp(3rem,13vw,10rem); --fs-h2:clamp(2rem,6vw,4.5rem); --fs-text:1rem; --fs-klein:.8rem;
+  --rahmen:4px solid #000; --rahmen-duenn:2px solid #000;
+  --schatten:8px 8px 0 #000; --schatten-klein:4px 4px 0 #000;
+  --r:0; --luecke:1.5rem; --breite:1280px;
+}

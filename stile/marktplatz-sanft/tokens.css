@@ -1,0 +1,12 @@
+/* Marktplatz sanft: Tokens */
+:root{
+  --navy:#192f50; --grund:#f0f3f7; --weiss:#ffffff; --grau:#899099; --linie:#e5e5e5;
+  --rose:#f7eff5; --lavendel:#e7e0ef; --aktion:#0f6b3d;
+  --font-text:"Source Sans 3",Arial,Helvetica,sans-serif;
+  --fs-h1:2.5rem; --fs-h1-mobil:1.5rem; --fs-h2:1.5rem; --fs-h3:1.25rem; --fs-text:1rem; --fs-klein:.875rem; --fs-mini:.75rem;
+  --fw-text:400; --fw-titel:500; --fw-fett:700; --lh:1.5;
+  --s-1:4px; --s-2:8px; --s-3:10px; --s-4:16px; --s-5:24px; --s-6:30px; --s-7:48px;
+  --r-klein:8px; --r-karte:12px; --r-suche:30px; --r-pille:44px; --r-kreis:900px;
+  --schatten:1px 1px 2px rgba(0,0,0,.04),1px 4px 8px rgba(0,0,0,.08);
+  --breite:1200px; --rand:2.5rem; --rand-mobil:1rem; --luecke:16px;
+}

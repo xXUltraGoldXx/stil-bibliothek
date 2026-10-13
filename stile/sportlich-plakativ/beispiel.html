@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Laufkollektion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--weiss);color:var(--text);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text);font-weight:var(--fw-mittel)}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline}
+svg{display:block;fill:none;stroke:var(--text);stroke-width:1.5}
+.util{background:var(--flaeche);height:36px;padding:0 var(--rand);display:flex;justify-content:flex-end;align-items:center;gap:var(--sp-4);font-size:var(--fs-meta)}
+.nav{height:60px;padding:0 var(--rand);display:flex;align-items:center;justify-content:space-between;gap:var(--sp-5);background:var(--weiss)}
+.logo{font-family:var(--font-display);font-weight:800;font-size:1.5rem;text-transform:uppercase;line-height:1;white-space:nowrap}
+.links{display:flex;gap:var(--sp-5)}
+.tools{display:flex;align-items:center;gap:var(--sp-4)}
+.suche{background:var(--flaeche);border-radius:var(--r-feld);padding:6px 16px;display:flex;gap:var(--sp-3);align-items:center;color:var(--text-2);min-width:150px}
+.menue{display:none}
+.pille{display:inline-block;border-radius:var(--r-pille);padding:6px 24px;font-weight:var(--fw-mittel);background:var(--text);color:var(--weiss);transition:background var(--zeit);line-height:24px}
+.pille:hover{background:var(--text-2);text-decoration:none}
+.pille.hell{background:var(--weiss);color:var(--text)}.pille.hell:hover{background:var(--linie)}
+.pille.rand{background:transparent;border:1px solid var(--linie);color:var(--text)}.pille.rand:hover{background:var(--flaeche)}
+.buehne{position:relative;min-height:70vh;display:flex;align-items:flex-end;padding:var(--sp-7) var(--rand);color:var(--weiss);background:var(--buehne);overflow:hidden}
+.buehne:before{content:"";position:absolute;inset:0;background:
+ linear-gradient(var(--schleier),var(--schleier)),
+ repeating-linear-gradient(90deg,transparent 0 calc(25% - 2px),#444 calc(25% - 2px) 25%),
+ repeating-linear-gradient(0deg,#1b1b1b 0 calc(33.3% - 2px),#444 calc(33.3% - 2px) 33.3%)}
+.buehne>div{position:relative;max-width:640px}
+h1,h2.disp{font-family:var(--font-display);font-weight:800;text-transform:uppercase;line-height:var(--lh-display)}
+h1{font-size:var(--fs-hero)}
+h2.disp{font-size:var(--fs-display)}
+.buehne p{margin:var(--sp-4) 0 var(--sp-5)}
+.btns{display:flex;gap:var(--sp-3);flex-wrap:wrap}
+.sek{padding:var(--sp-7) var(--rand);max-width:var(--breite);margin:0 auto}
+h2.titel{font-size:var(--fs-titel);line-height:var(--lh-titel);font-weight:var(--fw-mittel);margin-bottom:var(--sp-5)}
+.wand{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.bild{aspect-ratio:4/5;border-radius:var(--r-karte);background:var(--linie);position:relative;overflow:hidden}
+.bild.g2{background:var(--flaeche)}.bild.dk{background:var(--buehne)}
+.bild:after{content:"";position:absolute;left:18%;right:18%;bottom:14%;height:38%;border-radius:60% 60% 10% 10%;background:var(--weiss);opacity:.55;transition:transform .3s}
+.bild.dk:after{background:#444;opacity:1}
+.karte:hover .bild:after{transform:scale(1.03)}
+.karte h3{font-size:var(--fs-text);font-weight:var(--fw-mittel);margin-top:var(--sp-3)}
+.grau{color:var(--text-2);font-size:var(--fs-klein);font-weight:var(--fw-normal)}
+.etikett{color:var(--akzent);font-size:var(--fs-klein)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--luecke);padding:0 var(--rand) var(--sp-7);max-width:var(--breite);margin:0 auto}
+.split .bild{aspect-ratio:1/1}
+.split .txt{background:var(--flaeche);border-radius:var(--r-karte);padding:var(--sp-7);display:flex;flex-direction:column;justify-content:flex-end;gap:var(--sp-4)}
+.split .txt h2{color:var(--text)}
+.mitglied{background:var(--flaeche);padding:var(--sp-7) var(--rand);text-align:center}
+.mitglied h2{margin-bottom:var(--sp-4)}.mitglied p{max-width:46ch;margin:0 auto var(--sp-5);color:var(--text-2);font-weight:var(--fw-normal)}
+footer{padding:var(--sp-7);display:flex;justify-content:space-between;gap:var(--sp-5);flex-wrap:wrap;font-size:var(--fs-klein);color:var(--text-2)}
+@media(max-width:800px){
+ .util{padding:0 var(--rand-mobil)}.nav{padding:0 var(--rand-mobil)}
+ .links,.suche{display:none}.menue{display:block}
+ .buehne{padding:var(--sp-7) var(--rand-mobil);justify-content:center;text-align:center;min-height:75vh}
+ .btns{justify-content:center}
+ .sek{padding:var(--sp-7) var(--rand-mobil)}
+ .wand{grid-template-columns:1fr 1fr}
+ .split{grid-template-columns:1fr;padding:0 var(--rand-mobil) var(--sp-7)}
+ .split .txt{padding:var(--sp-5)}
+ .mitglied{padding:var(--sp-7) var(--rand-mobil)}
+ footer{padding:var(--sp-7) var(--rand-mobil)}
+}
+</style></head><body>
+<div class="util"><a href="#laeden">Standorte</a><a href="#hilfe">Kontakt</a><a href="#mitglied">Zum Club</a></div>
+<header class="nav">
+ <a class="logo" href="#">Nordwerk Studio</a>
+ <nav class="links" aria-label="Hauptmenü"><a href="#neu">Neu</a><a href="#laufen">Laufen</a><a href="#training">Training</a><a href="#kinder">Kinder</a><a href="#sale">Angebote</a></nav>
+ <div class="tools">
+  <div class="suche"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Suchen</div>
+  <svg width="24" height="24" viewBox="0 0 24 24" aria-label="Merkliste"><path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/></svg>
+  <svg width="24" height="24" viewBox="0 0 24 24" aria-label="Warenkorb"><rect x="4" y="7" width="16" height="13" rx="3"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+  <a class="menue" href="#">Menü</a>
+ </div>
+</header>
+<section class="buehne" id="neu"><div>
+ <h1>Jeder. Schritt. Zählt.</h1>
+ <p>Die neue Herbstlinie ist leicht, warm und für den frühen Morgen gebaut. Jetzt in allen Größen erhältlich.</p>
+ <div class="btns"><a class="pille hell" href="#laufen">Shoppen</a><a class="pille hell" href="#training">Ansehen</a></div>
+</div></section>
+<section class="sek" id="laufen">
+ <h2 class="titel">Beliebt in dieser Woche</h2>
+ <div class="wand">
+  <a class="karte" href="#"><div class="bild g2"></div><h3>Nebelpfad Jacke</h3><p class="grau">Laufjacke, wasserabweisend</p><p>129 €</p></a>
+  <a class="karte" href="#"><div class="bild g2"></div><h3>Frühlicht Tight</h3><p class="grau">Laufhose, warm</p><p>89 €</p></a>
+  <a class="karte" href="#"><div class="bild g2"></div><h3>Küstenweg Shirt</h3><p class="grau">Langarm, atmungsaktiv</p><p><span class="etikett">Nur noch kurz</span> · 59 €</p></a>
+ </div>
+</section>
+<section class="split" id="training">
+ <div class="bild dk" role="img" aria-label="Platzhalter für ein Aktionsbild"></div>
+ <div class="txt">
+  <h2 class="disp">Stark. Im. Winter.</h2>
+  <p class="grau">Drei Einheiten pro Woche, ein Plan, kein Studio nötig. Das Training startet draußen.</p>
+  <div><a class="pille" href="#">Plan ansehen</a></div>
+ </div>
+</section>
+<section class="sek" id="kinder">
+ <h2 class="titel">Für jede Disziplin</h2>
+ <div class="wand">
+  <a class="karte" href="#"><div class="bild"></div><h3>Laufen</h3></a>
+  <a class="karte" href="#"><div class="bild dk"></div><h3>Training</h3></a>
+  <a class="karte" href="#"><div class="bild g2"></div><h3>Wandern</h3></a>
+ </div>
+</section>
+<section class="mitglied" id="mitglied">
+ <h2 class="disp">Sei dabei.</h2>
+ <p>Früher Zugang zu neuen Kollektionen, kostenloser Versand und persönliche Trainingspläne.</p>
+ <div class="btns" style="justify-content:center"><a class="pille" href="#">Beitreten</a><a class="pille rand" href="#">Mehr erfahren</a></div>
+</section>
+<footer id="hilfe"><span>Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage.</span><span>Impressum · Datenschutz · Kontakt</span></footer>
+</body></html>

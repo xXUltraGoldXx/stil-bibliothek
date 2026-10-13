@@ -1,0 +1,13 @@
+/* Vorhang dunkel: Tokens */
+:root{
+  --buehne:#131313; --papier:#f9f9f9; --hellgrau:#e9e9e9; --dunkelgrau:#626262;
+  --linie:rgba(233,233,233,.18);
+  --font-display:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --fs-lead:2.1rem; --fs-h2:1.7rem; --fs-h2-gross:clamp(1.7rem,4.5vw,3rem); --fs-text:.85rem; --fs-meta:.74rem;
+  --ls-display:-.02em; --ls-meta:-.02em; --lh-display:1; --lh-text:1.5; --gewicht:400;
+  --g:1.6rem; --m:.8rem; --abstand-1:.26rem; --abstand-2:.42rem; --abstand-3:.55rem; --abstand-4:2rem; --abstand-5:4rem;
+  --spalten:8; --breite:1280px;
+  --r:0; --schatten:none; --linie-duenn:1px;
+  --dauer:.9s; --versatz:.12s; --ease:cubic-bezier(.2,.7,.2,1);
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;800&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--grund);color:var(--text);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text)}
+h1,h2,h3{font-family:var(--font-display);font-weight:800;line-height:var(--lh-titel);margin:0}
+h1{font-size:var(--fs-h1)}
+h2{font-size:var(--fs-h2);font-weight:700}
+h3{font-size:var(--fs-h3);font-weight:700}
+p{margin:0}
+a{color:var(--signal-dunkel);font-weight:700}
+.kopf{background:var(--signal);color:#fff;height:var(--kopf-h)}
+.kopf-in{max-width:var(--breite);margin:0 auto;height:100%;padding:0 var(--s2);display:flex;align-items:center;justify-content:space-between;gap:var(--s2)}
+.logo{font-family:var(--font-display);font-weight:800;font-size:1.75rem;letter-spacing:.02em;text-transform:uppercase}
+.kopf a{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:0 var(--s2);border-radius:var(--r-klein);font:700 1rem var(--font-text);text-decoration:none;border:0;cursor:pointer;transition:background-color .15s ease}
+.btn-haupt{background:var(--signal);color:#fff}
+.btn-haupt:hover{background:var(--signal-dunkel)}
+.btn-zwei{background:#fff;color:var(--text);border:1px solid var(--rand)}
+.kopf .btn-zwei{color:var(--signal-dunkel)}
+nav{background:#fff;border-bottom:1px solid var(--linie)}
+nav ul{max-width:var(--breite);margin:0 auto;padding:0 var(--s2);list-style:none;display:flex;gap:var(--s3);height:var(--nav-h);align-items:center;overflow:hidden;white-space:nowrap;font-size:var(--fs-meta);font-weight:700}
+nav a{color:var(--text);text-decoration:none}
+main{max-width:var(--breite);margin:0 auto;padding:var(--s3) var(--s2) var(--s6)}
+.karte{background:var(--karte);border-radius:var(--r-karte);box-shadow:var(--schatten-karte);padding:var(--s3)}
+.rubrik{font-size:var(--fs-meta);font-weight:700;color:var(--text-2);margin-bottom:var(--s1)}
+.rubrik.rot{color:var(--signal)}
+.meta{font-size:var(--fs-meta);color:var(--text-2)}
+.platzhalter{background:repeating-linear-gradient(135deg,var(--linie) 0 12px,#e8e6e4 12px 24px);border-radius:var(--r-klein);min-height:200px}
+.aufmacher{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);align-items:stretch}
+.aufmacher .platzhalter{min-height:300px}
+.aufmacher p.teaser{font-size:var(--fs-teaser);margin:var(--s2) 0}
+.marker{display:inline-block;width:1rem;height:1rem;background:var(--signal);border-radius:var(--r-klein);vertical-align:middle;margin-right:.4rem;position:relative}
+.marker:before,.marker:after{content:"";position:absolute;background:#fff;left:50%;top:50%;transform:translate(-50%,-50%)}
+.marker:before{width:8px;height:2px}.marker:after{width:2px;height:8px}
+.abschnitt{margin-top:var(--s5)}
+.abschnitt>h2{border-top:1px solid var(--linie);padding-top:var(--s2);margin-bottom:var(--s2)}
+.raster{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke)}
+.raster .platzhalter{min-height:120px;margin-bottom:var(--s2)}
+.raster .karte{padding:var(--s2)}
+.raster h3{margin-bottom:var(--s1)}
+.hinweis{background:var(--signal-hell);border-radius:var(--r-karte);padding:var(--s3);display:grid;grid-template-columns:1fr auto;gap:var(--s3);align-items:center}
+.tags{display:flex;flex-wrap:wrap;gap:var(--s1);margin-top:var(--s2)}
+.tag{padding:.15rem .6rem;border-radius:var(--r-klein);font-size:var(--fs-meta);font-weight:700}
+.tag.b{background:var(--blau-hell);color:var(--blau-dunkel)}
+.tag.g{background:var(--gruen-hell);color:var(--gruen-dunkel)}
+.zahlen{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--luecke)}
+.zahlen .karte{padding:var(--s2)}
+.zahlen strong{display:block;font:800 2rem var(--font-display);color:var(--signal)}
+.kontakt{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center}
+.feld{flex:1 1 220px;min-width:0;height:44px;border:1px solid var(--rand);border-radius:var(--r-klein);padding:0 48px 0 12px;font:400 .875rem var(--font-text);background:#fff}
+.feld:focus{outline:0;box-shadow:inset 0 0 0 2px var(--signal)}
+footer{border-top:1px solid var(--linie);padding:var(--s3) var(--s2);max-width:var(--breite);margin:0 auto;font-size:var(--fs-meta);color:var(--text-2);display:flex;flex-wrap:wrap;gap:var(--s3)}
+footer a{font-weight:400;color:var(--text-2)}
+@media(max-width:760px){
+  :root{--kopf-h:48px}
+  .logo{font-size:1.25rem}
+  .aufmacher,.raster,.hinweis{grid-template-columns:1fr}
+  .zahlen{grid-template-columns:1fr 1fr}
+  .karte{padding:var(--s2)}
+  .kopf .btn{min-height:36px;padding:0 .75rem}
+  .kopf .textlink{display:none}
+}
+</style>
+</head>
+<body>
+<header class="kopf"><div class="kopf-in">
+  <span class="logo">Nordwerk</span>
+  <span style="display:flex;align-items:center;gap:var(--s2)"><a class="textlink" href="#">Angebote</a><a class="btn btn-zwei" href="#">Anmelden &rsaquo;</a></span>
+</div></header>
+<nav><ul><li><a href="#">Menü</a></li><li><a href="#leistungen">Leistungen</a></li><li><a href="#zahlen">Zahlen</a></li><li><a href="#kontakt">Kontakt</a></li><li><a href="#">Journal</a></li></ul></nav>
+<main>
+  <section class="karte aufmacher">
+    <div>
+      <p class="rubrik">Handwerk und Gestaltung</p>
+      <h1><span class="marker"></span>Wie ein kleines Studio aus zwölf Werkstätten ein ruhiges Produkt baut</h1>
+      <p class="teaser">Nordwerk Studio entwirft Möbel, Verpackungen und Ausstellungssysteme. Ein Blick auf Planung, Material und die Frage, was am Ende bleibt.</p>
+      <p class="meta">Lesedauer 8 Min · aktualisiert heute</p>
+      <p style="margin-top:var(--s2)"><a class="btn btn-haupt" href="#kontakt">Gespräch anfragen &rsaquo;</a></p>
+    </div>
+    <div class="platzhalter" role="img" aria-label="Platzhalter für ein Foto"></div>
+  </section>
+
+  <section class="abschnitt" id="leistungen">
+    <h2>Unsere Leistungen</h2>
+    <div class="raster">
+      <article class="karte"><div class="platzhalter"></div><p class="rubrik rot">Möbel</p><h3>Serien für Büro und Zuhause</h3><p>Vom Entwurf bis zur Kleinserie in Eiche, Stahl und Filz.</p></article>
+      <article class="karte"><div class="platzhalter"></div><p class="rubrik rot">Verpackung</p><h3>Kartonagen mit Haltung</h3><p>Materialsparende Konstruktionen, die sich sauber recyceln lassen.</p></article>
+      <article class="karte"><div class="platzhalter"></div><p class="rubrik rot">Ausstellung</p><h3>Systeme, die wandern</h3><p>Modulare Wände und Sockel für Museen und Messen.</p></article>
+    </div>
+  </section>
+
+  <section class="abschnitt">
+    <div class="hinweis">
+      <div>
+        <p class="rubrik rot">Hinweis</p>
+        <h2>Neue Werkstattreihe ab Herbst</h2>
+        <p style="margin-top:var(--s1)">Drei offene Termine pro Monat, jeweils mit Führung durch Holz- und Metallwerkstatt.</p>
+        <div class="tags"><span class="tag b">Holz</span><span class="tag g">Nachhaltig</span></div>
+      </div>
+      <a class="btn btn-zwei" href="#">Termine ansehen &rsaquo;</a>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="zahlen">
+    <h2>Das Studio in Zahlen</h2>
+    <div class="zahlen">
+      <div class="karte"><strong>18</strong><span class="meta">Jahre Erfahrung</span></div>
+      <div class="karte"><strong>240</strong><span class="meta">Projekte realisiert</span></div>
+      <div class="karte"><strong>12</strong><span class="meta">Partnerwerkstätten</span></div>
+      <div class="karte"><strong>96 %</strong><span class="meta">Wiederbeauftragung</span></div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="kontakt">
+    <h2>Sprechen wir darüber</h2>
+    <div class="karte">
+      <p style="max-width:var(--breite-text);margin-bottom:var(--s2)">Schildern Sie kurz Ihr Vorhaben. Wir melden uns innerhalb von zwei Werktagen mit einem Vorschlag für das weitere Vorgehen.</p>
+      <div class="kontakt">
+        <input class="feld" type="text" placeholder="Ihre E-Mail-Adresse" aria-label="E-Mail-Adresse">
+        <a class="btn btn-haupt" href="#">Absenden &rsaquo;</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><span>© Nordwerk Studio</span><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></footer>
+</body>
+</html>

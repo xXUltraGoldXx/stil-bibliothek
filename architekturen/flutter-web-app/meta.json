@@ -1,0 +1,37 @@
+{
+  "name": "Flutter-Web-App (Dashboard-Client mit JWT-API)",
+  "slug": "flutter-web-app",
+  "beschreibung": "Flutter-Web-Single-Page-App als mobiler Client fuer ein Symfony-API-Backend mit JWT, Feature-Ordnern, provider-State und Viewport-Tests; ausgeliefert als statischer Build per Apache hinter Traefik.",
+  "sprache": "Dart",
+  "stack": [
+    "Dart 3",
+    "Flutter Web",
+    "provider",
+    "http",
+    "shared_preferences",
+    "fl_chart",
+    "intl",
+    "Apache",
+    "Traefik"
+  ],
+  "kategorien": [
+    "App",
+    "Web-App"
+  ],
+  "schlagworte": [
+    "flutter",
+    "dart",
+    "web",
+    "spa",
+    "jwt",
+    "provider",
+    "changenotifier",
+    "viewport-test",
+    "mobile",
+    "canvaskit",
+    "deploy",
+    "cache"
+  ],
+  "quelle": "erprobt",
+  "reifegrad": "erprobt"
+}

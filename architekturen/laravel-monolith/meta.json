@@ -1,0 +1,33 @@
+{
+  "name": "Laravel-Monolith",
+  "slug": "laravel-monolith",
+  "beschreibung": "Klassischer Laravel-Monolith mit Controller/Service/Action, Eloquent, Form Requests, Policies und Queues; im Container hinter Traefik.",
+  "sprache": "PHP",
+  "stack": [
+    "PHP",
+    "Laravel",
+    "Eloquent",
+    "Pest/PHPUnit",
+    "Queues",
+    "Docker",
+    "Traefik"
+  ],
+  "kategorien": [
+    "Web-App",
+    "API"
+  ],
+  "schlagworte": [
+    "laravel",
+    "php",
+    "eloquent",
+    "form-request",
+    "policy",
+    "queue",
+    "sail",
+    "monolith",
+    "docker",
+    "traefik"
+  ],
+  "quelle": "recherchiert",
+  "reifegrad": "recherchiert, ungetestet"
+}

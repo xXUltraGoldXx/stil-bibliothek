@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Kosmos nachtblau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--canvas);color:var(--text);font-family:var(--font-sans);font-size:var(--fs-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+.w{max-width:var(--breite);margin:0 auto;padding:0 1.25rem}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{color:var(--text)}
+h1{font-size:var(--fs-h1);font-weight:var(--fw-head);letter-spacing:var(--ls-h1);line-height:var(--lh-h1);max-width:924px;margin:0 auto}
+h2{font-size:var(--fs-h2);font-weight:var(--fw-medium);line-height:1.2;letter-spacing:-.02em}
+h3{font-size:var(--fs-h3);font-weight:var(--fw-strong);line-height:1.4}
+.lead{font-size:var(--fs-lead);letter-spacing:var(--ls-body);color:var(--text-lead);max-width:var(--text-breite);margin:1.5rem auto 0}
+header.top{background:var(--grad-hero);border-bottom:1px solid var(--divider)}
+header.top .w{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;padding-bottom:1rem;gap:1rem}
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:var(--fw-strong)}
+.menu{display:flex;gap:1.5rem;font-weight:var(--fw-medium);margin-left:2rem;flex:1}
+.menu a:hover{color:var(--link)}
+.kl{border:1px solid var(--border);border-radius:var(--r-sm);padding:.35rem .8rem;font-size:var(--fs-sm);font-weight:var(--fw-medium);transition:background var(--dur-short) var(--ease)}
+.kl.f{background:rgba(255,255,255,.12)}.kl:hover{background:var(--surface-strong)}
+.hero{background:var(--grad-hero),var(--canvas-black);text-align:center;padding:clamp(4rem,9vw,7rem) 0 0;position:relative;overflow:hidden}
+.aktion{display:flex;gap:1rem;justify-content:center;align-items:stretch;flex-wrap:wrap;margin-top:2rem}
+.feld{display:flex;gap:.5rem;align-items:center;background:#e6e6ee;border-radius:var(--r-md);padding:.25rem;box-shadow:inset 0 0 0 2px rgba(255,255,255,.6);min-width:0}
+.feld input{background:transparent;border:0;color:#24292f;font:inherit;font-size:var(--fs-sm);padding:.6rem .9rem;min-width:0;width:15rem;max-width:100%}
+.feld input:focus{outline:2px solid var(--focus);border-radius:var(--r-sm)}
+.k{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r-sm);padding:.7rem 1.25rem;font:var(--fw-strong) var(--fs-body) var(--font-sans);border:1px solid transparent;cursor:pointer;transition:background var(--dur-short) var(--ease)}
+.k.p{background:var(--action);color:var(--on-action)}.k.p:hover{background:var(--action-hover)}
+.k.s{border-color:var(--border-strong);color:var(--text);background:transparent}.k.s:hover{background:var(--surface)}
+.buehne{position:relative;margin-top:3.5rem;padding-top:6rem}
+.kegel{position:absolute;left:50%;bottom:0;width:min(1100px,140%);height:520px;transform:translateX(-50%);background:var(--grad-cone);opacity:.9;animation:atmen 8s ease-in-out infinite}
+@keyframes atmen{50%{opacity:.65}}
+.stern{position:absolute;color:var(--text);opacity:.7;animation:funkel 4s ease-in-out infinite}
+@keyframes funkel{50%{opacity:.2}}
+.rahmen{position:relative;max-width:1000px;margin:0 auto;border:1px solid var(--border-strong);border-radius:var(--r-xl) var(--r-xl) 0 0;border-bottom:0;background:rgba(17,26,36,.92);padding:1.5rem 1.5rem 0;text-align:left}
+.punkte{display:flex;gap:.4rem;margin-bottom:1rem}.punkte i{width:.6rem;height:.6rem;border-radius:50%;background:var(--surface-strong)}
+.edit{display:grid;grid-template-columns:1fr 2fr;gap:1rem}
+.chat,.code{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg) var(--r-lg) 0 0;padding:1.25rem;min-height:300px}
+.chat p{font-size:var(--fs-sm);color:var(--text-muted);margin-top:.75rem}
+.code{font-family:var(--font-mono);font-size:var(--fs-sm);line-height:1.7;color:var(--text-muted);overflow:hidden}
+.code b{color:var(--link);font-weight:var(--fw-body)}.code em{color:#d2a8ff;font-style:normal}.code span{display:block;white-space:nowrap}
+.pille{display:flex;justify-content:center;padding:2.5rem 0 1rem}
+.reiter{display:flex;gap:.25rem;border:1px solid var(--surface-strong);border-radius:var(--r-pill);padding:.4rem;flex-wrap:wrap;justify-content:center}
+.reiter a{padding:.45rem 1rem;border-radius:var(--r-pill);font-weight:var(--fw-medium);font-size:var(--fs-sm)}
+.reiter a.on{background:var(--surface-strong)}
+.pille+p{text-align:center;color:var(--text-muted);max-width:var(--text-breite);margin:0 auto;padding:0 0 3rem}
+.logos{border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);padding:2.5rem 0}
+.logos .w{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;color:var(--text-faint);font-weight:var(--fw-strong);font-size:1.25rem;letter-spacing:.02em}
+.sek{padding:var(--abstand-sektion) 0}
+.sek .kopf{text-align:center;max-width:var(--text-breite);margin:0 auto 3rem}
+.sek .kopf p{color:var(--text-muted);font-size:var(--fs-lead);margin-top:1rem}
+.raster{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.karte{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;transition:border-color var(--dur-medium) var(--ease)}
+.karte:hover{border-color:var(--border-strong)}
+.karte p{color:var(--text-muted);margin-top:.6rem;font-size:var(--fs-sm)}
+.ico{width:2.75rem;height:2.75rem;border-radius:var(--r-md);background:var(--surface-strong);display:grid;place-items:center;margin-bottom:1.25rem;color:var(--link)}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.zwei p{color:var(--text-muted);margin-top:1rem}
+.bildflaeche{aspect-ratio:4/3;border:1px solid var(--border);border-radius:var(--r-xl);background:var(--grad-cone),var(--canvas-deep);position:relative;overflow:hidden}
+.bildflaeche:after{content:"";position:absolute;inset:18% 12% 0;border:1px solid var(--border-strong);border-bottom:0;border-radius:var(--r-lg) var(--r-lg) 0 0;background:rgba(17,26,36,.85)}
+.liste{list-style:none;padding:0;margin-top:1.5rem;display:grid;gap:.75rem}
+.liste li{padding-left:1.5rem;position:relative;color:var(--text-lead)}
+.liste li:before{content:"";position:absolute;left:0;top:.6em;width:.5rem;height:.5rem;border-radius:50%;background:var(--action)}
+.cta{text-align:center;background:var(--grad-hero),var(--canvas-black);border-top:1px solid var(--divider)}
+.cta .lead{margin-bottom:0}
+footer{background:var(--canvas-foot);color:var(--text-muted);font-size:var(--fs-sm);padding:3rem 0}
+footer .w{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+footer a{display:block;margin-top:.5rem}footer a:hover{color:var(--link)}
+footer b{color:var(--text);font-weight:var(--fw-strong)}
+@media(max-width:860px){.menu{display:none}.raster,.zwei{grid-template-columns:1fr}.edit{grid-template-columns:1fr}.chat{display:none}.zwei{gap:2rem}}
+@media(max-width:560px){.aktion,.feld{width:100%}.feld input{flex:1;width:auto}.aktion .k.s{width:100%}.rahmen{padding:1rem 1rem 0}.karte{padding:1.5rem}}
+@media(prefers-reduced-motion:reduce){.kegel,.stern{animation:none}}
+</style></head><body>
+<header class="top"><div class="w">
+<a class="brand" href="#"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="2" width="24" height="24" rx="7" fill="none" stroke="#fff" stroke-width="2"/><path d="M8 20V8l12 12V8" fill="none" stroke="#fff" stroke-width="2"/></svg>Nordwerk Studio</a>
+<nav class="menu"><a href="#leistung">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#partner">Partner</a><a href="#start">Preise</a></nav>
+<div style="display:flex;gap:.5rem"><a class="kl" href="#">Anmelden</a><a class="kl f" href="#start">Starten</a></div>
+</div></header>
+
+<section class="hero"><div class="w">
+<h1>Die Zukunft des Bauens entsteht gemeinsam</h1>
+<p class="lead">Werkzeuge ändern sich, die Zusammenarbeit bleibt. Nordwerk Studio führt Teams, Pläne und Daten auf einer ruhigen Plattform zusammen.</p>
+<div class="aktion"><div class="feld"><input type="email" placeholder="E-Mail-Adresse eingeben" aria-label="E-Mail-Adresse"><a class="k p" href="#start">Konto anlegen</a></div><a class="k s" href="#leistung">Demo ansehen</a></div>
+</div>
+<div class="buehne"><div class="kegel"></div>
+<svg class="stern" style="left:22%;top:12%" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 0l1 5 5 1-5 1-1 5-1-5-5-1 5-1z" fill="currentColor"/></svg>
+<svg class="stern" style="left:74%;top:30%;animation-delay:1.2s" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 0l1 5 5 1-5 1-1 5-1-5-5-1 5-1z" fill="currentColor"/></svg>
+<svg class="stern" style="left:56%;top:6%;animation-delay:2.4s" width="8" height="8" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 0l1 5 5 1-5 1-1 5-1-5-5-1 5-1z" fill="currentColor"/></svg>
+<div class="w"><div class="rahmen"><div class="punkte"><i></i><i></i><i></i></div>
+<div class="edit"><div class="chat"><b style="font-size:var(--fs-sm)">Assistent</b><p>Guten Morgen! Soll ich die Bauphasen für das Projekt Hafenblick zusammenfassen?</p></div>
+<div class="code"><span><b>phase</b> = plan.<em>laden</em>("hafenblick")</span><span><b>für</b> schritt <b>in</b> phase.schritte:</span><span>&nbsp;&nbsp;schritt.<em>prüfen</em>(frist="14 Tage")</span><span>&nbsp;&nbsp;<b>wenn</b> schritt.offen:</span><span>&nbsp;&nbsp;&nbsp;&nbsp;team.<em>melden</em>(schritt)</span><span><b>bericht</b> = phase.<em>zusammenfassen</em>()</span><span>&nbsp;</span><span>&nbsp;</span></div></div></div></div></div>
+</section>
+
+<div class="w"><div class="pille"><nav class="reiter"><a class="on" href="#leistung">Planen</a><a href="#leistung">Bauen</a><a href="#leistung">Prüfen</a><a href="#leistung">Abnehmen</a><a href="#leistung">Betreiben</a></nav></div>
+<p>Ein Arbeitsraum für alle Phasen, vom ersten Entwurf bis zur Übergabe.</p></div>
+
+<section class="logos" id="partner"><div class="w"><span>Küstenbau</span><span>Brandt &amp; Lohe</span><span>Felsgrund</span><span>Tiefland AG</span><span>Wellenwerk</span></div></section>
+
+<section class="sek" id="leistung"><div class="w">
+<div class="kopf"><h2>Alles, was ein Bauteam täglich braucht</h2><p>Drei Bausteine, die ineinandergreifen und ohne Einarbeitung funktionieren.</p></div>
+<div class="raster">
+<div class="karte"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div><h3>Pläne im Team</h3><p>Zeichnungen, Notizen und Freigaben an einem Ort, mit lückenloser Versionsgeschichte.</p></div>
+<div class="karte"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Fristen im Blick</h3><p>Automatische Erinnerungen, wenn ein Schritt länger offen bleibt als vereinbart.</p></div>
+<div class="karte"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div><h3>Sicher geteilt</h3><p>Rollen und Rechte pro Projekt. Externe Partner sehen nur, was sie sehen sollen.</p></div>
+</div></div></section>
+
+<section class="sek" id="ablauf" style="padding-top:0"><div class="w"><div class="zwei">
+<div><h2>Vom Entwurf zur Übergabe in einem Fluss</h2><p>Jede Änderung ist nachvollziehbar, jede Entscheidung hat einen Namen. So bleibt das Team auch bei vielen Beteiligten handlungsfähig.</p>
+<ul class="liste"><li>Gemeinsame Arbeitsfläche für alle Gewerke</li><li>Kommentare direkt am Bauteil</li><li>Berichte auf Knopfdruck</li></ul></div>
+<div class="bildflaeche" role="img" aria-label="Platzhalter für Produktansicht"></div>
+</div></div></section>
+
+<section class="sek cta" id="start"><div class="w">
+<h2>Starten Sie Ihr nächstes Projekt gemeinsam</h2>
+<p class="lead">Kostenlos für kleine Teams, mit Antwort innerhalb eines Werktags.</p>
+<div class="aktion"><div class="feld"><input type="email" placeholder="E-Mail-Adresse eingeben" aria-label="E-Mail-Adresse"><a class="k p" href="#">Konto anlegen</a></div><a class="k s" href="#">Gespräch vereinbaren</a></div>
+</div></section>
+
+<footer><div class="w"><div><b>Nordwerk Studio</b><br>Eine fiktive Firma für diese Stilvorlage.</div>
+<div><b>Produkt</b><a href="#leistung">Leistungen</a><a href="#ablauf">Ablauf</a></div>
+<div><b>Firma</b><a href="#partner">Partner</a><a href="#start">Kontakt</a></div></div></footer>
+</body></html>

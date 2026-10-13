@@ -1,0 +1,20 @@
+/* Freundlich warm: Tokens */
+:root{
+  --tinte:#2a2418; --tinte-2:rgba(42,36,24,.65); --text:#403b3b;
+  --gelb:#fbdc35; --gelb-hell:#fcf3c8; --gelb-marker:rgba(251,220,53,.65);
+  --weiss:#ffffff; --grau:#f5f5f5; --eis:#f0f4f6; --sand:#ebe1cd; --senf:#dfb36a;
+  --braun:#39352c; --linie:#bcbab6; --aus:#dbd9d2; --link:#004e56;
+  --verlauf-foto:linear-gradient(rgba(42,36,24,0) 0%,rgba(42,36,24,.55) 45%,rgba(42,36,24,.82) 100%);
+  --font-display:"Fraunces",Georgia,"Times New Roman",serif;
+  --font-text:"Figtree","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --fs-h1:clamp(2.25rem,6vw,4rem); --fs-h2:clamp(1.8rem,4vw,2.2rem); --fs-h3:1.4rem;
+  --fs-lead:1.25rem; --fs-text:1rem; --fs-info:.8125rem; --fs-legal:.6875rem;
+  --ls-h1:-1.2px; --ls-h2:-.5px; --lh-text:1.5; --lh-info:1.25;
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem; --s5:1.5rem; --s6:2rem; --s7:3rem; --s8:4rem;
+  --r-feld:4px; --r-bild:16px; --r-karte:24px; --r-pille:2em;
+  --schatten-karte:0 15.5px 44px rgba(0,0,0,.086);
+  --schatten-weich:0 8px 32px rgba(42,36,24,.06),0 4px 8px rgba(42,36,24,.04);
+  --ring:0 0 0 1px #2a2418;
+  --breite:1152px; --breite-text:640px;
+  --uebergang:.2s cubic-bezier(0,0,0,1);
+}

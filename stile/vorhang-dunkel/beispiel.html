@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Vorhang dunkel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{max-width:100%}
+body{background:var(--buehne);color:var(--papier);font-family:var(--font-mono);font-size:var(--fs-text);line-height:var(--lh-text);font-weight:400}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:3px}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--m)}
+.meta{font-size:var(--fs-meta);letter-spacing:var(--ls-meta)}
+.kopf{display:flex;justify-content:space-between;align-items:center;gap:var(--g);flex-wrap:wrap;padding:var(--g) 0;border-bottom:1px solid var(--linie)}
+.kopf nav{display:flex;gap:var(--g);flex-wrap:wrap}
+.hero{min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:var(--abstand-5) 0}
+.block{border-top:1px solid var(--linie);border-bottom:1px solid var(--linie);padding:var(--abstand-2) 0;margin:var(--abstand-3) 0}
+.block p,.zeile{font-family:var(--font-display);text-transform:uppercase;font-size:var(--fs-h2);line-height:var(--lh-display);letter-spacing:var(--ls-display);opacity:0;animation:ein var(--dauer) var(--ease) forwards}
+.block p:nth-child(1){margin-left:50%;animation-delay:.1s}
+.block p:nth-child(2){margin-left:30%;animation-delay:.22s}
+.block p:nth-child(3){margin-left:12%;animation-delay:.34s}
+.block p:nth-child(4){margin-left:38%;animation-delay:.46s}
+.block p:nth-child(5){margin-left:55%;animation-delay:.58s}
+@keyframes ein{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+.zaehler{text-align:center;padding:var(--abstand-4) 0}
+.sek{padding:var(--abstand-5) 0;border-top:1px solid var(--linie)}
+.sek h2{font-family:var(--font-display);font-weight:400;font-size:var(--fs-h2-gross);line-height:var(--lh-display);letter-spacing:var(--ls-display);text-transform:uppercase;max-width:18ch;margin-bottom:var(--g)}
+mark{background:var(--hellgrau);color:var(--buehne);padding:0 var(--abstand-1)}
+.lead{font-family:var(--font-display);font-size:var(--fs-lead);line-height:1;letter-spacing:var(--ls-display);max-width:22ch}
+.raster{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--g);margin-top:var(--abstand-4)}
+.raster article{border-top:1px solid var(--linie);padding-top:var(--abstand-3)}
+.raster h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:var(--fs-h2);line-height:1;letter-spacing:var(--ls-display);margin:var(--abstand-2) 0}
+.raster p{color:var(--dunkelgrau)}
+.flaeche{height:220px;border:1px solid var(--linie);background:repeating-linear-gradient(90deg,transparent 0 23px,var(--linie) 23px 24px),var(--buehne);margin-top:var(--abstand-4)}
+.hell{background:var(--papier);color:var(--buehne)}
+.hell .sek{border-top:0}
+.hell .raster article{border-top:1px solid rgba(19,19,19,.25)}
+.hell .raster p{color:var(--dunkelgrau)}
+.kontakt{display:flex;gap:var(--g);flex-wrap:wrap;align-items:center;margin-top:var(--g)}
+.knopf{font-family:var(--font-mono);font-size:var(--fs-text);padding:var(--abstand-2) 0;border-bottom:1px solid currentColor}
+footer{padding:var(--abstand-4) 0;color:var(--dunkelgrau);border-top:1px solid var(--linie)}
+@media(max-width:800px){
+ .raster{grid-template-columns:1fr 1fr}
+ .block p:nth-child(n){margin-left:0}
+ .block p:nth-child(1){margin-left:24%}.block p:nth-child(2){margin-left:10%}.block p:nth-child(3){margin-left:0}.block p:nth-child(4){margin-left:14%}.block p:nth-child(5){margin-left:20%}
+ .lead{font-size:1.6rem}
+}
+@media(max-width:480px){.raster{grid-template-columns:1fr}.flaeche{height:140px}}
+@media(prefers-reduced-motion:reduce){.block p{animation:none;opacity:1}}
+</style></head><body>
+<div class="w">
+<div class="kopf meta"><span>Nordwerk Studio</span><nav><a href="#arbeit">Arbeit</a><a href="#haltung">Haltung</a><a href="#kontakt">Kontakt</a></nav></div>
+<header class="hero">
+<div class="block"><p>Wir bauen ruhige Räume</p><p>Für Marken mit Haltung</p><p>Zeile für Zeile</p><p>Ohne Lärm</p><p>Mit Gespür für Pausen</p></div>
+<div class="block"><p>Aus Holz, Licht und Raster</p><p>Gedacht für lange Wege</p><p>Gemacht in Hamburg</p><p>Offen ab Montag</p><p>Willkommen im Studio</p></div>
+<div class="zaehler meta">▶ 100%</div>
+</header>
+</div>
+<div class="w"><section class="sek" id="arbeit">
+<p class="meta" style="margin-bottom:var(--abstand-3)">01 / Arbeit</p>
+<h2>Entwürfe, die <mark>wenig</mark> sagen</h2>
+<p class="lead">Wir gestalten Auftritte für Werkstätten, Verlage und kleine Bühnen.</p>
+<div class="flaeche" role="img" aria-label="Platzhalter für eine Projektfläche"></div>
+<div class="raster">
+<article><span class="meta">Projekt 01</span><h3>Tischlerei Kranz</h3><p>Auftritt mit drei Schriftgrößen.</p></article>
+<article><span class="meta">Projekt 02</span><h3>Verlag Lindner</h3><p>Katalog ohne Bildrahmen.</p></article>
+<article><span class="meta">Projekt 03</span><h3>Kammerbühne Ost</h3><p>Programm als reine Textfläche.</p></article>
+<article><span class="meta">Projekt 04</span><h3>Café Morgenlicht</h3><p>Karte in einer Spalte.</p></article>
+</div></section></div>
+<div class="hell"><div class="w"><section class="sek" id="haltung">
+<p class="meta" style="margin-bottom:var(--abstand-3)">02 / Haltung</p>
+<h2>Weniger zeigen, genauer hinsehen</h2>
+<div class="raster">
+<article><span class="meta">Prinzip A</span><h3>Eine Schrift</h3><p>Eine Serife für Aussagen, eine Monospace für Angaben.</p></article>
+<article><span class="meta">Prinzip B</span><h3>Eine Linie</h3><p>Haarfein, nur zum Trennen.</p></article>
+<article><span class="meta">Prinzip C</span><h3>Eine Bewegung</h3><p>Zeilen gleiten nacheinander herein.</p></article>
+<article><span class="meta">Prinzip D</span><h3>Eine Pause</h3><p>Leerraum ist Teil des Textes.</p></article>
+</div></section></div></div>
+<div class="w"><section class="sek" id="kontakt">
+<p class="meta" style="margin-bottom:var(--abstand-3)">03 / Kontakt</p>
+<h2>Sprechen wir über Ihr nächstes Projekt</h2>
+<div class="kontakt"><a class="knopf" href="#kontakt">Termin anfragen →</a><span class="meta">Mo bis Fr, 9 bis 17 Uhr</span></div>
+</section>
+<footer class="meta">Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage · Impressum · Datenschutz</footer>
+</div>
+</body></html>

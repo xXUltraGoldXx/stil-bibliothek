@@ -1,0 +1,19 @@
+/* Nachtblau Glas: Tokens */
+:root{
+  --canvas:#0b1a24; --panel:#071e28; --deep:#020e14; --footbar:rgba(4,23,29,.55);
+  --glass:rgba(10,28,40,.76); --line:rgba(222,238,244,.18); --line-strong:#36505b;
+  --field:rgba(255,255,255,.03);
+  --text:#eaf3f6; --text-muted:#b4ced6; --text-faint:#92aeb6;
+  --amber:#f0bc67; --amber-soft:#ffca85; --amber-dim:rgba(240,188,103,.55); --amber-line:rgba(240,185,95,.48);
+  --cyan:#70dbe1; --cyan-line:rgba(93,217,232,.24); --danger:#ff9999;
+  --grad-canvas:radial-gradient(circle at 50% 0%,#46646f 0%,#0b1a24 70%);
+  --font-body:"Lato",Arial,sans-serif;
+  --fs-h1:clamp(1.75rem,3.4vw,2.75rem); --fs-h2:clamp(1.4rem,2.4vw,2rem); --fs-h3:1rem;
+  --fs-body:.9375rem; --fs-sm:.8125rem; --fs-xs:.75rem; --fs-label:.6875rem;
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:20px; --sp-5:32px; --sp-6:48px; --sp-7:72px;
+  --r-sm:8px; --r-md:18px; --r-pill:999px; --r-round:50%;
+  --shadow-panel:0 20px 70px rgba(0,0,0,.53); --shadow-icon:0 18px 50px rgba(0,7,13,.2); --shadow-soft:0 8px 24px rgba(0,0,0,.18);
+  --blur-glass:14px;
+  --ease-out:cubic-bezier(.2,.8,.2,1); --dur-fast:160ms; --dur-base:220ms; --dur-slow:400ms;
+  --breite:1120px; --abstand-sektion:clamp(3.5rem,8vw,6rem);
+}

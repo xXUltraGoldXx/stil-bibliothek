@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--seite);color:var(--text);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text)}
+a{color:var(--marine);font-weight:var(--gewicht-fett);text-decoration:none}
+a:hover{color:var(--aktion-hover);text-decoration:underline}
+a:focus-visible,.knopf:focus-visible{outline:2px solid var(--fokus);outline-offset:2px}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
+.leiste{background:var(--marine-leiste);color:#fff;font-size:var(--fs-nav);font-weight:var(--gewicht-fett)}
+.leiste .wrap{display:flex;justify-content:space-between;gap:var(--s-3);padding-top:var(--s-3);padding-bottom:var(--s-3);flex-wrap:wrap}
+.kopf{background:var(--flaeche)}
+.kopf .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);padding-top:var(--s-5);padding-bottom:var(--s-5);flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:var(--s-2);color:var(--aktion);font-weight:var(--gewicht-fett);font-size:1.25rem;line-height:1.1}
+.knopf{display:inline-block;background:var(--marine);color:#fff;border-radius:var(--r);padding:var(--s-2) var(--s-5);font-weight:var(--gewicht-text);text-decoration:none;border:0;font-family:inherit;font-size:var(--fs-text)}
+.knopf:hover{background:var(--aktion-aktiv);color:#fff;text-decoration:none}
+.knopf.gelb{background:var(--gelb);color:var(--auf-gelb);font-weight:var(--gewicht-fett)}
+.knopf.gelb:hover{background:#e29a14;color:var(--auf-gelb)}
+nav{background:var(--marine-nav)}
+nav ul{list-style:none;margin:0 auto;padding:0 var(--rand);max-width:var(--breite);display:flex;flex-wrap:wrap;gap:0 var(--s-5)}
+nav a{display:block;color:#fff;font-size:var(--fs-nav);padding:var(--s-3) 0;border-bottom:2px solid transparent}
+nav a:hover{color:#fff;border-bottom-color:#fff;text-decoration:none}
+.hero{position:relative;min-height:440px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:var(--s-4);padding:var(--s-7) var(--s-3) var(--s-6);text-align:center;background:
+ radial-gradient(ellipse at 25% 40%,#3f8a85 0,transparent 45%),radial-gradient(ellipse at 75% 35%,#2a2b2f 0,transparent 50%),linear-gradient(100deg,#2c7a78,#8d7a62 55%,#3a3835)}
+.hero h1{margin:0;display:inline-block;background:var(--marine-balken);color:#fff;font-size:var(--fs-h1);line-height:var(--lh-h1);font-weight:var(--gewicht-fett);padding:var(--s-1) var(--s-3);max-width:100%}
+.credit{position:absolute;right:0;bottom:0;background:var(--marine);color:#fff;font-size:var(--fs-meta);padding:var(--s-2) var(--s-4)}
+section{padding:var(--s-7) 0 0}
+.kopfzeile{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--linie);padding-bottom:var(--s-3);margin-bottom:var(--s-5);gap:var(--s-3)}
+h2{margin:0;color:var(--h2);font-size:var(--fs-h2);line-height:1.4;font-weight:var(--gewicht-fett)}
+h3{margin:0 0 var(--s-2);color:var(--marine);font-size:var(--fs-h3);line-height:1.5}
+.raster{display:grid;gap:var(--luecke);grid-template-columns:1fr}
+@media(min-width:600px){.raster{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.raster{grid-template-columns:repeat(3,1fr)}}
+.karte{background:var(--flaeche);border:1px solid var(--linie);border-radius:var(--r-oben);overflow:hidden}
+.bild{aspect-ratio:16/9;background:linear-gradient(135deg,#c9d4e6,#8ea3c4)}
+.bild.b2{background:linear-gradient(135deg,#e6d9c4,#b79a72)}
+.bild.b3{background:linear-gradient(135deg,#cfe3df,#6fa39c)}
+.karte .inhalt{padding:var(--s-4)}
+.meta{font-size:var(--fs-meta);line-height:1.5;margin:0 0 var(--s-2)}
+.karte p{margin:0}
+.zahlen{background:var(--marine-nav);color:#fff;margin-top:var(--s-7);padding:var(--s-7) 0}
+.zahlen h2{color:#fff}
+.zahlen .raster{margin-top:var(--s-5)}
+.zahl{background:var(--marine-leiste);border-radius:var(--r);padding:var(--s-4)}
+.zahl strong{display:block;font-size:2.5rem;line-height:1.2}
+.themen{list-style:none;margin:0;padding:0;display:grid;gap:0 var(--luecke);grid-template-columns:1fr}
+@media(min-width:700px){.themen{grid-template-columns:repeat(2,1fr)}}
+.themen li{border-bottom:1px solid var(--linie);padding:var(--s-3) 0;background:var(--flaeche);padding-left:var(--s-3)}
+.aufruf{background:var(--flaeche-2);border-radius:var(--r);padding:var(--s-6);display:flex;flex-wrap:wrap;gap:var(--s-4);justify-content:space-between;align-items:center}
+.aufruf p{margin:var(--s-2) 0 0;max-width:60ch}
+footer{background:var(--marine);color:#fff;margin-top:var(--s-7);padding:var(--s-6) 0}
+footer .wrap{display:grid;gap:var(--luecke);grid-template-columns:1fr}
+@media(min-width:700px){footer .wrap{grid-template-columns:2fr 1fr 1fr}}
+footer a{color:#fff;font-weight:var(--gewicht-text);display:block;padding:var(--s-1) 0}
+footer p{margin:0}
+</style>
+</head>
+<body>
+<div class="leiste"><div class="wrap"><span>Deutschland</span><span>Sprache wählen ▾</span></div></div>
+<header class="kopf"><div class="wrap">
+ <div class="logo"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="#006cbe" stroke-width="3"/><path d="M10 24h28M24 10v28" stroke="#006cbe" stroke-width="3"/></svg><span>Nordwerk<br>Studio</span></div>
+ <a class="knopf gelb" href="#kontakt">Gespräch anfragen</a>
+</div></header>
+<nav aria-label="Hauptnavigation"><ul>
+ <li><a href="#">Start</a></li><li><a href="#themen">Leistungen ▾</a></li><li><a href="#news">Aktuelles ▾</a></li><li><a href="#zahlen">Zahlen ▾</a></li><li><a href="#kontakt">Kontakt</a></li>
+</ul></nav>
+<div class="hero">
+ <h1>Planung, die trägt</h1>
+ <a class="knopf" href="#news">Weiterlesen</a>
+ <div class="credit">Bildnachweis +</div>
+</div>
+<main class="wrap">
+<section id="news">
+ <div class="kopfzeile"><h2>Aktuelles aus dem Studio</h2><a href="#">Alle →</a></div>
+ <div class="raster">
+  <article class="karte"><div class="bild"></div><div class="inhalt"><p class="meta">12. Oktober 2026 | Projekt</p><h3>Neues Quartiersbüro in Betrieb genommen</h3><p>Nach acht Monaten Bauzeit zieht das Team in einen barrierefreien Neubau.</p></div></article>
+  <article class="karte"><div class="bild b2"></div><div class="inhalt"><p class="meta">28. September 2026 | Bericht</p><h3>Was Bürgerbeteiligung wirklich bringt</h3><p>Drei Gemeinden im Vergleich: Dauer, Kosten und Zufriedenheit der Anwohner.</p></div></article>
+  <article class="karte"><div class="bild b3"></div><div class="inhalt"><p class="meta">15. September 2026 | Leitfaden</p><h3>Checkliste für verständliche Pläne</h3><p>Zehn Regeln für Zeichnungen, die auch Laien auf Anhieb lesen können.</p></div></article>
+ </div>
+</section>
+</main>
+<div class="zahlen" id="zahlen"><div class="wrap">
+ <h2>Studio in Zahlen</h2>
+ <div class="raster">
+  <div class="zahl"><strong>140</strong>abgeschlossene Projekte</div>
+  <div class="zahl"><strong>18</strong>Fachleute im Team</div>
+  <div class="zahl"><strong>96 %</strong>Termintreue seit 2020</div>
+ </div>
+</div></div>
+<main class="wrap">
+<section id="themen">
+ <div class="kopfzeile"><h2>Unsere Leistungen</h2><a href="#">Alle →</a></div>
+ <ul class="themen">
+  <li><a href="#">Bestandsanalyse</a></li><li><a href="#">Entwurf und Planung</a></li><li><a href="#">Bauleitung</a></li><li><a href="#">Beteiligungsverfahren</a></li><li><a href="#">Barrierefreie Gestaltung</a></li><li><a href="#">Fördermittelberatung</a></li>
+ </ul>
+</section>
+<section id="kontakt">
+ <div class="aufruf">
+  <div><h2>Ihr Vorhaben besprechen</h2><p>Schildern Sie uns kurz Ort, Umfang und Zeitrahmen. Wir antworten innerhalb von zwei Werktagen.</p></div>
+  <a class="knopf" href="#">Termin vereinbaren</a>
+ </div>
+</section>
+</main>
+<footer><div class="wrap">
+ <p><strong>Nordwerk Studio</strong><br>Musterstraße 12, 10000 Beispielstadt</p>
+ <div><a href="#">Leistungen</a><a href="#">Aktuelles</a><a href="#">Karriere</a></div>
+ <div><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Barrierefreiheit</a></div>
+</div></footer>
+</body>
+</html>

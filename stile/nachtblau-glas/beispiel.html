@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Nachtblau Glas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--grad-canvas) fixed,var(--canvas);color:var(--text);font-family:var(--font-body);font-size:var(--fs-body);line-height:1.6;-webkit-font-smoothing:antialiased}
+.w{max-width:var(--breite);margin:0 auto;padding:0 16px}
+h1,h2,h3{font-weight:400;line-height:1.2;letter-spacing:.01em}
+h1{font-size:var(--fs-h1)}h2{font-size:var(--fs-h2)}h3{font-size:var(--fs-h3);font-weight:700}
+.lab{font-size:var(--fs-label);font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:var(--text-faint)}
+p{color:var(--text-muted)}
+a{color:inherit;text-decoration:none}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 0;flex-wrap:wrap}
+.top b{font-weight:900;letter-spacing:.04em}
+.top nav{display:flex;gap:20px;align-items:center}
+.top nav a{font-size:var(--fs-sm);color:var(--text-faint);transition:color var(--dur-fast)}.top nav a:hover{color:var(--text)}
+.ic{width:42px;height:42px;border-radius:var(--r-round);background:var(--glass);border:1px solid var(--line);box-shadow:var(--shadow-icon);display:inline-grid;place-items:center}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-panel);backdrop-filter:blur(var(--blur-glass));-webkit-backdrop-filter:blur(var(--blur-glass));transition:border-color var(--dur-base)}
+.glass:hover{border-color:rgba(222,238,244,.3)}
+.hero{padding:var(--sp-5) 0 var(--abstand-sektion)}
+.panel{padding:var(--sp-4)}
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:var(--sp-4)}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--amber-line);border-radius:var(--r-pill);padding:4px 12px;color:var(--amber);font-size:var(--fs-sm);font-weight:700;background:rgba(240,188,103,.06)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-sm);padding:12px 20px;font:700 var(--fs-body) var(--font-body);border:1px solid var(--line);color:var(--text);background:transparent;cursor:pointer;transition:border-color var(--dur-fast),background var(--dur-fast)}
+.btn:hover{border-color:var(--text-faint)}
+.btn.p{background:var(--amber);border-color:var(--amber);color:var(--panel)}.btn.p:hover{background:var(--amber-soft)}
+.felder{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.feld{display:flex;align-items:center;gap:12px;min-height:52px;padding:0 16px;background:var(--field);border:1px solid var(--line);border-radius:var(--r-sm)}
+.feld span:last-child{color:var(--text-faint)}
+.vorschau{position:relative;margin-top:12px;height:300px;border-radius:var(--r-md);border:1px solid var(--line);overflow:hidden;background:radial-gradient(60% 80% at 70% 30%,rgba(112,219,225,.10),transparent 70%),linear-gradient(160deg,#0a2430,var(--deep))}
+.vorschau svg{position:absolute;inset:0;width:100%;height:100%}
+.vorschau .lab{position:absolute;left:16px;top:14px}
+.fuss{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:var(--sp-4)}
+.fuss small{font-size:var(--fs-xs);color:var(--text-faint)}
+.sek{padding:0 0 var(--abstand-sektion)}
+.sek h2{margin:8px 0 12px;max-width:26ch}
+.sek>p{max-width:56ch}
+.karten{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:var(--sp-5)}
+.karten .glass{padding:var(--sp-4)}
+.karten h3{margin:12px 0 8px}.karten p{font-size:var(--fs-sm)}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:var(--sp-5)}
+.zahlen b{display:block;font-size:2rem;font-weight:400;color:var(--text)}
+.zahlen span{font-size:var(--fs-sm);color:var(--text-muted)}
+.schritte{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:var(--sp-5)}
+.schritt{display:flex;gap:16px;padding:var(--sp-4)}
+.schritt i{flex:none;width:32px;height:32px;border-radius:var(--r-round);border:1px solid var(--cyan-line);display:grid;place-items:center;font-style:normal;font-weight:700;color:var(--cyan);font-size:var(--fs-sm)}
+.bar{height:4px;background:var(--line-strong);border-radius:var(--r-pill);overflow:hidden;margin:12px 0 8px}
+.bar i{display:block;height:100%;width:62%;background:var(--amber)}
+.cta{padding:var(--sp-6) var(--sp-4);text-align:center}
+.cta h2{margin:12px auto}.cta p{margin:0 auto 24px;max-width:48ch}
+footer{background:var(--footbar);border-top:1px solid var(--line);padding:16px 0;font-size:var(--fs-xs);color:var(--text-faint)}
+footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:700px){.felder,.karten,.zahlen,.schritte{grid-template-columns:1fr}.vorschau{height:220px}.top nav a{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="w">
+<header class="top"><b>Nordwerk Studio</b><nav><a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#kontakt">Kontakt</a><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eaf3f6" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/></svg></span></nav></header>
+
+<section class="hero">
+<div class="glass panel">
+<div class="head"><div><span class="lab">Projektplanung</span><h1 style="margin-top:8px">Wohin soll Ihr Projekt als Nächstes?</h1></div><span class="pill">Planung aktiv</span></div>
+<div class="felder"><div class="feld"><span class="lab">Von</span><span>Ausgangslage beschreiben</span></div><div class="feld"><span class="lab">Nach</span><span>Ziel oder Ergebnis wählen</span></div></div>
+<div class="vorschau" role="img" aria-label="Platzhalter für eine Projektübersicht"><span class="lab">Vorschau</span>
+<svg viewBox="0 0 600 300" preserveAspectRatio="none" fill="none"><path d="M0 230 C120 200 160 120 280 140 S470 60 600 90" stroke="#70dbe1" stroke-opacity=".5" stroke-width="1.5"/><path d="M0 260 C140 250 220 200 340 210 S520 150 600 170" stroke="#f0bc67" stroke-opacity=".55" stroke-width="1.5"/><g stroke="#deeef4" stroke-opacity=".08"><path d="M0 75H600M0 150H600M0 225H600M150 0V300M300 0V300M450 0V300"/></g></svg></div>
+<div class="fuss"><div><p>Entwurf wird vorbereitet.</p><small>Wählen Sie ein Ziel, dann weiter.</small></div><a class="btn p" href="#kontakt">Weiter <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div>
+</section>
+
+<section class="sek" id="leistungen"><span class="lab">Leistungen</span><h2>Drei Bereiche, in denen wir verlässlich liefern.</h2><p>Klare Abläufe, überschaubare Teams und Ergebnisse, die Sie jederzeit nachvollziehen können.</p>
+<div class="karten">
+<div class="glass"><span class="lab">Strategie</span><h3>Konzept und Planung</h3><p>Ziele, Zielgruppen und ein Fahrplan, den alle Beteiligten verstehen.</p></div>
+<div class="glass"><span class="lab">Gestaltung</span><h3>Oberflächen und Systeme</h3><p>Bedienbare Entwürfe mit einheitlichen Bausteinen für Web und App.</p></div>
+<div class="glass"><span class="lab">Betrieb</span><h3>Pflege und Weiterentwicklung</h3><p>Regelmäßige Updates, Messung und kleine Verbesserungen im Alltag.</p></div>
+</div></section>
+
+<section class="sek"><div class="glass zahlen"><div><b>120+</b><span>abgeschlossene Projekte</span></div><div><b>14 Tage</b><span>bis zum ersten Entwurf</span></div><div><b>1</b><span>feste Ansprechperson</span></div></div></section>
+
+<section class="sek" id="ablauf"><span class="lab">Ablauf</span><h2>Vom ersten Gespräch bis zum Start.</h2>
+<div class="schritte">
+<div class="glass schritt"><i>1</i><div><h3>Kennenlernen</h3><p>Wir hören zu und klären Ziel, Umfang und Zeitrahmen.</p></div></div>
+<div class="glass schritt"><i>2</i><div><h3>Entwurf</h3><p>Sie erhalten eine erste Version zum Anfassen und Kommentieren.</p></div></div>
+<div class="glass schritt"><i>3</i><div><h3>Umsetzung</h3><p>Wir bauen in kurzen Etappen und zeigen den Stand laufend.</p></div></div>
+<div class="glass schritt"><i>4</i><div><h3>Übergabe</h3><p>Dokumentation, Schulung und ein Ansprechpartner danach.</p>
+<div class="bar"><i></i></div><small class="lab">Fortschritt 62 %</small></div></div>
+</div></section>
+
+<section class="sek" id="kontakt"><div class="glass cta"><span class="lab">Kontakt</span><h2>Erzählen Sie uns von Ihrem Vorhaben.</h2><p>Wir melden uns innerhalb eines Werktags mit einem konkreten Vorschlag.</p><a class="btn p" href="#kontakt">Gespräch vereinbaren</a></div></section>
+</div>
+<footer><div class="w"><span>© 2026 Nordwerk Studio (fiktive Firma)</span><span><a href="#">Kontakt</a> · <a href="#">Datenschutz</a> · <a href="#">Impressum</a></span></div></footer>
+</body></html>

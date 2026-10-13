@@ -1,0 +1,17 @@
+{
+  "name": "Editorial",
+  "slug": "editorial",
+  "beschreibung": "Magazin-Stil: Serifen-Schlagzeilen, Spalten, feine Linien, Papierton, starke Typo-Hierarchie wie eine gedruckte Zeitschrift.",
+  "schlagworte": [
+    "magazin",
+    "serif",
+    "print",
+    "typografie",
+    "papier"
+  ],
+  "kategorien": [
+    "Editorial",
+    "Minimal"
+  ],
+  "gegenbeispiel": false
+}

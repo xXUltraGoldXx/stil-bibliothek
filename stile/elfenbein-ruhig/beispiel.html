@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--grund);color:var(--tinte);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text)}
+a{color:inherit}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand-mobil)}
+@media(min-width:800px){.wrap{padding:0 var(--rand)}}
+header.top{display:flex;flex-wrap:wrap;gap:var(--space-4);align-items:center;justify-content:space-between;padding:var(--space-5) 0}
+.logo{font-family:var(--font-display);font-weight:700;letter-spacing:.08em;font-size:1.25rem;text-decoration:none}
+nav{display:flex;flex-wrap:wrap;gap:var(--space-5);align-items:center;font-family:var(--font-display);font-size:var(--fs-ui);letter-spacing:var(--ls-ui)}
+nav a{text-decoration:none}
+.btn{display:inline-flex;align-items:center;font-family:var(--font-display);font-size:var(--fs-ui);font-weight:500;letter-spacing:var(--ls-ui);padding:var(--space-3) 1.25rem;border-radius:var(--r);background:var(--tinte);color:var(--karte);text-decoration:none;border:1px solid var(--tinte);transition:background var(--dauer)}
+.btn:hover{background:#2a2a28}
+.btn.akzent{background:var(--akzent);border-color:var(--akzent);color:var(--tinte)}
+.btn.akzent:hover{background:var(--akzent-dunkel)}
+.btn.rand{background:transparent;color:var(--tinte)}
+.btn.rand:hover{background:var(--elfenbein-dunkel)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--akzent-dunkel);outline-offset:2px}
+.hero{display:grid;gap:var(--space-6);padding:var(--space-9) 0 var(--space-8);align-items:end}
+@media(min-width:900px){.hero{grid-template-columns:7fr 5fr;gap:var(--space-9);padding:var(--space-11) 0 var(--space-9)}}
+h1{font-family:var(--font-display);font-weight:700;font-size:var(--fs-h1);line-height:var(--lh-h1);margin:0}
+h1 u{text-decoration-thickness:.06em;text-underline-offset:.1em}
+.lead{font-size:var(--fs-lead);margin:0}
+.hero .btn{margin-top:var(--space-5)}
+.buehne{background:var(--karte);border-radius:var(--r-karte);min-height:22rem;display:grid;place-items:center;padding:var(--space-6);overflow:hidden}
+.buehne svg{width:100%;max-width:34rem;height:auto}
+section{padding:var(--space-9) 0}
+@media(min-width:900px){section{padding:var(--space-11) 0}}
+h2{font-family:var(--font-text);font-weight:400;font-size:var(--fs-h2);line-height:var(--lh-h2);letter-spacing:var(--ls-h2);margin:0 0 var(--space-5)}
+h3{font-family:var(--font-display);font-weight:600;font-size:var(--fs-h3);line-height:1.3;margin:0 0 var(--space-3)}
+.kopf{display:grid;gap:var(--space-5);margin-bottom:var(--space-8)}
+@media(min-width:900px){.kopf{grid-template-columns:1fr 1fr;gap:var(--space-9)}}
+.karten{display:grid;gap:var(--luecke);grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
+.karte{background:var(--karte);border-radius:var(--r-karte);padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-3);transition:background var(--dauer)}
+.karte:hover{background:var(--elfenbein-dunkel)}
+.karte p{margin:0}
+.bild{border-radius:var(--r-gross);background:var(--sand);aspect-ratio:4/3;display:grid;place-items:center;margin-bottom:var(--space-3)}
+.bild.b2{background:var(--akzent)}
+.bild.b3{background:var(--elfenbein-dunkel)}
+.tag{align-self:flex-start;font-family:var(--font-display);font-size:var(--fs-meta);background:var(--elfenbein-dunkel);border-radius:var(--r);padding:var(--space-1) var(--space-2)}
+.sand{background:var(--sand);border-radius:var(--r-karte);padding:var(--space-8) var(--space-6)}
+.liste{list-style:none;margin:0;padding:0}
+.liste li{display:grid;gap:var(--space-2);padding:var(--space-5) 0;border-top:1px solid var(--linie)}
+@media(min-width:700px){.liste li{grid-template-columns:1fr auto;align-items:baseline}}
+.liste li:last-child{border-bottom:1px solid var(--linie)}
+.liste .t{font-family:var(--font-display);font-weight:600;font-size:1.25rem}
+.liste .m{font-family:var(--font-display);font-size:.875rem;color:var(--tinte-60)}
+footer{background:var(--tinte);color:var(--karte);padding:var(--space-9) 0 var(--space-6);margin-top:var(--space-9);font-family:var(--font-display)}
+.fuss{display:grid;gap:var(--space-8);grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr))}
+footer h4{margin:0 0 var(--space-4);font-weight:600;font-size:1rem}
+footer a{display:block;color:var(--grau-dunkel);text-decoration:none;font-size:.875rem;padding:var(--space-1) 0}
+footer a:hover{color:var(--karte)}
+.klein{margin-top:var(--space-8);color:var(--grau-dunkel);font-size:.75rem}
+@media(prefers-reduced-motion:no-preference){.buehne svg{animation:schweben 6s ease-in-out infinite alternate}}
+@keyframes schweben{to{transform:translateY(-6px)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<a class="logo" href="#">NORDWERK</a>
+<nav>
+<a href="#leistungen">Leistungen</a>
+<a href="#haltung">Haltung</a>
+<a href="#journal">Journal</a>
+<a href="#kontakt">Kontakt</a>
+<a class="btn" href="#kontakt">Gespräch buchen</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Gestaltung und <u>Beratung</u>, die Verantwortung <u>vor</u> Tempo stellt</h1>
+<div>
+<p class="lead">Nordwerk Studio begleitet Stiftungen, Kliniken und Verlage bei Auftritten, die Vertrauen verdienen. Wir erklären, was wir tun, und warum.</p>
+<a class="btn akzent" href="#leistungen">Unsere Arbeit ansehen</a>
+</div>
+</div>
+
+<div class="buehne" role="img" aria-label="Platzhalter-Illustration">
+<svg viewBox="0 0 520 240" aria-hidden="true">
+<path d="M10 220 Q260 20 510 150" fill="none" stroke="#141413" stroke-width="2" stroke-linecap="round"/>
+<circle cx="300" cy="90" r="34" fill="#d07e5e"/>
+<rect x="130" y="110" width="110" height="60" rx="12" fill="#e3dacc" transform="rotate(-8 185 140)"/>
+</svg>
+</div>
+
+<section id="leistungen">
+<div class="kopf">
+<h2>Was wir für Sie tun</h2>
+<p class="lead">Drei Felder, in denen wir seit zwölf Jahren arbeiten. Jedes Projekt beginnt mit Zuhören und endet mit einer Dokumentation.</p>
+</div>
+<div class="karten">
+<article class="karte"><div class="bild"></div><span class="tag">Markenarbeit</span><h3>Auftritt und Sprache</h3><p>Wir ordnen Farben, Schriften und Texte zu einem Ganzen, das auch in fünf Jahren noch trägt.</p></article>
+<article class="karte"><div class="bild b2"></div><span class="tag">Publikation</span><h3>Berichte und Bücher</h3><p>Lange Texte, sauber gesetzt, mit Platz zum Atmen und klaren Quellen.</p></article>
+<article class="karte"><div class="bild b3"></div><span class="tag">Digital</span><h3>Websites ohne Lärm</h3><p>Schnelle, zugängliche Seiten, die wenig versprechen und viel einlösen.</p></article>
+</div>
+</section>
+
+<section id="haltung">
+<div class="sand">
+<h2>Wir sagen auch, was wir nicht können</h2>
+<p class="lead" style="max-width:var(--breite-text)">Ehrliche Angebote, feste Ansprechpersonen und ein offener Blick auf Grenzen. Das spart beiden Seiten Zeit.</p>
+<p style="margin-top:var(--space-5)"><a class="btn rand" href="#journal">Unsere Grundsätze lesen</a></p>
+</div>
+</section>
+
+<section id="journal">
+<div class="kopf">
+<h2>Aus dem Journal</h2>
+<p class="lead">Notizen aus Projekten, kurz gehalten und mit Beispielen.</p>
+</div>
+<ul class="liste">
+<li><span class="t">Warum wir Schatten aus Oberflächen entfernt haben</span><span class="m">Gestaltung · März</span></li>
+<li><span class="t">Eine Serife für den Fließtext: fünf Erfahrungen</span><span class="m">Typografie · Februar</span></li>
+<li><span class="t">Barrierefrei beginnt im Entwurf, nicht im Test</span><span class="m">Praxis · Januar</span></li>
+</ul>
+</section>
+
+<section id="kontakt">
+<div class="karte" style="padding:var(--space-8) var(--space-6)">
+<h2>Lassen Sie uns sprechen</h2>
+<p class="lead" style="margin:0 0 var(--space-5)">Schildern Sie uns Ihr Vorhaben in wenigen Sätzen. Wir antworten innerhalb von zwei Werktagen.</p>
+<a class="btn akzent" href="#">Anfrage stellen</a>
+</div>
+</section>
+</div>
+
+<footer>
+<div class="wrap">
+<div class="fuss">
+<div><h4>Nordwerk Studio</h4><a href="#">Über uns</a><a href="#">Team</a><a href="#">Karriere</a></div>
+<div><h4>Leistungen</h4><a href="#">Auftritt</a><a href="#">Publikation</a><a href="#">Digital</a></div>
+<div><h4>Rechtliches</h4><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Barrierefreiheit</a></div>
+</div>
+<p class="klein">© Nordwerk Studio, erfundenes Beispielunternehmen</p>
+</div>
+</footer>
+</body>
+</html>

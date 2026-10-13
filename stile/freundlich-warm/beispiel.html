@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Freundlich warm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Fraunces:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--weiss);color:var(--tinte);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text)}
+a{color:inherit}
+.w{max-width:var(--breite);margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--font-display);font-weight:400}
+h1{font-size:var(--fs-h1);line-height:1.2;letter-spacing:var(--ls-h1)}
+h1 em{display:block;color:var(--gelb)}
+h2{font-size:var(--fs-h2);line-height:1.1;letter-spacing:var(--ls-h2)}
+h3{font-size:var(--fs-h3);line-height:1.33}
+.top{background:var(--tinte);color:#fff;font-size:var(--fs-info);text-align:center;padding:12px 16px}
+.top a{text-decoration:underline dashed;text-underline-offset:3px}
+.nav{background:var(--weiss);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:12px 16px;max-width:1280px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:600;font-size:1.15rem;text-decoration:none}
+.logo svg{width:32px;height:32px}
+.nav ul{display:flex;gap:24px;list-style:none;padding:0;font-size:var(--fs-info);font-weight:500}
+.nav ul a{text-decoration:none}
+.knopf{display:inline-block;background:var(--gelb);color:var(--tinte);box-shadow:var(--ring);border-radius:var(--r-pille);padding:16px 24px;font:500 var(--fs-info)/1.5 var(--font-text);text-decoration:none;text-align:center;border:0;transition:background var(--uebergang)}
+.knopf:hover{background:var(--gelb-hell)}
+.knopf.hell{background:var(--weiss)}
+.knopf.klein{padding:12px 20px}
+.hero{position:relative;color:#fff;text-align:center;padding:64px 16px 48px;background:var(--verlauf-foto),radial-gradient(ellipse at 75% 40%,#8a5a34 0,#4a3524 45%,#2a2418 100%)}
+.hero .in{max-width:960px;margin:0 auto}
+.hero p.lead{font-size:var(--fs-lead);line-height:1.4;max-width:720px;margin:24px auto 32px}
+.hero .knopf{padding:18px 48px;font-size:.95rem}
+.sterne{margin-top:48px;display:flex;justify-content:center;gap:6px;color:var(--gelb)}
+.sterne svg{width:28px;height:28px}
+.beleg{font-size:var(--fs-info);margin-top:12px}
+.siegel{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:20px;font-weight:600;opacity:.9}
+.leiste{background:var(--braun);color:#fff;padding:24px 16px}
+.leiste .w{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.leiste strong{color:var(--gelb-hell);font-weight:500;display:block}
+.pfeil{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-size:var(--fs-info);font-weight:500}
+.pfeil i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--gelb);color:var(--tinte);font-style:normal;transition:transform var(--uebergang)}
+.pfeil:hover i{transform:translateX(2px)}
+.grau{background:var(--grau);padding:64px 0}
+.grau h2{margin-bottom:32px}
+.karten{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.karte{background:var(--weiss);border-radius:var(--r-karte);box-shadow:var(--schatten-karte);padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;grid-template-rows:1fr auto}
+.karte h3{margin-bottom:8px}
+.karte p{font-size:var(--fs-info);line-height:1.4;color:var(--text)}
+.karte ul{list-style:none;padding:0;margin-top:12px;display:grid;gap:8px;font-size:var(--fs-info)}
+.karte li{display:flex;gap:8px;align-items:flex-start}
+.karte li:before{content:"✓";flex:none;width:16px;height:16px;border-radius:50%;background:var(--tinte);color:#fff;font-size:10px;line-height:16px;text-align:center}
+.karte .pfeil{grid-column:1 / -1;align-self:end}
+.bf{border-radius:var(--r-bild);min-height:160px}
+.bf.a{background:linear-gradient(135deg,var(--sand),#d8c9a8)}
+.bf.b{background:linear-gradient(135deg,var(--eis),#cfdde3)}
+.bf.c{background:radial-gradient(circle at 30% 30%,#c98b4e,#5a3f2b)}
+.bf.d{background:conic-gradient(from 20deg,var(--gelb),var(--senf),var(--sand),var(--eis),var(--gelb))}
+.mitte{text-align:center;margin-top:40px}
+.dunkel{background:var(--tinte);color:#fff;padding:80px 0;text-align:center}
+.dunkel h2{max-width:20ch;margin:0 auto 24px;font-size:clamp(2rem,5vw,3rem);line-height:1.1}
+.dunkel h2 em{color:var(--gelb)}
+.dunkel p{max-width:var(--breite-text);margin:0 auto 32px;color:#fcf3c8}
+.sand{background:var(--sand);padding:64px 0}
+.sand blockquote{max-width:var(--breite-text);margin:0 auto;font-family:var(--font-display);font-size:1.6rem;line-height:1.3;text-align:center}
+.sand cite{display:block;margin-top:16px;font:500 var(--fs-info) var(--font-text);font-style:normal;color:var(--tinte-2)}
+.fuss{background:var(--senf);padding:48px 0 40px}
+.fuss .w{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+.fuss h3{font-family:var(--font-text);font-size:1rem;font-weight:600;margin-bottom:12px}
+.fuss ul{list-style:none;padding:0;display:grid;gap:8px;font-size:var(--fs-info)}
+.fuss small{display:block;margin-top:32px;font-size:var(--fs-legal);grid-column:1 / -1}
+@media(max-width:800px){
+.karten,.karte,.fuss .w{grid-template-columns:1fr}
+.nav ul{display:none}
+.hero{text-align:left;padding:48px 16px 40px}
+.hero .lead{margin-left:0}
+.hero .knopf{display:block;padding:16px}
+.sterne,.siegel{justify-content:flex-start}
+.beleg{text-align:left}
+.bf{min-height:140px}
+}
+</style></head><body>
+<div class="top">Teste Nordwerk 14 Tage kostenlos, Kündigung jederzeit. <a href="#start">Jetzt loslegen.</a></div>
+<nav class="nav">
+<a class="logo" href="#start"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#2a2418"/><path d="M9 22V10l14 12V10" fill="none" stroke="#fbdc35" stroke-width="3"/></svg>Nordwerk Studio</a>
+<ul><li><a href="#leistungen">Leistungen</a></li><li><a href="#haltung">Haltung</a></li><li><a href="#stimmen">Stimmen</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
+<a class="knopf klein" href="#start">Kostenlos testen</a>
+</nav>
+<header class="hero" id="start"><div class="in">
+<h1>Digitale Werkzeuge für kleine Betriebe <em>ohne lange Einarbeitung</em></h1>
+<p class="lead">Wir bauen Seiten, Buchungen und Rechnungen, die sich anfühlen wie ein guter Werkzeugkasten: griffbereit, robust und schnell verstanden.</p>
+<a class="knopf" href="#kontakt">Kostenlos testen</a>
+<div class="sterne" aria-label="4,5 von 5 Sternen"><svg viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 3 7 7 .6-5.3 4.8 1.6 7.2L12 17.8 5.7 21.6l1.6-7.2L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 3 7 7 .6-5.3 4.8 1.6 7.2L12 17.8 5.7 21.6l1.6-7.2L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 3 7 7 .6-5.3 4.8 1.6 7.2L12 17.8 5.7 21.6l1.6-7.2L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 3 7 7 .6-5.3 4.8 1.6 7.2L12 17.8 5.7 21.6l1.6-7.2L2 9.6 9 9z"/></svg></div>
+<p class="beleg">Fiktive Zahl: <strong>über 4.000 Rückmeldungen</strong> aus Handwerk und Handel</p>
+<div class="siegel"><span>Prüfstein</span><span>Werkbank-Test</span><span>Kundenwahl</span></div>
+</div></header>
+<div class="leiste"><div class="w"><div><strong>Kurze Rundgänge ansehen</strong>Erfahre in drei Minuten, wie Betriebe ihren Alltag ordnen.</div><a class="pfeil" href="#leistungen">Alle Rundgänge<i>→</i></a></div></div>
+<section class="grau" id="leistungen"><div class="w">
+<h2>Empfohlen für deinen Betrieb</h2>
+<div class="karten">
+<article class="karte"><div><h3>Seiten ganz einfach bauen</h3><p>Starte mit Vorlagen, die zu deinem Handwerk passen, und passe sie per Ziehen und Ablegen an.</p><ul><li>Über 40 Vorlagen für Branchen</li><li>Texte und Farben mit einem Klick</li></ul></div><div class="bf a" role="img" aria-label="Platzhalter Seitenvorlage"></div><a class="pfeil" href="#kontakt">Vorlagen ansehen<i>→</i></a></article>
+<article class="karte"><div><h3>Mehr Aufträge gewinnen</h3><p>Erinnere Kundschaft freundlich an Termine und Angebote, ohne selbst nachzufassen.</p><ul><li>Automatische Erinnerungen</li><li>Einfache Auswertung pro Woche</li></ul></div><div class="bf b" role="img" aria-label="Platzhalter Auswertung"></div><a class="pfeil" href="#kontakt">Mehr zur Auftragsplanung<i>→</i></a></article>
+<article class="karte"><div><h3>Erreiche Menschen unterwegs</h3><p>Nachrichten und Buchungen funktionieren auf dem Telefon genauso gut wie am Schreibtisch.</p><ul><li>Buchung in drei Schritten</li><li>Kurznachrichten mit Vorlage</li></ul></div><div class="bf c" role="img" aria-label="Platzhalter Telefonansicht"></div><a class="pfeil" href="#kontakt">Zur Mobilansicht<i>→</i></a></article>
+<article class="karte"><div><h3>Verknüpfe deine Werkzeuge</h3><p>Kasse, Kalender und Buchhaltung sprechen miteinander, sobald du sie verbindest.</p><ul><li>Über 60 Anbindungen</li><li>Daten an einem Ort</li></ul></div><div class="bf d" role="img" aria-label="Platzhalter Anbindungen"></div><a class="pfeil" href="#kontakt">Alle Anbindungen<i>→</i></a></article>
+</div>
+<div class="mitte"><a class="knopf hell" href="#kontakt">Preise ansehen</a></div>
+</div></section>
+<section class="dunkel" id="haltung"><div class="w">
+<h2>Gute Werkzeuge liegen gut in der Hand, <em>auch am ersten Tag</em></h2>
+<p>Wir halten Funktionen klein, Wege kurz und Erklärungen freundlich. Du brauchst keine Schulung, nur zehn Minuten und eine Tasse Kaffee.</p>
+<a class="knopf" href="#kontakt">Gespräch vereinbaren</a>
+</div></section>
+<section class="sand" id="stimmen"><div class="w"><blockquote>„Zum ersten Mal war die Technik schneller eingerichtet als die Werkstatt aufgeräumt.“<cite>Fiktive Stimme, Tischlerei Beispielstadt</cite></blockquote></div></section>
+<footer class="fuss" id="kontakt"><div class="w">
+<div><h3>Nordwerk Studio</h3><p>Ein fiktives Studio für diese Stilvorlage. Alle Inhalte sind frei erfunden.</p></div>
+<div><h3>Angebot</h3><ul><li><a href="#leistungen">Seiten</a></li><li><a href="#leistungen">Buchungen</a></li><li><a href="#leistungen">Rechnungen</a></li></ul></div>
+<div><h3>Kontakt</h3><ul><li><a href="#start">Hilfe</a></li><li><a href="#start">Impressum</a></li><li><a href="#start">Datenschutz</a></li></ul></div>
+<small>© Nordwerk Studio, fiktives Beispiel</small>
+</div></footer>
+</body></html>

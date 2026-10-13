@@ -1,0 +1,17 @@
+/* Marktplatz luftig: Tokens */
+:root{
+  --weiss:#ffffff; --grau-hell:#f7f7f7; --grau-kreis:#f2f2f2; --linie-fein:#ebebeb; --linie:#dddddd;
+  --text:#222222; --text-2:#6c6c6c; --akzent:#cf2a58;
+  --font-ui:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --fs-h1:1.75rem; --fs-h2:1.25rem; --fs-titel:.875rem; --fs-meta:.8125rem; --fs-klein:.75rem; --fs-mikro:.6875rem;
+  --lh-h1:1.43; --lh-h2:1.2; --lh-meta:1.33; --ls-h2:-.01em;
+  --gew-text:400; --gew-mittel:500; --gew-fett:600; --gew-titel:700;
+  --r-bild:20px; --r-klein:8px; --r-mittel:12px; --r-pille:100px; --r-knopf:50px; --r-kreis:50%;
+  --schatten-karte:0 0 0 1px rgba(0,0,0,.02),0 2px 6px rgba(0,0,0,.04),0 4px 8px rgba(0,0,0,.1);
+  --schatten-suche:0 0 0 1px rgba(0,0,0,.02),0 8px 24px rgba(0,0,0,.1);
+  --schatten-knopf:0 6px 20px rgba(0,0,0,.1);
+  --rand:2rem; --rand-mobil:1rem; --breite:1280px; --luecke:1rem; --abschnitt:2.5rem;
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:24px; --s-5:32px;
+  --ease-standard:cubic-bezier(.2,0,0,1); --ease-ein:cubic-bezier(.1,.9,.2,1);
+  --dauer-schnell:450ms; --dauer-standard:580ms;
+}

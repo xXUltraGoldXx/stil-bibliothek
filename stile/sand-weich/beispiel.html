@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&family=IBM+Plex+Mono&family=Playfair+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--sand);color:var(--text);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text)}
+a{color:inherit;text-decoration:none}
+.hinweis{background:var(--anker);color:var(--weiss);text-align:center;font-size:var(--fs-klein);letter-spacing:var(--ls-label);padding:var(--s-2) var(--s-3)}
+.wrap{padding:0 var(--rand);max-width:var(--breite);margin:0 auto}
+.hero{position:relative;margin-top:var(--rand);border-radius:var(--r-karte);min-height:640px;overflow:hidden;background:radial-gradient(circle at 30% 40%,#a9a58f,transparent 60%),linear-gradient(135deg,#8c9a86,#5d6b73);display:flex;flex-direction:column;justify-content:space-between;padding:var(--s-2)}
+.hero::after{content:"";position:absolute;inset:0;background:var(--abdunkeln);pointer-events:none}
+.nav{position:relative;z-index:1;background:rgba(255,255,255,.85);border-radius:var(--r-karte);display:flex;align-items:center;justify-content:space-between;gap:var(--s-3);padding:var(--s-3) var(--s-4);flex-wrap:wrap}
+.nav b{font-weight:700;font-size:1.125rem}
+.nav ul{display:flex;gap:var(--s-5);list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav a,.label{font-size:var(--fs-label);font-weight:500;text-transform:uppercase;letter-spacing:var(--ls-label)}
+.hero-text{position:relative;z-index:1;color:var(--weiss);align-self:flex-end;text-align:right;padding:var(--s-4);max-width:100%}
+.mono{font-family:var(--font-mono);font-size:var(--fs-klein);text-transform:uppercase;letter-spacing:.1em}
+.hero h1{font-size:var(--fs-hero);font-weight:400;letter-spacing:.04em;line-height:2rem;margin:var(--s-2) 0 var(--s-3)}
+.pille{display:inline-block;border-radius:var(--r-pille);background:rgba(255,255,255,.8);color:var(--text);padding:var(--s-2) 25px;font-size:var(--fs-label);font-weight:500;text-transform:uppercase;letter-spacing:var(--ls-label);transition:background var(--dauer)}
+.pille:hover{background:var(--weiss)}
+.pille.dunkel{background:var(--anker);color:var(--weiss)}
+section{padding:var(--s-7) 0 0}
+h2{font-size:var(--fs-h2);font-weight:500;line-height:1.2;margin:0 0 var(--s-4)}
+.raster{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--luecke)}
+.kachel{border-radius:var(--r-karte);min-height:220px;padding:var(--s-4);color:var(--weiss);display:flex;align-items:flex-end}
+.k1{background:var(--kachel-blau)}.k2{background:var(--kachel-kaffee)}.k3{background:var(--kachel-rosa)}.k4{background:var(--kachel-salbei)}
+.karte{background:var(--weiss);border-radius:var(--r-karte);overflow:hidden;box-shadow:var(--schatten-leicht)}
+.karte .bild{height:200px;background:linear-gradient(160deg,var(--sand-2),#c9c0ae)}
+.karte div.t{padding:var(--s-3)}
+.karte p{margin:var(--s-1) 0 0;color:var(--text-2);font-size:.875rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--luecke);align-items:stretch}
+.split .bild{border-radius:var(--r-karte);min-height:340px;background:linear-gradient(120deg,#9aa58f,#6b7a80)}
+.box{background:var(--weiss);border-radius:var(--r-karte);padding:var(--s-6)}
+.zitat{font-family:var(--font-serif);font-size:1.5rem;line-height:1.4;margin:0 0 var(--s-3)}
+.chip{display:inline-block;border:1px solid var(--text-2);border-radius:var(--r-pille);padding:var(--s-1) var(--s-3);font-size:var(--fs-klein);margin:0 var(--s-2) var(--s-2) 0}
+footer{background:var(--anker);color:var(--weiss);margin-top:var(--s-7);padding:var(--s-7) var(--s-6) 20px;font-size:.875rem}
+footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--s-5)}
+footer h3{font-size:var(--fs-klein);letter-spacing:var(--ls-label);text-transform:uppercase;font-weight:500;margin:0 0 var(--s-3)}
+footer a{display:block;margin-bottom:var(--s-2);opacity:.85}
+footer small{display:block;margin-top:var(--s-6);opacity:.6}
+@media(max-width:800px){
+ .raster{grid-template-columns:repeat(2,1fr)}
+ .split{grid-template-columns:1fr}
+ .hero{min-height:560px}
+ .hero h1{font-size:1.875rem;line-height:2.8rem}
+ .nav ul{gap:var(--s-3)}
+ section{padding-top:56px}
+ .box{padding:var(--s-4)}
+ footer{padding:50px 20px}
+}
+</style>
+</head>
+<body>
+<div class="hinweis">Lieferung innerhalb von drei bis fünf Werktagen</div>
+<div class="wrap">
+ <header class="hero">
+  <nav class="nav">
+   <b>Nordwerk</b>
+   <ul><li><a href="#neu">Neu</a></li><li><a href="#sortiment">Sortiment</a></li><li><a href="#werkstatt">Werkstatt</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
+  </nav>
+  <div class="hero-text">
+   <div class="mono">Neue Kollektion Herbst</div>
+   <h1>Gemacht für lange Wege.<br>Leicht zu tragen.</h1>
+   <a class="pille" href="#sortiment">Für sie</a> <a class="pille" href="#sortiment">Für ihn</a>
+  </div>
+ </header>
+
+ <section id="neu">
+  <h2>Farben der Saison</h2>
+  <div class="raster">
+   <a class="kachel k1" href="#"><span class="label">Schiefer</span></a>
+   <a class="kachel k2" href="#"><span class="label">Kaffee</span></a>
+   <a class="kachel k3" href="#"><span class="label">Altrosa</span></a>
+   <a class="kachel k4" href="#"><span class="label">Salbei</span></a>
+  </div>
+ </section>
+
+ <section id="sortiment">
+  <h2>Beliebt diese Woche</h2>
+  <div class="raster">
+   <div class="karte"><div class="bild"></div><div class="t"><span class="label">Tasche Pendler</span><p>Wachsleinen, 18 Liter</p></div></div>
+   <div class="karte"><div class="bild"></div><div class="t"><span class="label">Rucksack Tag</span><p>Recyceltes Garn, 24 Liter</p></div></div>
+   <div class="karte"><div class="bild"></div><div class="t"><span class="label">Beutel Markt</span><p>Bio-Baumwolle, faltbar</p></div></div>
+   <div class="karte"><div class="bild"></div><div class="t"><span class="label">Gürtel Wald</span><p>Pflanzlich gegerbt</p></div></div>
+  </div>
+ </section>
+
+ <section id="werkstatt">
+  <div class="split">
+   <div class="bild"></div>
+   <div class="box">
+    <div class="mono">Aus der Werkstatt</div>
+    <h2 style="margin-top:var(--s-3)">Wenige Materialien, gut gewählt</h2>
+    <p class="zitat">„Was bequem ist, trägt man gern."</p>
+    <p>Wir arbeiten mit Wolle, Leinen und recycelten Fasern aus der Region. Jedes Stück wird von Hand geprüft und mit Ersatzteilen geliefert.</p>
+    <p><span class="chip">Recycelt</span><span class="chip">Regional</span><span class="chip">Reparierbar</span></p>
+    <a class="pille dunkel" href="#">Mehr erfahren</a>
+   </div>
+  </div>
+ </section>
+
+ <section id="kontakt">
+  <div class="box" style="text-align:center">
+   <h2>Fragen zur Größe oder Pflege?</h2>
+   <p>Unser Team antwortet werktags innerhalb eines Tages.</p>
+   <a class="pille dunkel" href="#">Nachricht schreiben</a>
+  </div>
+ </section>
+</div>
+
+<footer>
+ <div class="cols">
+  <div><h3>Hilfe</h3><a href="#">Versand</a><a href="#">Rückgabe</a><a href="#">Pflege</a></div>
+  <div><h3>Studio</h3><a href="#">Über uns</a><a href="#">Werkstatt</a><a href="#">Jobs</a></div>
+  <div><h3>Rechtliches</h3><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a></div>
+ </div>
+ <small>© Nordwerk Studio, fiktives Beispiel</small>
+</footer>
+</body>
+</html>

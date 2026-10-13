@@ -1,0 +1,24 @@
+/* Kosmos nachtblau: Tokens */
+:root{
+  --canvas:#111a24; --canvas-black:#000000; --canvas-deep:#000240; --canvas-foot:#0f1511;
+  --surface:rgba(255,255,255,.06); --surface-strong:rgba(255,255,255,.2);
+  --border:rgba(255,255,255,.1); --border-strong:rgba(255,255,255,.6); --divider:#191f1b;
+  --text:#ffffff; --text-lead:rgba(255,255,255,.85); --text-muted:#a4aea6; --text-faint:#7c8980;
+  --link:#a2daff; --focus:#1f6feb;
+  --action:#138636; --action-hover:#1a9a40; --on-action:#ffffff;
+  --glow-1:#e6b7fe; --glow-2:#5049c2; --glow-3:rgba(87,78,255,0);
+  --grad-hero:linear-gradient(#000240,rgba(0,0,0,0));
+  --grad-cone:radial-gradient(circle at 50% 100%,#e6b7fe 10%,#5049c2 20%,rgba(87,78,255,0) 60%);
+  --font-sans:"Inter",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+  --fs-h1:clamp(2.5rem,5.5vw,4rem); --fs-h2:clamp(2rem,3.4vw,2.5rem); --fs-h3:clamp(1.25rem,2vw,1.375rem);
+  --fs-lead:1.125rem; --fs-body:1rem; --fs-sm:.875rem; --fs-xs:.75rem;
+  --fw-body:400; --fw-head:400; --fw-medium:500; --fw-strong:600;
+  --ls-h1:-.035em; --ls-body:.01em; --lh-h1:1.08; --lh-body:1.5;
+  --sp-1:.25rem; --sp-2:.5rem; --sp-3:.75rem; --sp-4:1rem; --sp-5:1.5rem; --sp-6:2rem; --sp-7:3rem; --sp-8:4rem; --sp-9:6rem;
+  --r-sm:6px; --r-md:8px; --r-lg:12px; --r-xl:24px; --r-pill:60px;
+  --shadow-none:none;
+  --ease:cubic-bezier(.25,.1,.25,1); --ease-out:cubic-bezier(.3,.8,.6,1);
+  --dur-micro:100ms; --dur-short:200ms; --dur-medium:300ms; --dur-long:500ms;
+  --breite:1280px; --text-breite:600px; --abstand-sektion:clamp(4rem,9vw,6rem);
+}

@@ -1,0 +1,16 @@
+/* Signalrot Kacheln: Tokens */
+:root{
+  --rot:#d9232b; --rot-dunkel:#b01c24; --rot-hell:#f04a43;
+  --buehne:#0e0e0e; --overlay:rgba(0,0,0,.75);
+  --weiss:#ffffff; --grau-flaeche:#f5f6f7; --linie:#d4d7d9;
+  --text:#000000; --text-2:#232426; --text-3:#424447; --text-4:#676a6d; --meta:#696969; --link:#3860be;
+  --font-text:"Fira Sans",system-ui,sans-serif;
+  --font-mono:"Fira Mono",ui-monospace,monospace;
+  --fs-basis:.875rem; --fs-klein:.8125rem; --fs-meta:.6875rem; --fs-karte:1rem; --fs-h2:1.5rem; --fs-h1:1.75rem;
+  --lh-text:1.5;
+  --r:4px; --r-pille:999px; --r-gross:8px;
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:20px; --s-6:24px; --s-8:32px; --s-12:48px;
+  --breite:1176px; --leiste:88px; --kopf:72px;
+  --schatten:0 0 4px rgba(0,0,0,.2);
+  --linie-gestrichelt:1px dashed #d4d7d9;
+}

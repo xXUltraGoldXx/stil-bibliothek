@@ -1,0 +1,17 @@
+/* Redaktion warmgrau: Tokens */
+:root{
+  --grund:#f1efed; --karte:#ffffff; --text:#000000; --text-2:#5c5a58; --text-3:#bbb9b7;
+  --signal:#e64415; --signal-dunkel:#811d00; --signal-hell:#ffe5de;
+  --linie:#dddbd9; --rand:#989694;
+  --blau-hell:#dde7fe; --blau-dunkel:#163683; --gruen-hell:#cafbd9; --gruen-dunkel:#264c32;
+  --font-display:"Roboto Slab",Constantia,Georgia,serif;
+  --font-text:"Source Sans 3",system-ui,"Segoe UI",sans-serif;
+  --fs-h1:clamp(1.75rem,4.5vw,2.25rem); --fs-h2:1.5rem; --fs-h3:1.125rem;
+  --fs-text:1rem; --fs-teaser:1.125rem; --fs-meta:.875rem;
+  --lh-text:1.38; --lh-titel:1.2;
+  --r-klein:1.5px; --r-karte:8px; --r-rund:50%;
+  --schatten-karte:0 1px 4px rgba(0,0,0,.1);
+  --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:2.5rem; --s6:4rem;
+  --breite:1008px; --breite-text:40em; --luecke:1rem;
+  --kopf-h:80px; --nav-h:56px;
+}

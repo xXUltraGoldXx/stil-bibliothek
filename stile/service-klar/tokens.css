@@ -1,0 +1,15 @@
+/* Service klar: Tokens */
+:root{
+  --grund:#f0f3f5; --flaeche:#ffffff; --text:#282d37; --text-2:#3c414b; --text-3:#646973;
+  --linie:#d7dce1; --signal:#e1252f; --signal-dunkel:#b81c26; --warn:#d96000; --link:#0c3992; --pille-dunkel:#16181b;
+  --ueberlagerung:rgba(0,0,0,.7);
+  --font-text:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
+  --font-kopf:"Source Sans 3",Arial,Helvetica,sans-serif;
+  --fs-h1:2rem; --fs-h2:1.5rem; --fs-h3:1.125rem; --fs-text:1rem; --fs-klein:.875rem; --fs-meta:.75rem;
+  --fw-text:400; --fw-fett:700; --fw-kopf:900;
+  --lh-text:1.4; --lh-kopf:1.25;
+  --r-feld:4px; --r-karte:12px; --r-pille:999px;
+  --schatten:0 2px 8px rgba(0,0,0,.3);
+  --abst-1:.5rem; --abst-2:.75rem; --abst-3:1rem; --abst-4:1.25rem; --abst-5:2rem; --abst-6:2.5rem; --abst-7:4.5rem;
+  --breite:1200px; --breite-max:1280px; --feldhoehe:3.5rem;
+}

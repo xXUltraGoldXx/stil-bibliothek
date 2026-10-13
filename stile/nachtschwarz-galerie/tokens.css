@@ -1,0 +1,19 @@
+/* Nachtschwarz Galerie: Tokens */
+:root{
+  --leinwand:#010205; --schwarz:#000000; --flaeche:#19191a; --flaeche-hell:#f1f1f4; --weiss:#ffffff;
+  --text:#fafbff; --text-gedaempft:rgba(246,246,248,.56); --text-leise:rgba(246,246,248,.45);
+  --text-hell:#010205; --knopf-hell:#dcdce0;
+  --milchglas:rgba(107,107,112,.23); --milchglas-stark:rgba(156,156,159,.3); --blur:blur(32px);
+  --link:#9e9eff; --fokus:#1a44ea; --info:#178bff; --erfolg:#10c47f; --warnung:#f4882a; --fehler:#fc4040;
+  --font-sans:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
+  --fs-xs:.875rem; --fs-text:1rem; --fs-lead:clamp(1.13rem,.21vw + 1.08rem,1.33rem);
+  --fs-h3:clamp(1.42rem,.94vw + 1.23rem,2.37rem); --fs-h2:clamp(1.8rem,2.41vw + 1.32rem,3.2rem);
+  --fs-hero:clamp(2.2rem,3.6vw + 1.3rem,4.2rem);
+  --fw:400; --fw-fett:600; --lh-text:1.5; --lh-kopf:1.2;
+  --abstand-xs:4px; --abstand-sm:8px; --abstand-md:16px; --abstand-lg:32px; --abstand-xl:48px; --abstand-2xl:80px;
+  --fluid-md:clamp(16px,1.25vw + 12px,36px); --fluid-lg:clamp(32px,2.75vw + 23px,76px); --fluid-2xl:clamp(80px,7.5vw + 56px,200px);
+  --rand:clamp(20px,9vw,124px); --breite:1032px; --breite-text:70ch;
+  --r-knopf:12px; --r-karte:24px; --r-dialog:32px; --r-voll:999px;
+  --schatten-sm:0 3px 8px rgba(0,0,0,.16); --schatten-md:0 4px 16px rgba(0,0,0,.16); --schatten-lg:0 8px 40px rgba(0,0,0,.16);
+  --dauer-sm:.25s; --dauer-md:.4s; --dauer-lg:.6s; --dauer-xl:1.2s; --kurve:cubic-bezier(.25,.1,.25,1);
+}

@@ -1,0 +1,20 @@
+/* Pixel Kontrast: Tokens */
+:root{
+  --schwarz:#000000; --tiefschwarz:#161616; --weiss:#ffffff;
+  --grau-1:#414141; --grau-2:#6d6d6d; --grau-3:#b3b3b3; --grau-4:#e8e8e8; --grau-hell:#e0e0e6;
+  --rosa-flaeche:#fff1f8; --rosa:#ff97e2; --gruen:#00d230;
+  --link:#0060df; --link-hover:#0250bb; --link-invers:#80ebff;
+  --font-titel:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --font-text:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --fs-h1:clamp(3rem,7vw,5rem); --fs-h2:clamp(2rem,4.5vw,3rem); --fs-h3:1.5rem;
+  --fs-lead:1.5rem; --fs-text:1rem; --fs-klein:.875rem; --fs-label:.75rem;
+  --lh-titel:1.05; --lh-text:1.5; --ls-titel:-.01em; --gw-titel:600; --gw-knopf:700;
+  --sp-2xs:4px; --sp-xs:8px; --sp-sm:8px; --sp-md:16px; --sp-lg:24px; --sp-xl:32px; --sp-2xl:64px; --sp-3xl:80px;
+  --rand:16px; --abschnitt:48px; --stufe:40px;
+  --breite:1440px; --breite-text:60ch;
+  --r:4px; --r-karte:0; --linie:2px; --linie-duenn:1px;
+  --schatten:none;
+}
+@media (min-width:900px){
+  :root{ --rand:48px; --abschnitt:96px; --stufe:90px; }
+}

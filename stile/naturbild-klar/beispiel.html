@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500;700&family=Source+Serif+4:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font-sans);font-weight:var(--fw-leicht);font-size:var(--fs-text);line-height:var(--lh-text);color:var(--schwarz);background:var(--weiss)}
+h1,h2,h3{font-weight:var(--fw-mittel);letter-spacing:var(--ls-gross);line-height:var(--lh-gross);margin:0}
+h1{font-size:var(--fs-h1)} h2{font-size:var(--fs-h2)} h3{font-size:var(--fs-h3)}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand-seite-mobil)}
+@media(min-width:800px){.wrap{padding:0 var(--rand-seite)}}
+.leiste{background:var(--schwarz);color:var(--weiss);font-size:var(--fs-meta);min-height:3rem;display:flex;align-items:center}
+.leiste .wrap{display:flex;justify-content:space-between;gap:1rem;width:100%;flex-wrap:wrap;align-items:center}
+.leiste strong{font-weight:var(--fw-mittel);font-size:var(--fs-nav)}
+.leiste span a{margin-right:1rem;text-decoration:none}
+header.kopf{padding:var(--sp-2) 0 var(--sp-1)}
+.kopf .zeile{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.marke{font-weight:var(--fw-fett);font-size:1.5rem;letter-spacing:var(--ls-gross);text-decoration:none}
+.icons{display:flex;gap:1rem}
+.icons svg{width:1.25rem;height:1.25rem;stroke:var(--schwarz);fill:none;stroke-width:1.6}
+nav.haupt{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:var(--sp-2);font-size:1rem}
+nav.haupt a{text-decoration:none;padding:.25rem 0}
+.hero{position:relative;min-height:37rem;display:flex;align-items:flex-end;color:var(--weiss);
+ background:linear-gradient(var(--abdunkelung),var(--abdunkelung)),radial-gradient(circle at 75% 35%,#8a7a62 0,transparent 35%),linear-gradient(160deg,#2f3d33 0,#56604f 45%,#c9cdd0 100%)}
+.hero .wrap{padding-bottom:var(--sp-5);width:100%}
+.hero h1{max-width:9ch}
+.hero .lead{font-size:var(--fs-lead);font-weight:var(--fw-mittel);max-width:var(--breite-text);margin:var(--sp-2) 0 var(--sp-3)}
+.knoepfe{display:flex;gap:.75rem;flex-wrap:wrap}
+.pille{display:inline-block;padding:.75rem 1.75rem;border-radius:var(--r-pille);background:var(--weiss);color:var(--schwarz);font-weight:var(--fw-mittel);text-decoration:none;border:1px solid var(--weiss);transition:background .2s,color .2s}
+.pille:hover{background:transparent;color:var(--weiss)}
+.pille.dunkel{background:var(--schwarz);color:var(--weiss);border-color:var(--schwarz)}
+.pille.dunkel:hover{background:var(--weiss);color:var(--schwarz)}
+.nachweis{position:absolute;right:1.5rem;bottom:1.5rem;width:2.25rem;height:2.25rem;border-radius:var(--r-rund);background:var(--weiss);display:grid;place-items:center}
+.nachweis svg{width:1rem;height:1rem;stroke:var(--schwarz);fill:none;stroke-width:1.6}
+section{padding:var(--sp-5) 0}
+.tabs{display:flex;gap:.25rem 1.25rem;flex-wrap:wrap;border-bottom:var(--linie);margin-bottom:var(--sp-4)}
+.tabs a{padding:.5rem 0;text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:border-color .2s}
+.tabs a.aktiv,.tabs a:hover{border-color:var(--schwarz);font-weight:var(--fw-mittel)}
+.raster4{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-2)}
+@media(min-width:900px){.raster4{grid-template-columns:repeat(4,1fr)}}
+.kachel{text-decoration:none;display:block}
+.bild{aspect-ratio:4/5;border-radius:var(--r-bild);background:var(--grau-1);overflow:hidden;position:relative}
+.bild i{position:absolute;inset:0;transition:transform .4s}
+.kachel:hover .bild i{transform:scale(1.03)}
+.b1 i{background:linear-gradient(200deg,#d8d3c6,#8c8a74)}
+.b2 i{background:linear-gradient(200deg,#9aa6ad,#3d4a52)}
+.b3 i{background:linear-gradient(200deg,#c6a98a,#5e4631)}
+.b4 i{background:linear-gradient(200deg,#7f9a86,#2c4535)}
+.kachel h3{font-size:1rem;letter-spacing:0;margin-top:.75rem;line-height:1.4}
+.kachel p{font-size:var(--fs-nav)}
+.grau{background:var(--grau-1)}
+.zwei{display:grid;gap:var(--sp-4);align-items:center}
+@media(min-width:900px){.zwei{grid-template-columns:1fr 1fr}}
+.zwei .text p{max-width:var(--breite-text);margin:var(--sp-2) 0 var(--sp-3)}
+.fl{aspect-ratio:4/3;border-radius:var(--r-bild);background:linear-gradient(150deg,#46584c,#9aa08a 60%,#d9d4c5)}
+.drei{display:grid;gap:var(--sp-4);margin-top:var(--sp-4)}
+@media(min-width:900px){.drei{grid-template-columns:repeat(3,1fr)}}
+.drei .fl{aspect-ratio:3/2;margin-bottom:var(--sp-2)}
+.drei h3{font-size:1.5rem;margin-bottom:.5rem}
+.drei blockquote{font-family:var(--font-serif);margin:0}
+.schwarz{background:var(--schwarz);color:var(--weiss)}
+.schwarz p{max-width:var(--breite-text);margin:var(--sp-2) 0 var(--sp-3);color:var(--grau-3)}
+footer{background:var(--schwarz);color:var(--weiss);padding:var(--sp-5) 0 7.5rem;font-size:var(--fs-nav)}
+footer .spalten{display:grid;gap:var(--sp-4);grid-template-columns:repeat(2,1fr)}
+@media(min-width:900px){footer .spalten{grid-template-columns:repeat(4,1fr)}}
+footer h3{font-size:1rem;margin-bottom:var(--sp-1);letter-spacing:0}
+footer a{display:block;color:var(--grau-2);text-decoration:none;padding:.15rem 0}
+footer a:hover{color:var(--weiss)}
+</style>
+</head>
+<body>
+<div class="leiste"><div class="wrap">
+<span><a href="#">Werkstatt</a><a href="#">Geschichten</a></span>
+<strong>Kostenfreie Lieferung ab 100 €</strong>
+</div></div>
+<header class="kopf"><div class="wrap">
+<div class="zeile"><a class="marke" href="#">Nordwerk Studio</a>
+<div class="icons">
+<svg viewBox="0 0 20 20"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+<svg viewBox="0 0 20 20"><path d="M10 17 3 10a4 4 0 0 1 7-4 4 4 0 0 1 7 4z"/></svg>
+<svg viewBox="0 0 20 20"><circle cx="10" cy="7" r="3.5"/><path d="M3 18c1-4 4-5 7-5s6 1 7 5"/></svg>
+</div></div>
+<nav class="haupt"><a href="#neu">Neues</a><a href="#kollektion">Jacken</a><a href="#kollektion">Taschen</a><a href="#geschichten">Geschichten</a><a href="#werte">Werkstatt</a></nav>
+</div></header>
+
+<div class="hero" id="neu">
+<div class="wrap">
+<h1>Wetterfest durch den Herbst</h1>
+<p class="lead">Robuste Schichten, die für lange Wege bei wechselhaftem Wetter gebaut sind.</p>
+<div class="knoepfe"><a class="pille" href="#kollektion">Für sie</a><a class="pille" href="#kollektion">Für ihn</a></div>
+</div>
+<span class="nachweis"><svg viewBox="0 0 16 16"><rect x="1.5" y="4" width="13" height="9" rx="1.5"/><circle cx="8" cy="8.5" r="2.3"/></svg></span>
+</div>
+
+<section id="kollektion"><div class="wrap">
+<div class="tabs"><a class="aktiv" href="#kollektion">Neuheiten</a><a href="#kollektion">Regenjacken</a><a href="#kollektion">Fleece</a><a href="#kollektion">Isolierung</a><a href="#kollektion">Taschen</a></div>
+<div class="raster4">
+<a class="kachel b1" href="#"><div class="bild"><i></i></div><h3>Feldjacke Moor</h3><p>189 €</p></a>
+<a class="kachel b2" href="#"><div class="bild"><i></i></div><h3>Regenschale Kaar</h3><p>249 €</p></a>
+<a class="kachel b3" href="#"><div class="bild"><i></i></div><h3>Wollpullover Hain</h3><p>139 €</p></a>
+<a class="kachel b4" href="#"><div class="bild"><i></i></div><h3>Tagesrucksack Fels</h3><p>99 €</p></a>
+</div>
+</div></section>
+
+<section class="grau" id="werte"><div class="wrap zwei">
+<div class="fl"></div>
+<div class="text">
+<h2>Reparieren statt ersetzen</h2>
+<p>In unserer Werkstatt werden Reißverschlüsse getauscht, Nähte erneuert und Taschen geflickt. Jedes Teil soll viele Winter überstehen.</p>
+<a class="pille dunkel" href="#">Zur Werkstatt</a>
+</div>
+</div></section>
+
+<section id="geschichten"><div class="wrap">
+<h2>Geschichten von unterwegs</h2>
+<div class="drei">
+<article><div class="fl"></div><h3>Drei Tage im Moor</h3><p>Ein Bericht über Nebel, nasse Socken und die Ruhe danach.</p></article>
+<article><div class="fl" style="background:linear-gradient(150deg,#3b4a55,#8d9aa3 60%,#d4d8da)"></div><h3>Die Nähstube</h3><p>Wie aus Resten neue Taschen entstehen.</p></article>
+<article><div class="fl" style="background:linear-gradient(150deg,#5e4631,#b79b78 60%,#e3d8c5)"></div><h3>Zwischen den Pässen</h3><blockquote>„Am besten ist der Weg, den man nicht plant."</blockquote></article>
+</div>
+</div></section>
+
+<section class="schwarz"><div class="wrap">
+<h2>Wir pflanzen nach</h2>
+<p>Von jedem Verkauf fließt ein fester Anteil in Aufforstung und lokale Naturschutzprojekte.</p>
+<a class="pille" href="#">Mehr erfahren</a>
+</div></section>
+
+<footer><div class="wrap">
+<div class="spalten">
+<div><h3>Hilfe</h3><a href="#">Versand</a><a href="#">Rückgabe</a><a href="#">Größen</a></div>
+<div><h3>Werkstatt</h3><a href="#">Reparatur</a><a href="#">Pflege</a><a href="#">Gebraucht</a></div>
+<div><h3>Studio</h3><a href="#">Über uns</a><a href="#">Karriere</a><a href="#">Presse</a></div>
+<div><h3>Folgen</h3><a href="#">Newsletter</a><a href="#">Journal</a></div>
+</div>
+</div></footer>
+</body>
+</html>

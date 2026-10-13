@@ -1,0 +1,18 @@
+{
+  "_hinweis": "Feste Kategorienliste der Stile. Neue Kategorie = einen Namen am Ende ergänzen (1 bis 24 Zeichen: Buchstaben, Ziffern, Leerzeichen, / und -). Pro Stil höchstens 5.",
+  "kategorien": [
+    "3D",
+    "Animiert",
+    "Modern",
+    "Business",
+    "Video",
+    "Minimal",
+    "Verspielt",
+    "Editorial",
+    "Dunkel",
+    "Luxus",
+    "Tech/SaaS",
+    "Retro",
+    "Aktuell"
+  ]
+}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Küstenlicht Film – Video-Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--kino);color:var(--text);font-family:var(--font-body);font-size:var(--fs-body);line-height:1.6;overflow-x:clip}
+.w{max-width:var(--breite);margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--font-display);line-height:.98;letter-spacing:-.03em}
+.mono{font:500 var(--fs-xs) var(--font-mono);text-transform:uppercase;letter-spacing:.16em;color:var(--licht)}
+/* Buehne: Platzhalter fuer Bewegtbild, rein aus CSS */
+.buehne{position:relative;height:clamp(var(--buehne-min),var(--buehne-hoehe),var(--buehne-max));overflow:hidden;isolation:isolate;display:flex;flex-direction:column}
+.film{position:absolute;inset:-6%;z-index:-3;background:radial-gradient(60% 50% at 70% 70%,var(--film-3) 0%,transparent 60%),radial-gradient(70% 60% at 20% 20%,var(--film-2) 0%,transparent 65%),linear-gradient(160deg,var(--film-1),var(--film-4));animation:fahrt var(--dur-film) ease-in-out infinite alternate}
+.licht{position:absolute;z-index:-2;width:60vmax;height:60vmax;border-radius:50%;filter:blur(40px);opacity:.5;mix-blend-mode:screen}
+.l1{left:-15%;top:-20%;background:radial-gradient(closest-side,rgba(255,154,90,.55),transparent);animation:wandern 18s ease-in-out infinite alternate}
+.l2{right:-20%;bottom:-30%;background:radial-gradient(closest-side,rgba(77,124,255,.5),transparent);animation:wandern 23s ease-in-out infinite alternate-reverse}
+.korn{position:absolute;inset:0;z-index:-1;background:var(--verdunkelung),repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px)}
+@keyframes fahrt{from{transform:scale(1) translate(0,0)}to{transform:scale(1.12) translate(-3%,-2%)}}
+@keyframes wandern{to{transform:translate(12%,8%) scale(1.15)}}
+.kopf{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0}
+.kopf b{font:800 1.3rem var(--font-display);letter-spacing:-.02em}.kopf a{color:var(--text);text-decoration:none;margin-left:1.5rem;font-size:var(--fs-sm);opacity:.8;transition:opacity var(--dur-hover)}.kopf a:hover{opacity:1}
+.titel{margin-top:auto;padding-bottom:clamp(1.5rem,4vw,3rem)}
+h1{font-size:var(--fs-titel);font-weight:800;max-width:11ch;text-shadow:0 2px 40px rgba(0,0,0,.45)}
+.unter{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-top:1.5rem}
+.lead{max-width:42ch;font-size:1.2rem;color:var(--text)}
+.k{display:inline-flex;align-items:center;gap:.7rem;border-radius:var(--r-pille);padding:.8rem 1.5rem .8rem .9rem;background:var(--papier);color:var(--text-dunkel);text-decoration:none;font-weight:500;transition:transform var(--dur-hover) var(--ease)}
+.k:hover{transform:scale(1.04)}
+.k i{display:inline-block;width:2rem;height:2rem;border-radius:50%;background:var(--licht-2);position:relative}
+.k i:after{content:"";position:absolute;left:55%;top:50%;transform:translate(-50%,-50%);border-left:.6rem solid #fff;border-block:.38rem solid transparent}
+/* Kapitelleiste mit Fortschritt */
+.kapitel{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;padding-bottom:1.5rem}
+.kap{border-top:2px solid var(--linie);padding-top:.6rem;font:500 var(--fs-xs) var(--font-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);position:relative}
+.kap:before{content:"";position:absolute;left:0;top:-2px;height:2px;width:0;background:var(--licht);animation:lauf 26s linear infinite}
+.kap:nth-child(2):before{animation-delay:-19.5s}.kap:nth-child(3):before{animation-delay:-13s}.kap:nth-child(4):before{animation-delay:-6.5s}
+@keyframes lauf{0%{width:0}25%,100%{width:100%}}
+.sek{padding:var(--abstand-sektion) 0}
+h2{font-size:var(--fs-h2);margin:.75rem 0 1rem;max-width:20ch}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.lead2{color:var(--text-dim);max-width:48ch;font-size:1.15rem}
+.still{aspect-ratio:16/9;border-radius:var(--r-md);overflow:hidden;position:relative;background:linear-gradient(140deg,var(--film-2),var(--film-4));border:1px solid var(--linie)}
+.still:before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 65% 65%,var(--film-3),transparent 70%);animation:atmen 9s ease-in-out infinite alternate}
+.still span{position:absolute;left:1rem;bottom:.8rem;font:500 var(--fs-xs) var(--font-mono);letter-spacing:.14em}
+@keyframes atmen{to{opacity:.55;transform:scale(1.15)}}
+.reihe{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.reihe .still{aspect-ratio:4/5}.reihe .still:nth-child(2):before{background:radial-gradient(50% 60% at 30% 40%,var(--licht),transparent 70%)}
+.reihe .still:nth-child(3):before{background:radial-gradient(50% 60% at 50% 80%,var(--kalt),transparent 70%)}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;border-top:1px solid var(--linie);padding-top:2.5rem}
+.zahlen b{display:block;font:800 clamp(2.2rem,5vw,4rem) var(--font-display);letter-spacing:-.03em}.zahlen span{color:var(--text-dim);font-size:var(--fs-sm)}
+.abschluss{background:var(--papier);color:var(--text-dunkel);text-align:center;padding:clamp(4rem,10vw,8rem) 16px}
+.abschluss h2{margin-inline:auto}.abschluss p{color:#4b4f5c;margin-bottom:2rem}
+.abschluss .mono{color:var(--licht-2)}
+footer{padding:2rem 0;color:var(--text-dim);font-size:var(--fs-sm)}
+@media(max-width:800px){.zwei,.reihe,.zahlen{grid-template-columns:1fr}.kopf a{display:none}.kapitel{grid-template-columns:repeat(2,1fr)}.reihe .still{aspect-ratio:16/10}}
+@media(prefers-reduced-motion:reduce){.film,.licht,.kap:before,.still:before{animation:none}.kap:before{width:100%;opacity:.5}}
+</style></head><body>
+<header class="buehne">
+ <div class="film" aria-hidden="true"></div><div class="licht l1" aria-hidden="true"></div><div class="licht l2" aria-hidden="true"></div><div class="korn" aria-hidden="true"></div>
+ <div class="w" style="width:100%">
+  <div class="kopf"><b>Küstenlicht</b><div><a href="#werk">Werk</a><a href="#haus">Haus</a><a href="#kontakt">Kontakt</a></div></div></div>
+ <div class="w titel" style="width:100%">
+  <span class="mono">Film &amp; Bewegtbild</span>
+  <h1>Das Licht bleibt.</h1>
+  <div class="unter"><p class="lead">Küstenlicht dreht Marken- und Produktfilme an Orten, die man nicht vergisst. Bild vor Text, immer.</p>
+  <a class="k" href="#werk"><i></i>Showreel ansehen</a></div>
+ </div>
+ <div class="w kapitel" style="width:100%" aria-hidden="true"><div class="kap">01 Morgen</div><div class="kap">02 Hafen</div><div class="kap">03 Abend</div><div class="kap">04 Nacht</div></div>
+</header>
+<div class="w">
+<section class="sek zwei" id="haus"><div><span class="mono">Das Haus</span><h2>Wenige Filme, jeder mit Ruhe.</h2>
+ <p class="lead2">Wir drehen im Jahr nur zwölf Projekte. Das gibt jedem Film die Zeit, die gutes Licht braucht.</p></div>
+ <div class="still" aria-hidden="true"><span>Szene 14 · Hafenmole</span></div></section>
+<section class="sek" id="werk" style="padding-top:0"><span class="mono">Ausgewählte Arbeiten</span><h2>Drei Stimmungen.</h2>
+ <div class="reihe" aria-hidden="true"><div class="still"><span>Morgen</span></div><div class="still"><span>Abend</span></div><div class="still"><span>Nacht</span></div></div></section>
+<section class="sek"><div class="zahlen"><div><b>12</b><span>Filme pro Jahr</span></div><div><b>4K</b><span>Master in Kinoqualität</span></div><div><b>9 Länder</b><span>Drehorte seit 2016</span></div></div></section>
+</div>
+<section class="abschluss" id="kontakt"><span class="mono">Kontakt</span><h2>Erzählen wir es in Bewegung.</h2><p>Ein Gespräch, ein Drehbuch, dann Klappe.</p><a class="k" href="#kontakt" style="background:var(--text-dunkel);color:var(--papier)"><i></i>Gespräch anfragen</a></section>
+<footer><div class="w">Küstenlicht Film – ein fiktives Beispiel für den Stil Video-Hero.</div></footer>
+</body></html>

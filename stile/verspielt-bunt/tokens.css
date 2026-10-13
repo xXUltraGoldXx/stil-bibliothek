@@ -1,0 +1,12 @@
+/* Verspielt-bunt: Tokens */
+:root{
+  --bg:#fff7e6; --tinte:#2b2150;
+  --rosa:#ff6fa8; --gelb:#ffd23f; --mint:#3ddbb0; --blau:#4cc9f0; --lila:#9b5de5; --orange:#ff9f1c;
+  --font-display:"Fredoka","Baloo 2","Comic Sans MS",system-ui,sans-serif;
+  --font-text:"Nunito",system-ui,sans-serif;
+  --fs-hero:clamp(2.8rem,9vw,6.5rem); --fs-h2:clamp(2rem,5vw,3.4rem); --fs-text:1.15rem;
+  --kontur:3px solid var(--tinte); --schatten:0 6px 0 var(--tinte);
+  --r-karte:32px; --r-knopf:999px; --r-blob:60% 40% 55% 45% / 50% 60% 40% 50%;
+  --luecke:1.5rem; --breite:1100px;
+  --huepf:cubic-bezier(.34,1.56,.64,1);
+}

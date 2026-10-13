@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--font-ui);font-weight:var(--gewicht-leicht);font-size:var(--fs-text);line-height:var(--lh-text);color:var(--text);background:var(--weiss);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:var(--gewicht-leicht);color:var(--text-titel);letter-spacing:var(--ls-titel);line-height:var(--lh-titel)}
+h1{font-size:var(--fs-h1)}
+h2{font-size:var(--fs-h2);line-height:1.1}
+h3{font-size:var(--fs-h3);line-height:1.12}
+a{color:var(--akzent);text-decoration:none;font-weight:var(--gewicht-normal)}
+a:hover{color:var(--akzent-hover)}
+.wrap{max-width:calc(var(--breite) + 2*var(--rand));margin:0 auto;padding:0 var(--rand)}
+.kopf{height:76px;border-bottom:1px solid var(--linie);background:var(--weiss)}
+.kopf .wrap{display:flex;align-items:center;justify-content:space-between;height:100%;gap:var(--abstand-3)}
+.marke{font-weight:var(--gewicht-normal);color:var(--text-titel);font-size:1.25rem;letter-spacing:-.02em}
+.nav{display:flex;gap:var(--abstand-4);font-weight:var(--gewicht-normal);font-size:.9375rem}
+.nav a{color:var(--text-titel)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-weight:var(--gewicht-normal);font-size:.9375rem;padding:12px 20px;border-radius:var(--r-klein);border:1px solid var(--akzent);background:var(--akzent);color:#fff;transition:background var(--zeit),transform var(--zeit)}
+.btn:hover{background:var(--akzent-hover);color:#fff}
+.btn span{transition:transform var(--zeit)}
+.btn:hover span{transform:translateX(3px)}
+.btn.zweit{background:var(--weiss);color:var(--akzent);border-color:var(--linie-akzent)}
+.btn.zweit:hover{background:var(--flaeche-2);color:var(--akzent)}
+.hero{position:relative;overflow:hidden;padding:var(--abstand-8) 0 var(--abstand-7)}
+.hero::after{content:"";position:absolute;top:-10%;right:-18%;width:min(60vw,700px);height:120%;transform:rotate(18deg);border-radius:50% 0 0 50%;background:radial-gradient(circle at 70% 90%,var(--verlauf-lavendel) 0,var(--verlauf-pink) 20%,var(--verlauf-orange) 38%,var(--verlauf-gold) 52%,rgba(255,255,255,0) 72%);opacity:.85;animation:drift 20s ease-in-out infinite alternate}
+@keyframes drift{from{transform:rotate(18deg) translateY(0)}to{transform:rotate(14deg) translateY(-16px)}}
+@media (prefers-reduced-motion:reduce){.hero::after{animation:none}}
+.hero .wrap{position:relative;z-index:1}
+.status{font-size:var(--fs-klein);color:var(--text-titel);margin-bottom:var(--abstand-5)}
+.status b{font-weight:var(--gewicht-normal);color:var(--text-gedaempft);margin-left:6px}
+.hero h1{max-width:820px}
+.hero h1 em{font-style:normal;color:var(--text-gedaempft)}
+.hero .aktionen{display:flex;flex-wrap:wrap;gap:var(--abstand-3);margin-top:var(--abstand-5)}
+.logos{border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+.logos .wrap{display:flex;flex-wrap:wrap;gap:var(--abstand-4) var(--abstand-7);justify-content:space-between;padding-top:var(--abstand-4);padding-bottom:var(--abstand-4)}
+.logo{display:flex;align-items:center;gap:8px;color:var(--text-gedaempft);font-weight:var(--gewicht-normal);letter-spacing:-.01em}
+.logo i{width:20px;height:20px;border-radius:var(--r-klein);background:var(--text-hilfe);display:block}
+.sektion{padding:var(--abstand-8) 0}
+.sektion.alt{background:var(--flaeche)}
+.kopfzeile{max-width:var(--breite-text);margin-bottom:var(--abstand-6)}
+.kopfzeile h2 span{color:var(--text-gedaempft)}
+.kopfzeile a{display:inline-block;margin-top:var(--abstand-3)}
+.raster{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--abstand-4)}
+.karte{background:var(--weiss);border:1px solid var(--linie);border-radius:var(--r-mittel);padding:var(--abstand-4);box-shadow:var(--schatten-zart);transition:transform var(--zeit),box-shadow var(--zeit)}
+.karte:hover{transform:translateY(-2px);box-shadow:var(--schatten-karte)}
+.karte .tag{display:inline-block;font-size:var(--fs-meta);background:var(--flaeche-2);color:var(--akzent);border-radius:var(--r-klein);padding:2px 8px;font-weight:var(--gewicht-normal);margin-bottom:var(--abstand-3)}
+.karte h3{margin-bottom:var(--abstand-2);font-size:1.375rem}
+.karte p{font-size:.9375rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--abstand-7);align-items:center}
+.vorschau{border-radius:var(--r-mittel);border:1px solid var(--linie);background:var(--weiss);box-shadow:var(--schatten-karte);padding:var(--abstand-4)}
+.vorschau .zeile{height:10px;border-radius:var(--r-klein);background:var(--linie);margin-bottom:12px}
+.vorschau .zeile.k{width:55%}.vorschau .zeile.m{width:80%}
+.vorschau .flaeche{height:140px;border-radius:var(--r-klein);margin:var(--abstand-3) 0;background:radial-gradient(circle at 20% 100%,var(--verlauf-violett),var(--verlauf-pink) 40%,var(--flaeche-2) 80%)}
+.liste{list-style:none;padding:0;margin:var(--abstand-4) 0 0;display:grid;gap:12px}
+.liste li{padding-left:24px;position:relative}
+.liste li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:2px;background:var(--akzent)}
+.nacht{background:var(--nacht);color:var(--nacht-text);padding:var(--abstand-8) 0}
+.nacht h2{color:#fff;max-width:var(--breite-text)}
+.nacht h2 span{color:var(--text-hilfe)}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--abstand-5);margin-top:var(--abstand-7);border-top:1px solid rgba(163,181,214,.25);padding-top:var(--abstand-5)}
+.zahl{font-size:clamp(2rem,5vw,2.75rem);color:#fff;letter-spacing:var(--ls-titel);line-height:1.1}
+.zahlen p{margin-top:var(--abstand-2);font-size:.9375rem}
+.abschluss{text-align:left}
+.abschluss .box{border:1px solid var(--linie);border-radius:var(--r-mittel);padding:var(--abstand-7) var(--abstand-5);background:linear-gradient(180deg,var(--weiss),var(--flaeche-2))}
+.fuss{background:var(--flaeche);border-top:1px solid var(--linie);padding:var(--abstand-7) 0 var(--abstand-5);font-size:var(--fs-klein)}
+.fuss .wrap{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--abstand-5)}
+.fuss h3{font-size:var(--fs-klein);font-weight:var(--gewicht-normal);margin-bottom:var(--abstand-3)}
+.fuss a{display:block;color:var(--text);font-weight:var(--gewicht-leicht);margin-bottom:8px}
+.fuss a:hover{color:var(--akzent)}
+@media (max-width:860px){
+  .raster,.zahlen{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr;gap:var(--abstand-5)}
+  .fuss .wrap{grid-template-columns:1fr 1fr}
+  .nav{display:none}
+}
+@media (max-width:480px){
+  :root{--rand:16px}
+  .hero{padding:var(--abstand-7) 0 var(--abstand-6)}
+  .sektion,.nacht{padding:56px 0}
+  .logos .wrap{gap:var(--abstand-3)}
+  .kopf .btn{padding:10px 14px}
+  .abschluss .box{padding:var(--abstand-5) var(--abstand-3)}
+}
+</style>
+</head>
+<body>
+<header class="kopf">
+  <div class="wrap">
+    <a class="marke" href="#">Nordwerk Studio</a>
+    <nav class="nav"><a href="#leistungen">Leistungen</a><a href="#einblick">Einblick</a><a href="#zahlen">Zahlen</a><a href="#kontakt">Kontakt</a></nav>
+    <a class="btn" href="#kontakt">Gespräch buchen <span>›</span></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="status">Projekte im laufenden Quartal: <b>14 von 16 Plätzen belegt</b></p>
+    <h1>Digitale Werkzeuge, die Teams entlasten. <em>Wir entwerfen, bauen und betreuen Software für Betriebe, die wachsen wollen, vom ersten Prototyp bis zum stabilen Betrieb.</em></h1>
+    <div class="aktionen">
+      <a class="btn" href="#kontakt">Projekt starten <span>›</span></a>
+      <a class="btn zweit" href="#leistungen">Leistungen ansehen</a>
+    </div>
+  </div>
+</section>
+
+<div class="logos">
+  <div class="wrap">
+    <span class="logo"><i></i>Hafenwerk</span>
+    <span class="logo"><i></i>Klarkost</span>
+    <span class="logo"><i></i>Lindenbahn</span>
+    <span class="logo"><i></i>Tiefgrün</span>
+    <span class="logo"><i></i>Messwerk</span>
+  </div>
+</div>
+
+<section class="sektion" id="leistungen">
+  <div class="wrap">
+    <div class="kopfzeile">
+      <h2>Drei Wege zu besserer Software. <span>Wählen Sie, was zu Ihrem Stand passt, und kombinieren Sie später, was sinnvoll ist.</span></h2>
+      <a href="#einblick">Mehr über unsere Arbeitsweise ›</a>
+    </div>
+    <div class="raster">
+      <article class="karte"><span class="tag">Entwurf</span><h3>Produktdesign</h3><p>Wir klären Ziele, zeichnen Abläufe und prüfen sie früh mit echten Nutzerinnen und Nutzern.</p></article>
+      <article class="karte"><span class="tag">Umsetzung</span><h3>Webanwendungen</h3><p>Saubere Oberflächen und belastbare Schnittstellen, dokumentiert und testbar übergeben.</p></article>
+      <article class="karte"><span class="tag">Betrieb</span><h3>Wartung und Support</h3><p>Feste Ansprechpersonen, planbare Updates und Reaktionszeiten, die schriftlich vereinbart sind.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sektion alt" id="einblick">
+  <div class="wrap split">
+    <div>
+      <h2>Ein Überblick statt zehn Tabellen. <span style="color:var(--text-gedaempft)">Alle Aufgaben, Termine und Freigaben an einem Ort.</span></h2>
+      <ul class="liste">
+        <li>Wöchentlicher Stand ohne Statusmeeting</li>
+        <li>Freigaben mit einem Klick, nachvollziehbar protokolliert</li>
+        <li>Offene Fragen sichtbar, bevor sie Zeit kosten</li>
+      </ul>
+      <p style="margin-top:var(--abstand-4)"><a href="#kontakt">Beispielprojekt ansehen ›</a></p>
+    </div>
+    <div class="vorschau" aria-hidden="true">
+      <div class="zeile k"></div><div class="zeile m"></div>
+      <div class="flaeche"></div>
+      <div class="zeile"></div><div class="zeile k"></div>
+    </div>
+  </div>
+</section>
+
+<section class="nacht" id="zahlen">
+  <div class="wrap">
+    <h2>Verlässlich im Betrieb. <span>Unsere Projekte laufen seit Jahren ohne größere Unterbrechung.</span></h2>
+    <div class="zahlen">
+      <div><div class="zahl">99,9 %</div><p>Verfügbarkeit im Jahresmittel</p></div>
+      <div><div class="zahl">48 Std.</div><p>bis zum ersten klickbaren Entwurf</p></div>
+      <div><div class="zahl">120+</div><p>ausgelieferte Anwendungen</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sektion abschluss" id="kontakt">
+  <div class="wrap">
+    <div class="box">
+      <h2 style="max-width:620px">Bereit für den nächsten Schritt? <span style="color:var(--text-gedaempft)">Schildern Sie uns Ihr Vorhaben, wir melden uns innerhalb eines Werktags.</span></h2>
+      <div class="aktionen" style="display:flex;flex-wrap:wrap;gap:var(--abstand-3);margin-top:var(--abstand-5)">
+        <a class="btn" href="#">Gespräch buchen <span>›</span></a>
+        <a class="btn zweit" href="#">Unterlagen anfordern</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="fuss">
+  <div class="wrap">
+    <div><a class="marke" href="#">Nordwerk Studio</a><p style="margin-top:12px;max-width:260px">Software-Atelier für kleine und mittlere Betriebe.</p></div>
+    <div><h3>Leistungen</h3><a href="#">Design</a><a href="#">Entwicklung</a><a href="#">Support</a></div>
+    <div><h3>Studio</h3><a href="#">Team</a><a href="#">Arbeitsweise</a><a href="#">Karriere</a></div>
+    <div><h3>Rechtliches</h3><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+  </div>
+</footer>
+</body>
+</html>

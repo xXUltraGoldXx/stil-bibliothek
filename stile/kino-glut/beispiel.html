@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Kino Glut</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+html{background:var(--schwarz)}
+body{background:var(--schwarz);color:var(--text);font-family:var(--font-body);font-size:var(--fs-body);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--abstand-5)}
+h1,h2,h3{font-family:var(--font-display)}
+.hero{position:relative;min-height:min(46rem,100vh);overflow:hidden;isolation:isolate;padding-bottom:var(--abstand-9)}
+.wand{position:absolute;inset:-20% -20%;display:grid;grid-template-columns:repeat(8,1fr);gap:12px;transform:rotate(-12deg);z-index:-2;opacity:.9}
+.wand i{display:block;aspect-ratio:2/3;border-radius:var(--r-md);background:linear-gradient(160deg,var(--nacht-a),var(--nacht-b))}
+.wand i:nth-child(3n){background:linear-gradient(160deg,var(--glut),var(--schwarz))}
+.wand i:nth-child(4n+1){background:linear-gradient(200deg,#3a3f52,#14161d)}
+.wand i:nth-child(5n+2){background:linear-gradient(130deg,#5a3a2a,#1a0f0a)}
+.hero:after{content:"";position:absolute;inset:0;background:var(--grad-abdunkeln);z-index:-1}
+nav{display:flex;justify-content:space-between;align-items:center;gap:var(--abstand-5);padding:var(--abstand-6) 0}
+nav b{font-size:1.75rem;font-weight:700;color:var(--rot);letter-spacing:.02em}
+.nav-r{display:flex;gap:var(--abstand-5);align-items:center}
+.sprache{border:1px solid var(--rand);border-radius:var(--r-sm);padding:var(--abstand-3) var(--abstand-5);font-size:var(--fs-body);background:transparent;color:var(--text)}
+.k{display:inline-flex;align-items:center;gap:var(--abstand-3);border:0;border-radius:var(--r-sm);background:var(--rot);color:var(--text);font:500 var(--fs-sm) var(--font-body);padding:var(--abstand-2) var(--abstand-5);text-decoration:none;cursor:pointer;transition:background var(--dur-schnell) var(--ease)}
+.k:hover{background:var(--rot-hover)}
+.k:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--text);outline-offset:2px}
+.k.gross{font-size:var(--fs-knopf-gross);padding:var(--abstand-4) var(--abstand-6);font-weight:500;min-height:56px;justify-content:center}
+.k.sek{background:rgba(109,109,110,.7)}.k.sek:hover{background:rgba(109,109,110,.45)}
+.hero-text{text-align:center;max-width:var(--breite-hero);margin:clamp(3rem,9vw,7rem) auto 0}
+h1{font-size:var(--fs-h1);font-weight:700;line-height:1.25}
+.lead{font-size:var(--fs-lead);font-weight:500;margin-top:var(--abstand-5)}
+.hinweis{margin-top:var(--abstand-6);font-size:var(--fs-body)}
+.zeile{display:flex;gap:var(--abstand-3);margin-top:var(--abstand-5);align-items:stretch}
+.feld{flex:1 1 auto;min-width:0;background:var(--leiste);border:1px solid var(--rand);border-radius:var(--r-sm);color:var(--text);font:400 var(--fs-body) var(--font-body);padding:var(--abstand-6) var(--abstand-5) var(--abstand-3);min-height:56px}
+.feld::placeholder{color:var(--text-gedaempft)}
+.feldwrap{position:relative;flex:1 1 auto;min-width:0;display:flex}
+.feldwrap label{position:absolute;left:var(--abstand-5);top:var(--abstand-3);font-size:var(--fs-xs);color:var(--text-gedaempft)}
+.feldwrap input{width:100%}
+.horizont{height:90px;margin-top:-90px;position:relative;border-radius:50% 50% 0 0 / 100% 100% 0 0;border-top:3px solid var(--rot);background:radial-gradient(50% 500% at 50% -420%,var(--lichtkegel) 80%,rgba(0,0,0,.1) 100%),var(--schwarz);box-shadow:0 -6px 40px rgba(212,22,31,.35)}
+section{padding:var(--abstand-8) 0}
+.banner{display:flex;gap:var(--abstand-6);align-items:center;background:var(--grad-karte);border-radius:var(--r-lg);padding:var(--abstand-6);box-shadow:var(--shadow-karte)}
+.banner h2{font-weight:700;font-size:clamp(1.125rem,2.2vw,1.5rem)}
+.banner p{color:var(--text-gedaempft);margin-top:var(--abstand-2)}
+.banner .txt{flex:1}
+.icon{flex:0 0 72px;height:72px}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:var(--abstand-7);align-items:center;padding:var(--abstand-8) 0;border-top:8px solid var(--flaeche-2)}
+.feature h2{font-size:var(--fs-feature);font-weight:700;line-height:1.15}
+.feature p{font-size:var(--fs-lead);margin-top:var(--abstand-5);font-weight:500}
+.bild{aspect-ratio:4/3;border-radius:var(--r-lg);background:radial-gradient(60% 70% at 30% 30%,var(--glut),transparent 70%),var(--grad-karte);border:1px solid var(--flaeche-2)}
+.bild.b2{background:radial-gradient(60% 70% at 70% 60%,var(--lichtkegel),transparent 70%),linear-gradient(200deg,#3a3f52,#0b0c10)}
+.feature.um .bild{order:-1}
+.faq h2{font-size:var(--fs-feature);font-weight:700;text-align:center;margin-bottom:var(--abstand-6)}
+details{background:var(--flaeche-2);margin-bottom:var(--abstand-3)}
+summary{cursor:pointer;list-style:none;padding:var(--abstand-6);font-size:var(--fs-lead);font-weight:400;display:flex;justify-content:space-between;gap:var(--abstand-5);transition:background var(--dur-base) var(--ease)}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:1.75rem;line-height:1}
+details[open] summary:after{content:"\2212"}
+summary:hover{background:#414141}
+details p{padding:var(--abstand-6);border-top:1px solid var(--schwarz);font-size:var(--fs-lead);color:var(--text-gedaempft)}
+footer{border-top:8px solid var(--flaeche-2);padding:var(--abstand-8) 0;color:var(--text-gedaempft);font-size:var(--fs-sm)}
+@media(max-width:800px){
+.feature{grid-template-columns:1fr;text-align:center}.feature.um .bild{order:0}
+.banner{flex-direction:column;align-items:flex-start}
+.zeile{flex-direction:column}.k.gross{align-self:center;padding:var(--abstand-3) var(--abstand-5)}
+.wand{grid-template-columns:repeat(5,1fr)}
+.nav-r .sprache{padding:var(--abstand-3)}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+<header class="hero">
+<div class="wand" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="w">
+<nav><b>NORDWERK</b><div class="nav-r"><span class="sprache">Deutsch</span><a class="k" href="#start">Anmelden</a></div></nav>
+<div class="hero-text" id="start">
+<h1>Mehr gestalten.<br>Weniger erklären.</h1>
+<p class="lead">Markenauftritte und Webseiten ab 990 €. Monatlich anpassbar.</p>
+<p class="hinweis">Bereit für Ihr Projekt? Hinterlassen Sie Ihre E-Mail-Adresse, wir melden uns innerhalb eines Werktags.</p>
+<div class="zeile"><div class="feldwrap"><label for="m1">E-Mail-Adresse</label><input id="m1" class="feld" type="email"></div><a class="k gross" href="#faq">Projekt anfragen <svg width="14" height="22" viewBox="0 0 14 22" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 2l9 9-9 9"/></svg></a></div>
+</div></div>
+</header>
+<div class="horizont" aria-hidden="true"></div>
+<main class="w">
+<section>
+<div class="banner">
+<svg class="icon" viewBox="0 0 72 72" aria-hidden="true"><rect x="14" y="26" width="44" height="40" rx="8" fill="#d4161f"/><circle cx="36" cy="20" r="12" fill="#ffd2c9"/><circle cx="36" cy="46" r="9" fill="#fff"/><path d="M36 41l2 4 4 .5-3 3 .8 4-3.8-2-3.8 2 .8-4-3-3 4-.5z" fill="#d4161f"/></svg>
+<div class="txt"><h2>Das Starterpaket: Logo, Farben, Startseite.</h2><p>Jetzt mit festem Preis und zwei Korrekturrunden inklusive.</p></div>
+<a class="k sek" href="#faq">Mehr erfahren</a>
+</div>
+</section>
+<div class="feature"><div><h2>Eine Marke, die man sofort wiedererkennt.</h2><p>Wir entwickeln Farben, Schrift und Bildsprache, die auf jedem Bildschirm funktionieren.</p></div><div class="bild" role="img" aria-label="Platzhalter Markenentwurf"></div></div>
+<div class="feature um"><div><h2>Webseiten, die schnell laden.</h2><p>Klare Struktur, große Tippflächen und Texte, die auf dem Telefon genauso gut lesbar sind.</p></div><div class="bild b2" role="img" aria-label="Platzhalter Webseitenentwurf"></div></div>
+<section class="faq" id="faq" style="border-top:8px solid var(--flaeche-2)">
+<h2>Häufige Fragen</h2>
+<details><summary>Wie läuft ein Projekt ab?</summary><p>Kennenlernen, Entwurf, zwei Korrekturrunden, Übergabe. Sie sehen nach einer Woche den ersten Stand.</p></details>
+<details><summary>Was kostet eine Webseite?</summary><p>Das Starterpaket beginnt bei 990 €. Größere Vorhaben erhalten ein festes Angebot nach dem ersten Gespräch.</p></details>
+<details><summary>Kann ich später erweitern?</summary><p>Ja. Wir bauen modular, damit neue Seiten und Funktionen ohne Neustart dazukommen.</p></details>
+<details><summary>Wer pflegt die Inhalte?</summary><p>Auf Wunsch Sie selbst nach einer kurzen Einweisung, oder wir übernehmen die Pflege monatlich.</p></details>
+</section>
+</main>
+<footer><div class="w">Nordwerk Studio ist eine fiktive Firma für diese Stilvorlage. Alle Inhalte sind frei erfunden.</div></footer>
+</body></html>

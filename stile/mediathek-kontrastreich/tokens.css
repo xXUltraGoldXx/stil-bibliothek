@@ -1,0 +1,14 @@
+/* Mediathek kontrastreich: Tokens */
+:root{
+  --weiss:#ffffff; --grau-1:#f6f6f6; --buehne:#121212; --buehne-2:#262626; --schwarz:#000000;
+  --tinte:#121212; --tinte-2:#696969; --meta:#767676; --grau-hell:#b5b5b5;
+  --rot:#de1c34; --rot-knopf:#d91e18; --blau:#2763ff;
+  --linie:#d9d9d9; --linie-fein:rgba(18,18,18,.16); --linie-dunkel:#4d4d4d;
+  --font-ui:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fs-gross:clamp(3rem,10vw,5.25rem); --fs-h1:clamp(2rem,4vw,3.25rem); --fs-h2:2rem; --fs-h3:1.125rem; --fs-text:1rem; --fs-klein:.875rem; --fs-meta:.75rem;
+  --ls-eng:-.04em; --ls-titel:-.02em; --ls-nav:.04em; --lh-titel:1.1; --lh-text:1.3;
+  --r-s:2px; --r-m:4px; --r-rund:50%;
+  --schatten-leicht:0 2px 4px rgba(0,0,0,.1);
+  --abstand-1:4px; --abstand-2:8px; --abstand-3:12px; --abstand-4:16px; --abstand-5:20px; --abstand-6:24px; --abstand-7:40px; --abstand-8:56px; --abstand-9:64px;
+  --breite:1280px; --luecke:40px; --dauer:.2s;
+}

@@ -1,0 +1,13 @@
+/* Farbblock Rund: Tokens */
+:root{
+  --gelb:#ffd502; --butter:#ffef7a; --blau:#005ad2; --link:#006db7; --violett:#4c2f92; --indigo:#4637a0;
+  --tuerkis:#71ccd5; --gruen:#004a2d; --tinte:#141414; --text:#2c2c2c; --weiss:#ffffff; --grau:#f2f2f2; --rot:#fb1514;
+  --rand:rgba(0,0,0,.06); --rand-stark:rgba(0,0,0,.74);
+  --font-ui:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fs-h1:clamp(1.9rem,5vw,2.6rem); --fs-h2:clamp(1.4rem,3vw,2.2rem); --fs-h3:1.17rem; --fs-text:1rem; --fs-klein:.875rem; --fs-meta:.75rem;
+  --lh-titel:1.35; --lh-text:1.5; --ls-klein:.01em;
+  --a1:4px; --a2:8px; --a3:12px; --a4:16px; --a5:24px; --a6:32px; --a7:40px; --a8:56px;
+  --r-karte:8px; --r-pille:999px; --r-klein:4px;
+  --schatten-innen:inset 0 0 0 1px #b0b0b0; --schatten-keiner:none;
+  --breite:1280px; --luecke:16px; --kopf-hoehe:102px;
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Katalog kantig</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--weiss);color:var(--text);font-family:var(--font-body);font-size:var(--fs-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:var(--lh-display)}
+.w{max-width:var(--breite);margin:0 auto;padding:0 var(--rand-seite)}
+.hinweis{background:var(--kachel);text-align:center;padding:.8rem 1rem;font-size:var(--fs-sm)}
+.hinweis a{text-decoration:underline}
+nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.6rem 0 1.2rem;gap:1rem}
+nav .l{display:flex;gap:1.6rem;flex-wrap:wrap}
+nav .l a{text-decoration:none;transition:color var(--dur)}nav .l a:hover{color:var(--text-gedaempft)}
+nav .m{font-family:var(--font-display);font-size:1.8rem;letter-spacing:.04em;text-transform:uppercase}
+nav .r{display:flex;justify-content:flex-end;gap:1rem}
+nav svg{width:22px;height:22px;stroke:var(--tinte);fill:none;stroke-width:1.8}
+.hero{position:relative;min-height:450px;background:radial-gradient(60% 80% at 70% 30%,#2a3036 0%,var(--tinte) 70%);display:flex;align-items:flex-end;overflow:hidden}
+.hero .fig{position:absolute;right:12%;bottom:0;width:min(34%,320px);height:88%;background:linear-gradient(180deg,#3a4148,#1b2024);border-radius:160px 160px 0 0}
+.hero:after{content:"";position:absolute;inset:0;background:var(--grad-foto);opacity:.7}
+.hero .txt{position:relative;z-index:1;padding:2.5rem;color:var(--weiss);max-width:560px}
+.hero h1{font-size:var(--fs-hero)}
+.hero p{margin:.8rem 0 1.6rem;color:var(--kachel);max-width:40ch}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.k{display:inline-block;border-radius:var(--r-0);padding:16px 24px;font:400 var(--fs-body)/1.4 var(--font-body);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background var(--dur),color var(--dur),border-color var(--dur)}
+.k.p{background:var(--weiss);color:var(--tinte)}.k.p:hover{background:var(--kachel)}
+.k.s{background:transparent;color:var(--weiss);border-color:var(--weiss)}.k.s:hover{background:var(--weiss);color:var(--tinte)}
+.k.d{background:var(--tinte);color:var(--weiss)}.k.d:hover{background:var(--text-mittel)}
+.sek{padding:var(--abst-7) 0 0}
+.kopf{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.6rem;flex-wrap:wrap}
+.kopf h2{font-size:var(--fs-h2)}
+.kopf a{font-size:var(--fs-sm);color:var(--text-gedaempft);text-decoration:underline}
+.raster{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--kachel-luecke)}
+.p{position:relative}
+.bild{position:relative;aspect-ratio:3/4;background:var(--kachel);overflow:hidden}
+.bild svg.s{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:62%;height:auto;fill:#4a5a52;transition:transform var(--dur) var(--ease)}
+.p:hover .bild svg.s{transform:translateX(-50%) scale(1.03)}
+.herz{position:absolute;top:10px;right:10px;width:20px;height:20px;stroke:var(--tinte);fill:none;stroke-width:1.8}
+.label{position:absolute;left:10px;top:10px;background:var(--akzent-label);color:var(--weiss);font-size:var(--fs-sm);padding:2px 6px;border-radius:var(--r-klein)}
+.p b{display:block;font-weight:500;margin-top:.8rem}
+.p span.n{color:var(--text-gedaempft);font-size:var(--fs-sm)}
+.kat{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--kachel-luecke)}
+.kt{position:relative;aspect-ratio:4/5;background:var(--kachel);display:flex;align-items:flex-end;overflow:hidden;text-decoration:none;color:var(--weiss)}
+.kt:before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,#5b666e,#252b30)}
+.kt:nth-child(2):before{background:linear-gradient(160deg,#6d7a73,#2a312d)}
+.kt:nth-child(3):before{background:linear-gradient(160deg,#7a7e84,#2c2f33)}
+.kt:after{content:"";position:absolute;inset:0;background:var(--grad-foto);opacity:.75}
+.kt h3{position:relative;z-index:1;font-size:2rem;padding:1.6rem}
+.usp{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--kachel-luecke);margin-top:var(--abst-7)}
+.usp div{background:var(--flaeche);padding:2.4rem 1.6rem}
+.usp h3{font-size:var(--fs-h3);margin-bottom:.4rem}
+.usp p{color:var(--text-gedaempft);font-size:var(--fs-body)}
+.cta{margin-top:var(--abst-7);background:var(--tinte);color:var(--weiss);padding:var(--abst-7) var(--rand-seite);text-align:center}
+.cta h2{font-size:var(--fs-h2);max-width:20ch;margin:0 auto .8rem}
+.cta p{color:var(--text-schwach);margin-bottom:1.6rem}
+footer{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.4rem;padding:var(--abst-7) 0 var(--abst-5);font-size:var(--fs-sm);color:var(--text-gedaempft)}
+footer b{display:block;color:var(--tinte);font-weight:500;margin-bottom:.8rem}
+footer a{display:block;text-decoration:none;margin-bottom:.4rem}footer a:hover{color:var(--tinte)}
+@media(max-width:900px){.raster{grid-template-columns:repeat(2,1fr)}.kat,.usp{grid-template-columns:1fr}.kt{aspect-ratio:16/9}footer{grid-template-columns:1fr 1fr}nav{grid-template-columns:auto auto}nav .l{display:none}.hero .fig{right:6%;width:40%}.hero .txt{padding:1.6rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="hinweis">Kostenloser Versand ab 60 € · <a href="#neu">Mehr erfahren</a></div>
+<div class="w">
+<nav><div class="l"><a href="#neu">Damen</a><a href="#neu">Herren</a><a href="#kat">Zubehör</a><a href="#werte">Entdecken</a></div>
+<div class="m">Nordwerk</div>
+<div class="r"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8a3 3 0 016 0"/></svg></div></nav>
+<header class="hero"><div class="fig"></div><div class="txt"><h1>Eine neue Linie für den Trainingsalltag</h1><p>Robuste Basics in ruhigen Farben, geschnitten für Bewegung und gemacht für viele Wiederholungen.</p><div class="btns"><a class="k p" href="#neu">Neu ansehen</a><a class="k s" href="#kat">Zur Kollektion</a></div></div></header>
+<section class="sek" id="neu"><div class="kopf"><h2>Neu eingetroffen</h2><a href="#neu">Alle ansehen</a></div>
+<div class="raster">
+<div class="p"><div class="bild"><svg class="herz" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg><span class="label">Neu</span><svg class="s" viewBox="0 0 100 160"><path d="M30 0h40l8 40-6 120H28L22 40z"/></svg></div><b>Trainingsshirt Basis</b><span class="n">Waldgrün · 6 Größen</span></div>
+<div class="p"><div class="bild"><svg class="herz" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg><svg class="s" viewBox="0 0 100 160"><path d="M20 20h60l6 80-8 40H56l-6-40-6 40H22l-8-40z"/></svg></div><b>Shorts Kompakt</b><span class="n">Waldgrün · 5 Größen</span></div>
+<div class="p"><div class="bild"><svg class="herz" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg><svg class="s" viewBox="0 0 100 160"><path d="M24 0h52l10 50-10 110H24L14 50z"/></svg></div><b>Jacke Leicht</b><span class="n">Graphit · 6 Größen</span></div>
+<div class="p"><div class="bild"><svg class="herz" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg><span class="label">Neu</span><svg class="s" viewBox="0 0 100 160"><path d="M34 0h32l14 60-8 100H28L20 60z"/></svg></div><b>Top Halt</b><span class="n">Sand · 5 Größen</span></div>
+</div></section>
+<section class="sek" id="kat"><div class="kopf"><h2>Nach Bereich</h2><a href="#kat">Alle Bereiche</a></div>
+<div class="kat"><a class="kt" href="#kat"><h3>Kraft</h3></a><a class="kt" href="#kat"><h3>Ausdauer</h3></a><a class="kt" href="#kat"><h3>Erholung</h3></a></div></section>
+<section id="werte"><div class="usp"><div><h3>Versand in 2 Tagen</h3><p>Bestellungen bis 14 Uhr gehen am selben Tag raus.</p></div><div><h3>100 Tage Rückgabe</h3><p>Nicht passend? Einfach zurücksenden, ohne Begründung.</p></div><div><h3>Reparatur inklusive</h3><p>Kleine Schäden beheben wir kostenlos in unserer Werkstatt.</p></div></div></section>
+</div>
+<section class="cta"><h2>Bereit für die nächste Einheit?</h2><p>Entdecke die komplette Kollektion und finde deine Größe.</p><a class="k p" href="#neu">Jetzt entdecken</a></section>
+<div class="w"><footer><div><b>Nordwerk Studio</b>Fiktive Firma für diese Stilvorlage. Alle Inhalte frei erfunden.</div><div><b>Hilfe</b><a href="#">Versand</a><a href="#">Rückgabe</a><a href="#">Größen</a></div><div><b>Firma</b><a href="#">Über uns</a><a href="#">Werkstatt</a><a href="#">Kontakt</a></div><div><b>Rechtliches</b><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a></div></footer></div>
+</body></html>

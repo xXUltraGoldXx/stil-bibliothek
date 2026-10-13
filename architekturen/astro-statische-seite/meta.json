@@ -1,0 +1,33 @@
+{
+  "name": "Astro statische Seite",
+  "slug": "astro-statische-seite",
+  "beschreibung": "Statisch gebaute Website mit Astro: Content Collections, Islands, Bildoptimierung, SEO, Sitemap und Mehrsprachigkeit; Auslieferung per nginx/Caddy hinter Traefik.",
+  "sprache": "TypeScript",
+  "stack": [
+    "Astro",
+    "TypeScript",
+    "Content Collections",
+    "Zod",
+    "nginx",
+    "Caddy",
+    "Docker",
+    "Traefik"
+  ],
+  "kategorien": [
+    "Website"
+  ],
+  "schlagworte": [
+    "astro",
+    "statisch",
+    "content-collections",
+    "islands",
+    "seo",
+    "sitemap",
+    "i18n",
+    "nginx",
+    "docker",
+    "traefik"
+  ],
+  "quelle": "recherchiert",
+  "reifegrad": "recherchiert, ungetestet"
+}

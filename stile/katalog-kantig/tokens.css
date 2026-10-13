@@ -1,0 +1,17 @@
+/* Katalog kantig: Tokens */
+:root{
+  --weiss:#ffffff; --flaeche:#f4f5f6; --kachel:#dee0e3;
+  --tinte:#0d1012; --text:#0d1012; --text-mittel:#444444; --text-gedaempft:#767a7f; --text-schwach:#9fa3a8;
+  --linie:#dee0e3; --overlay:rgba(0,0,0,.5); --akzent-label:#42b296;
+  --grad-foto:linear-gradient(rgba(0,0,0,0) 0%,#0d1012 100%);
+  --glas:rgba(255,255,255,.75); --blur-glas:10px;
+  --font-display:"Bebas Neue","Arial Narrow",Helvetica,Arial,sans-serif;
+  --font-body:"Inter",Helvetica,Arial,sans-serif;
+  --fs-hero:clamp(2.4rem,6vw,3.6rem); --fs-h2:clamp(2rem,3.6vw,2.85rem); --fs-h3:1.2rem;
+  --fs-body:.875rem; --fs-sm:.75rem; --lh-body:1.4; --lh-display:.95;
+  --abst-1:.2rem; --abst-2:.4rem; --abst-3:.8rem; --abst-4:1.6rem; --abst-5:2.4rem; --abst-6:3.2rem; --abst-7:4.8rem; --abst-8:6.4rem;
+  --rand-seite:clamp(1rem,3.2vw,2.5rem); --breite:1280px; --kachel-luecke:6px;
+  --r-0:0; --r-klein:2px; --r-std:4px; --r-gross:16px; --r-rund:50%;
+  --schatten-klein:0 4px 15px rgba(0,0,0,.1); --schatten-popup:0 0 18px rgba(0,0,0,.2);
+  --ease:cubic-bezier(.2,.7,.3,1); --dur:180ms;
+}

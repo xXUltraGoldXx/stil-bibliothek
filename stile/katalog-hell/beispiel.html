@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordwerk Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--grund);color:var(--text-fliess);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--breite);margin:0 auto;padding:0 var(--rand-mobil)}
+header{background:var(--flaeche);border-bottom:1px solid var(--linie)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:63px;flex-wrap:wrap;gap:8px}
+.logo{font-weight:var(--gw-fett);color:var(--text);font-size:1.1rem}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{font-weight:var(--gw-mittel);color:var(--text);font-size:1.05rem;padding:6px 0}
+.hero{background:linear-gradient(var(--dunkel-1),var(--dunkel-2));color:var(--auf-dunkel);padding:64px 0;text-align:center}
+.hero p{font-size:var(--fs-gross);line-height:var(--lh-eng);margin:0 auto 28px;max-width:20ch;color:var(--auf-dunkel)}
+.hero small{display:block;margin-bottom:20px;font-size:var(--fs-meta);font-weight:var(--gw-fett);text-transform:uppercase;opacity:.8}
+.btn{display:inline-block;background:var(--flaeche);color:var(--text);border:2px outset #000;border-radius:var(--r-knopf);padding:20px 32px;font-size:1rem;font-family:inherit;font-weight:var(--gw-normal)}
+.band{background:var(--band);padding:var(--abschnitt) 0 60px}
+.weiss{background:var(--flaeche);padding:var(--abschnitt) 0}
+h2{font-size:var(--fs-h2);font-weight:var(--gw-normal);line-height:var(--lh-eng);color:var(--text-2);text-align:center;margin:0 0 var(--kopf-zu-reihe)}
+.reihe-wrap{position:relative}
+.reihe{display:flex;gap:var(--luecke);overflow:hidden}
+.karte{flex:0 0 var(--karte-b);min-width:0}
+.bild{aspect-ratio:var(--verhaeltnis-karte);border-radius:var(--r-klein);box-shadow:var(--schatten-haar);margin-bottom:12px}
+.b1{background:linear-gradient(160deg,#2a2d31,#8a8f94 55%,#3a3e41)}
+.b2{background:linear-gradient(170deg,#3b1d63,#c9892b 70%,#f3d27a)}
+.b3{background:linear-gradient(170deg,#0f3b2c,#2f7a58 60%,#0b1d17)}
+.b4{background:linear-gradient(180deg,#3d7fd1,#d9ecfb 70%,#e58f3a)}
+.b5{background:linear-gradient(180deg,#0b5a8a,#f3e7a8 45%,#12253a)}
+.b6{background:linear-gradient(180deg,#5b2a86,#d06a4a)}
+.titel{font-size:var(--fs-titel);line-height:var(--lh-text);color:var(--text);margin:0}
+.pfeil{position:absolute;right:-6px;top:140px;width:44px;height:44px;border-radius:var(--r-rund);background:var(--flaeche);box-shadow:var(--schatten-haar);display:flex;align-items:center;justify-content:center}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:var(--luecke-gross)}
+.gross{min-height:320px;display:flex;align-items:flex-end;padding:30px;color:var(--auf-dunkel);font-size:var(--fs-titel);position:relative;overflow:hidden}
+.g1{background:radial-gradient(circle at 70% 30%,#f3e7a8 0,#1d3a6e 18%,#001738 60%)}
+.g2{background:linear-gradient(120deg,#5b2fd6,#3a7be0 60%,#27b4e8)}
+.gross svg{position:absolute;top:24px;right:30px;width:48px;height:48px}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--luecke-gross);text-align:center}
+.zahlen strong{display:block;font-size:var(--fs-gross);font-weight:var(--gw-normal);color:var(--text)}
+footer{background:var(--flaeche);border-top:1px solid var(--linie);padding:40px 0;font-size:.9rem;color:var(--text-3)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between}
+@media(min-width:900px){.wrap{padding:0 var(--rand)}}
+@media(max-width:700px){
+  .zwei,.zahlen{grid-template-columns:1fr}
+  .hero p{font-size:1.5rem}
+  .karte{flex-basis:160px}
+  .pfeil{top:100px}
+  .btn{padding:16px 24px}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="#">Nordwerk Studio</a>
+<nav><a href="#projekte">Projekte</a><a href="#mehr">Mehr</a><a href="#zahlen">Zahlen</a><a href="#kontakt">Kontakt</a></nav></div></header>
+
+<section class="hero"><div class="wrap">
+<small>Neu im Programm</small>
+<p>Geschichten für jeden Bildschirm</p>
+<a class="btn" href="#projekte">Jetzt ansehen</a>
+</div></section>
+
+<section class="band" id="projekte"><div class="wrap">
+<h2>Projekte</h2>
+<div class="reihe-wrap">
+<div class="reihe">
+<div class="karte"><div class="bild b1"></div><p class="titel">Silberland</p></div>
+<div class="karte"><div class="bild b2"></div><p class="titel">Die Lichtwerkstatt</p></div>
+<div class="karte"><div class="bild b3"></div><p class="titel">Grüner Pfad</p></div>
+<div class="karte"><div class="bild b4"></div><p class="titel">Eisgipfel</p></div>
+<div class="karte"><div class="bild b5"></div><p class="titel">Nachtkatze</p></div>
+<div class="karte"><div class="bild b6"></div><p class="titel">Abendrot</p></div>
+</div>
+<a class="pfeil" href="#projekte" aria-label="Weiter"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#000" stroke-width="2"><path d="M4 1l6 6-6 6"/></svg></a>
+</div>
+</div></section>
+
+<section class="weiss" id="mehr"><div class="wrap">
+<h2>Mehr von uns</h2>
+<div class="zwei">
+<a class="gross g1" href="#"><svg viewBox="0 0 48 48" fill="#f3e7a8"><path d="M24 2l4 18 18 4-18 4-4 18-4-18-18-4 18-4z"/></svg>Der Brief aus dem Norden</a>
+<a class="gross g2" href="#"><svg viewBox="0 0 48 48" fill="#fff"><path d="M24 2l4 18 18 4-18 4-4 18-4-18-18-4 18-4z"/></svg>Gemeinsam spielen</a>
+</div>
+</div></section>
+
+<section class="band" id="zahlen"><div class="wrap">
+<h2>In Zahlen</h2>
+<div class="zahlen">
+<div><strong>120</strong>Produktionen</div>
+<div><strong>14</strong>Länder</div>
+<div><strong>9</strong>Jahre Erfahrung</div>
+</div>
+</div></section>
+
+<section class="weiss" id="kontakt"><div class="wrap" style="text-align:center">
+<h2>Kontakt</h2>
+<p style="margin:0 0 24px">Schreiben Sie uns, wir melden uns innerhalb eines Werktags.</p>
+<a class="btn" href="#">Nachricht senden</a>
+</div></section>
+
+<footer><div class="wrap"><span>© Nordwerk Studio</span><span><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span></div></footer>
+</body>
+</html>

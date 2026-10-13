@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordwerk Studio – Pflege und Duft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--grund);color:var(--text);font-family:var(--font-text);font-size:var(--fs-text);line-height:var(--lh-text)}
+a{color:inherit;text-decoration:none}
+.leiste{background:var(--leiste);text-align:center;font-size:var(--fs-label);padding:.45rem 1rem;text-transform:lowercase}
+.kopf{background:var(--grund);padding:1rem var(--rand-x) .5rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem}
+.logo{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:1.4rem;text-align:center;line-height:1.1}
+.logo small{display:block;font-family:var(--font-text);font-weight:400;font-size:.65rem;letter-spacing:.2em}
+.icons{display:flex;gap:1rem;justify-content:flex-end}
+.ic{width:1.5rem;height:1.5rem;border:1.5px solid var(--text);border-radius:var(--r-rund)}
+.ic.k{border-radius:4px}
+.nav{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;padding:.4rem 1rem 1rem;text-transform:lowercase;background:var(--grund)}
+.hero{position:relative;min-height:34rem;display:flex;align-items:flex-end;padding:3rem var(--rand-x);background:radial-gradient(ellipse at 70% 55%,#c9606f 0 10%,transparent 11%),radial-gradient(ellipse at 62% 60%,#e8c9d3 0 22%,transparent 23%),linear-gradient(#f3e6ea,#f8f1f4);overflow:hidden}
+.hero:after{content:"";position:absolute;right:8%;bottom:-10%;width:36%;aspect-ratio:1;border-radius:var(--r-rund);background:var(--rot);opacity:.85}
+.block{position:relative;z-index:1;max-width:22rem}
+.label{font-size:var(--fs-label);font-weight:600;text-transform:uppercase;color:var(--rot)}
+h1{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:var(--fs-h1);line-height:1.15;margin:.3rem 0 .8rem;color:var(--rose)}
+.lead{font-size:var(--fs-lead);line-height:var(--lh-lead);text-transform:lowercase;margin-bottom:1.2rem}
+.knopf{display:inline-block;background:var(--weiss);color:var(--text);border-radius:var(--r);padding:.6rem 1.2rem;font-size:var(--fs-klein);text-transform:lowercase;transition:background .2s;border:0;font-family:inherit}
+.knopf:hover{background:var(--leiste)}
+.knopf.dunkel{background:var(--text);color:var(--weiss)}
+.knopf.dunkel:hover{background:var(--rose)}
+h2{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:var(--fs-h2);line-height:1.15;color:var(--rose)}
+.sek{padding:var(--abstand-xl) var(--rand-x)}
+.sek.w{background:var(--weiss)}
+.titel{text-align:center;margin-bottom:2rem}
+.kar{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--luecke);max-width:var(--breite-inhalt);margin:0 auto}
+.karte{aspect-ratio:3/4;border-radius:var(--r-karte);position:relative;overflow:hidden;color:var(--weiss);display:flex;align-items:flex-end;padding:.9rem;font-weight:600}
+.karte:before{content:"";position:absolute;left:50%;top:42%;width:3rem;height:3rem;margin:-1.5rem;border-radius:var(--r-rund);background:rgba(255,255,255,.35)}
+.karte span{position:relative}
+.k1{background:linear-gradient(160deg,#a06674,#4b3a3f)}.k2{background:linear-gradient(160deg,#c9a0ab,#6f5559)}.k3{background:linear-gradient(160deg,#8c6a64,#3f3a39)}.k4{background:linear-gradient(160deg,#b3848f,#5a3a44)}
+.halb{display:grid;grid-template-columns:1fr 1fr;min-height:30rem}
+.halb .bild{background:linear-gradient(transparent 70%,var(--rot) 70%),repeating-linear-gradient(45deg,#fff 0 20px,#f6eaee 20px 40px)}
+.halb .text{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1rem;padding:3rem var(--rand-x)}
+.halb .text p{text-transform:lowercase;font-size:var(--fs-lead);line-height:var(--lh-lead);max-width:22rem}
+.portr{width:10rem;aspect-ratio:1/1.25;border-radius:var(--r);background:linear-gradient(#c9606f,#7a2a3a)}
+.banner{min-height:32rem;display:flex;align-items:center;padding:3rem var(--rand-x);background:radial-gradient(circle at 75% 50%,#b1304a 0 18%,#d9788a 19% 30%,transparent 31%),linear-gradient(110deg,#f4f4f4 40%,#e9d1d8)}
+.news{display:flex;gap:var(--luecke);justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.feld{border:1px solid var(--rand);border-radius:var(--r);padding:.65rem .9rem;min-width:min(18rem,100%);font:inherit;background:var(--weiss)}
+footer{background:var(--weiss);padding:3rem var(--rand-x);font-size:var(--fs-klein);display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+footer b{display:block;margin-bottom:.5rem}footer a{display:block;color:var(--text-2);text-transform:lowercase;padding:.15rem 0}
+@media(max-width:800px){
+:root{--rand-x:1rem}
+.kopf{grid-template-columns:1fr auto 1fr}.logo{font-size:1.1rem}
+.nav{gap:1rem}
+.hero{min-height:28rem}.hero:after{width:60%;right:-10%}
+.kar{grid-template-columns:1fr 1fr}
+.halb{grid-template-columns:1fr}.halb .bild{min-height:18rem}
+footer{grid-template-columns:1fr 1fr}
+.sek{padding:3rem var(--rand-x)}
+}
+</style></head><body>
+<div class="leiste">kostenloser versand ab 40 euro im ganzen land</div>
+<header class="kopf"><span style="font-size:var(--fs-klein)">de · eur</span><div class="logo">Nordwerk Studio<small>PFLEGE UND DUFT</small></div><div class="icons"><span class="ic k"></span><span class="ic"></span></div></header>
+<nav class="nav"><a href="#neu">neu</a><a href="#lieblinge">lieblinge</a><a href="#pflege">pflege</a><a href="#duft">duft</a><a href="#geschenke">geschenke</a></nav>
+<section class="hero" id="neu"><div class="block"><span class="label">Neu im Regal</span><h1>Morgenlicht Set</h1><p class="lead">drei weiche düfte für den alltag, jetzt als fertiges geschenkset erhältlich.</p><a class="knopf" href="#geschenke">jetzt ansehen</a></div></section>
+<section class="sek" id="lieblinge"><h2 class="titel">Morgenlicht Lieblinge</h2>
+<div class="kar"><div class="karte k1"><span>Lena</span></div><div class="karte k2"><span>Jonas</span></div><div class="karte k3"><span>Marie</span></div><div class="karte k4"><span>Tom</span></div></div></section>
+<section class="halb" id="geschenke"><div class="bild" role="img" aria-label="Platzhalter für Produktbild"></div><div class="text"><div class="portr" role="img" aria-label="Platzhalter für Porträt"></div><h2>Geschenkführer</h2><p>zehn ideen für alle auf deiner liste, dich selbst eingeschlossen.</p><a class="knopf dunkel" href="#">jetzt stöbern</a></div></section>
+<section class="banner" id="pflege"><div class="block"><span class="label">Jetzt verfügbar</span><h1>Winter Sets</h1><p class="lead">limitierte sets mit pflege und duft, festlich verpackt.</p><a class="knopf" href="#">zu den sets</a></div></section>
+<section class="sek w" id="duft" style="text-align:center"><h2>Neuigkeiten im Postfach</h2><p class="lead" style="margin-top:.6rem">neue sets und aktionen als erste erfahren.</p><div class="news"><input class="feld" type="email" placeholder="deine e-mail-adresse" aria-label="E-Mail-Adresse"><a class="knopf dunkel" href="#">anmelden</a></div></section>
+<footer><div><b>Hilfe</b><a href="#">versand</a><a href="#">rückgabe</a></div><div><b>Studio</b><a href="#">über uns</a><a href="#">kontakt</a></div><div><b>Rechtliches</b><a href="#">impressum</a><a href="#">datenschutz</a></div><div><b>Nordwerk Studio</b><span style="color:var(--text-2)">fiktive Firma für diese Stilvorlage</span></div></footer>
+</body></html>
