@@ -6,6 +6,15 @@ Jeder Eintrag besteht aus wenigen, kleinen Textdateien. Es gibt **keine Screensh
 
 *English summary: see [below](#english-summary).*
 
+## Installation über den Plugin-Marktplatz (empfohlen)
+
+```
+/plugin marketplace add xXUltraGoldXx/claude-plugins
+/plugin install stil@ultragold
+```
+
+Das Plugin `stil` bringt die Skills `stil` und `projekt` mit. Updates holt `/plugin marketplace update ultragold`. Die manuelle Installation (siehe "Nutzung mit Claude Code") bleibt als Alternative.
+
 ## Inhalt
 
 | Ordner | Inhalt |
